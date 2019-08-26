@@ -93,10 +93,81 @@
             this.radioButtonCentro = new System.Windows.Forms.RadioButton();
             this.radioButtonDerecha = new System.Windows.Forms.RadioButton();
             this.labelTotalExamanesCopias = new System.Windows.Forms.Label();
+            this.groupBoxNumeracionDePreguntasGeneral = new System.Windows.Forms.GroupBox();
+            this.groupBoxNumeracionDeRespuestasGeneral = new System.Windows.Forms.GroupBox();
+            this.groupBoxNumeracionPreguntas = new System.Windows.Forms.GroupBox();
+            this.labelAntesNumeracionPreguntas = new System.Windows.Forms.Label();
+            this.labelNumeroNumeracionPreguntas = new System.Windows.Forms.Label();
+            this.labelDespuesNumeracionPreguntas = new System.Windows.Forms.Label();
+            this.textBoxAntesNumeracionPreguntas = new System.Windows.Forms.TextBox();
+            this.textBoxDespuesNumeracionPreguntas = new System.Windows.Forms.TextBox();
+            this.labelMantenerOriginalNumeracionPreguntas = new System.Windows.Forms.Label();
+            this.buttonMantenerOriginalNumeracionPreguntas = new System.Windows.Forms.Button();
+            this.labelNumeracionResultadoNumeracionPreguntas = new System.Windows.Forms.Label();
+            this.groupBoxColumnasPreguntas = new System.Windows.Forms.GroupBox();
+            this.radioButtonUnaColumnasPreguntas = new System.Windows.Forms.RadioButton();
+            this.radioButtonDosColumnasPreguntas = new System.Windows.Forms.RadioButton();
+            this.radioButtonMantenerOriginalColumnasPreguntas = new System.Windows.Forms.RadioButton();
+            this.groupBoxEspaciadoPreguntas = new System.Windows.Forms.GroupBox();
+            this.labelAntesEspaciadoPreguntas = new System.Windows.Forms.Label();
+            this.numericUpDownAntesEspaciadoPreguntas = new System.Windows.Forms.NumericUpDown();
+            this.labelDespuesEspaciadoPreguntas = new System.Windows.Forms.Label();
+            this.numericUpDownDespuesEspaciadoPreguntas = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxInterlineadoEspaciadoPreguntas = new System.Windows.Forms.ComboBox();
+            this.buttonMantenerOriginalEspaciadoPreguntas = new System.Windows.Forms.Button();
+            this.labelMantenerOriginalEspaciadoPreguntas = new System.Windows.Forms.Label();
+            this.labelInterlineadoEspaciadoPreguntas = new System.Windows.Forms.Label();
+            this.groupBoxNumeracionRespuestas = new System.Windows.Forms.GroupBox();
+            this.labelNumeracionResultadoNumeracionRespuestas = new System.Windows.Forms.Label();
+            this.buttonMantenerOriginalNumeracionRespuestas = new System.Windows.Forms.Button();
+            this.labelMantenerOriginalNumeracionRespuestas = new System.Windows.Forms.Label();
+            this.textBoxDespuesNumeracionRespuestas = new System.Windows.Forms.TextBox();
+            this.textBoxAntesNumeracionRespuestas = new System.Windows.Forms.TextBox();
+            this.labelDespuesNumeracionRespuestas = new System.Windows.Forms.Label();
+            this.labelNumeroNumeracionRespuestas = new System.Windows.Forms.Label();
+            this.labelAntesNumeracionRespuestas = new System.Windows.Forms.Label();
+            this.groupBoxEspaciadoRespuestas = new System.Windows.Forms.GroupBox();
+            this.labelInterlineadoEspaciadoRespuestas = new System.Windows.Forms.Label();
+            this.buttonMantenerOriginalEspaciadoRespuestas = new System.Windows.Forms.Button();
+            this.labelMantenerOriginalEspaciadoRespuestas = new System.Windows.Forms.Label();
+            this.comboBoxInterlineadoEspaciadoRespuestas = new System.Windows.Forms.ComboBox();
+            this.numericUpDownDespuesEspaciadoRespuestas = new System.Windows.Forms.NumericUpDown();
+            this.labelDespuesEspaciadoRespuestas = new System.Windows.Forms.Label();
+            this.numericUpDownAntesEspaciadoRespuestas = new System.Windows.Forms.NumericUpDown();
+            this.labelAntesEspaciadoRespuestas = new System.Windows.Forms.Label();
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas = new System.Windows.Forms.NumericUpDown();
+            this.labelSangriaIzquierdaEspaciadoRespuestas = new System.Windows.Forms.Label();
+            this.comboBoxNumeroNumeracionPreguntas = new System.Windows.Forms.ComboBox();
+            this.comboBoxNumeroNumeracionRespuestas = new System.Windows.Forms.ComboBox();
+            this.groupBoxColumnasRespuestas = new System.Windows.Forms.GroupBox();
+            this.radioButtonListaVerticalColumnasRespuestas = new System.Windows.Forms.RadioButton();
+            this.labelListaVerticalAColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelListaVerticalBColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelListaHorizontalBColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelListaHorizontalAColumnasRespuestas = new System.Windows.Forms.Label();
+            this.radioButtonListaHorizontalColumnasRespuestas = new System.Windows.Forms.RadioButton();
+            this.textBoxListaHorizontalComodinColumnasRespuestas = new System.Windows.Forms.TextBox();
+            this.radioButtonSeguidoColumnasRespuestas = new System.Windows.Forms.RadioButton();
+            this.textBoxSeguidoComodinColumnasRespuestas = new System.Windows.Forms.TextBox();
+            this.labelSeguidoBColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelSeguidoAColumnasRespuestas = new System.Windows.Forms.Label();
+            this.radioButtonNumeroColumnasColumnasRespuestas = new System.Windows.Forms.RadioButton();
+            this.numericUpDownNumeroColumnasColumnasRespuestas = new System.Windows.Forms.NumericUpDown();
+            this.labelAnchoColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelEspaciadoColumnasRespuestas = new System.Windows.Forms.Label();
+            this.numericUpDownAnchoColumnasRespuestas = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownEspaciadoColumnasRespuestas = new System.Windows.Forms.NumericUpDown();
+            this.buttonMantenerOriginalColumnasRespuestas = new System.Windows.Forms.Button();
+            this.labelMantenerOriginalColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelColumnaBColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelColumnaAColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelColumnaDColumnasRespuestas = new System.Windows.Forms.Label();
+            this.labelColumnaCColumnasRespuestas = new System.Windows.Forms.Label();
             this.tabPrincipal.SuspendLayout();
             this.tabEstructura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPreguntasEstructuradas)).BeginInit();
             this.tabCantidad.SuspendLayout();
+            this.tabNumeracion.SuspendLayout();
             this.groupBoxCantidadDeExamenes.SuspendLayout();
             this.groupBoxIdentificacionDeExamenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownExamenes)).BeginInit();
@@ -104,6 +175,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopias)).BeginInit();
             this.groupBoxUbicacionEnLaPagina.SuspendLayout();
             this.groupBoxJustificacion.SuspendLayout();
+            this.groupBoxNumeracionDePreguntasGeneral.SuspendLayout();
+            this.groupBoxNumeracionDeRespuestasGeneral.SuspendLayout();
+            this.groupBoxNumeracionPreguntas.SuspendLayout();
+            this.groupBoxColumnasPreguntas.SuspendLayout();
+            this.groupBoxEspaciadoPreguntas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAntesEspaciadoPreguntas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDespuesEspaciadoPreguntas)).BeginInit();
+            this.groupBoxNumeracionRespuestas.SuspendLayout();
+            this.groupBoxEspaciadoRespuestas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDespuesEspaciadoRespuestas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAntesEspaciadoRespuestas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSangriaIzquierdaEspaciadoRespuestas)).BeginInit();
+            this.groupBoxColumnasRespuestas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumeroColumnasColumnasRespuestas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnchoColumnasRespuestas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEspaciadoColumnasRespuestas)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -362,6 +449,8 @@
             // 
             // tabNumeracion
             // 
+            this.tabNumeracion.Controls.Add(this.groupBoxNumeracionDeRespuestasGeneral);
+            this.tabNumeracion.Controls.Add(this.groupBoxNumeracionDePreguntasGeneral);
             this.tabNumeracion.Location = new System.Drawing.Point(4, 22);
             this.tabNumeracion.Margin = new System.Windows.Forms.Padding(2);
             this.tabNumeracion.Name = "tabNumeracion";
@@ -533,7 +622,7 @@
             this.groupBoxCantidadDeExamenes.Controls.Add(this.radioButtonNuevaEleccion);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.numericUpDownExamenes);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.labelExamenes);
-            this.groupBoxCantidadDeExamenes.Location = new System.Drawing.Point(25, 25);
+            this.groupBoxCantidadDeExamenes.Location = new System.Drawing.Point(15, 25);
             this.groupBoxCantidadDeExamenes.Name = "groupBoxCantidadDeExamenes";
             this.groupBoxCantidadDeExamenes.Size = new System.Drawing.Size(250, 250);
             this.groupBoxCantidadDeExamenes.TabIndex = 0;
@@ -787,6 +876,686 @@
             this.labelTotalExamanesCopias.TabIndex = 5;
             this.labelTotalExamanesCopias.Text = "Total de exámenes ( ) y copias ( ) = x";
             // 
+            // groupBoxNumeracionDePreguntasGeneral
+            // 
+            this.groupBoxNumeracionDePreguntasGeneral.Controls.Add(this.groupBoxEspaciadoPreguntas);
+            this.groupBoxNumeracionDePreguntasGeneral.Controls.Add(this.groupBoxColumnasPreguntas);
+            this.groupBoxNumeracionDePreguntasGeneral.Controls.Add(this.groupBoxNumeracionPreguntas);
+            this.groupBoxNumeracionDePreguntasGeneral.Location = new System.Drawing.Point(15, 25);
+            this.groupBoxNumeracionDePreguntasGeneral.Name = "groupBoxNumeracionDePreguntasGeneral";
+            this.groupBoxNumeracionDePreguntasGeneral.Size = new System.Drawing.Size(315, 350);
+            this.groupBoxNumeracionDePreguntasGeneral.TabIndex = 0;
+            this.groupBoxNumeracionDePreguntasGeneral.TabStop = false;
+            this.groupBoxNumeracionDePreguntasGeneral.Text = "Numeración de preguntas (#) ";
+            // 
+            // groupBoxNumeracionDeRespuestasGeneral
+            // 
+            this.groupBoxNumeracionDeRespuestasGeneral.Controls.Add(this.groupBoxColumnasRespuestas);
+            this.groupBoxNumeracionDeRespuestasGeneral.Controls.Add(this.groupBoxEspaciadoRespuestas);
+            this.groupBoxNumeracionDeRespuestasGeneral.Controls.Add(this.groupBoxNumeracionRespuestas);
+            this.groupBoxNumeracionDeRespuestasGeneral.Location = new System.Drawing.Point(336, 25);
+            this.groupBoxNumeracionDeRespuestasGeneral.Name = "groupBoxNumeracionDeRespuestasGeneral";
+            this.groupBoxNumeracionDeRespuestasGeneral.Size = new System.Drawing.Size(408, 350);
+            this.groupBoxNumeracionDeRespuestasGeneral.TabIndex = 1;
+            this.groupBoxNumeracionDeRespuestasGeneral.TabStop = false;
+            this.groupBoxNumeracionDeRespuestasGeneral.Text = "Numeración de las opciones de respuestas (&&, &&&&) ";
+            // 
+            // groupBoxNumeracionPreguntas
+            // 
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.comboBoxNumeroNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.labelNumeracionResultadoNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.buttonMantenerOriginalNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.labelMantenerOriginalNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.textBoxDespuesNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.textBoxAntesNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.labelDespuesNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.labelNumeroNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Controls.Add(this.labelAntesNumeracionPreguntas);
+            this.groupBoxNumeracionPreguntas.Location = new System.Drawing.Point(10, 20);
+            this.groupBoxNumeracionPreguntas.Name = "groupBoxNumeracionPreguntas";
+            this.groupBoxNumeracionPreguntas.Size = new System.Drawing.Size(165, 100);
+            this.groupBoxNumeracionPreguntas.TabIndex = 0;
+            this.groupBoxNumeracionPreguntas.TabStop = false;
+            this.groupBoxNumeracionPreguntas.Text = "Numeración";
+            // 
+            // labelAntesNumeracionPreguntas
+            // 
+            this.labelAntesNumeracionPreguntas.AutoSize = true;
+            this.labelAntesNumeracionPreguntas.Location = new System.Drawing.Point(10, 20);
+            this.labelAntesNumeracionPreguntas.Name = "labelAntesNumeracionPreguntas";
+            this.labelAntesNumeracionPreguntas.Size = new System.Drawing.Size(34, 13);
+            this.labelAntesNumeracionPreguntas.TabIndex = 0;
+            this.labelAntesNumeracionPreguntas.Text = "Antes";
+            // 
+            // labelNumeroNumeracionPreguntas
+            // 
+            this.labelNumeroNumeracionPreguntas.AutoSize = true;
+            this.labelNumeroNumeracionPreguntas.Location = new System.Drawing.Point(50, 20);
+            this.labelNumeroNumeracionPreguntas.Name = "labelNumeroNumeracionPreguntas";
+            this.labelNumeroNumeracionPreguntas.Size = new System.Drawing.Size(24, 13);
+            this.labelNumeroNumeracionPreguntas.TabIndex = 1;
+            this.labelNumeroNumeracionPreguntas.Text = "No.";
+            // 
+            // labelDespuesNumeracionPreguntas
+            // 
+            this.labelDespuesNumeracionPreguntas.AutoSize = true;
+            this.labelDespuesNumeracionPreguntas.Location = new System.Drawing.Point(90, 20);
+            this.labelDespuesNumeracionPreguntas.Name = "labelDespuesNumeracionPreguntas";
+            this.labelDespuesNumeracionPreguntas.Size = new System.Drawing.Size(49, 13);
+            this.labelDespuesNumeracionPreguntas.TabIndex = 2;
+            this.labelDespuesNumeracionPreguntas.Text = "Después";
+            // 
+            // textBoxAntesNumeracionPreguntas
+            // 
+            this.textBoxAntesNumeracionPreguntas.Location = new System.Drawing.Point(13, 36);
+            this.textBoxAntesNumeracionPreguntas.Name = "textBoxAntesNumeracionPreguntas";
+            this.textBoxAntesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
+            this.textBoxAntesNumeracionPreguntas.TabIndex = 3;
+            // 
+            // textBoxDespuesNumeracionPreguntas
+            // 
+            this.textBoxDespuesNumeracionPreguntas.Location = new System.Drawing.Point(93, 36);
+            this.textBoxDespuesNumeracionPreguntas.Name = "textBoxDespuesNumeracionPreguntas";
+            this.textBoxDespuesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
+            this.textBoxDespuesNumeracionPreguntas.TabIndex = 5;
+            // 
+            // labelMantenerOriginalNumeracionPreguntas
+            // 
+            this.labelMantenerOriginalNumeracionPreguntas.AutoSize = true;
+            this.labelMantenerOriginalNumeracionPreguntas.Location = new System.Drawing.Point(10, 70);
+            this.labelMantenerOriginalNumeracionPreguntas.Name = "labelMantenerOriginalNumeracionPreguntas";
+            this.labelMantenerOriginalNumeracionPreguntas.Size = new System.Drawing.Size(88, 13);
+            this.labelMantenerOriginalNumeracionPreguntas.TabIndex = 6;
+            this.labelMantenerOriginalNumeracionPreguntas.Text = "Mantener original";
+            // 
+            // buttonMantenerOriginalNumeracionPreguntas
+            // 
+            this.buttonMantenerOriginalNumeracionPreguntas.Location = new System.Drawing.Point(104, 65);
+            this.buttonMantenerOriginalNumeracionPreguntas.Name = "buttonMantenerOriginalNumeracionPreguntas";
+            this.buttonMantenerOriginalNumeracionPreguntas.Size = new System.Drawing.Size(35, 23);
+            this.buttonMantenerOriginalNumeracionPreguntas.TabIndex = 7;
+            this.buttonMantenerOriginalNumeracionPreguntas.Text = "SI";
+            this.buttonMantenerOriginalNumeracionPreguntas.UseVisualStyleBackColor = true;
+            // 
+            // labelNumeracionResultadoNumeracionPreguntas
+            // 
+            this.labelNumeracionResultadoNumeracionPreguntas.AutoSize = true;
+            this.labelNumeracionResultadoNumeracionPreguntas.Location = new System.Drawing.Point(134, 39);
+            this.labelNumeracionResultadoNumeracionPreguntas.Name = "labelNumeracionResultadoNumeracionPreguntas";
+            this.labelNumeracionResultadoNumeracionPreguntas.Size = new System.Drawing.Size(16, 13);
+            this.labelNumeracionResultadoNumeracionPreguntas.TabIndex = 8;
+            this.labelNumeracionResultadoNumeracionPreguntas.Text = "1)";
+            // 
+            // groupBoxColumnasPreguntas
+            // 
+            this.groupBoxColumnasPreguntas.Controls.Add(this.radioButtonMantenerOriginalColumnasPreguntas);
+            this.groupBoxColumnasPreguntas.Controls.Add(this.radioButtonDosColumnasPreguntas);
+            this.groupBoxColumnasPreguntas.Controls.Add(this.radioButtonUnaColumnasPreguntas);
+            this.groupBoxColumnasPreguntas.Location = new System.Drawing.Point(185, 20);
+            this.groupBoxColumnasPreguntas.Name = "groupBoxColumnasPreguntas";
+            this.groupBoxColumnasPreguntas.Size = new System.Drawing.Size(120, 100);
+            this.groupBoxColumnasPreguntas.TabIndex = 1;
+            this.groupBoxColumnasPreguntas.TabStop = false;
+            this.groupBoxColumnasPreguntas.Text = "Columnas";
+            // 
+            // radioButtonUnaColumnasPreguntas
+            // 
+            this.radioButtonUnaColumnasPreguntas.AutoSize = true;
+            this.radioButtonUnaColumnasPreguntas.Location = new System.Drawing.Point(10, 25);
+            this.radioButtonUnaColumnasPreguntas.Name = "radioButtonUnaColumnasPreguntas";
+            this.radioButtonUnaColumnasPreguntas.Size = new System.Drawing.Size(45, 17);
+            this.radioButtonUnaColumnasPreguntas.TabIndex = 0;
+            this.radioButtonUnaColumnasPreguntas.TabStop = true;
+            this.radioButtonUnaColumnasPreguntas.Text = "Una";
+            this.radioButtonUnaColumnasPreguntas.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDosColumnasPreguntas
+            // 
+            this.radioButtonDosColumnasPreguntas.AutoSize = true;
+            this.radioButtonDosColumnasPreguntas.Location = new System.Drawing.Point(61, 25);
+            this.radioButtonDosColumnasPreguntas.Name = "radioButtonDosColumnasPreguntas";
+            this.radioButtonDosColumnasPreguntas.Size = new System.Drawing.Size(44, 17);
+            this.radioButtonDosColumnasPreguntas.TabIndex = 1;
+            this.radioButtonDosColumnasPreguntas.TabStop = true;
+            this.radioButtonDosColumnasPreguntas.Text = "Dos";
+            this.radioButtonDosColumnasPreguntas.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonMantenerOriginalColumnasPreguntas
+            // 
+            this.radioButtonMantenerOriginalColumnasPreguntas.AutoSize = true;
+            this.radioButtonMantenerOriginalColumnasPreguntas.Location = new System.Drawing.Point(10, 50);
+            this.radioButtonMantenerOriginalColumnasPreguntas.Name = "radioButtonMantenerOriginalColumnasPreguntas";
+            this.radioButtonMantenerOriginalColumnasPreguntas.Size = new System.Drawing.Size(106, 17);
+            this.radioButtonMantenerOriginalColumnasPreguntas.TabIndex = 2;
+            this.radioButtonMantenerOriginalColumnasPreguntas.TabStop = true;
+            this.radioButtonMantenerOriginalColumnasPreguntas.Text = "Mantener original";
+            this.radioButtonMantenerOriginalColumnasPreguntas.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxEspaciadoPreguntas
+            // 
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelInterlineadoEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.buttonMantenerOriginalEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelMantenerOriginalEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.comboBoxInterlineadoEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.numericUpDownDespuesEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelDespuesEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.numericUpDownAntesEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelAntesEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Location = new System.Drawing.Point(10, 140);
+            this.groupBoxEspaciadoPreguntas.Name = "groupBoxEspaciadoPreguntas";
+            this.groupBoxEspaciadoPreguntas.Size = new System.Drawing.Size(295, 150);
+            this.groupBoxEspaciadoPreguntas.TabIndex = 2;
+            this.groupBoxEspaciadoPreguntas.TabStop = false;
+            this.groupBoxEspaciadoPreguntas.Text = "Espaciado";
+            // 
+            // labelAntesEspaciadoPreguntas
+            // 
+            this.labelAntesEspaciadoPreguntas.AutoSize = true;
+            this.labelAntesEspaciadoPreguntas.Location = new System.Drawing.Point(10, 25);
+            this.labelAntesEspaciadoPreguntas.Name = "labelAntesEspaciadoPreguntas";
+            this.labelAntesEspaciadoPreguntas.Size = new System.Drawing.Size(34, 13);
+            this.labelAntesEspaciadoPreguntas.TabIndex = 1;
+            this.labelAntesEspaciadoPreguntas.Text = "Antes";
+            // 
+            // numericUpDownAntesEspaciadoPreguntas
+            // 
+            this.numericUpDownAntesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 23);
+            this.numericUpDownAntesEspaciadoPreguntas.Name = "numericUpDownAntesEspaciadoPreguntas";
+            this.numericUpDownAntesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
+            this.numericUpDownAntesEspaciadoPreguntas.TabIndex = 5;
+            // 
+            // labelDespuesEspaciadoPreguntas
+            // 
+            this.labelDespuesEspaciadoPreguntas.AutoSize = true;
+            this.labelDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(10, 51);
+            this.labelDespuesEspaciadoPreguntas.Name = "labelDespuesEspaciadoPreguntas";
+            this.labelDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(49, 13);
+            this.labelDespuesEspaciadoPreguntas.TabIndex = 6;
+            this.labelDespuesEspaciadoPreguntas.Text = "Después";
+            // 
+            // numericUpDownDespuesEspaciadoPreguntas
+            // 
+            this.numericUpDownDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 49);
+            this.numericUpDownDespuesEspaciadoPreguntas.Name = "numericUpDownDespuesEspaciadoPreguntas";
+            this.numericUpDownDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
+            this.numericUpDownDespuesEspaciadoPreguntas.TabIndex = 7;
+            // 
+            // comboBoxInterlineadoEspaciadoPreguntas
+            // 
+            this.comboBoxInterlineadoEspaciadoPreguntas.FormattingEnabled = true;
+            this.comboBoxInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(80, 75);
+            this.comboBoxInterlineadoEspaciadoPreguntas.Name = "comboBoxInterlineadoEspaciadoPreguntas";
+            this.comboBoxInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(85, 21);
+            this.comboBoxInterlineadoEspaciadoPreguntas.TabIndex = 8;
+            // 
+            // buttonMantenerOriginalEspaciadoPreguntas
+            // 
+            this.buttonMantenerOriginalEspaciadoPreguntas.Location = new System.Drawing.Point(104, 102);
+            this.buttonMantenerOriginalEspaciadoPreguntas.Name = "buttonMantenerOriginalEspaciadoPreguntas";
+            this.buttonMantenerOriginalEspaciadoPreguntas.Size = new System.Drawing.Size(35, 23);
+            this.buttonMantenerOriginalEspaciadoPreguntas.TabIndex = 10;
+            this.buttonMantenerOriginalEspaciadoPreguntas.Text = "SI";
+            this.buttonMantenerOriginalEspaciadoPreguntas.UseVisualStyleBackColor = true;
+            // 
+            // labelMantenerOriginalEspaciadoPreguntas
+            // 
+            this.labelMantenerOriginalEspaciadoPreguntas.AutoSize = true;
+            this.labelMantenerOriginalEspaciadoPreguntas.Location = new System.Drawing.Point(10, 107);
+            this.labelMantenerOriginalEspaciadoPreguntas.Name = "labelMantenerOriginalEspaciadoPreguntas";
+            this.labelMantenerOriginalEspaciadoPreguntas.Size = new System.Drawing.Size(88, 13);
+            this.labelMantenerOriginalEspaciadoPreguntas.TabIndex = 9;
+            this.labelMantenerOriginalEspaciadoPreguntas.Text = "Mantener original";
+            // 
+            // labelInterlineadoEspaciadoPreguntas
+            // 
+            this.labelInterlineadoEspaciadoPreguntas.AutoSize = true;
+            this.labelInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(10, 78);
+            this.labelInterlineadoEspaciadoPreguntas.Name = "labelInterlineadoEspaciadoPreguntas";
+            this.labelInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(62, 13);
+            this.labelInterlineadoEspaciadoPreguntas.TabIndex = 11;
+            this.labelInterlineadoEspaciadoPreguntas.Text = "Interlineado";
+            // 
+            // groupBoxNumeracionRespuestas
+            // 
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.comboBoxNumeroNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.labelNumeracionResultadoNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.buttonMantenerOriginalNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.labelMantenerOriginalNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.textBoxDespuesNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.textBoxAntesNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.labelDespuesNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.labelNumeroNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Controls.Add(this.labelAntesNumeracionRespuestas);
+            this.groupBoxNumeracionRespuestas.Location = new System.Drawing.Point(10, 20);
+            this.groupBoxNumeracionRespuestas.Name = "groupBoxNumeracionRespuestas";
+            this.groupBoxNumeracionRespuestas.Size = new System.Drawing.Size(200, 100);
+            this.groupBoxNumeracionRespuestas.TabIndex = 1;
+            this.groupBoxNumeracionRespuestas.TabStop = false;
+            this.groupBoxNumeracionRespuestas.Text = "Numeración";
+            // 
+            // labelNumeracionResultadoNumeracionRespuestas
+            // 
+            this.labelNumeracionResultadoNumeracionRespuestas.AutoSize = true;
+            this.labelNumeracionResultadoNumeracionRespuestas.Location = new System.Drawing.Point(134, 39);
+            this.labelNumeracionResultadoNumeracionRespuestas.Name = "labelNumeracionResultadoNumeracionRespuestas";
+            this.labelNumeracionResultadoNumeracionRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelNumeracionResultadoNumeracionRespuestas.TabIndex = 8;
+            this.labelNumeracionResultadoNumeracionRespuestas.Text = "a)";
+            // 
+            // buttonMantenerOriginalNumeracionRespuestas
+            // 
+            this.buttonMantenerOriginalNumeracionRespuestas.Location = new System.Drawing.Point(104, 65);
+            this.buttonMantenerOriginalNumeracionRespuestas.Name = "buttonMantenerOriginalNumeracionRespuestas";
+            this.buttonMantenerOriginalNumeracionRespuestas.Size = new System.Drawing.Size(35, 23);
+            this.buttonMantenerOriginalNumeracionRespuestas.TabIndex = 7;
+            this.buttonMantenerOriginalNumeracionRespuestas.Text = "SI";
+            this.buttonMantenerOriginalNumeracionRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // labelMantenerOriginalNumeracionRespuestas
+            // 
+            this.labelMantenerOriginalNumeracionRespuestas.AutoSize = true;
+            this.labelMantenerOriginalNumeracionRespuestas.Location = new System.Drawing.Point(10, 70);
+            this.labelMantenerOriginalNumeracionRespuestas.Name = "labelMantenerOriginalNumeracionRespuestas";
+            this.labelMantenerOriginalNumeracionRespuestas.Size = new System.Drawing.Size(88, 13);
+            this.labelMantenerOriginalNumeracionRespuestas.TabIndex = 6;
+            this.labelMantenerOriginalNumeracionRespuestas.Text = "Mantener original";
+            // 
+            // textBoxDespuesNumeracionRespuestas
+            // 
+            this.textBoxDespuesNumeracionRespuestas.Location = new System.Drawing.Point(93, 36);
+            this.textBoxDespuesNumeracionRespuestas.Name = "textBoxDespuesNumeracionRespuestas";
+            this.textBoxDespuesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
+            this.textBoxDespuesNumeracionRespuestas.TabIndex = 5;
+            // 
+            // textBoxAntesNumeracionRespuestas
+            // 
+            this.textBoxAntesNumeracionRespuestas.Location = new System.Drawing.Point(13, 36);
+            this.textBoxAntesNumeracionRespuestas.Name = "textBoxAntesNumeracionRespuestas";
+            this.textBoxAntesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
+            this.textBoxAntesNumeracionRespuestas.TabIndex = 3;
+            // 
+            // labelDespuesNumeracionRespuestas
+            // 
+            this.labelDespuesNumeracionRespuestas.AutoSize = true;
+            this.labelDespuesNumeracionRespuestas.Location = new System.Drawing.Point(90, 20);
+            this.labelDespuesNumeracionRespuestas.Name = "labelDespuesNumeracionRespuestas";
+            this.labelDespuesNumeracionRespuestas.Size = new System.Drawing.Size(49, 13);
+            this.labelDespuesNumeracionRespuestas.TabIndex = 2;
+            this.labelDespuesNumeracionRespuestas.Text = "Después";
+            // 
+            // labelNumeroNumeracionRespuestas
+            // 
+            this.labelNumeroNumeracionRespuestas.AutoSize = true;
+            this.labelNumeroNumeracionRespuestas.Location = new System.Drawing.Point(50, 20);
+            this.labelNumeroNumeracionRespuestas.Name = "labelNumeroNumeracionRespuestas";
+            this.labelNumeroNumeracionRespuestas.Size = new System.Drawing.Size(24, 13);
+            this.labelNumeroNumeracionRespuestas.TabIndex = 1;
+            this.labelNumeroNumeracionRespuestas.Text = "No.";
+            // 
+            // labelAntesNumeracionRespuestas
+            // 
+            this.labelAntesNumeracionRespuestas.AutoSize = true;
+            this.labelAntesNumeracionRespuestas.Location = new System.Drawing.Point(10, 20);
+            this.labelAntesNumeracionRespuestas.Name = "labelAntesNumeracionRespuestas";
+            this.labelAntesNumeracionRespuestas.Size = new System.Drawing.Size(34, 13);
+            this.labelAntesNumeracionRespuestas.TabIndex = 0;
+            this.labelAntesNumeracionRespuestas.Text = "Antes";
+            // 
+            // groupBoxEspaciadoRespuestas
+            // 
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.numericUpDownSangriaIzquierdaEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelSangriaIzquierdaEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelInterlineadoEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.buttonMantenerOriginalEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelMantenerOriginalEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.comboBoxInterlineadoEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.numericUpDownDespuesEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelDespuesEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.numericUpDownAntesEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelAntesEspaciadoRespuestas);
+            this.groupBoxEspaciadoRespuestas.Location = new System.Drawing.Point(10, 140);
+            this.groupBoxEspaciadoRespuestas.Name = "groupBoxEspaciadoRespuestas";
+            this.groupBoxEspaciadoRespuestas.Size = new System.Drawing.Size(200, 188);
+            this.groupBoxEspaciadoRespuestas.TabIndex = 3;
+            this.groupBoxEspaciadoRespuestas.TabStop = false;
+            this.groupBoxEspaciadoRespuestas.Text = "Espaciado";
+            // 
+            // labelInterlineadoEspaciadoRespuestas
+            // 
+            this.labelInterlineadoEspaciadoRespuestas.AutoSize = true;
+            this.labelInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(10, 78);
+            this.labelInterlineadoEspaciadoRespuestas.Name = "labelInterlineadoEspaciadoRespuestas";
+            this.labelInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(62, 13);
+            this.labelInterlineadoEspaciadoRespuestas.TabIndex = 11;
+            this.labelInterlineadoEspaciadoRespuestas.Text = "Interlineado";
+            // 
+            // buttonMantenerOriginalEspaciadoRespuestas
+            // 
+            this.buttonMantenerOriginalEspaciadoRespuestas.Location = new System.Drawing.Point(104, 128);
+            this.buttonMantenerOriginalEspaciadoRespuestas.Name = "buttonMantenerOriginalEspaciadoRespuestas";
+            this.buttonMantenerOriginalEspaciadoRespuestas.Size = new System.Drawing.Size(35, 23);
+            this.buttonMantenerOriginalEspaciadoRespuestas.TabIndex = 10;
+            this.buttonMantenerOriginalEspaciadoRespuestas.Text = "SI";
+            this.buttonMantenerOriginalEspaciadoRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // labelMantenerOriginalEspaciadoRespuestas
+            // 
+            this.labelMantenerOriginalEspaciadoRespuestas.AutoSize = true;
+            this.labelMantenerOriginalEspaciadoRespuestas.Location = new System.Drawing.Point(10, 133);
+            this.labelMantenerOriginalEspaciadoRespuestas.Name = "labelMantenerOriginalEspaciadoRespuestas";
+            this.labelMantenerOriginalEspaciadoRespuestas.Size = new System.Drawing.Size(88, 13);
+            this.labelMantenerOriginalEspaciadoRespuestas.TabIndex = 9;
+            this.labelMantenerOriginalEspaciadoRespuestas.Text = "Mantener original";
+            // 
+            // comboBoxInterlineadoEspaciadoRespuestas
+            // 
+            this.comboBoxInterlineadoEspaciadoRespuestas.FormattingEnabled = true;
+            this.comboBoxInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(105, 75);
+            this.comboBoxInterlineadoEspaciadoRespuestas.Name = "comboBoxInterlineadoEspaciadoRespuestas";
+            this.comboBoxInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(85, 21);
+            this.comboBoxInterlineadoEspaciadoRespuestas.TabIndex = 8;
+            // 
+            // numericUpDownDespuesEspaciadoRespuestas
+            // 
+            this.numericUpDownDespuesEspaciadoRespuestas.Location = new System.Drawing.Point(105, 49);
+            this.numericUpDownDespuesEspaciadoRespuestas.Name = "numericUpDownDespuesEspaciadoRespuestas";
+            this.numericUpDownDespuesEspaciadoRespuestas.Size = new System.Drawing.Size(85, 20);
+            this.numericUpDownDespuesEspaciadoRespuestas.TabIndex = 7;
+            // 
+            // labelDespuesEspaciadoRespuestas
+            // 
+            this.labelDespuesEspaciadoRespuestas.AutoSize = true;
+            this.labelDespuesEspaciadoRespuestas.Location = new System.Drawing.Point(10, 51);
+            this.labelDespuesEspaciadoRespuestas.Name = "labelDespuesEspaciadoRespuestas";
+            this.labelDespuesEspaciadoRespuestas.Size = new System.Drawing.Size(49, 13);
+            this.labelDespuesEspaciadoRespuestas.TabIndex = 6;
+            this.labelDespuesEspaciadoRespuestas.Text = "Después";
+            // 
+            // numericUpDownAntesEspaciadoRespuestas
+            // 
+            this.numericUpDownAntesEspaciadoRespuestas.Location = new System.Drawing.Point(105, 23);
+            this.numericUpDownAntesEspaciadoRespuestas.Name = "numericUpDownAntesEspaciadoRespuestas";
+            this.numericUpDownAntesEspaciadoRespuestas.Size = new System.Drawing.Size(85, 20);
+            this.numericUpDownAntesEspaciadoRespuestas.TabIndex = 5;
+            // 
+            // labelAntesEspaciadoRespuestas
+            // 
+            this.labelAntesEspaciadoRespuestas.AutoSize = true;
+            this.labelAntesEspaciadoRespuestas.Location = new System.Drawing.Point(10, 25);
+            this.labelAntesEspaciadoRespuestas.Name = "labelAntesEspaciadoRespuestas";
+            this.labelAntesEspaciadoRespuestas.Size = new System.Drawing.Size(34, 13);
+            this.labelAntesEspaciadoRespuestas.TabIndex = 1;
+            this.labelAntesEspaciadoRespuestas.Text = "Antes";
+            // 
+            // numericUpDownSangriaIzquierdaEspaciadoRespuestas
+            // 
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Location = new System.Drawing.Point(105, 102);
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Name = "numericUpDownSangriaIzquierdaEspaciadoRespuestas";
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Size = new System.Drawing.Size(85, 20);
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.TabIndex = 13;
+            // 
+            // labelSangriaIzquierdaEspaciadoRespuestas
+            // 
+            this.labelSangriaIzquierdaEspaciadoRespuestas.AutoSize = true;
+            this.labelSangriaIzquierdaEspaciadoRespuestas.Location = new System.Drawing.Point(10, 104);
+            this.labelSangriaIzquierdaEspaciadoRespuestas.Name = "labelSangriaIzquierdaEspaciadoRespuestas";
+            this.labelSangriaIzquierdaEspaciadoRespuestas.Size = new System.Drawing.Size(90, 13);
+            this.labelSangriaIzquierdaEspaciadoRespuestas.TabIndex = 12;
+            this.labelSangriaIzquierdaEspaciadoRespuestas.Text = "Sangría izquierda";
+            // 
+            // comboBoxNumeroNumeracionPreguntas
+            // 
+            this.comboBoxNumeroNumeracionPreguntas.FormattingEnabled = true;
+            this.comboBoxNumeroNumeracionPreguntas.Location = new System.Drawing.Point(53, 36);
+            this.comboBoxNumeroNumeracionPreguntas.Name = "comboBoxNumeroNumeracionPreguntas";
+            this.comboBoxNumeroNumeracionPreguntas.Size = new System.Drawing.Size(35, 21);
+            this.comboBoxNumeroNumeracionPreguntas.TabIndex = 9;
+            // 
+            // comboBoxNumeroNumeracionRespuestas
+            // 
+            this.comboBoxNumeroNumeracionRespuestas.FormattingEnabled = true;
+            this.comboBoxNumeroNumeracionRespuestas.Location = new System.Drawing.Point(53, 36);
+            this.comboBoxNumeroNumeracionRespuestas.Name = "comboBoxNumeroNumeracionRespuestas";
+            this.comboBoxNumeroNumeracionRespuestas.Size = new System.Drawing.Size(35, 21);
+            this.comboBoxNumeroNumeracionRespuestas.TabIndex = 10;
+            // 
+            // groupBoxColumnasRespuestas
+            // 
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelColumnaDColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelColumnaCColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelColumnaBColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelColumnaAColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.buttonMantenerOriginalColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelMantenerOriginalColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.numericUpDownEspaciadoColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.numericUpDownAnchoColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelEspaciadoColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelAnchoColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.numericUpDownNumeroColumnasColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.radioButtonNumeroColumnasColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.textBoxSeguidoComodinColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelSeguidoBColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelSeguidoAColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.radioButtonSeguidoColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.textBoxListaHorizontalComodinColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelListaHorizontalBColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelListaHorizontalAColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.radioButtonListaHorizontalColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelListaVerticalBColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.labelListaVerticalAColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Controls.Add(this.radioButtonListaVerticalColumnasRespuestas);
+            this.groupBoxColumnasRespuestas.Location = new System.Drawing.Point(216, 20);
+            this.groupBoxColumnasRespuestas.Name = "groupBoxColumnasRespuestas";
+            this.groupBoxColumnasRespuestas.Size = new System.Drawing.Size(180, 308);
+            this.groupBoxColumnasRespuestas.TabIndex = 4;
+            this.groupBoxColumnasRespuestas.TabStop = false;
+            this.groupBoxColumnasRespuestas.Text = "Columnas";
+            // 
+            // radioButtonListaVerticalColumnasRespuestas
+            // 
+            this.radioButtonListaVerticalColumnasRespuestas.AutoSize = true;
+            this.radioButtonListaVerticalColumnasRespuestas.Location = new System.Drawing.Point(10, 25);
+            this.radioButtonListaVerticalColumnasRespuestas.Name = "radioButtonListaVerticalColumnasRespuestas";
+            this.radioButtonListaVerticalColumnasRespuestas.Size = new System.Drawing.Size(84, 17);
+            this.radioButtonListaVerticalColumnasRespuestas.TabIndex = 0;
+            this.radioButtonListaVerticalColumnasRespuestas.TabStop = true;
+            this.radioButtonListaVerticalColumnasRespuestas.Text = "Lista vertical";
+            this.radioButtonListaVerticalColumnasRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // labelListaVerticalAColumnasRespuestas
+            // 
+            this.labelListaVerticalAColumnasRespuestas.AutoSize = true;
+            this.labelListaVerticalAColumnasRespuestas.Location = new System.Drawing.Point(30, 45);
+            this.labelListaVerticalAColumnasRespuestas.Name = "labelListaVerticalAColumnasRespuestas";
+            this.labelListaVerticalAColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelListaVerticalAColumnasRespuestas.TabIndex = 1;
+            this.labelListaVerticalAColumnasRespuestas.Text = "a)";
+            // 
+            // labelListaVerticalBColumnasRespuestas
+            // 
+            this.labelListaVerticalBColumnasRespuestas.AutoSize = true;
+            this.labelListaVerticalBColumnasRespuestas.Location = new System.Drawing.Point(30, 62);
+            this.labelListaVerticalBColumnasRespuestas.Name = "labelListaVerticalBColumnasRespuestas";
+            this.labelListaVerticalBColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelListaVerticalBColumnasRespuestas.TabIndex = 2;
+            this.labelListaVerticalBColumnasRespuestas.Text = "b)";
+            // 
+            // labelListaHorizontalBColumnasRespuestas
+            // 
+            this.labelListaHorizontalBColumnasRespuestas.AutoSize = true;
+            this.labelListaHorizontalBColumnasRespuestas.Location = new System.Drawing.Point(80, 103);
+            this.labelListaHorizontalBColumnasRespuestas.Name = "labelListaHorizontalBColumnasRespuestas";
+            this.labelListaHorizontalBColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelListaHorizontalBColumnasRespuestas.TabIndex = 5;
+            this.labelListaHorizontalBColumnasRespuestas.Text = "b)";
+            // 
+            // labelListaHorizontalAColumnasRespuestas
+            // 
+            this.labelListaHorizontalAColumnasRespuestas.AutoSize = true;
+            this.labelListaHorizontalAColumnasRespuestas.Location = new System.Drawing.Point(30, 103);
+            this.labelListaHorizontalAColumnasRespuestas.Name = "labelListaHorizontalAColumnasRespuestas";
+            this.labelListaHorizontalAColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelListaHorizontalAColumnasRespuestas.TabIndex = 4;
+            this.labelListaHorizontalAColumnasRespuestas.Text = "a)";
+            // 
+            // radioButtonListaHorizontalColumnasRespuestas
+            // 
+            this.radioButtonListaHorizontalColumnasRespuestas.AutoSize = true;
+            this.radioButtonListaHorizontalColumnasRespuestas.Location = new System.Drawing.Point(10, 83);
+            this.radioButtonListaHorizontalColumnasRespuestas.Name = "radioButtonListaHorizontalColumnasRespuestas";
+            this.radioButtonListaHorizontalColumnasRespuestas.Size = new System.Drawing.Size(95, 17);
+            this.radioButtonListaHorizontalColumnasRespuestas.TabIndex = 3;
+            this.radioButtonListaHorizontalColumnasRespuestas.TabStop = true;
+            this.radioButtonListaHorizontalColumnasRespuestas.Text = "Lista horizontal";
+            this.radioButtonListaHorizontalColumnasRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // textBoxListaHorizontalComodinColumnasRespuestas
+            // 
+            this.textBoxListaHorizontalComodinColumnasRespuestas.Location = new System.Drawing.Point(48, 100);
+            this.textBoxListaHorizontalComodinColumnasRespuestas.Name = "textBoxListaHorizontalComodinColumnasRespuestas";
+            this.textBoxListaHorizontalComodinColumnasRespuestas.Size = new System.Drawing.Size(25, 20);
+            this.textBoxListaHorizontalComodinColumnasRespuestas.TabIndex = 6;
+            // 
+            // radioButtonSeguidoColumnasRespuestas
+            // 
+            this.radioButtonSeguidoColumnasRespuestas.AutoSize = true;
+            this.radioButtonSeguidoColumnasRespuestas.Location = new System.Drawing.Point(10, 128);
+            this.radioButtonSeguidoColumnasRespuestas.Name = "radioButtonSeguidoColumnasRespuestas";
+            this.radioButtonSeguidoColumnasRespuestas.Size = new System.Drawing.Size(64, 17);
+            this.radioButtonSeguidoColumnasRespuestas.TabIndex = 7;
+            this.radioButtonSeguidoColumnasRespuestas.TabStop = true;
+            this.radioButtonSeguidoColumnasRespuestas.Text = "Seguido";
+            this.radioButtonSeguidoColumnasRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSeguidoComodinColumnasRespuestas
+            // 
+            this.textBoxSeguidoComodinColumnasRespuestas.Location = new System.Drawing.Point(88, 127);
+            this.textBoxSeguidoComodinColumnasRespuestas.Name = "textBoxSeguidoComodinColumnasRespuestas";
+            this.textBoxSeguidoComodinColumnasRespuestas.Size = new System.Drawing.Size(25, 20);
+            this.textBoxSeguidoComodinColumnasRespuestas.TabIndex = 10;
+            // 
+            // labelSeguidoBColumnasRespuestas
+            // 
+            this.labelSeguidoBColumnasRespuestas.AutoSize = true;
+            this.labelSeguidoBColumnasRespuestas.Location = new System.Drawing.Point(120, 130);
+            this.labelSeguidoBColumnasRespuestas.Name = "labelSeguidoBColumnasRespuestas";
+            this.labelSeguidoBColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelSeguidoBColumnasRespuestas.TabIndex = 9;
+            this.labelSeguidoBColumnasRespuestas.Text = "b)";
+            // 
+            // labelSeguidoAColumnasRespuestas
+            // 
+            this.labelSeguidoAColumnasRespuestas.AutoSize = true;
+            this.labelSeguidoAColumnasRespuestas.Location = new System.Drawing.Point(70, 130);
+            this.labelSeguidoAColumnasRespuestas.Name = "labelSeguidoAColumnasRespuestas";
+            this.labelSeguidoAColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelSeguidoAColumnasRespuestas.TabIndex = 8;
+            this.labelSeguidoAColumnasRespuestas.Text = "a)";
+            // 
+            // radioButtonNumeroColumnasColumnasRespuestas
+            // 
+            this.radioButtonNumeroColumnasColumnasRespuestas.AutoSize = true;
+            this.radioButtonNumeroColumnasColumnasRespuestas.Location = new System.Drawing.Point(10, 153);
+            this.radioButtonNumeroColumnasColumnasRespuestas.Name = "radioButtonNumeroColumnasColumnasRespuestas";
+            this.radioButtonNumeroColumnasColumnasRespuestas.Size = new System.Drawing.Size(71, 17);
+            this.radioButtonNumeroColumnasColumnasRespuestas.TabIndex = 11;
+            this.radioButtonNumeroColumnasColumnasRespuestas.TabStop = true;
+            this.radioButtonNumeroColumnasColumnasRespuestas.Text = "Columnas";
+            this.radioButtonNumeroColumnasColumnasRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownNumeroColumnasColumnasRespuestas
+            // 
+            this.numericUpDownNumeroColumnasColumnasRespuestas.Location = new System.Drawing.Point(83, 153);
+            this.numericUpDownNumeroColumnasColumnasRespuestas.Name = "numericUpDownNumeroColumnasColumnasRespuestas";
+            this.numericUpDownNumeroColumnasColumnasRespuestas.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownNumeroColumnasColumnasRespuestas.TabIndex = 12;
+            // 
+            // labelAnchoColumnasRespuestas
+            // 
+            this.labelAnchoColumnasRespuestas.AutoSize = true;
+            this.labelAnchoColumnasRespuestas.Location = new System.Drawing.Point(32, 181);
+            this.labelAnchoColumnasRespuestas.Name = "labelAnchoColumnasRespuestas";
+            this.labelAnchoColumnasRespuestas.Size = new System.Drawing.Size(38, 13);
+            this.labelAnchoColumnasRespuestas.TabIndex = 13;
+            this.labelAnchoColumnasRespuestas.Text = "Ancho";
+            // 
+            // labelEspaciadoColumnasRespuestas
+            // 
+            this.labelEspaciadoColumnasRespuestas.AutoSize = true;
+            this.labelEspaciadoColumnasRespuestas.Location = new System.Drawing.Point(105, 181);
+            this.labelEspaciadoColumnasRespuestas.Name = "labelEspaciadoColumnasRespuestas";
+            this.labelEspaciadoColumnasRespuestas.Size = new System.Drawing.Size(57, 13);
+            this.labelEspaciadoColumnasRespuestas.TabIndex = 14;
+            this.labelEspaciadoColumnasRespuestas.Text = "Espaciado";
+            // 
+            // numericUpDownAnchoColumnasRespuestas
+            // 
+            this.numericUpDownAnchoColumnasRespuestas.Location = new System.Drawing.Point(33, 198);
+            this.numericUpDownAnchoColumnasRespuestas.Name = "numericUpDownAnchoColumnasRespuestas";
+            this.numericUpDownAnchoColumnasRespuestas.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDownAnchoColumnasRespuestas.TabIndex = 15;
+            // 
+            // numericUpDownEspaciadoColumnasRespuestas
+            // 
+            this.numericUpDownEspaciadoColumnasRespuestas.Location = new System.Drawing.Point(108, 198);
+            this.numericUpDownEspaciadoColumnasRespuestas.Name = "numericUpDownEspaciadoColumnasRespuestas";
+            this.numericUpDownEspaciadoColumnasRespuestas.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDownEspaciadoColumnasRespuestas.TabIndex = 16;
+            // 
+            // buttonMantenerOriginalColumnasRespuestas
+            // 
+            this.buttonMantenerOriginalColumnasRespuestas.Location = new System.Drawing.Point(108, 269);
+            this.buttonMantenerOriginalColumnasRespuestas.Name = "buttonMantenerOriginalColumnasRespuestas";
+            this.buttonMantenerOriginalColumnasRespuestas.Size = new System.Drawing.Size(35, 23);
+            this.buttonMantenerOriginalColumnasRespuestas.TabIndex = 18;
+            this.buttonMantenerOriginalColumnasRespuestas.Text = "SI";
+            this.buttonMantenerOriginalColumnasRespuestas.UseVisualStyleBackColor = true;
+            // 
+            // labelMantenerOriginalColumnasRespuestas
+            // 
+            this.labelMantenerOriginalColumnasRespuestas.AutoSize = true;
+            this.labelMantenerOriginalColumnasRespuestas.Location = new System.Drawing.Point(14, 274);
+            this.labelMantenerOriginalColumnasRespuestas.Name = "labelMantenerOriginalColumnasRespuestas";
+            this.labelMantenerOriginalColumnasRespuestas.Size = new System.Drawing.Size(88, 13);
+            this.labelMantenerOriginalColumnasRespuestas.TabIndex = 17;
+            this.labelMantenerOriginalColumnasRespuestas.Text = "Mantener original";
+            // 
+            // labelColumnaBColumnasRespuestas
+            // 
+            this.labelColumnaBColumnasRespuestas.AutoSize = true;
+            this.labelColumnaBColumnasRespuestas.Location = new System.Drawing.Point(32, 244);
+            this.labelColumnaBColumnasRespuestas.Name = "labelColumnaBColumnasRespuestas";
+            this.labelColumnaBColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelColumnaBColumnasRespuestas.TabIndex = 20;
+            this.labelColumnaBColumnasRespuestas.Text = "b)";
+            // 
+            // labelColumnaAColumnasRespuestas
+            // 
+            this.labelColumnaAColumnasRespuestas.AutoSize = true;
+            this.labelColumnaAColumnasRespuestas.Location = new System.Drawing.Point(32, 227);
+            this.labelColumnaAColumnasRespuestas.Name = "labelColumnaAColumnasRespuestas";
+            this.labelColumnaAColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelColumnaAColumnasRespuestas.TabIndex = 19;
+            this.labelColumnaAColumnasRespuestas.Text = "a)";
+            // 
+            // labelColumnaDColumnasRespuestas
+            // 
+            this.labelColumnaDColumnasRespuestas.AutoSize = true;
+            this.labelColumnaDColumnasRespuestas.Location = new System.Drawing.Point(70, 244);
+            this.labelColumnaDColumnasRespuestas.Name = "labelColumnaDColumnasRespuestas";
+            this.labelColumnaDColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelColumnaDColumnasRespuestas.TabIndex = 22;
+            this.labelColumnaDColumnasRespuestas.Text = "d)";
+            // 
+            // labelColumnaCColumnasRespuestas
+            // 
+            this.labelColumnaCColumnasRespuestas.AutoSize = true;
+            this.labelColumnaCColumnasRespuestas.Location = new System.Drawing.Point(70, 227);
+            this.labelColumnaCColumnasRespuestas.Name = "labelColumnaCColumnasRespuestas";
+            this.labelColumnaCColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
+            this.labelColumnaCColumnasRespuestas.TabIndex = 21;
+            this.labelColumnaCColumnasRespuestas.Text = "c)";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,6 +1578,7 @@
             this.tabEstructura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPreguntasEstructuradas)).EndInit();
             this.tabCantidad.ResumeLayout(false);
+            this.tabNumeracion.ResumeLayout(false);
             this.groupBoxCantidadDeExamenes.ResumeLayout(false);
             this.groupBoxCantidadDeExamenes.PerformLayout();
             this.groupBoxIdentificacionDeExamenes.ResumeLayout(false);
@@ -821,6 +1591,28 @@
             this.groupBoxUbicacionEnLaPagina.PerformLayout();
             this.groupBoxJustificacion.ResumeLayout(false);
             this.groupBoxJustificacion.PerformLayout();
+            this.groupBoxNumeracionDePreguntasGeneral.ResumeLayout(false);
+            this.groupBoxNumeracionDeRespuestasGeneral.ResumeLayout(false);
+            this.groupBoxNumeracionPreguntas.ResumeLayout(false);
+            this.groupBoxNumeracionPreguntas.PerformLayout();
+            this.groupBoxColumnasPreguntas.ResumeLayout(false);
+            this.groupBoxColumnasPreguntas.PerformLayout();
+            this.groupBoxEspaciadoPreguntas.ResumeLayout(false);
+            this.groupBoxEspaciadoPreguntas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAntesEspaciadoPreguntas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDespuesEspaciadoPreguntas)).EndInit();
+            this.groupBoxNumeracionRespuestas.ResumeLayout(false);
+            this.groupBoxNumeracionRespuestas.PerformLayout();
+            this.groupBoxEspaciadoRespuestas.ResumeLayout(false);
+            this.groupBoxEspaciadoRespuestas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDespuesEspaciadoRespuestas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAntesEspaciadoRespuestas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSangriaIzquierdaEspaciadoRespuestas)).EndInit();
+            this.groupBoxColumnasRespuestas.ResumeLayout(false);
+            this.groupBoxColumnasRespuestas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumeroColumnasColumnasRespuestas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnchoColumnasRespuestas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEspaciadoColumnasRespuestas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -893,6 +1685,76 @@
         private System.Windows.Forms.Label labelIdentificarExamen;
         private System.Windows.Forms.Button buttonIdentificarExamenes;
         private System.Windows.Forms.Label labelTotalExamanesCopias;
+        private System.Windows.Forms.GroupBox groupBoxNumeracionDeRespuestasGeneral;
+        private System.Windows.Forms.GroupBox groupBoxNumeracionDePreguntasGeneral;
+        private System.Windows.Forms.GroupBox groupBoxNumeracionPreguntas;
+        private System.Windows.Forms.TextBox textBoxDespuesNumeracionPreguntas;
+        private System.Windows.Forms.TextBox textBoxAntesNumeracionPreguntas;
+        private System.Windows.Forms.Label labelDespuesNumeracionPreguntas;
+        private System.Windows.Forms.Label labelNumeroNumeracionPreguntas;
+        private System.Windows.Forms.Label labelAntesNumeracionPreguntas;
+        private System.Windows.Forms.Button buttonMantenerOriginalNumeracionPreguntas;
+        private System.Windows.Forms.Label labelMantenerOriginalNumeracionPreguntas;
+        private System.Windows.Forms.GroupBox groupBoxColumnasPreguntas;
+        private System.Windows.Forms.RadioButton radioButtonMantenerOriginalColumnasPreguntas;
+        private System.Windows.Forms.RadioButton radioButtonDosColumnasPreguntas;
+        private System.Windows.Forms.RadioButton radioButtonUnaColumnasPreguntas;
+        private System.Windows.Forms.Label labelNumeracionResultadoNumeracionPreguntas;
+        private System.Windows.Forms.GroupBox groupBoxEspaciadoPreguntas;
+        private System.Windows.Forms.Label labelInterlineadoEspaciadoPreguntas;
+        private System.Windows.Forms.Button buttonMantenerOriginalEspaciadoPreguntas;
+        private System.Windows.Forms.Label labelMantenerOriginalEspaciadoPreguntas;
+        private System.Windows.Forms.ComboBox comboBoxInterlineadoEspaciadoPreguntas;
+        private System.Windows.Forms.NumericUpDown numericUpDownDespuesEspaciadoPreguntas;
+        private System.Windows.Forms.Label labelDespuesEspaciadoPreguntas;
+        private System.Windows.Forms.NumericUpDown numericUpDownAntesEspaciadoPreguntas;
+        private System.Windows.Forms.Label labelAntesEspaciadoPreguntas;
+        private System.Windows.Forms.GroupBox groupBoxEspaciadoRespuestas;
+        private System.Windows.Forms.NumericUpDown numericUpDownSangriaIzquierdaEspaciadoRespuestas;
+        private System.Windows.Forms.Label labelSangriaIzquierdaEspaciadoRespuestas;
+        private System.Windows.Forms.Label labelInterlineadoEspaciadoRespuestas;
+        private System.Windows.Forms.Button buttonMantenerOriginalEspaciadoRespuestas;
+        private System.Windows.Forms.Label labelMantenerOriginalEspaciadoRespuestas;
+        private System.Windows.Forms.ComboBox comboBoxInterlineadoEspaciadoRespuestas;
+        private System.Windows.Forms.NumericUpDown numericUpDownDespuesEspaciadoRespuestas;
+        private System.Windows.Forms.Label labelDespuesEspaciadoRespuestas;
+        private System.Windows.Forms.NumericUpDown numericUpDownAntesEspaciadoRespuestas;
+        private System.Windows.Forms.Label labelAntesEspaciadoRespuestas;
+        private System.Windows.Forms.GroupBox groupBoxNumeracionRespuestas;
+        private System.Windows.Forms.Label labelNumeracionResultadoNumeracionRespuestas;
+        private System.Windows.Forms.Button buttonMantenerOriginalNumeracionRespuestas;
+        private System.Windows.Forms.Label labelMantenerOriginalNumeracionRespuestas;
+        private System.Windows.Forms.TextBox textBoxDespuesNumeracionRespuestas;
+        private System.Windows.Forms.TextBox textBoxAntesNumeracionRespuestas;
+        private System.Windows.Forms.Label labelDespuesNumeracionRespuestas;
+        private System.Windows.Forms.Label labelNumeroNumeracionRespuestas;
+        private System.Windows.Forms.Label labelAntesNumeracionRespuestas;
+        private System.Windows.Forms.ComboBox comboBoxNumeroNumeracionRespuestas;
+        private System.Windows.Forms.ComboBox comboBoxNumeroNumeracionPreguntas;
+        private System.Windows.Forms.GroupBox groupBoxColumnasRespuestas;
+        private System.Windows.Forms.Label labelColumnaDColumnasRespuestas;
+        private System.Windows.Forms.Label labelColumnaCColumnasRespuestas;
+        private System.Windows.Forms.Label labelColumnaBColumnasRespuestas;
+        private System.Windows.Forms.Label labelColumnaAColumnasRespuestas;
+        private System.Windows.Forms.Button buttonMantenerOriginalColumnasRespuestas;
+        private System.Windows.Forms.Label labelMantenerOriginalColumnasRespuestas;
+        private System.Windows.Forms.NumericUpDown numericUpDownEspaciadoColumnasRespuestas;
+        private System.Windows.Forms.NumericUpDown numericUpDownAnchoColumnasRespuestas;
+        private System.Windows.Forms.Label labelEspaciadoColumnasRespuestas;
+        private System.Windows.Forms.Label labelAnchoColumnasRespuestas;
+        private System.Windows.Forms.NumericUpDown numericUpDownNumeroColumnasColumnasRespuestas;
+        private System.Windows.Forms.RadioButton radioButtonNumeroColumnasColumnasRespuestas;
+        private System.Windows.Forms.TextBox textBoxSeguidoComodinColumnasRespuestas;
+        private System.Windows.Forms.Label labelSeguidoBColumnasRespuestas;
+        private System.Windows.Forms.Label labelSeguidoAColumnasRespuestas;
+        private System.Windows.Forms.RadioButton radioButtonSeguidoColumnasRespuestas;
+        private System.Windows.Forms.TextBox textBoxListaHorizontalComodinColumnasRespuestas;
+        private System.Windows.Forms.Label labelListaHorizontalBColumnasRespuestas;
+        private System.Windows.Forms.Label labelListaHorizontalAColumnasRespuestas;
+        private System.Windows.Forms.RadioButton radioButtonListaHorizontalColumnasRespuestas;
+        private System.Windows.Forms.Label labelListaVerticalBColumnasRespuestas;
+        private System.Windows.Forms.Label labelListaVerticalAColumnasRespuestas;
+        private System.Windows.Forms.RadioButton radioButtonListaVerticalColumnasRespuestas;
     }
 }
 
