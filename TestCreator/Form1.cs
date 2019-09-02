@@ -15,10 +15,16 @@ namespace TestCreator
         public FormPrincipal()
         {
             InitializeComponent();
+
+            // Mensaje alterno para pictureBoxMenuEmergente 
+            var toolTipMenuEmergente = new ToolTip();
+            toolTipMenuEmergente.SetToolTip(pictureBoxMenuEmergente, "Limpiar busqueda");
+            //
         }
 
         private void ButtonAbrirBancoPreguntas_Click(object sender, EventArgs e)
         {
+            // Configuracion inicial del ofdAbrirBancoPreguntas
             OpenFileDialog ofdAbrirBancoPreguntas = new OpenFileDialog()
             {
                 InitialDirectory = @"C:\Demos\",
@@ -30,11 +36,37 @@ namespace TestCreator
                 CheckFileExists = true,
                 CheckPathExists = true
             };
+            //
+
             if (ofdAbrirBancoPreguntas.ShowDialog() == DialogResult.OK)
             {
+                //Agregar Item al comboBoxRutaBancoPreguntas y mostrar el ultimo texto
+                comboBoxRutaBancoPreguntas.Items.Add(ofdAbrirBancoPreguntas.FileName);
                 comboBoxRutaBancoPreguntas.Text = ofdAbrirBancoPreguntas.FileName;
+                //
             }
         }
 
+        private void PictureBoxMenuEmergente_Click(object sender, EventArgs e)
+        {
+            // Limpieza de comboBoxRutaBancoPreguntas
+            comboBoxRutaBancoPreguntas.Items.Clear();
+            comboBoxRutaBancoPreguntas.Text = "";
+            //
+        }
+
+        private void PictureBoxMenuEmergente_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Cambio de color para simular boton del pictureBoxMenuEmergente
+            pictureBoxMenuEmergente.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500;
+            //
+        }
+
+        private void PictureBoxMenuEmergente_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Cambio de color para simular boton del pictureBoxMenuEmergente
+            pictureBoxMenuEmergente.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
+            //
+        }
     }
 }
