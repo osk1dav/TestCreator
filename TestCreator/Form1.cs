@@ -68,5 +68,10 @@ namespace TestCreator
             pictureBoxMenuEmergente.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
             //
         }
+
+        private void PictureBoxIdentificarExamenes_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBoxIdentificarExamenes.Image = TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+        }
     }
 }

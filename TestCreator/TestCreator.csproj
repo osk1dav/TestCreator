@@ -95,6 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="file-alt-solid.ico" />
+    <None Include="Resources\icons8-alternar-encendido-96.png" />
+    <None Include="Resources\icons8-alternar-apagado-96.png" />
     <None Include="Resources\file-alt-regular.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

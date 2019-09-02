@@ -72,7 +72,6 @@
             this.labeIdentificarCopia = new System.Windows.Forms.Label();
             this.textBoxIdentificarExamen = new System.Windows.Forms.TextBox();
             this.labelIdentificarExamen = new System.Windows.Forms.Label();
-            this.buttonIdentificarExamenes = new System.Windows.Forms.Button();
             this.labelIdentificarExamanes = new System.Windows.Forms.Label();
             this.groupBoxCantidadDeExamenes = new System.Windows.Forms.GroupBox();
             this.labelTotalExamanesCopias = new System.Windows.Forms.Label();
@@ -185,6 +184,7 @@
             this.checkBoxUnArchivoPorExamen = new System.Windows.Forms.CheckBox();
             this.checkBoxImprimirADosCaras = new System.Windows.Forms.CheckBox();
             this.ofdAbrirBancoPreguntas = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBoxIdentificarExamenes = new System.Windows.Forms.PictureBox();
             this.tabPrincipal.SuspendLayout();
             this.tabEstructura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenuEmergente)).BeginInit();
@@ -219,6 +219,7 @@
             this.groupBoxPresentacionDeLaSolucion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColumnasPresentacionSolucion)).BeginInit();
             this.tabExamen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIdentificarExamenes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -542,13 +543,13 @@
             // 
             // groupBoxIdentificacionDeExamenes
             // 
+            this.groupBoxIdentificacionDeExamenes.Controls.Add(this.pictureBoxIdentificarExamenes);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.groupBoxJustificacion);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.groupBoxUbicacionEnLaPagina);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.textBoxIdentificarCopia);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.labeIdentificarCopia);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.textBoxIdentificarExamen);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.labelIdentificarExamen);
-            this.groupBoxIdentificacionDeExamenes.Controls.Add(this.buttonIdentificarExamenes);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.labelIdentificarExamanes);
             this.groupBoxIdentificacionDeExamenes.Location = new System.Drawing.Point(300, 25);
             this.groupBoxIdentificacionDeExamenes.Name = "groupBoxIdentificacionDeExamenes";
@@ -682,15 +683,6 @@
             this.labelIdentificarExamen.Size = new System.Drawing.Size(45, 13);
             this.labelIdentificarExamen.TabIndex = 3;
             this.labelIdentificarExamen.Text = "Examen";
-            // 
-            // buttonIdentificarExamenes
-            // 
-            this.buttonIdentificarExamenes.Location = new System.Drawing.Point(130, 20);
-            this.buttonIdentificarExamenes.Name = "buttonIdentificarExamenes";
-            this.buttonIdentificarExamenes.Size = new System.Drawing.Size(35, 23);
-            this.buttonIdentificarExamenes.TabIndex = 2;
-            this.buttonIdentificarExamenes.Text = "SI";
-            this.buttonIdentificarExamenes.UseVisualStyleBackColor = true;
             // 
             // labelIdentificarExamanes
             // 
@@ -1804,6 +1796,17 @@
             // 
             this.ofdAbrirBancoPreguntas.FileName = "openFileDialog1";
             // 
+            // pictureBoxIdentificarExamenes
+            // 
+            this.pictureBoxIdentificarExamenes.Image = global::TestCreator.Properties.Resources.icons8_alternar_encendido_96;
+            this.pictureBoxIdentificarExamenes.Location = new System.Drawing.Point(130, 20);
+            this.pictureBoxIdentificarExamenes.Name = "pictureBoxIdentificarExamenes";
+            this.pictureBoxIdentificarExamenes.Size = new System.Drawing.Size(35, 27);
+            this.pictureBoxIdentificarExamenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxIdentificarExamenes.TabIndex = 9;
+            this.pictureBoxIdentificarExamenes.TabStop = false;
+            this.pictureBoxIdentificarExamenes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxIdentificarExamenes_MouseDown);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1872,6 +1875,7 @@
             this.groupBoxPresentacionDeLaSolucion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColumnasPresentacionSolucion)).EndInit();
             this.tabExamen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIdentificarExamenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1942,7 +1946,6 @@
         private System.Windows.Forms.Label labeIdentificarCopia;
         private System.Windows.Forms.TextBox textBoxIdentificarExamen;
         private System.Windows.Forms.Label labelIdentificarExamen;
-        private System.Windows.Forms.Button buttonIdentificarExamenes;
         private System.Windows.Forms.Label labelTotalExamanesCopias;
         private System.Windows.Forms.GroupBox groupBoxNumeracionDeRespuestasGeneral;
         private System.Windows.Forms.GroupBox groupBoxNumeracionDePreguntasGeneral;
@@ -2035,6 +2038,7 @@
         private System.Windows.Forms.Button buttonAbrirPlantillaExamen;
         private System.Windows.Forms.OpenFileDialog ofdAbrirBancoPreguntas;
         private System.Windows.Forms.PictureBox pictureBoxMenuEmergente;
+        private System.Windows.Forms.PictureBox pictureBoxIdentificarExamenes;
     }
 }
 

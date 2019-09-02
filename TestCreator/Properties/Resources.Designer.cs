@@ -83,6 +83,26 @@ namespace TestCreator.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_alternar_apagado_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_alternar_apagado_96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_alternar_encendido_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_alternar_encendido_96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_eliminar_columna_500 {
             get {
                 object obj = ResourceManager.GetObject("icons8-eliminar-columna-500", resourceCulture);
