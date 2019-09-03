@@ -34,6 +34,15 @@ namespace TestCreator
             boolMantenerOriginalEspaciadoRespuestas = true;
             boolMantenerOriginalColumnasRespuestas = true;
             boolImprimirComentariosPresentacionSolucion = true;
+
+            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = boolMantenerOriginalEspaciadoPreguntas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+            pictureBoxImprimirComentariosPresentacionSolucion.Image = boolImprimirComentariosPresentacionSolucion ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+            pictureBoxMantenerOriginalColumnasRespuestas.Image = boolMantenerOriginalColumnasRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = boolMantenerOriginalEspaciadoRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+            pictureBoxMantenerOriginalNumeracionRespuestas.Image = boolMantenerOriginalNumeracionRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+            pictureBoxMantenerOriginalNumeracionPreguntas.Image = boolMantenerOriginalNumeracionPreguntas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+            pictureBoxIdentificarExamenes.Image = boolIdentificarExamenes ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+
         }
 
         private void ButtonAbrirBancoPreguntas_Click(object sender, EventArgs e)
@@ -86,49 +95,49 @@ namespace TestCreator
         private void PictureBoxMantenerOriginalEspaciadoPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalEspaciadoPreguntas = !boolMantenerOriginalEspaciadoPreguntas;
-            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = boolMantenerOriginalEspaciadoPreguntas ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = boolMantenerOriginalEspaciadoPreguntas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 
         private void PictureBoxImprimirComentariosPresentacionSolucion_MouseDown(object sender, MouseEventArgs e)
         {
             boolImprimirComentariosPresentacionSolucion = !boolImprimirComentariosPresentacionSolucion;
-            pictureBoxImprimirComentariosPresentacionSolucion.Image = boolImprimirComentariosPresentacionSolucion ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxImprimirComentariosPresentacionSolucion.Image = boolImprimirComentariosPresentacionSolucion ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 
         private void PictureBoxMantenerOriginalColumnasRespuestas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalColumnasRespuestas = !boolMantenerOriginalColumnasRespuestas;
-            pictureBoxMantenerOriginalColumnasRespuestas.Image = boolMantenerOriginalColumnasRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxMantenerOriginalColumnasRespuestas.Image = boolMantenerOriginalColumnasRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 
         private void PictureBoxMantenerOriginalEspaciadoRespuestas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalEspaciadoRespuestas = !boolMantenerOriginalEspaciadoRespuestas;
-            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = boolMantenerOriginalEspaciadoRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = boolMantenerOriginalEspaciadoRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 
         private void PictureBoxMantenerOriginalNumeracionRespuestas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalNumeracionRespuestas = !boolMantenerOriginalNumeracionRespuestas;
-            pictureBoxMantenerOriginalNumeracionRespuestas.Image = boolMantenerOriginalNumeracionRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxMantenerOriginalNumeracionRespuestas.Image = boolMantenerOriginalNumeracionRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 
         private void PictureBoxMantenerOriginalNumeracionPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalNumeracionPreguntas = !boolMantenerOriginalNumeracionPreguntas;
-            pictureBoxMantenerOriginalNumeracionPreguntas.Image = boolMantenerOriginalNumeracionPreguntas ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxMantenerOriginalNumeracionPreguntas.Image = boolMantenerOriginalNumeracionPreguntas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 
         private void PictureBoxIdentificarExamenes_MouseDown(object sender, MouseEventArgs e)
         {
             boolIdentificarExamenes = !boolIdentificarExamenes;
-            pictureBoxIdentificarExamenes.Image = boolIdentificarExamenes ? TestCreator.Properties.Resources.icons8_alternar_encendido_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_96;
+            pictureBoxIdentificarExamenes.Image = boolIdentificarExamenes ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
 

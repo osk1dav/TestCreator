@@ -95,6 +95,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="file-alt-solid.ico" />
+    <None Include="Resources\icons8-izquierda-en-cuadrado-96.png" />
+    <None Include="Resources\icons8-derecha-en-cuadrado-96.png" />
+    <None Include="Resources\icons8-abajo-en-cuadrado-96.png" />
+    <None Include="Resources\icons8-arriba-en-cuadrado-96.png" />
+    <None Include="Resources\icons8-alternar-encendido-text-si-96.png" />
+    <None Include="Resources\icons8-alternar-apagado-text-no-96.png" />
+    <None Include="Resources\icons8-anterior-96.png" />
+    <None Include="Resources\icons8-siguiente-48.png" />
+    <None Include="Resources\icons8-siguiente-96.png" />
     <None Include="Resources\icons8-alternar-encendido-96.png" />
     <None Include="Resources\icons8-alternar-apagado-96.png" />
     <None Include="Resources\file-alt-regular.ico" />
