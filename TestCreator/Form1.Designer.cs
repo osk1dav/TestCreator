@@ -173,10 +173,12 @@
             this.radioButtonListaVerticalPresentacionSolucion = new System.Windows.Forms.RadioButton();
             this.textBoxTituloPresentacionSolucion = new System.Windows.Forms.TextBox();
             this.tabExamen = new System.Windows.Forms.TabPage();
+            this.pictureBoxMenuEmergentePlantilla = new System.Windows.Forms.PictureBox();
             this.panelPlantillaExamen = new System.Windows.Forms.Panel();
             this.buttonExamenPreguntasDragDrop = new System.Windows.Forms.Button();
             this.comboBoxRutaPlantillaExamen = new System.Windows.Forms.ComboBox();
             this.buttonAbrirPlantillaExamen = new System.Windows.Forms.Button();
+            this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
             this.buttonAbrirCondiciones = new System.Windows.Forms.Button();
             this.buttonGuardarCondiciones = new System.Windows.Forms.Button();
             this.buttonGenerarExamen = new System.Windows.Forms.Button();
@@ -186,7 +188,7 @@
             this.checkBoxUnArchivoPorExamen = new System.Windows.Forms.CheckBox();
             this.checkBoxImprimirADosCaras = new System.Windows.Forms.CheckBox();
             this.ofdAbrirBancoPreguntas = new System.Windows.Forms.OpenFileDialog();
-            this.imageListTabs = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBoxAyuda = new System.Windows.Forms.PictureBox();
             this.tabPrincipal.SuspendLayout();
             this.tabEstructura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenuEmergente)).BeginInit();
@@ -228,6 +230,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImprimirComentariosPresentacionSolucion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColumnasPresentacionSolucion)).BeginInit();
             this.tabExamen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenuEmergentePlantilla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAyuda)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -238,8 +242,8 @@
             this.tabPrincipal.Controls.Add(this.tabSolucion);
             this.tabPrincipal.Controls.Add(this.tabExamen);
             this.tabPrincipal.ImageList = this.imageListTabs;
-            this.tabPrincipal.ItemSize = new System.Drawing.Size(153, 19);
-            this.tabPrincipal.Location = new System.Drawing.Point(8, 8);
+            this.tabPrincipal.ItemSize = new System.Drawing.Size(150, 19);
+            this.tabPrincipal.Location = new System.Drawing.Point(8, 12);
             this.tabPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.SelectedIndex = 0;
@@ -573,7 +577,7 @@
             this.tabCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.tabCantidad.Name = "tabCantidad";
             this.tabCantidad.Padding = new System.Windows.Forms.Padding(2);
-            this.tabCantidad.Size = new System.Drawing.Size(759, 428);
+            this.tabCantidad.Size = new System.Drawing.Size(762, 428);
             this.tabCantidad.TabIndex = 1;
             this.tabCantidad.Text = "Cantidad";
             this.tabCantidad.UseVisualStyleBackColor = true;
@@ -643,6 +647,7 @@
             // radioButtonIzquierda
             // 
             this.radioButtonIzquierda.AutoSize = true;
+            this.radioButtonIzquierda.Checked = true;
             this.radioButtonIzquierda.Location = new System.Drawing.Point(10, 25);
             this.radioButtonIzquierda.Name = "radioButtonIzquierda";
             this.radioButtonIzquierda.Size = new System.Drawing.Size(68, 17);
@@ -666,6 +671,7 @@
             // radioButtonPie
             // 
             this.radioButtonPie.AutoSize = true;
+            this.radioButtonPie.Checked = true;
             this.radioButtonPie.Location = new System.Drawing.Point(10, 71);
             this.radioButtonPie.Name = "radioButtonPie";
             this.radioButtonPie.Size = new System.Drawing.Size(40, 17);
@@ -780,6 +786,8 @@
             // checkBoxRespuestasAleatoerias
             // 
             this.checkBoxRespuestasAleatoerias.AutoSize = true;
+            this.checkBoxRespuestasAleatoerias.Checked = true;
+            this.checkBoxRespuestasAleatoerias.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRespuestasAleatoerias.Location = new System.Drawing.Point(10, 74);
             this.checkBoxRespuestasAleatoerias.Name = "checkBoxRespuestasAleatoerias";
             this.checkBoxRespuestasAleatoerias.Size = new System.Drawing.Size(130, 17);
@@ -790,6 +798,8 @@
             // checkBoxPreguntasAleatoerias
             // 
             this.checkBoxPreguntasAleatoerias.AutoSize = true;
+            this.checkBoxPreguntasAleatoerias.Checked = true;
+            this.checkBoxPreguntasAleatoerias.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPreguntasAleatoerias.Location = new System.Drawing.Point(10, 51);
             this.checkBoxPreguntasAleatoerias.Name = "checkBoxPreguntasAleatoerias";
             this.checkBoxPreguntasAleatoerias.Size = new System.Drawing.Size(122, 17);
@@ -807,6 +817,7 @@
             // radioButtonNuevasPreguntas
             // 
             this.radioButtonNuevasPreguntas.AutoSize = true;
+            this.radioButtonNuevasPreguntas.Checked = true;
             this.radioButtonNuevasPreguntas.Location = new System.Drawing.Point(23, 72);
             this.radioButtonNuevasPreguntas.Name = "radioButtonNuevasPreguntas";
             this.radioButtonNuevasPreguntas.Size = new System.Drawing.Size(112, 17);
@@ -832,6 +843,11 @@
             this.numericUpDownExamenes.Name = "numericUpDownExamenes";
             this.numericUpDownExamenes.Size = new System.Drawing.Size(40, 20);
             this.numericUpDownExamenes.TabIndex = 1;
+            this.numericUpDownExamenes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // labelExamenes
             // 
@@ -851,7 +867,7 @@
             this.tabNumeracion.Margin = new System.Windows.Forms.Padding(2);
             this.tabNumeracion.Name = "tabNumeracion";
             this.tabNumeracion.Padding = new System.Windows.Forms.Padding(2);
-            this.tabNumeracion.Size = new System.Drawing.Size(759, 428);
+            this.tabNumeracion.Size = new System.Drawing.Size(762, 428);
             this.tabNumeracion.TabIndex = 2;
             this.tabNumeracion.Text = "Numeración";
             this.tabNumeracion.UseVisualStyleBackColor = true;
@@ -1059,6 +1075,7 @@
             // radioButtonListaVerticalColumnasRespuestas
             // 
             this.radioButtonListaVerticalColumnasRespuestas.AutoSize = true;
+            this.radioButtonListaVerticalColumnasRespuestas.Checked = true;
             this.radioButtonListaVerticalColumnasRespuestas.Location = new System.Drawing.Point(10, 25);
             this.radioButtonListaVerticalColumnasRespuestas.Name = "radioButtonListaVerticalColumnasRespuestas";
             this.radioButtonListaVerticalColumnasRespuestas.Size = new System.Drawing.Size(84, 17);
@@ -1202,7 +1219,15 @@
             // 
             // comboBoxNumeroNumeracionRespuestas
             // 
+            this.comboBoxNumeroNumeracionRespuestas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumeroNumeracionRespuestas.FormattingEnabled = true;
+            this.comboBoxNumeroNumeracionRespuestas.Items.AddRange(new object[] {
+            "1",
+            "I",
+            "i",
+            "A",
+            "a",
+            "Ninguna"});
             this.comboBoxNumeroNumeracionRespuestas.Location = new System.Drawing.Point(53, 36);
             this.comboBoxNumeroNumeracionRespuestas.Name = "comboBoxNumeroNumeracionRespuestas";
             this.comboBoxNumeroNumeracionRespuestas.Size = new System.Drawing.Size(35, 21);
@@ -1232,6 +1257,7 @@
             this.textBoxDespuesNumeracionRespuestas.Name = "textBoxDespuesNumeracionRespuestas";
             this.textBoxDespuesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
             this.textBoxDespuesNumeracionRespuestas.TabIndex = 5;
+            this.textBoxDespuesNumeracionRespuestas.Text = ")";
             // 
             // textBoxAntesNumeracionRespuestas
             // 
@@ -1380,6 +1406,7 @@
             // radioButtonMantenerOriginalColumnasPreguntas
             // 
             this.radioButtonMantenerOriginalColumnasPreguntas.AutoSize = true;
+            this.radioButtonMantenerOriginalColumnasPreguntas.Checked = true;
             this.radioButtonMantenerOriginalColumnasPreguntas.Location = new System.Drawing.Point(10, 50);
             this.radioButtonMantenerOriginalColumnasPreguntas.Name = "radioButtonMantenerOriginalColumnasPreguntas";
             this.radioButtonMantenerOriginalColumnasPreguntas.Size = new System.Drawing.Size(106, 17);
@@ -1441,7 +1468,15 @@
             // 
             // comboBoxNumeroNumeracionPreguntas
             // 
+            this.comboBoxNumeroNumeracionPreguntas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumeroNumeracionPreguntas.FormattingEnabled = true;
+            this.comboBoxNumeroNumeracionPreguntas.Items.AddRange(new object[] {
+            "1",
+            "I",
+            "i",
+            "A",
+            "a",
+            "Ninguna"});
             this.comboBoxNumeroNumeracionPreguntas.Location = new System.Drawing.Point(53, 36);
             this.comboBoxNumeroNumeracionPreguntas.Name = "comboBoxNumeroNumeracionPreguntas";
             this.comboBoxNumeroNumeracionPreguntas.Size = new System.Drawing.Size(35, 21);
@@ -1471,6 +1506,7 @@
             this.textBoxDespuesNumeracionPreguntas.Name = "textBoxDespuesNumeracionPreguntas";
             this.textBoxDespuesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
             this.textBoxDespuesNumeracionPreguntas.TabIndex = 5;
+            this.textBoxDespuesNumeracionPreguntas.Text = ")";
             // 
             // textBoxAntesNumeracionPreguntas
             // 
@@ -1515,7 +1551,7 @@
             this.tabSolucion.Margin = new System.Windows.Forms.Padding(2);
             this.tabSolucion.Name = "tabSolucion";
             this.tabSolucion.Padding = new System.Windows.Forms.Padding(2);
-            this.tabSolucion.Size = new System.Drawing.Size(759, 428);
+            this.tabSolucion.Size = new System.Drawing.Size(762, 428);
             this.tabSolucion.TabIndex = 3;
             this.tabSolucion.Text = "Solución";
             this.tabSolucion.UseVisualStyleBackColor = true;
@@ -1537,6 +1573,8 @@
             // checkBoxImprimirFinalExamenDosCarasImpresionSolucion
             // 
             this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.AutoSize = true;
+            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Checked = true;
+            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Location = new System.Drawing.Point(34, 117);
             this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Name = "checkBoxImprimirFinalExamenDosCarasImpresionSolucion";
             this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Size = new System.Drawing.Size(149, 17);
@@ -1547,6 +1585,8 @@
             // checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion
             // 
             this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.AutoSize = true;
+            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Checked = true;
+            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Location = new System.Drawing.Point(34, 94);
             this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Name = "checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion";
             this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Size = new System.Drawing.Size(94, 17);
@@ -1557,6 +1597,7 @@
             // radioButtonImprimirFinalExamenImpresionSolucion
             // 
             this.radioButtonImprimirFinalExamenImpresionSolucion.AutoSize = true;
+            this.radioButtonImprimirFinalExamenImpresionSolucion.Checked = true;
             this.radioButtonImprimirFinalExamenImpresionSolucion.Location = new System.Drawing.Point(15, 71);
             this.radioButtonImprimirFinalExamenImpresionSolucion.Name = "radioButtonImprimirFinalExamenImpresionSolucion";
             this.radioButtonImprimirFinalExamenImpresionSolucion.Size = new System.Drawing.Size(150, 17);
@@ -1643,10 +1684,16 @@
             this.numericUpDownColumnasPresentacionSolucion.Name = "numericUpDownColumnasPresentacionSolucion";
             this.numericUpDownColumnasPresentacionSolucion.Size = new System.Drawing.Size(35, 20);
             this.numericUpDownColumnasPresentacionSolucion.TabIndex = 27;
+            this.numericUpDownColumnasPresentacionSolucion.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             // 
             // radioButtonColumnasPresentacionSolucion
             // 
             this.radioButtonColumnasPresentacionSolucion.AutoSize = true;
+            this.radioButtonColumnasPresentacionSolucion.Checked = true;
             this.radioButtonColumnasPresentacionSolucion.Location = new System.Drawing.Point(15, 153);
             this.radioButtonColumnasPresentacionSolucion.Name = "radioButtonColumnasPresentacionSolucion";
             this.radioButtonColumnasPresentacionSolucion.Size = new System.Drawing.Size(71, 17);
@@ -1721,6 +1768,7 @@
             // 
             // tabExamen
             // 
+            this.tabExamen.Controls.Add(this.pictureBoxMenuEmergentePlantilla);
             this.tabExamen.Controls.Add(this.panelPlantillaExamen);
             this.tabExamen.Controls.Add(this.buttonExamenPreguntasDragDrop);
             this.tabExamen.Controls.Add(this.comboBoxRutaPlantillaExamen);
@@ -1730,10 +1778,24 @@
             this.tabExamen.Margin = new System.Windows.Forms.Padding(2);
             this.tabExamen.Name = "tabExamen";
             this.tabExamen.Padding = new System.Windows.Forms.Padding(2);
-            this.tabExamen.Size = new System.Drawing.Size(759, 428);
+            this.tabExamen.Size = new System.Drawing.Size(762, 428);
             this.tabExamen.TabIndex = 4;
             this.tabExamen.Text = "Examen";
             this.tabExamen.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxMenuEmergentePlantilla
+            // 
+            this.pictureBoxMenuEmergentePlantilla.Image = global::TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
+            this.pictureBoxMenuEmergentePlantilla.InitialImage = null;
+            this.pictureBoxMenuEmergentePlantilla.Location = new System.Drawing.Point(730, 34);
+            this.pictureBoxMenuEmergentePlantilla.Name = "pictureBoxMenuEmergentePlantilla";
+            this.pictureBoxMenuEmergentePlantilla.Size = new System.Drawing.Size(22, 24);
+            this.pictureBoxMenuEmergentePlantilla.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMenuEmergentePlantilla.TabIndex = 33;
+            this.pictureBoxMenuEmergentePlantilla.TabStop = false;
+            this.pictureBoxMenuEmergentePlantilla.Click += new System.EventHandler(this.PictureBoxMenuEmergentePlantilla_Click);
+            this.pictureBoxMenuEmergentePlantilla.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMenuEmergentePlantilla_MouseDown);
+            this.pictureBoxMenuEmergentePlantilla.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMenuEmergentePlantilla_MouseUp);
             // 
             // panelPlantillaExamen
             // 
@@ -1757,7 +1819,7 @@
             this.comboBoxRutaPlantillaExamen.Location = new System.Drawing.Point(25, 35);
             this.comboBoxRutaPlantillaExamen.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRutaPlantillaExamen.Name = "comboBoxRutaPlantillaExamen";
-            this.comboBoxRutaPlantillaExamen.Size = new System.Drawing.Size(719, 21);
+            this.comboBoxRutaPlantillaExamen.Size = new System.Drawing.Size(704, 21);
             this.comboBoxRutaPlantillaExamen.TabIndex = 4;
             // 
             // buttonAbrirPlantillaExamen
@@ -1769,6 +1831,18 @@
             this.buttonAbrirPlantillaExamen.TabIndex = 3;
             this.buttonAbrirPlantillaExamen.Text = "Abrir plantilla del examen";
             this.buttonAbrirPlantillaExamen.UseVisualStyleBackColor = true;
+            this.buttonAbrirPlantillaExamen.Click += new System.EventHandler(this.ButtonAbrirPlantillaExamen_Click);
+            // 
+            // imageListTabs
+            // 
+            this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
+            this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListTabs.Images.SetKeyName(0, "icons8-estructura-de-árbol-96.png");
+            this.imageListTabs.Images.SetKeyName(1, "icons8-numerology-square-96.png");
+            this.imageListTabs.Images.SetKeyName(2, "icons8-1-en-círculo-c-90.png");
+            this.imageListTabs.Images.SetKeyName(3, "icons8-idea-96.png");
+            this.imageListTabs.Images.SetKeyName(4, "icons8-formularios-de-google-96.png");
+            this.imageListTabs.Images.SetKeyName(5, "icons8-123-96.png");
             // 
             // buttonAbrirCondiciones
             // 
@@ -1803,6 +1877,8 @@
             // checkBoxAbrirExamen
             // 
             this.checkBoxAbrirExamen.AutoSize = true;
+            this.checkBoxAbrirExamen.Checked = true;
+            this.checkBoxAbrirExamen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAbrirExamen.Location = new System.Drawing.Point(500, 491);
             this.checkBoxAbrirExamen.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxAbrirExamen.Name = "checkBoxAbrirExamen";
@@ -1814,6 +1890,8 @@
             // checkBoxReemplazarExamen
             // 
             this.checkBoxReemplazarExamen.AutoSize = true;
+            this.checkBoxReemplazarExamen.Checked = true;
+            this.checkBoxReemplazarExamen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxReemplazarExamen.Location = new System.Drawing.Point(500, 510);
             this.checkBoxReemplazarExamen.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxReemplazarExamen.Name = "checkBoxReemplazarExamen";
@@ -1847,6 +1925,8 @@
             // checkBoxImprimirADosCaras
             // 
             this.checkBoxImprimirADosCaras.AutoSize = true;
+            this.checkBoxImprimirADosCaras.Checked = true;
+            this.checkBoxImprimirADosCaras.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxImprimirADosCaras.Location = new System.Drawing.Point(637, 520);
             this.checkBoxImprimirADosCaras.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxImprimirADosCaras.Name = "checkBoxImprimirADosCaras";
@@ -1859,22 +1939,25 @@
             // 
             this.ofdAbrirBancoPreguntas.FileName = "openFileDialog1";
             // 
-            // imageListTabs
+            // pictureBoxAyuda
             // 
-            this.imageListTabs.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTabs.ImageStream")));
-            this.imageListTabs.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListTabs.Images.SetKeyName(0, "icons8-estructura-de-árbol-96.png");
-            this.imageListTabs.Images.SetKeyName(1, "icons8-numerology-square-96.png");
-            this.imageListTabs.Images.SetKeyName(2, "icons8-1-en-círculo-c-90.png");
-            this.imageListTabs.Images.SetKeyName(3, "icons8-idea-96.png");
-            this.imageListTabs.Images.SetKeyName(4, "icons8-formularios-de-google-96.png");
-            this.imageListTabs.Images.SetKeyName(5, "icons8-123-96.png");
+            this.pictureBoxAyuda.Image = global::TestCreator.Properties.Resources.icons8_ayuda_64_white;
+            this.pictureBoxAyuda.InitialImage = null;
+            this.pictureBoxAyuda.Location = new System.Drawing.Point(762, 1);
+            this.pictureBoxAyuda.Name = "pictureBoxAyuda";
+            this.pictureBoxAyuda.Size = new System.Drawing.Size(28, 28);
+            this.pictureBoxAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAyuda.TabIndex = 22;
+            this.pictureBoxAyuda.TabStop = false;
+            this.pictureBoxAyuda.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxAyuda_MouseDown);
+            this.pictureBoxAyuda.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxAyuda_MouseUp);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 549);
+            this.ClientSize = new System.Drawing.Size(791, 549);
+            this.Controls.Add(this.pictureBoxAyuda);
             this.Controls.Add(this.checkBoxImprimirADosCaras);
             this.Controls.Add(this.checkBoxUnArchivoPorExamen);
             this.Controls.Add(this.checkBoxPdf);
@@ -1945,6 +2028,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImprimirComentariosPresentacionSolucion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColumnasPresentacionSolucion)).EndInit();
             this.tabExamen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenuEmergentePlantilla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAyuda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2109,6 +2194,8 @@
         private System.Windows.Forms.PictureBox pictureBoxMantenerOriginalColumnasRespuestas;
         private System.Windows.Forms.PictureBox pictureBoxImprimirComentariosPresentacionSolucion;
         private System.Windows.Forms.ImageList imageListTabs;
+        private System.Windows.Forms.PictureBox pictureBoxMenuEmergentePlantilla;
+        private System.Windows.Forms.PictureBox pictureBoxAyuda;
     }
 }
 
