@@ -99,7 +99,7 @@ namespace TestCreator
             // Configuracion inicial del ofdAbrirBancoPreguntas
             OpenFileDialog ofdAbrirBancoPreguntas = new OpenFileDialog()
             {
-                InitialDirectory = @"C:\Demos\",
+                InitialDirectory = @"D:\Demos\",
                 RestoreDirectory = true,
                 Title = "Abrir banco de preguntas",
                 DefaultExt = "docx",
@@ -123,7 +123,88 @@ namespace TestCreator
                 comboBoxRutaBancoPreguntas.Text = ofdAbrirBancoPreguntas.FileName;
                 //
             }
+        }
 
+        private void ButtonGenerarExamen_Click(object sender, EventArgs e)
+        {
+            string templatePath = comboBoxRutaBancoPreguntas.Text;
+            const string resultPath = @"D:\Demos\TextoBuscado1.docx";
+            List<List<Paragraph>> blocksCopy;
+            using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(templatePath))
+            {
+                var body = document.MainDocumentPart.Document.Body;
+                var paragraphs = body.Elements<Paragraph>();
+
+                var blocks = GroupParagraphs(paragraphs); // Get a List of Question blocks
+                blocksCopy = blocks.ConvertAll<List<Paragraph>>(g => g.ConvertAll<Paragraph>(p => (Paragraph)p.CloneNode(true))); // Deep Clone
+                Random rnd = new Random((int)DateTime.Now.Ticks); // Initialize PRNG with Ticks
+                blocksCopy.Shuffle(rnd);
+                body.RemoveAllChildren();
+
+                for (var i = 0; i < blocksCopy.Count; i++)
+                {
+
+                    ReplaceTexts(blocksCopy[i]);
+                    for (var j = 0; j < blocksCopy[i].Count; j++)
+                    {
+                        body.AppendChild<Paragraph>(blocksCopy[i][j]); // Add paragraph from the reordered list  
+                    }
+                }
+
+                // Save result document, not modifying the template
+                document.SaveAs(resultPath);
+
+            }
+        }
+
+        /**
+         * This function replaces tokens with Text in a group of paragraphs
+         * */
+        static void ReplaceTexts(IEnumerable<Paragraph> paragraphs)
+        {
+            var texts = paragraphs.SelectMany(p => p.Elements<Run>()).SelectMany(r => r.Elements<Text>());
+
+            foreach (Text text in texts)
+            {
+
+                switch (text.Text)
+                {
+                    case "#":
+                        text.Text = "PREGUNTA - ";
+                        break;
+                    case "&":
+                        text.Text = "OPCION - ";
+                        break;
+                    case "&&":
+                        text.Text = "RESPUESTA - ";
+                        break;
+                    case "%%":
+                        text.Text = "COMENTARIO -";
+                        break;
+                }
+            }
+        }
+        /**
+         * This function iterates over all paragrpahs and groups them into question blocks
+         * */
+        static List<List<Paragraph>> GroupParagraphs(IEnumerable<Paragraph> paragraphs)
+        {
+            List<List<Paragraph>> output = new List<List<Paragraph>>();
+            List<Paragraph> group = new List<Paragraph>();
+            paragraphs.ToList<Paragraph>().ForEach(p => {
+                if (p.InnerText.StartsWith("#") && group.Count > 0) // New Pregunta
+                {
+                    output.Add(group);
+                    group = new List<Paragraph>();
+                }
+                group.Add(p);
+            });
+            if (group.Count > 0) // Add last group if exists
+            {
+                output.Add(group);
+                group = new List<Paragraph>();
+            }
+            return output;
         }
 
         private void PictureBoxMenuEmergente_Click(object sender, EventArgs e)
@@ -189,7 +270,7 @@ namespace TestCreator
             pictureBoxMantenerOriginalNumeracionRespuestas.Image = boolMantenerOriginalNumeracionRespuestas ? TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96 : TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
 
         }
-
+        
         private void PictureBoxMantenerOriginalNumeracionPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalNumeracionPreguntas = !boolMantenerOriginalNumeracionPreguntas;

@@ -1873,6 +1873,7 @@
             this.buttonGenerarExamen.TabIndex = 3;
             this.buttonGenerarExamen.Text = "Generar examen";
             this.buttonGenerarExamen.UseVisualStyleBackColor = true;
+            this.buttonGenerarExamen.Click += new System.EventHandler(this.ButtonGenerarExamen_Click);
             // 
             // checkBoxAbrirExamen
             // 
