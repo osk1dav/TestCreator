@@ -128,12 +128,16 @@ namespace TestCreator
         private void ButtonGenerarExamen_Click(object sender, EventArgs e)
         {
             string templatePath = comboBoxRutaBancoPreguntas.Text;
-            const string resultPath = @"D:\Demos\TextoBuscado1.docx";
+            const string resultPath = @"C:\Demos\TextoBuscado1.docx";
             List<List<Paragraph>> blocksCopy;
             using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(templatePath))
             {
                 var body = document.MainDocumentPart.Document.Body;
                 var paragraphs = body.Elements<Paragraph>();
+                foreach (var item in ListadoDePreguntas(paragraphs))
+                {
+                    listBoxElegir.Items.Add(item);
+                }
 
                 var blocks = GroupParagraphs(paragraphs); // Get a List of Question blocks
                 blocksCopy = blocks.ConvertAll<List<Paragraph>>(g => g.ConvertAll<Paragraph>(p => (Paragraph)p.CloneNode(true))); // Deep Clone
@@ -184,6 +188,19 @@ namespace TestCreator
                 }
             }
         }
+
+        static List<string> ListadoDePreguntas(IEnumerable<Paragraph> paragraphs)
+        {
+            List<string> output = new List<string>();
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
+                if (p.InnerText.StartsWith("#")) // New Pregunta
+                {
+                    output.Add(p.InnerText);
+                }
+            });
+            return output;
+        }
         /**
          * This function iterates over all paragrpahs and groups them into question blocks
          * */
@@ -192,7 +209,7 @@ namespace TestCreator
             List<List<Paragraph>> output = new List<List<Paragraph>>();
             List<Paragraph> group = new List<Paragraph>();
             paragraphs.ToList<Paragraph>().ForEach(p => {
-                if (p.InnerText.StartsWith("#") && group.Count > 0) // New Pregunta
+                if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
                 {
                     output.Add(group);
                     group = new List<Paragraph>();
