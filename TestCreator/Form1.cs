@@ -119,7 +119,7 @@ namespace TestCreator
                 listadoClasificacion = ClasificacionGeneralDePreguntas(paragraphs);
                 foreach (var item in listadoClasificacion)
                 {
-                    listBoxClasificacion.Items.Add(item.Key);
+                    listBoxClasificacion.Items.Add(item.Value);
                 }
                 listadoNiveles = ClasificacionDePreguntas(paragraphs);
 
@@ -170,12 +170,13 @@ namespace TestCreator
                     string[] listaTemp = contenido.Split(',');
                     if (listaTemp.Length == ArraySizeClasificacion)
                     {
-                        
-                        foreach (var item in listaTemp)
-                        {
-                            output.Add(indexTemp, item.Trim(' '));
-                            indexTemp++;
-                        }
+                        output.Add(indexTemp, contenido.Trim(' '));
+                        indexTemp++;
+                        //foreach (var item in listaTemp)
+                        //{
+                        //    output.Add(indexTemp, item.Trim(' '));
+                        //    indexTemp++;
+                        //}
                     }
 
                 }
@@ -264,32 +265,75 @@ namespace TestCreator
         {
             try
             {
+                var arrayClasificacion = listadoClasificacion.Values.ToArray();
                 listBoxElegir.Items.Add(listBoxClasificacion.SelectedItem);
                 listBoxClasificacion.Items.Remove(listBoxClasificacion.SelectedItem);
                 listBoxClasificacion.Sorted = true;
                 listBoxElegir.Sorted = true;
-
+                listBoxNiveles.Items.Clear();
+                string descripcionItem = "";
                 foreach (var item in listadoNiveles)
                 {
-                    listBoxNiveles.Items.Add(item.Value);
+                    for (int i = 0; i < listBoxElegir.Items.Count; i++) {
+                        string[] descripcionClasificacion = item.Value.Split(',');
+                        if (i == 0)
+                        {
+                            
+                            descripcionItem = descripcionClasificacion[i];
+                        }
+                        if (i > 0)
+                        {
+                            descripcionItem = descripcionItem + " - " + descripcionClasificacion[i];
+                        }
+                        if (i == listBoxElegir.Items.Count - 1)
+                        {
+                            listBoxNiveles.Items.Add(descripcionItem);
+                        }
+                    }
                 }
+                //int contadorLista = 0;
+                //string descripcionItem = "";
+                //while (contadorLista < listadoNiveles.Values.Count)
+                //{
+                //    for (int i = 0; i < listBoxElegir.Items.Count; i++)
+                //    {
+                //        if (i == 0)
+                //        {
+                //            descripcionItem = listadoNiveles[contadorLista];
+                //        }
+                //        if (i > 0)
+                //        {
+                //            descripcionItem = descripcionItem + " - " + listadoNiveles[contadorLista];
+                //        }
+                //        if (i == listBoxElegir.Items.Count - 1)
+                //        {
+                //            listBoxNiveles.Items.Add(descripcionItem);
+                //        }
+                //        contadorLista++;
 
 
-
+                //    }
+                //}
+                
+                MessageBox.Show(listBoxNiveles.Items.Count.ToString());
             }
             catch (System.ArgumentNullException)
             {
                 MessageBox.Show("Selecciona un elemento de la lista");
+                
             }
         }
         private void MetodoDesclasificacion()
         {
             try
             {
+                MessageBox.Show(listBoxElegir.SelectedIndex.ToString());
                 listBoxClasificacion.Items.Add(listBoxElegir.SelectedItem);
                 listBoxElegir.Items.Remove(listBoxElegir.SelectedItem);
                 listBoxClasificacion.Sorted = true;
                 listBoxElegir.Sorted = true;
+
+
 
             }
             catch (System.ArgumentNullException)
