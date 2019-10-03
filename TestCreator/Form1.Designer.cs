@@ -154,8 +154,6 @@
             this.labelAntesNumeracionPreguntas = new System.Windows.Forms.Label();
             this.tabSolucion = new System.Windows.Forms.TabPage();
             this.groupBoxImpresionDeLaSolucion = new System.Windows.Forms.GroupBox();
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion = new System.Windows.Forms.CheckBox();
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion = new System.Windows.Forms.CheckBox();
             this.radioButtonImprimirFinalExamenImpresionSolucion = new System.Windows.Forms.RadioButton();
             this.radioButtonImprimirArchivoSeparadoImpresionSolucion = new System.Windows.Forms.RadioButton();
             this.radioButtonNoImprimirImpresionSolucion = new System.Windows.Forms.RadioButton();
@@ -186,7 +184,6 @@
             this.checkBoxReemplazarExamen = new System.Windows.Forms.CheckBox();
             this.checkBoxPdf = new System.Windows.Forms.CheckBox();
             this.checkBoxUnArchivoPorExamen = new System.Windows.Forms.CheckBox();
-            this.checkBoxImprimirADosCaras = new System.Windows.Forms.CheckBox();
             this.pictureBoxAyuda = new System.Windows.Forms.PictureBox();
             this.tabPrincipal.SuspendLayout();
             this.tabEstructura.SuspendLayout();
@@ -242,10 +239,11 @@
             this.tabPrincipal.Controls.Add(this.tabExamen);
             this.tabPrincipal.ImageList = this.imageListTabs;
             this.tabPrincipal.ItemSize = new System.Drawing.Size(150, 19);
-            this.tabPrincipal.Location = new System.Drawing.Point(12, 18);
+            this.tabPrincipal.Location = new System.Drawing.Point(8, 12);
+            this.tabPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.SelectedIndex = 0;
-            this.tabPrincipal.Size = new System.Drawing.Size(1155, 700);
+            this.tabPrincipal.Size = new System.Drawing.Size(770, 455);
             this.tabPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabPrincipal.TabIndex = 0;
             // 
@@ -273,9 +271,10 @@
             this.tabEstructura.Controls.Add(this.buttonAbrirBancoPreguntas);
             this.tabEstructura.ImageIndex = 0;
             this.tabEstructura.Location = new System.Drawing.Point(4, 23);
+            this.tabEstructura.Margin = new System.Windows.Forms.Padding(2);
             this.tabEstructura.Name = "tabEstructura";
-            this.tabEstructura.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstructura.Size = new System.Drawing.Size(1147, 673);
+            this.tabEstructura.Padding = new System.Windows.Forms.Padding(2);
+            this.tabEstructura.Size = new System.Drawing.Size(762, 428);
             this.tabEstructura.TabIndex = 0;
             this.tabEstructura.Text = "Estructura";
             this.tabEstructura.UseVisualStyleBackColor = true;
@@ -284,10 +283,9 @@
             // 
             this.pictureBoxMenuEmergente.Image = global::TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
             this.pictureBoxMenuEmergente.InitialImage = null;
-            this.pictureBoxMenuEmergente.Location = new System.Drawing.Point(1098, 11);
-            this.pictureBoxMenuEmergente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMenuEmergente.Location = new System.Drawing.Point(732, 7);
             this.pictureBoxMenuEmergente.Name = "pictureBoxMenuEmergente";
-            this.pictureBoxMenuEmergente.Size = new System.Drawing.Size(33, 37);
+            this.pictureBoxMenuEmergente.Size = new System.Drawing.Size(22, 24);
             this.pictureBoxMenuEmergente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMenuEmergente.TabIndex = 21;
             this.pictureBoxMenuEmergente.TabStop = false;
@@ -308,12 +306,13 @@
             this.columnaElegir,
             this.columnaPreguntasOrden,
             this.columnaRespuestasOrden});
-            this.dataGridViewPreguntasEstructuradas.Location = new System.Drawing.Point(26, 369);
+            this.dataGridViewPreguntasEstructuradas.Location = new System.Drawing.Point(17, 240);
+            this.dataGridViewPreguntasEstructuradas.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewPreguntasEstructuradas.Name = "dataGridViewPreguntasEstructuradas";
             this.dataGridViewPreguntasEstructuradas.RowHeadersVisible = false;
             this.dataGridViewPreguntasEstructuradas.RowHeadersWidth = 62;
             this.dataGridViewPreguntasEstructuradas.RowTemplate.Height = 28;
-            this.dataGridViewPreguntasEstructuradas.Size = new System.Drawing.Size(1090, 268);
+            this.dataGridViewPreguntasEstructuradas.Size = new System.Drawing.Size(727, 174);
             this.dataGridViewPreguntasEstructuradas.TabIndex = 20;
             // 
             // columnaOrden
@@ -368,17 +367,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 335);
+            this.label5.Location = new System.Drawing.Point(17, 218);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(321, 20);
+            this.label5.Size = new System.Drawing.Size(214, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "Estructura de las preguntas para el examen.";
             // 
             // buttonEstructurarPreguntasElegidas
             // 
-            this.buttonEstructurarPreguntasElegidas.Location = new System.Drawing.Point(450, 275);
+            this.buttonEstructurarPreguntasElegidas.Location = new System.Drawing.Point(300, 179);
+            this.buttonEstructurarPreguntasElegidas.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEstructurarPreguntasElegidas.Name = "buttonEstructurarPreguntasElegidas";
-            this.buttonEstructurarPreguntasElegidas.Size = new System.Drawing.Size(300, 49);
+            this.buttonEstructurarPreguntasElegidas.Size = new System.Drawing.Size(200, 32);
             this.buttonEstructurarPreguntasElegidas.TabIndex = 18;
             this.buttonEstructurarPreguntasElegidas.Text = "Estructurar preguntas elegidas";
             this.buttonEstructurarPreguntasElegidas.UseVisualStyleBackColor = true;
@@ -390,9 +391,10 @@
             this.buttonNivelesBajar.FlatAppearance.BorderSize = 0;
             this.buttonNivelesBajar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesBajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesBajar.Location = new System.Drawing.Point(849, 218);
+            this.buttonNivelesBajar.Location = new System.Drawing.Point(566, 142);
+            this.buttonNivelesBajar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesBajar.Name = "buttonNivelesBajar";
-            this.buttonNivelesBajar.Size = new System.Drawing.Size(40, 40);
+            this.buttonNivelesBajar.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesBajar.TabIndex = 17;
             this.buttonNivelesBajar.UseVisualStyleBackColor = true;
             // 
@@ -403,9 +405,10 @@
             this.buttonNivelesSubir.FlatAppearance.BorderSize = 0;
             this.buttonNivelesSubir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesSubir.Location = new System.Drawing.Point(849, 172);
+            this.buttonNivelesSubir.Location = new System.Drawing.Point(566, 112);
+            this.buttonNivelesSubir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesSubir.Name = "buttonNivelesSubir";
-            this.buttonNivelesSubir.Size = new System.Drawing.Size(40, 40);
+            this.buttonNivelesSubir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesSubir.TabIndex = 16;
             this.buttonNivelesSubir.UseVisualStyleBackColor = true;
             // 
@@ -416,9 +419,10 @@
             this.buttonNivelesIncluir.FlatAppearance.BorderSize = 0;
             this.buttonNivelesIncluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesIncluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesIncluir.Location = new System.Drawing.Point(849, 126);
+            this.buttonNivelesIncluir.Location = new System.Drawing.Point(566, 82);
+            this.buttonNivelesIncluir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesIncluir.Name = "buttonNivelesIncluir";
-            this.buttonNivelesIncluir.Size = new System.Drawing.Size(40, 40);
+            this.buttonNivelesIncluir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesIncluir.TabIndex = 15;
             this.buttonNivelesIncluir.UseVisualStyleBackColor = true;
             // 
@@ -429,64 +433,68 @@
             this.buttonNivelesExcluir.FlatAppearance.BorderSize = 0;
             this.buttonNivelesExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesExcluir.Location = new System.Drawing.Point(849, 80);
+            this.buttonNivelesExcluir.Location = new System.Drawing.Point(566, 52);
+            this.buttonNivelesExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesExcluir.Name = "buttonNivelesExcluir";
-            this.buttonNivelesExcluir.Size = new System.Drawing.Size(40, 40);
+            this.buttonNivelesExcluir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesExcluir.TabIndex = 14;
             this.buttonNivelesExcluir.UseVisualStyleBackColor = true;
             // 
             // listBoxExcluir
             // 
             this.listBoxExcluir.FormattingEnabled = true;
-            this.listBoxExcluir.ItemHeight = 20;
-            this.listBoxExcluir.Location = new System.Drawing.Point(896, 80);
+            this.listBoxExcluir.Location = new System.Drawing.Point(597, 52);
+            this.listBoxExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxExcluir.Name = "listBoxExcluir";
-            this.listBoxExcluir.Size = new System.Drawing.Size(220, 184);
+            this.listBoxExcluir.Size = new System.Drawing.Size(148, 121);
             this.listBoxExcluir.TabIndex = 13;
             // 
             // labelExcluir
             // 
             this.labelExcluir.AutoSize = true;
-            this.labelExcluir.Location = new System.Drawing.Point(891, 55);
+            this.labelExcluir.Location = new System.Drawing.Point(594, 36);
+            this.labelExcluir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelExcluir.Name = "labelExcluir";
-            this.labelExcluir.Size = new System.Drawing.Size(55, 20);
+            this.labelExcluir.Size = new System.Drawing.Size(38, 13);
             this.labelExcluir.TabIndex = 12;
             this.labelExcluir.Text = "Excluir";
             // 
             // listBoxNiveles
             // 
             this.listBoxNiveles.FormattingEnabled = true;
-            this.listBoxNiveles.ItemHeight = 20;
-            this.listBoxNiveles.Location = new System.Drawing.Point(622, 80);
+            this.listBoxNiveles.Location = new System.Drawing.Point(415, 52);
+            this.listBoxNiveles.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxNiveles.Name = "listBoxNiveles";
-            this.listBoxNiveles.Size = new System.Drawing.Size(220, 184);
+            this.listBoxNiveles.Size = new System.Drawing.Size(148, 121);
             this.listBoxNiveles.TabIndex = 11;
             // 
             // labelNiveles
             // 
             this.labelNiveles.AutoSize = true;
-            this.labelNiveles.Location = new System.Drawing.Point(620, 55);
+            this.labelNiveles.Location = new System.Drawing.Point(413, 36);
+            this.labelNiveles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNiveles.Name = "labelNiveles";
-            this.labelNiveles.Size = new System.Drawing.Size(59, 20);
+            this.labelNiveles.Size = new System.Drawing.Size(42, 13);
             this.labelNiveles.TabIndex = 10;
             this.labelNiveles.Text = "Niveles";
             // 
             // listBoxElegir
             // 
             this.listBoxElegir.FormattingEnabled = true;
-            this.listBoxElegir.ItemHeight = 20;
-            this.listBoxElegir.Location = new System.Drawing.Point(297, 80);
+            this.listBoxElegir.Location = new System.Drawing.Point(198, 52);
+            this.listBoxElegir.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxElegir.Name = "listBoxElegir";
-            this.listBoxElegir.Size = new System.Drawing.Size(289, 184);
+            this.listBoxElegir.Size = new System.Drawing.Size(194, 121);
             this.listBoxElegir.TabIndex = 9;
             this.listBoxElegir.DoubleClick += new System.EventHandler(this.ListBoxElegir_DoubleClick);
             // 
             // labelElegir
             // 
             this.labelElegir.AutoSize = true;
-            this.labelElegir.Location = new System.Drawing.Point(292, 55);
+            this.labelElegir.Location = new System.Drawing.Point(195, 36);
+            this.labelElegir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelElegir.Name = "labelElegir";
-            this.labelElegir.Size = new System.Drawing.Size(49, 20);
+            this.labelElegir.Size = new System.Drawing.Size(33, 13);
             this.labelElegir.TabIndex = 8;
             this.labelElegir.Text = "Elegir";
             // 
@@ -497,9 +505,10 @@
             this.buttonClasificacionItemQuitar.FlatAppearance.BorderSize = 0;
             this.buttonClasificacionItemQuitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonClasificacionItemQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClasificacionItemQuitar.Location = new System.Drawing.Point(250, 171);
+            this.buttonClasificacionItemQuitar.Location = new System.Drawing.Point(167, 111);
+            this.buttonClasificacionItemQuitar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClasificacionItemQuitar.Name = "buttonClasificacionItemQuitar";
-            this.buttonClasificacionItemQuitar.Size = new System.Drawing.Size(40, 40);
+            this.buttonClasificacionItemQuitar.Size = new System.Drawing.Size(27, 26);
             this.buttonClasificacionItemQuitar.TabIndex = 7;
             this.buttonClasificacionItemQuitar.UseVisualStyleBackColor = true;
             this.buttonClasificacionItemQuitar.Click += new System.EventHandler(this.ButtonClasificacionItemQuitar_Click);
@@ -511,9 +520,10 @@
             this.buttonClasificacionItemElegir.FlatAppearance.BorderSize = 0;
             this.buttonClasificacionItemElegir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonClasificacionItemElegir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClasificacionItemElegir.Location = new System.Drawing.Point(250, 125);
+            this.buttonClasificacionItemElegir.Location = new System.Drawing.Point(167, 81);
+            this.buttonClasificacionItemElegir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClasificacionItemElegir.Name = "buttonClasificacionItemElegir";
-            this.buttonClasificacionItemElegir.Size = new System.Drawing.Size(40, 40);
+            this.buttonClasificacionItemElegir.Size = new System.Drawing.Size(27, 26);
             this.buttonClasificacionItemElegir.TabIndex = 6;
             this.buttonClasificacionItemElegir.UseVisualStyleBackColor = true;
             this.buttonClasificacionItemElegir.Click += new System.EventHandler(this.ButtonClasificacionItemElegir_Click);
@@ -521,35 +531,38 @@
             // listBoxClasificacion
             // 
             this.listBoxClasificacion.FormattingEnabled = true;
-            this.listBoxClasificacion.ItemHeight = 20;
-            this.listBoxClasificacion.Location = new System.Drawing.Point(26, 80);
+            this.listBoxClasificacion.Location = new System.Drawing.Point(17, 52);
+            this.listBoxClasificacion.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxClasificacion.Name = "listBoxClasificacion";
-            this.listBoxClasificacion.Size = new System.Drawing.Size(220, 184);
+            this.listBoxClasificacion.Size = new System.Drawing.Size(148, 121);
             this.listBoxClasificacion.TabIndex = 5;
             this.listBoxClasificacion.DoubleClick += new System.EventHandler(this.ListBoxClasificacion_DoubleClick);
             // 
             // labelClasificacion
             // 
             this.labelClasificacion.AutoSize = true;
-            this.labelClasificacion.Location = new System.Drawing.Point(26, 55);
+            this.labelClasificacion.Location = new System.Drawing.Point(17, 36);
+            this.labelClasificacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelClasificacion.Name = "labelClasificacion";
-            this.labelClasificacion.Size = new System.Drawing.Size(97, 20);
+            this.labelClasificacion.Size = new System.Drawing.Size(66, 13);
             this.labelClasificacion.TabIndex = 4;
             this.labelClasificacion.Text = "Clasificación";
             // 
             // comboBoxRutaBancoPreguntas
             // 
             this.comboBoxRutaBancoPreguntas.FormattingEnabled = true;
-            this.comboBoxRutaBancoPreguntas.Location = new System.Drawing.Point(298, 12);
+            this.comboBoxRutaBancoPreguntas.Location = new System.Drawing.Point(199, 8);
+            this.comboBoxRutaBancoPreguntas.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRutaBancoPreguntas.Name = "comboBoxRutaBancoPreguntas";
-            this.comboBoxRutaBancoPreguntas.Size = new System.Drawing.Size(796, 28);
+            this.comboBoxRutaBancoPreguntas.Size = new System.Drawing.Size(532, 21);
             this.comboBoxRutaBancoPreguntas.TabIndex = 3;
             // 
             // buttonAbrirBancoPreguntas
             // 
-            this.buttonAbrirBancoPreguntas.Location = new System.Drawing.Point(38, 12);
+            this.buttonAbrirBancoPreguntas.Location = new System.Drawing.Point(25, 8);
+            this.buttonAbrirBancoPreguntas.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbrirBancoPreguntas.Name = "buttonAbrirBancoPreguntas";
-            this.buttonAbrirBancoPreguntas.Size = new System.Drawing.Size(255, 35);
+            this.buttonAbrirBancoPreguntas.Size = new System.Drawing.Size(170, 23);
             this.buttonAbrirBancoPreguntas.TabIndex = 2;
             this.buttonAbrirBancoPreguntas.Text = "Abrir banco de preguntas";
             this.buttonAbrirBancoPreguntas.UseVisualStyleBackColor = true;
@@ -561,9 +574,10 @@
             this.tabCantidad.Controls.Add(this.groupBoxCantidadDeExamenes);
             this.tabCantidad.ImageIndex = 5;
             this.tabCantidad.Location = new System.Drawing.Point(4, 23);
+            this.tabCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.tabCantidad.Name = "tabCantidad";
-            this.tabCantidad.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCantidad.Size = new System.Drawing.Size(1147, 673);
+            this.tabCantidad.Padding = new System.Windows.Forms.Padding(2);
+            this.tabCantidad.Size = new System.Drawing.Size(762, 428);
             this.tabCantidad.TabIndex = 1;
             this.tabCantidad.Text = "Cantidad";
             this.tabCantidad.UseVisualStyleBackColor = true;
@@ -578,11 +592,9 @@
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.textBoxIdentificarExamen);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.labelIdentificarExamen);
             this.groupBoxIdentificacionDeExamenes.Controls.Add(this.labelIdentificarExamanes);
-            this.groupBoxIdentificacionDeExamenes.Location = new System.Drawing.Point(450, 38);
-            this.groupBoxIdentificacionDeExamenes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxIdentificacionDeExamenes.Location = new System.Drawing.Point(300, 25);
             this.groupBoxIdentificacionDeExamenes.Name = "groupBoxIdentificacionDeExamenes";
-            this.groupBoxIdentificacionDeExamenes.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxIdentificacionDeExamenes.Size = new System.Drawing.Size(390, 385);
+            this.groupBoxIdentificacionDeExamenes.Size = new System.Drawing.Size(260, 250);
             this.groupBoxIdentificacionDeExamenes.TabIndex = 1;
             this.groupBoxIdentificacionDeExamenes.TabStop = false;
             this.groupBoxIdentificacionDeExamenes.Text = "Identificación de exámenes";
@@ -590,10 +602,9 @@
             // pictureBoxIdentificarExamenes
             // 
             this.pictureBoxIdentificarExamenes.Image = global::TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96;
-            this.pictureBoxIdentificarExamenes.Location = new System.Drawing.Point(195, 26);
-            this.pictureBoxIdentificarExamenes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxIdentificarExamenes.Location = new System.Drawing.Point(130, 17);
             this.pictureBoxIdentificarExamenes.Name = "pictureBoxIdentificarExamenes";
-            this.pictureBoxIdentificarExamenes.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxIdentificarExamenes.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxIdentificarExamenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxIdentificarExamenes.TabIndex = 9;
             this.pictureBoxIdentificarExamenes.TabStop = false;
@@ -604,11 +615,9 @@
             this.groupBoxJustificacion.Controls.Add(this.radioButtonDerecha);
             this.groupBoxJustificacion.Controls.Add(this.radioButtonCentro);
             this.groupBoxJustificacion.Controls.Add(this.radioButtonIzquierda);
-            this.groupBoxJustificacion.Location = new System.Drawing.Point(38, 289);
-            this.groupBoxJustificacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxJustificacion.Location = new System.Drawing.Point(25, 188);
             this.groupBoxJustificacion.Name = "groupBoxJustificacion";
-            this.groupBoxJustificacion.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxJustificacion.Size = new System.Drawing.Size(330, 86);
+            this.groupBoxJustificacion.Size = new System.Drawing.Size(220, 56);
             this.groupBoxJustificacion.TabIndex = 8;
             this.groupBoxJustificacion.TabStop = false;
             this.groupBoxJustificacion.Text = "Justificación";
@@ -616,10 +625,9 @@
             // radioButtonDerecha
             // 
             this.radioButtonDerecha.AutoSize = true;
-            this.radioButtonDerecha.Location = new System.Drawing.Point(219, 38);
-            this.radioButtonDerecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonDerecha.Location = new System.Drawing.Point(146, 25);
             this.radioButtonDerecha.Name = "radioButtonDerecha";
-            this.radioButtonDerecha.Size = new System.Drawing.Size(95, 24);
+            this.radioButtonDerecha.Size = new System.Drawing.Size(66, 17);
             this.radioButtonDerecha.TabIndex = 3;
             this.radioButtonDerecha.TabStop = true;
             this.radioButtonDerecha.Text = "Derecha";
@@ -628,10 +636,9 @@
             // radioButtonCentro
             // 
             this.radioButtonCentro.AutoSize = true;
-            this.radioButtonCentro.Location = new System.Drawing.Point(126, 38);
-            this.radioButtonCentro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonCentro.Location = new System.Drawing.Point(84, 25);
             this.radioButtonCentro.Name = "radioButtonCentro";
-            this.radioButtonCentro.Size = new System.Drawing.Size(82, 24);
+            this.radioButtonCentro.Size = new System.Drawing.Size(56, 17);
             this.radioButtonCentro.TabIndex = 2;
             this.radioButtonCentro.TabStop = true;
             this.radioButtonCentro.Text = "Centro";
@@ -641,10 +648,9 @@
             // 
             this.radioButtonIzquierda.AutoSize = true;
             this.radioButtonIzquierda.Checked = true;
-            this.radioButtonIzquierda.Location = new System.Drawing.Point(15, 38);
-            this.radioButtonIzquierda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonIzquierda.Location = new System.Drawing.Point(10, 25);
             this.radioButtonIzquierda.Name = "radioButtonIzquierda";
-            this.radioButtonIzquierda.Size = new System.Drawing.Size(100, 24);
+            this.radioButtonIzquierda.Size = new System.Drawing.Size(68, 17);
             this.radioButtonIzquierda.TabIndex = 1;
             this.radioButtonIzquierda.TabStop = true;
             this.radioButtonIzquierda.Text = "Izquierda";
@@ -655,11 +661,9 @@
             this.groupBoxUbicacionEnLaPagina.Controls.Add(this.radioButtonPie);
             this.groupBoxUbicacionEnLaPagina.Controls.Add(this.radioButtonInicioDePreguntas);
             this.groupBoxUbicacionEnLaPagina.Controls.Add(this.radioButtonEncabezado);
-            this.groupBoxUbicacionEnLaPagina.Location = new System.Drawing.Point(34, 111);
-            this.groupBoxUbicacionEnLaPagina.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxUbicacionEnLaPagina.Location = new System.Drawing.Point(23, 72);
             this.groupBoxUbicacionEnLaPagina.Name = "groupBoxUbicacionEnLaPagina";
-            this.groupBoxUbicacionEnLaPagina.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxUbicacionEnLaPagina.Size = new System.Drawing.Size(330, 169);
+            this.groupBoxUbicacionEnLaPagina.Size = new System.Drawing.Size(220, 110);
             this.groupBoxUbicacionEnLaPagina.TabIndex = 7;
             this.groupBoxUbicacionEnLaPagina.TabStop = false;
             this.groupBoxUbicacionEnLaPagina.Text = "Ubicación en la página";
@@ -668,10 +672,9 @@
             // 
             this.radioButtonPie.AutoSize = true;
             this.radioButtonPie.Checked = true;
-            this.radioButtonPie.Location = new System.Drawing.Point(15, 109);
-            this.radioButtonPie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonPie.Location = new System.Drawing.Point(10, 71);
             this.radioButtonPie.Name = "radioButtonPie";
-            this.radioButtonPie.Size = new System.Drawing.Size(56, 24);
+            this.radioButtonPie.Size = new System.Drawing.Size(40, 17);
             this.radioButtonPie.TabIndex = 2;
             this.radioButtonPie.TabStop = true;
             this.radioButtonPie.Text = "Pie";
@@ -680,10 +683,9 @@
             // radioButtonInicioDePreguntas
             // 
             this.radioButtonInicioDePreguntas.AutoSize = true;
-            this.radioButtonInicioDePreguntas.Location = new System.Drawing.Point(15, 74);
-            this.radioButtonInicioDePreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonInicioDePreguntas.Location = new System.Drawing.Point(10, 48);
             this.radioButtonInicioDePreguntas.Name = "radioButtonInicioDePreguntas";
-            this.radioButtonInicioDePreguntas.Size = new System.Drawing.Size(169, 24);
+            this.radioButtonInicioDePreguntas.Size = new System.Drawing.Size(115, 17);
             this.radioButtonInicioDePreguntas.TabIndex = 1;
             this.radioButtonInicioDePreguntas.TabStop = true;
             this.radioButtonInicioDePreguntas.Text = "Inicio de preguntas";
@@ -692,10 +694,9 @@
             // radioButtonEncabezado
             // 
             this.radioButtonEncabezado.AutoSize = true;
-            this.radioButtonEncabezado.Location = new System.Drawing.Point(15, 38);
-            this.radioButtonEncabezado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonEncabezado.Location = new System.Drawing.Point(10, 25);
             this.radioButtonEncabezado.Name = "radioButtonEncabezado";
-            this.radioButtonEncabezado.Size = new System.Drawing.Size(124, 24);
+            this.radioButtonEncabezado.Size = new System.Drawing.Size(85, 17);
             this.radioButtonEncabezado.TabIndex = 0;
             this.radioButtonEncabezado.TabStop = true;
             this.radioButtonEncabezado.Text = "Encabezado";
@@ -703,10 +704,9 @@
             // 
             // textBoxIdentificarCopia
             // 
-            this.textBoxIdentificarCopia.Location = new System.Drawing.Point(250, 71);
-            this.textBoxIdentificarCopia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxIdentificarCopia.Location = new System.Drawing.Point(167, 46);
             this.textBoxIdentificarCopia.Name = "textBoxIdentificarCopia";
-            this.textBoxIdentificarCopia.Size = new System.Drawing.Size(58, 26);
+            this.textBoxIdentificarCopia.Size = new System.Drawing.Size(40, 20);
             this.textBoxIdentificarCopia.TabIndex = 6;
             this.textBoxIdentificarCopia.Text = "COP-";
             this.textBoxIdentificarCopia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -714,19 +714,17 @@
             // labeIdentificarCopia
             // 
             this.labeIdentificarCopia.AutoSize = true;
-            this.labeIdentificarCopia.Location = new System.Drawing.Point(190, 75);
-            this.labeIdentificarCopia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labeIdentificarCopia.Location = new System.Drawing.Point(127, 49);
             this.labeIdentificarCopia.Name = "labeIdentificarCopia";
-            this.labeIdentificarCopia.Size = new System.Drawing.Size(50, 20);
+            this.labeIdentificarCopia.Size = new System.Drawing.Size(34, 13);
             this.labeIdentificarCopia.TabIndex = 5;
             this.labeIdentificarCopia.Text = "Copia";
             // 
             // textBoxIdentificarExamen
             // 
-            this.textBoxIdentificarExamen.Location = new System.Drawing.Point(106, 71);
-            this.textBoxIdentificarExamen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxIdentificarExamen.Location = new System.Drawing.Point(71, 46);
             this.textBoxIdentificarExamen.Name = "textBoxIdentificarExamen";
-            this.textBoxIdentificarExamen.Size = new System.Drawing.Size(58, 26);
+            this.textBoxIdentificarExamen.Size = new System.Drawing.Size(40, 20);
             this.textBoxIdentificarExamen.TabIndex = 4;
             this.textBoxIdentificarExamen.Text = "EX-";
             this.textBoxIdentificarExamen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -734,20 +732,18 @@
             // labelIdentificarExamen
             // 
             this.labelIdentificarExamen.AutoSize = true;
-            this.labelIdentificarExamen.Location = new System.Drawing.Point(30, 75);
-            this.labelIdentificarExamen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIdentificarExamen.Location = new System.Drawing.Point(20, 49);
             this.labelIdentificarExamen.Name = "labelIdentificarExamen";
-            this.labelIdentificarExamen.Size = new System.Drawing.Size(67, 20);
+            this.labelIdentificarExamen.Size = new System.Drawing.Size(45, 13);
             this.labelIdentificarExamen.TabIndex = 3;
             this.labelIdentificarExamen.Text = "Examen";
             // 
             // labelIdentificarExamanes
             // 
             this.labelIdentificarExamanes.AutoSize = true;
-            this.labelIdentificarExamanes.Location = new System.Drawing.Point(30, 38);
-            this.labelIdentificarExamanes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIdentificarExamanes.Location = new System.Drawing.Point(20, 25);
             this.labelIdentificarExamanes.Name = "labelIdentificarExamanes";
-            this.labelIdentificarExamanes.Size = new System.Drawing.Size(156, 20);
+            this.labelIdentificarExamanes.Size = new System.Drawing.Size(104, 13);
             this.labelIdentificarExamanes.TabIndex = 1;
             this.labelIdentificarExamanes.Text = "Identificar exámenes";
             // 
@@ -759,11 +755,9 @@
             this.groupBoxCantidadDeExamenes.Controls.Add(this.radioButtonNuevaEleccion);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.numericUpDownExamenes);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.labelExamenes);
-            this.groupBoxCantidadDeExamenes.Location = new System.Drawing.Point(22, 38);
-            this.groupBoxCantidadDeExamenes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxCantidadDeExamenes.Location = new System.Drawing.Point(15, 25);
             this.groupBoxCantidadDeExamenes.Name = "groupBoxCantidadDeExamenes";
-            this.groupBoxCantidadDeExamenes.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxCantidadDeExamenes.Size = new System.Drawing.Size(375, 385);
+            this.groupBoxCantidadDeExamenes.Size = new System.Drawing.Size(250, 250);
             this.groupBoxCantidadDeExamenes.TabIndex = 0;
             this.groupBoxCantidadDeExamenes.TabStop = false;
             this.groupBoxCantidadDeExamenes.Text = "Cantidad de exámenes";
@@ -771,10 +765,9 @@
             // labelTotalExamanesCopias
             // 
             this.labelTotalExamanesCopias.AutoSize = true;
-            this.labelTotalExamanesCopias.Location = new System.Drawing.Point(15, 331);
-            this.labelTotalExamanesCopias.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTotalExamanesCopias.Location = new System.Drawing.Point(10, 215);
             this.labelTotalExamanesCopias.Name = "labelTotalExamanesCopias";
-            this.labelTotalExamanesCopias.Size = new System.Drawing.Size(264, 20);
+            this.labelTotalExamanesCopias.Size = new System.Drawing.Size(180, 13);
             this.labelTotalExamanesCopias.TabIndex = 5;
             this.labelTotalExamanesCopias.Text = "Total de exámenes ( ) y copias ( ) = x";
             // 
@@ -783,11 +776,9 @@
             this.groupBoxCopias.Controls.Add(this.checkBoxRespuestasAleatoerias);
             this.groupBoxCopias.Controls.Add(this.checkBoxPreguntasAleatoerias);
             this.groupBoxCopias.Controls.Add(this.numericUpDownCopias);
-            this.groupBoxCopias.Location = new System.Drawing.Point(34, 146);
-            this.groupBoxCopias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxCopias.Location = new System.Drawing.Point(23, 95);
             this.groupBoxCopias.Name = "groupBoxCopias";
-            this.groupBoxCopias.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxCopias.Size = new System.Drawing.Size(316, 169);
+            this.groupBoxCopias.Size = new System.Drawing.Size(211, 110);
             this.groupBoxCopias.TabIndex = 4;
             this.groupBoxCopias.TabStop = false;
             this.groupBoxCopias.Text = "Copias";
@@ -797,10 +788,9 @@
             this.checkBoxRespuestasAleatoerias.AutoSize = true;
             this.checkBoxRespuestasAleatoerias.Checked = true;
             this.checkBoxRespuestasAleatoerias.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRespuestasAleatoerias.Location = new System.Drawing.Point(15, 114);
-            this.checkBoxRespuestasAleatoerias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBoxRespuestasAleatoerias.Location = new System.Drawing.Point(10, 74);
             this.checkBoxRespuestasAleatoerias.Name = "checkBoxRespuestasAleatoerias";
-            this.checkBoxRespuestasAleatoerias.Size = new System.Drawing.Size(194, 24);
+            this.checkBoxRespuestasAleatoerias.Size = new System.Drawing.Size(130, 17);
             this.checkBoxRespuestasAleatoerias.TabIndex = 4;
             this.checkBoxRespuestasAleatoerias.Text = "Respuestas aleatorias";
             this.checkBoxRespuestasAleatoerias.UseVisualStyleBackColor = true;
@@ -810,30 +800,27 @@
             this.checkBoxPreguntasAleatoerias.AutoSize = true;
             this.checkBoxPreguntasAleatoerias.Checked = true;
             this.checkBoxPreguntasAleatoerias.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPreguntasAleatoerias.Location = new System.Drawing.Point(15, 78);
-            this.checkBoxPreguntasAleatoerias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBoxPreguntasAleatoerias.Location = new System.Drawing.Point(10, 51);
             this.checkBoxPreguntasAleatoerias.Name = "checkBoxPreguntasAleatoerias";
-            this.checkBoxPreguntasAleatoerias.Size = new System.Drawing.Size(181, 24);
+            this.checkBoxPreguntasAleatoerias.Size = new System.Drawing.Size(122, 17);
             this.checkBoxPreguntasAleatoerias.TabIndex = 3;
             this.checkBoxPreguntasAleatoerias.Text = "Preguntas aleatorias";
             this.checkBoxPreguntasAleatoerias.UseVisualStyleBackColor = true;
             // 
             // numericUpDownCopias
             // 
-            this.numericUpDownCopias.Location = new System.Drawing.Point(15, 38);
-            this.numericUpDownCopias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownCopias.Location = new System.Drawing.Point(10, 25);
             this.numericUpDownCopias.Name = "numericUpDownCopias";
-            this.numericUpDownCopias.Size = new System.Drawing.Size(60, 26);
+            this.numericUpDownCopias.Size = new System.Drawing.Size(40, 20);
             this.numericUpDownCopias.TabIndex = 2;
             // 
             // radioButtonNuevasPreguntas
             // 
             this.radioButtonNuevasPreguntas.AutoSize = true;
             this.radioButtonNuevasPreguntas.Checked = true;
-            this.radioButtonNuevasPreguntas.Location = new System.Drawing.Point(34, 111);
-            this.radioButtonNuevasPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonNuevasPreguntas.Location = new System.Drawing.Point(23, 72);
             this.radioButtonNuevasPreguntas.Name = "radioButtonNuevasPreguntas";
-            this.radioButtonNuevasPreguntas.Size = new System.Drawing.Size(163, 24);
+            this.radioButtonNuevasPreguntas.Size = new System.Drawing.Size(112, 17);
             this.radioButtonNuevasPreguntas.TabIndex = 3;
             this.radioButtonNuevasPreguntas.TabStop = true;
             this.radioButtonNuevasPreguntas.Text = "Nuevas preguntas";
@@ -842,10 +829,9 @@
             // radioButtonNuevaEleccion
             // 
             this.radioButtonNuevaEleccion.AutoSize = true;
-            this.radioButtonNuevaEleccion.Location = new System.Drawing.Point(34, 75);
-            this.radioButtonNuevaEleccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonNuevaEleccion.Location = new System.Drawing.Point(23, 49);
             this.radioButtonNuevaEleccion.Name = "radioButtonNuevaEleccion";
-            this.radioButtonNuevaEleccion.Size = new System.Drawing.Size(141, 24);
+            this.radioButtonNuevaEleccion.Size = new System.Drawing.Size(100, 17);
             this.radioButtonNuevaEleccion.TabIndex = 2;
             this.radioButtonNuevaEleccion.TabStop = true;
             this.radioButtonNuevaEleccion.Text = "Nueva elección";
@@ -853,10 +839,9 @@
             // 
             // numericUpDownExamenes
             // 
-            this.numericUpDownExamenes.Location = new System.Drawing.Point(123, 35);
-            this.numericUpDownExamenes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownExamenes.Location = new System.Drawing.Point(82, 23);
             this.numericUpDownExamenes.Name = "numericUpDownExamenes";
-            this.numericUpDownExamenes.Size = new System.Drawing.Size(60, 26);
+            this.numericUpDownExamenes.Size = new System.Drawing.Size(40, 20);
             this.numericUpDownExamenes.TabIndex = 1;
             this.numericUpDownExamenes.Value = new decimal(new int[] {
             1,
@@ -867,10 +852,9 @@
             // labelExamenes
             // 
             this.labelExamenes.AutoSize = true;
-            this.labelExamenes.Location = new System.Drawing.Point(30, 38);
-            this.labelExamenes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelExamenes.Location = new System.Drawing.Point(20, 25);
             this.labelExamenes.Name = "labelExamenes";
-            this.labelExamenes.Size = new System.Drawing.Size(84, 20);
+            this.labelExamenes.Size = new System.Drawing.Size(56, 13);
             this.labelExamenes.TabIndex = 0;
             this.labelExamenes.Text = "Exámenes";
             // 
@@ -880,9 +864,10 @@
             this.tabNumeracion.Controls.Add(this.groupBoxNumeracionDePreguntasGeneral);
             this.tabNumeracion.ImageIndex = 2;
             this.tabNumeracion.Location = new System.Drawing.Point(4, 23);
+            this.tabNumeracion.Margin = new System.Windows.Forms.Padding(2);
             this.tabNumeracion.Name = "tabNumeracion";
-            this.tabNumeracion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNumeracion.Size = new System.Drawing.Size(1147, 673);
+            this.tabNumeracion.Padding = new System.Windows.Forms.Padding(2);
+            this.tabNumeracion.Size = new System.Drawing.Size(762, 428);
             this.tabNumeracion.TabIndex = 2;
             this.tabNumeracion.Text = "Numeración";
             this.tabNumeracion.UseVisualStyleBackColor = true;
@@ -892,11 +877,9 @@
             this.groupBoxNumeracionDeRespuestasGeneral.Controls.Add(this.groupBoxColumnasRespuestas);
             this.groupBoxNumeracionDeRespuestasGeneral.Controls.Add(this.groupBoxEspaciadoRespuestas);
             this.groupBoxNumeracionDeRespuestasGeneral.Controls.Add(this.groupBoxNumeracionRespuestas);
-            this.groupBoxNumeracionDeRespuestasGeneral.Location = new System.Drawing.Point(504, 38);
-            this.groupBoxNumeracionDeRespuestasGeneral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxNumeracionDeRespuestasGeneral.Location = new System.Drawing.Point(336, 25);
             this.groupBoxNumeracionDeRespuestasGeneral.Name = "groupBoxNumeracionDeRespuestasGeneral";
-            this.groupBoxNumeracionDeRespuestasGeneral.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxNumeracionDeRespuestasGeneral.Size = new System.Drawing.Size(612, 538);
+            this.groupBoxNumeracionDeRespuestasGeneral.Size = new System.Drawing.Size(408, 350);
             this.groupBoxNumeracionDeRespuestasGeneral.TabIndex = 1;
             this.groupBoxNumeracionDeRespuestasGeneral.TabStop = false;
             this.groupBoxNumeracionDeRespuestasGeneral.Text = "Numeración de las opciones de respuestas (&&, &&&&) ";
@@ -922,11 +905,9 @@
             this.groupBoxColumnasRespuestas.Controls.Add(this.radioButtonListaHorizontalColumnasRespuestas);
             this.groupBoxColumnasRespuestas.Controls.Add(this.labelListaVerticalAColumnasRespuestas);
             this.groupBoxColumnasRespuestas.Controls.Add(this.radioButtonListaVerticalColumnasRespuestas);
-            this.groupBoxColumnasRespuestas.Location = new System.Drawing.Point(324, 31);
-            this.groupBoxColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxColumnasRespuestas.Location = new System.Drawing.Point(216, 20);
             this.groupBoxColumnasRespuestas.Name = "groupBoxColumnasRespuestas";
-            this.groupBoxColumnasRespuestas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxColumnasRespuestas.Size = new System.Drawing.Size(270, 474);
+            this.groupBoxColumnasRespuestas.Size = new System.Drawing.Size(180, 308);
             this.groupBoxColumnasRespuestas.TabIndex = 4;
             this.groupBoxColumnasRespuestas.TabStop = false;
             this.groupBoxColumnasRespuestas.Text = "Columnas";
@@ -934,10 +915,9 @@
             // pictureBoxMantenerOriginalColumnasRespuestas
             // 
             this.pictureBoxMantenerOriginalColumnasRespuestas.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMantenerOriginalColumnasRespuestas.Image")));
-            this.pictureBoxMantenerOriginalColumnasRespuestas.Location = new System.Drawing.Point(180, 403);
-            this.pictureBoxMantenerOriginalColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMantenerOriginalColumnasRespuestas.Location = new System.Drawing.Point(120, 262);
             this.pictureBoxMantenerOriginalColumnasRespuestas.Name = "pictureBoxMantenerOriginalColumnasRespuestas";
-            this.pictureBoxMantenerOriginalColumnasRespuestas.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxMantenerOriginalColumnasRespuestas.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxMantenerOriginalColumnasRespuestas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMantenerOriginalColumnasRespuestas.TabIndex = 20;
             this.pictureBoxMantenerOriginalColumnasRespuestas.TabStop = false;
@@ -946,74 +926,66 @@
             // labelColumnaAColumnasRespuestas
             // 
             this.labelColumnaAColumnasRespuestas.AutoSize = true;
-            this.labelColumnaAColumnasRespuestas.Location = new System.Drawing.Point(52, 346);
-            this.labelColumnaAColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelColumnaAColumnasRespuestas.Location = new System.Drawing.Point(35, 225);
             this.labelColumnaAColumnasRespuestas.Name = "labelColumnaAColumnasRespuestas";
-            this.labelColumnaAColumnasRespuestas.Size = new System.Drawing.Size(65, 40);
+            this.labelColumnaAColumnasRespuestas.Size = new System.Drawing.Size(46, 26);
             this.labelColumnaAColumnasRespuestas.TabIndex = 19;
             this.labelColumnaAColumnasRespuestas.Text = "a)       c)\r\nb)       d)";
             // 
             // labelMantenerOriginalColumnasRespuestas
             // 
             this.labelMantenerOriginalColumnasRespuestas.AutoSize = true;
-            this.labelMantenerOriginalColumnasRespuestas.Location = new System.Drawing.Point(39, 417);
-            this.labelMantenerOriginalColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMantenerOriginalColumnasRespuestas.Location = new System.Drawing.Point(26, 271);
             this.labelMantenerOriginalColumnasRespuestas.Name = "labelMantenerOriginalColumnasRespuestas";
-            this.labelMantenerOriginalColumnasRespuestas.Size = new System.Drawing.Size(131, 20);
+            this.labelMantenerOriginalColumnasRespuestas.Size = new System.Drawing.Size(88, 13);
             this.labelMantenerOriginalColumnasRespuestas.TabIndex = 17;
             this.labelMantenerOriginalColumnasRespuestas.Text = "Mantener original";
             // 
             // numericUpDownEspaciadoColumnasRespuestas
             // 
-            this.numericUpDownEspaciadoColumnasRespuestas.Location = new System.Drawing.Point(162, 300);
-            this.numericUpDownEspaciadoColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownEspaciadoColumnasRespuestas.Location = new System.Drawing.Point(108, 195);
             this.numericUpDownEspaciadoColumnasRespuestas.Name = "numericUpDownEspaciadoColumnasRespuestas";
-            this.numericUpDownEspaciadoColumnasRespuestas.Size = new System.Drawing.Size(82, 26);
+            this.numericUpDownEspaciadoColumnasRespuestas.Size = new System.Drawing.Size(55, 20);
             this.numericUpDownEspaciadoColumnasRespuestas.TabIndex = 16;
             // 
             // numericUpDownAnchoColumnasRespuestas
             // 
-            this.numericUpDownAnchoColumnasRespuestas.Location = new System.Drawing.Point(50, 300);
-            this.numericUpDownAnchoColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownAnchoColumnasRespuestas.Location = new System.Drawing.Point(33, 195);
             this.numericUpDownAnchoColumnasRespuestas.Name = "numericUpDownAnchoColumnasRespuestas";
-            this.numericUpDownAnchoColumnasRespuestas.Size = new System.Drawing.Size(82, 26);
+            this.numericUpDownAnchoColumnasRespuestas.Size = new System.Drawing.Size(55, 20);
             this.numericUpDownAnchoColumnasRespuestas.TabIndex = 15;
             // 
             // labelEspaciadoColumnasRespuestas
             // 
             this.labelEspaciadoColumnasRespuestas.AutoSize = true;
-            this.labelEspaciadoColumnasRespuestas.Location = new System.Drawing.Point(158, 274);
-            this.labelEspaciadoColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEspaciadoColumnasRespuestas.Location = new System.Drawing.Point(105, 178);
             this.labelEspaciadoColumnasRespuestas.Name = "labelEspaciadoColumnasRespuestas";
-            this.labelEspaciadoColumnasRespuestas.Size = new System.Drawing.Size(84, 20);
+            this.labelEspaciadoColumnasRespuestas.Size = new System.Drawing.Size(57, 13);
             this.labelEspaciadoColumnasRespuestas.TabIndex = 14;
             this.labelEspaciadoColumnasRespuestas.Text = "Espaciado";
             // 
             // labelAnchoColumnasRespuestas
             // 
             this.labelAnchoColumnasRespuestas.AutoSize = true;
-            this.labelAnchoColumnasRespuestas.Location = new System.Drawing.Point(48, 274);
-            this.labelAnchoColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAnchoColumnasRespuestas.Location = new System.Drawing.Point(32, 178);
             this.labelAnchoColumnasRespuestas.Name = "labelAnchoColumnasRespuestas";
-            this.labelAnchoColumnasRespuestas.Size = new System.Drawing.Size(55, 20);
+            this.labelAnchoColumnasRespuestas.Size = new System.Drawing.Size(38, 13);
             this.labelAnchoColumnasRespuestas.TabIndex = 13;
             this.labelAnchoColumnasRespuestas.Text = "Ancho";
             // 
             // numericUpDownNumeroColumnasColumnasRespuestas
             // 
-            this.numericUpDownNumeroColumnasColumnasRespuestas.Location = new System.Drawing.Point(124, 231);
-            this.numericUpDownNumeroColumnasColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownNumeroColumnasColumnasRespuestas.Location = new System.Drawing.Point(83, 150);
             this.numericUpDownNumeroColumnasColumnasRespuestas.Name = "numericUpDownNumeroColumnasColumnasRespuestas";
-            this.numericUpDownNumeroColumnasColumnasRespuestas.Size = new System.Drawing.Size(52, 26);
+            this.numericUpDownNumeroColumnasColumnasRespuestas.Size = new System.Drawing.Size(35, 20);
             this.numericUpDownNumeroColumnasColumnasRespuestas.TabIndex = 12;
             // 
             // radioButtonNumeroColumnasColumnasRespuestas
             // 
             this.radioButtonNumeroColumnasColumnasRespuestas.AutoSize = true;
-            this.radioButtonNumeroColumnasColumnasRespuestas.Location = new System.Drawing.Point(15, 231);
-            this.radioButtonNumeroColumnasColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonNumeroColumnasColumnasRespuestas.Location = new System.Drawing.Point(10, 150);
             this.radioButtonNumeroColumnasColumnasRespuestas.Name = "radioButtonNumeroColumnasColumnasRespuestas";
-            this.radioButtonNumeroColumnasColumnasRespuestas.Size = new System.Drawing.Size(105, 24);
+            this.radioButtonNumeroColumnasColumnasRespuestas.Size = new System.Drawing.Size(71, 17);
             this.radioButtonNumeroColumnasColumnasRespuestas.TabIndex = 11;
             this.radioButtonNumeroColumnasColumnasRespuestas.TabStop = true;
             this.radioButtonNumeroColumnasColumnasRespuestas.Text = "Columnas";
@@ -1021,39 +993,35 @@
             // 
             // textBoxSeguidoComodinColumnasRespuestas
             // 
-            this.textBoxSeguidoComodinColumnasRespuestas.Location = new System.Drawing.Point(132, 191);
-            this.textBoxSeguidoComodinColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxSeguidoComodinColumnasRespuestas.Location = new System.Drawing.Point(88, 124);
             this.textBoxSeguidoComodinColumnasRespuestas.Name = "textBoxSeguidoComodinColumnasRespuestas";
-            this.textBoxSeguidoComodinColumnasRespuestas.Size = new System.Drawing.Size(36, 26);
+            this.textBoxSeguidoComodinColumnasRespuestas.Size = new System.Drawing.Size(25, 20);
             this.textBoxSeguidoComodinColumnasRespuestas.TabIndex = 10;
             // 
             // labelSeguidoBColumnasRespuestas
             // 
             this.labelSeguidoBColumnasRespuestas.AutoSize = true;
-            this.labelSeguidoBColumnasRespuestas.Location = new System.Drawing.Point(180, 195);
-            this.labelSeguidoBColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSeguidoBColumnasRespuestas.Location = new System.Drawing.Point(120, 127);
             this.labelSeguidoBColumnasRespuestas.Name = "labelSeguidoBColumnasRespuestas";
-            this.labelSeguidoBColumnasRespuestas.Size = new System.Drawing.Size(23, 20);
+            this.labelSeguidoBColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
             this.labelSeguidoBColumnasRespuestas.TabIndex = 9;
             this.labelSeguidoBColumnasRespuestas.Text = "b)";
             // 
             // labelSeguidoAColumnasRespuestas
             // 
             this.labelSeguidoAColumnasRespuestas.AutoSize = true;
-            this.labelSeguidoAColumnasRespuestas.Location = new System.Drawing.Point(105, 195);
-            this.labelSeguidoAColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSeguidoAColumnasRespuestas.Location = new System.Drawing.Point(70, 127);
             this.labelSeguidoAColumnasRespuestas.Name = "labelSeguidoAColumnasRespuestas";
-            this.labelSeguidoAColumnasRespuestas.Size = new System.Drawing.Size(23, 20);
+            this.labelSeguidoAColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
             this.labelSeguidoAColumnasRespuestas.TabIndex = 8;
             this.labelSeguidoAColumnasRespuestas.Text = "a)";
             // 
             // radioButtonSeguidoColumnasRespuestas
             // 
             this.radioButtonSeguidoColumnasRespuestas.AutoSize = true;
-            this.radioButtonSeguidoColumnasRespuestas.Location = new System.Drawing.Point(15, 192);
-            this.radioButtonSeguidoColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonSeguidoColumnasRespuestas.Location = new System.Drawing.Point(10, 125);
             this.radioButtonSeguidoColumnasRespuestas.Name = "radioButtonSeguidoColumnasRespuestas";
-            this.radioButtonSeguidoColumnasRespuestas.Size = new System.Drawing.Size(93, 24);
+            this.radioButtonSeguidoColumnasRespuestas.Size = new System.Drawing.Size(64, 17);
             this.radioButtonSeguidoColumnasRespuestas.TabIndex = 7;
             this.radioButtonSeguidoColumnasRespuestas.TabStop = true;
             this.radioButtonSeguidoColumnasRespuestas.Text = "Seguido";
@@ -1061,39 +1029,35 @@
             // 
             // textBoxListaHorizontalComodinColumnasRespuestas
             // 
-            this.textBoxListaHorizontalComodinColumnasRespuestas.Location = new System.Drawing.Point(72, 149);
-            this.textBoxListaHorizontalComodinColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxListaHorizontalComodinColumnasRespuestas.Location = new System.Drawing.Point(48, 97);
             this.textBoxListaHorizontalComodinColumnasRespuestas.Name = "textBoxListaHorizontalComodinColumnasRespuestas";
-            this.textBoxListaHorizontalComodinColumnasRespuestas.Size = new System.Drawing.Size(36, 26);
+            this.textBoxListaHorizontalComodinColumnasRespuestas.Size = new System.Drawing.Size(25, 20);
             this.textBoxListaHorizontalComodinColumnasRespuestas.TabIndex = 6;
             // 
             // labelListaHorizontalBColumnasRespuestas
             // 
             this.labelListaHorizontalBColumnasRespuestas.AutoSize = true;
-            this.labelListaHorizontalBColumnasRespuestas.Location = new System.Drawing.Point(120, 154);
-            this.labelListaHorizontalBColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelListaHorizontalBColumnasRespuestas.Location = new System.Drawing.Point(80, 100);
             this.labelListaHorizontalBColumnasRespuestas.Name = "labelListaHorizontalBColumnasRespuestas";
-            this.labelListaHorizontalBColumnasRespuestas.Size = new System.Drawing.Size(23, 20);
+            this.labelListaHorizontalBColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
             this.labelListaHorizontalBColumnasRespuestas.TabIndex = 5;
             this.labelListaHorizontalBColumnasRespuestas.Text = "b)";
             // 
             // labelListaHorizontalAColumnasRespuestas
             // 
             this.labelListaHorizontalAColumnasRespuestas.AutoSize = true;
-            this.labelListaHorizontalAColumnasRespuestas.Location = new System.Drawing.Point(45, 154);
-            this.labelListaHorizontalAColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelListaHorizontalAColumnasRespuestas.Location = new System.Drawing.Point(30, 100);
             this.labelListaHorizontalAColumnasRespuestas.Name = "labelListaHorizontalAColumnasRespuestas";
-            this.labelListaHorizontalAColumnasRespuestas.Size = new System.Drawing.Size(23, 20);
+            this.labelListaHorizontalAColumnasRespuestas.Size = new System.Drawing.Size(16, 13);
             this.labelListaHorizontalAColumnasRespuestas.TabIndex = 4;
             this.labelListaHorizontalAColumnasRespuestas.Text = "a)";
             // 
             // radioButtonListaHorizontalColumnasRespuestas
             // 
             this.radioButtonListaHorizontalColumnasRespuestas.AutoSize = true;
-            this.radioButtonListaHorizontalColumnasRespuestas.Location = new System.Drawing.Point(15, 123);
-            this.radioButtonListaHorizontalColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonListaHorizontalColumnasRespuestas.Location = new System.Drawing.Point(10, 80);
             this.radioButtonListaHorizontalColumnasRespuestas.Name = "radioButtonListaHorizontalColumnasRespuestas";
-            this.radioButtonListaHorizontalColumnasRespuestas.Size = new System.Drawing.Size(141, 24);
+            this.radioButtonListaHorizontalColumnasRespuestas.Size = new System.Drawing.Size(95, 17);
             this.radioButtonListaHorizontalColumnasRespuestas.TabIndex = 3;
             this.radioButtonListaHorizontalColumnasRespuestas.TabStop = true;
             this.radioButtonListaHorizontalColumnasRespuestas.Text = "Lista horizontal";
@@ -1102,10 +1066,9 @@
             // labelListaVerticalAColumnasRespuestas
             // 
             this.labelListaVerticalAColumnasRespuestas.AutoSize = true;
-            this.labelListaVerticalAColumnasRespuestas.Location = new System.Drawing.Point(45, 69);
-            this.labelListaVerticalAColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelListaVerticalAColumnasRespuestas.Location = new System.Drawing.Point(30, 45);
             this.labelListaVerticalAColumnasRespuestas.Name = "labelListaVerticalAColumnasRespuestas";
-            this.labelListaVerticalAColumnasRespuestas.Size = new System.Drawing.Size(23, 40);
+            this.labelListaVerticalAColumnasRespuestas.Size = new System.Drawing.Size(16, 26);
             this.labelListaVerticalAColumnasRespuestas.TabIndex = 1;
             this.labelListaVerticalAColumnasRespuestas.Text = "a)\r\nb)";
             // 
@@ -1113,10 +1076,9 @@
             // 
             this.radioButtonListaVerticalColumnasRespuestas.AutoSize = true;
             this.radioButtonListaVerticalColumnasRespuestas.Checked = true;
-            this.radioButtonListaVerticalColumnasRespuestas.Location = new System.Drawing.Point(15, 38);
-            this.radioButtonListaVerticalColumnasRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonListaVerticalColumnasRespuestas.Location = new System.Drawing.Point(10, 25);
             this.radioButtonListaVerticalColumnasRespuestas.Name = "radioButtonListaVerticalColumnasRespuestas";
-            this.radioButtonListaVerticalColumnasRespuestas.Size = new System.Drawing.Size(121, 24);
+            this.radioButtonListaVerticalColumnasRespuestas.Size = new System.Drawing.Size(84, 17);
             this.radioButtonListaVerticalColumnasRespuestas.TabIndex = 0;
             this.radioButtonListaVerticalColumnasRespuestas.TabStop = true;
             this.radioButtonListaVerticalColumnasRespuestas.Text = "Lista vertical";
@@ -1134,11 +1096,9 @@
             this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelDespuesEspaciadoRespuestas);
             this.groupBoxEspaciadoRespuestas.Controls.Add(this.numericUpDownAntesEspaciadoRespuestas);
             this.groupBoxEspaciadoRespuestas.Controls.Add(this.labelAntesEspaciadoRespuestas);
-            this.groupBoxEspaciadoRespuestas.Location = new System.Drawing.Point(15, 215);
-            this.groupBoxEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxEspaciadoRespuestas.Location = new System.Drawing.Point(10, 140);
             this.groupBoxEspaciadoRespuestas.Name = "groupBoxEspaciadoRespuestas";
-            this.groupBoxEspaciadoRespuestas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxEspaciadoRespuestas.Size = new System.Drawing.Size(300, 289);
+            this.groupBoxEspaciadoRespuestas.Size = new System.Drawing.Size(200, 188);
             this.groupBoxEspaciadoRespuestas.TabIndex = 3;
             this.groupBoxEspaciadoRespuestas.TabStop = false;
             this.groupBoxEspaciadoRespuestas.Text = "Espaciado";
@@ -1146,10 +1106,9 @@
             // pictureBoxMantenerOriginalEspaciadoRespuestas
             // 
             this.pictureBoxMantenerOriginalEspaciadoRespuestas.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMantenerOriginalEspaciadoRespuestas.Image")));
-            this.pictureBoxMantenerOriginalEspaciadoRespuestas.Location = new System.Drawing.Point(156, 191);
-            this.pictureBoxMantenerOriginalEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMantenerOriginalEspaciadoRespuestas.Location = new System.Drawing.Point(104, 124);
             this.pictureBoxMantenerOriginalEspaciadoRespuestas.Name = "pictureBoxMantenerOriginalEspaciadoRespuestas";
-            this.pictureBoxMantenerOriginalEspaciadoRespuestas.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxMantenerOriginalEspaciadoRespuestas.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxMantenerOriginalEspaciadoRespuestas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMantenerOriginalEspaciadoRespuestas.TabIndex = 14;
             this.pictureBoxMantenerOriginalEspaciadoRespuestas.TabStop = false;
@@ -1157,84 +1116,75 @@
             // 
             // numericUpDownSangriaIzquierdaEspaciadoRespuestas
             // 
-            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Location = new System.Drawing.Point(158, 157);
-            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Location = new System.Drawing.Point(105, 102);
             this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Name = "numericUpDownSangriaIzquierdaEspaciadoRespuestas";
-            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Size = new System.Drawing.Size(128, 26);
+            this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.Size = new System.Drawing.Size(85, 20);
             this.numericUpDownSangriaIzquierdaEspaciadoRespuestas.TabIndex = 13;
             // 
             // labelSangriaIzquierdaEspaciadoRespuestas
             // 
             this.labelSangriaIzquierdaEspaciadoRespuestas.AutoSize = true;
-            this.labelSangriaIzquierdaEspaciadoRespuestas.Location = new System.Drawing.Point(15, 160);
-            this.labelSangriaIzquierdaEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSangriaIzquierdaEspaciadoRespuestas.Location = new System.Drawing.Point(10, 104);
             this.labelSangriaIzquierdaEspaciadoRespuestas.Name = "labelSangriaIzquierdaEspaciadoRespuestas";
-            this.labelSangriaIzquierdaEspaciadoRespuestas.Size = new System.Drawing.Size(132, 20);
+            this.labelSangriaIzquierdaEspaciadoRespuestas.Size = new System.Drawing.Size(90, 13);
             this.labelSangriaIzquierdaEspaciadoRespuestas.TabIndex = 12;
             this.labelSangriaIzquierdaEspaciadoRespuestas.Text = "Sangría izquierda";
             // 
             // labelInterlineadoEspaciadoRespuestas
             // 
             this.labelInterlineadoEspaciadoRespuestas.AutoSize = true;
-            this.labelInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(15, 120);
-            this.labelInterlineadoEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(10, 78);
             this.labelInterlineadoEspaciadoRespuestas.Name = "labelInterlineadoEspaciadoRespuestas";
-            this.labelInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(93, 20);
+            this.labelInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(62, 13);
             this.labelInterlineadoEspaciadoRespuestas.TabIndex = 11;
             this.labelInterlineadoEspaciadoRespuestas.Text = "Interlineado";
             // 
             // labelMantenerOriginalEspaciadoRespuestas
             // 
             this.labelMantenerOriginalEspaciadoRespuestas.AutoSize = true;
-            this.labelMantenerOriginalEspaciadoRespuestas.Location = new System.Drawing.Point(15, 205);
-            this.labelMantenerOriginalEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMantenerOriginalEspaciadoRespuestas.Location = new System.Drawing.Point(10, 133);
             this.labelMantenerOriginalEspaciadoRespuestas.Name = "labelMantenerOriginalEspaciadoRespuestas";
-            this.labelMantenerOriginalEspaciadoRespuestas.Size = new System.Drawing.Size(131, 20);
+            this.labelMantenerOriginalEspaciadoRespuestas.Size = new System.Drawing.Size(88, 13);
             this.labelMantenerOriginalEspaciadoRespuestas.TabIndex = 9;
             this.labelMantenerOriginalEspaciadoRespuestas.Text = "Mantener original";
             // 
             // comboBoxInterlineadoEspaciadoRespuestas
             // 
             this.comboBoxInterlineadoEspaciadoRespuestas.FormattingEnabled = true;
-            this.comboBoxInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(158, 115);
-            this.comboBoxInterlineadoEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(105, 75);
             this.comboBoxInterlineadoEspaciadoRespuestas.Name = "comboBoxInterlineadoEspaciadoRespuestas";
-            this.comboBoxInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(126, 28);
+            this.comboBoxInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(85, 21);
             this.comboBoxInterlineadoEspaciadoRespuestas.TabIndex = 8;
             // 
             // numericUpDownDespuesEspaciadoRespuestas
             // 
-            this.numericUpDownDespuesEspaciadoRespuestas.Location = new System.Drawing.Point(158, 75);
-            this.numericUpDownDespuesEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownDespuesEspaciadoRespuestas.Location = new System.Drawing.Point(105, 49);
             this.numericUpDownDespuesEspaciadoRespuestas.Name = "numericUpDownDespuesEspaciadoRespuestas";
-            this.numericUpDownDespuesEspaciadoRespuestas.Size = new System.Drawing.Size(128, 26);
+            this.numericUpDownDespuesEspaciadoRespuestas.Size = new System.Drawing.Size(85, 20);
             this.numericUpDownDespuesEspaciadoRespuestas.TabIndex = 7;
             // 
             // labelDespuesEspaciadoRespuestas
             // 
             this.labelDespuesEspaciadoRespuestas.AutoSize = true;
-            this.labelDespuesEspaciadoRespuestas.Location = new System.Drawing.Point(15, 78);
-            this.labelDespuesEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDespuesEspaciadoRespuestas.Location = new System.Drawing.Point(10, 51);
             this.labelDespuesEspaciadoRespuestas.Name = "labelDespuesEspaciadoRespuestas";
-            this.labelDespuesEspaciadoRespuestas.Size = new System.Drawing.Size(73, 20);
+            this.labelDespuesEspaciadoRespuestas.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesEspaciadoRespuestas.TabIndex = 6;
             this.labelDespuesEspaciadoRespuestas.Text = "Después";
             // 
             // numericUpDownAntesEspaciadoRespuestas
             // 
-            this.numericUpDownAntesEspaciadoRespuestas.Location = new System.Drawing.Point(158, 35);
-            this.numericUpDownAntesEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownAntesEspaciadoRespuestas.Location = new System.Drawing.Point(105, 23);
             this.numericUpDownAntesEspaciadoRespuestas.Name = "numericUpDownAntesEspaciadoRespuestas";
-            this.numericUpDownAntesEspaciadoRespuestas.Size = new System.Drawing.Size(128, 26);
+            this.numericUpDownAntesEspaciadoRespuestas.Size = new System.Drawing.Size(85, 20);
             this.numericUpDownAntesEspaciadoRespuestas.TabIndex = 5;
             // 
             // labelAntesEspaciadoRespuestas
             // 
             this.labelAntesEspaciadoRespuestas.AutoSize = true;
-            this.labelAntesEspaciadoRespuestas.Location = new System.Drawing.Point(15, 38);
-            this.labelAntesEspaciadoRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAntesEspaciadoRespuestas.Location = new System.Drawing.Point(10, 25);
             this.labelAntesEspaciadoRespuestas.Name = "labelAntesEspaciadoRespuestas";
-            this.labelAntesEspaciadoRespuestas.Size = new System.Drawing.Size(51, 20);
+            this.labelAntesEspaciadoRespuestas.Size = new System.Drawing.Size(34, 13);
             this.labelAntesEspaciadoRespuestas.TabIndex = 1;
             this.labelAntesEspaciadoRespuestas.Text = "Antes";
             // 
@@ -1249,11 +1199,9 @@
             this.groupBoxNumeracionRespuestas.Controls.Add(this.labelDespuesNumeracionRespuestas);
             this.groupBoxNumeracionRespuestas.Controls.Add(this.labelNumeroNumeracionRespuestas);
             this.groupBoxNumeracionRespuestas.Controls.Add(this.labelAntesNumeracionRespuestas);
-            this.groupBoxNumeracionRespuestas.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxNumeracionRespuestas.Location = new System.Drawing.Point(10, 20);
             this.groupBoxNumeracionRespuestas.Name = "groupBoxNumeracionRespuestas";
-            this.groupBoxNumeracionRespuestas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxNumeracionRespuestas.Size = new System.Drawing.Size(300, 154);
+            this.groupBoxNumeracionRespuestas.Size = new System.Drawing.Size(200, 100);
             this.groupBoxNumeracionRespuestas.TabIndex = 1;
             this.groupBoxNumeracionRespuestas.TabStop = false;
             this.groupBoxNumeracionRespuestas.Text = "Numeración";
@@ -1261,10 +1209,9 @@
             // pictureBoxMantenerOriginalNumeracionRespuestas
             // 
             this.pictureBoxMantenerOriginalNumeracionRespuestas.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMantenerOriginalNumeracionRespuestas.Image")));
-            this.pictureBoxMantenerOriginalNumeracionRespuestas.Location = new System.Drawing.Point(156, 94);
-            this.pictureBoxMantenerOriginalNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMantenerOriginalNumeracionRespuestas.Location = new System.Drawing.Point(104, 61);
             this.pictureBoxMantenerOriginalNumeracionRespuestas.Name = "pictureBoxMantenerOriginalNumeracionRespuestas";
-            this.pictureBoxMantenerOriginalNumeracionRespuestas.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxMantenerOriginalNumeracionRespuestas.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxMantenerOriginalNumeracionRespuestas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMantenerOriginalNumeracionRespuestas.TabIndex = 11;
             this.pictureBoxMantenerOriginalNumeracionRespuestas.TabStop = false;
@@ -1281,76 +1228,68 @@
             "A",
             "a",
             "Ninguna"});
-            this.comboBoxNumeroNumeracionRespuestas.Location = new System.Drawing.Point(80, 55);
-            this.comboBoxNumeroNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxNumeroNumeracionRespuestas.Location = new System.Drawing.Point(53, 36);
             this.comboBoxNumeroNumeracionRespuestas.Name = "comboBoxNumeroNumeracionRespuestas";
-            this.comboBoxNumeroNumeracionRespuestas.Size = new System.Drawing.Size(50, 28);
+            this.comboBoxNumeroNumeracionRespuestas.Size = new System.Drawing.Size(35, 21);
             this.comboBoxNumeroNumeracionRespuestas.TabIndex = 10;
             // 
             // labelNumeracionResultadoNumeracionRespuestas
             // 
             this.labelNumeracionResultadoNumeracionRespuestas.AutoSize = true;
-            this.labelNumeracionResultadoNumeracionRespuestas.Location = new System.Drawing.Point(201, 60);
-            this.labelNumeracionResultadoNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumeracionResultadoNumeracionRespuestas.Location = new System.Drawing.Point(134, 39);
             this.labelNumeracionResultadoNumeracionRespuestas.Name = "labelNumeracionResultadoNumeracionRespuestas";
-            this.labelNumeracionResultadoNumeracionRespuestas.Size = new System.Drawing.Size(23, 20);
+            this.labelNumeracionResultadoNumeracionRespuestas.Size = new System.Drawing.Size(16, 13);
             this.labelNumeracionResultadoNumeracionRespuestas.TabIndex = 8;
             this.labelNumeracionResultadoNumeracionRespuestas.Text = "a)";
             // 
             // labelMantenerOriginalNumeracionRespuestas
             // 
             this.labelMantenerOriginalNumeracionRespuestas.AutoSize = true;
-            this.labelMantenerOriginalNumeracionRespuestas.Location = new System.Drawing.Point(15, 108);
-            this.labelMantenerOriginalNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMantenerOriginalNumeracionRespuestas.Location = new System.Drawing.Point(10, 70);
             this.labelMantenerOriginalNumeracionRespuestas.Name = "labelMantenerOriginalNumeracionRespuestas";
-            this.labelMantenerOriginalNumeracionRespuestas.Size = new System.Drawing.Size(131, 20);
+            this.labelMantenerOriginalNumeracionRespuestas.Size = new System.Drawing.Size(88, 13);
             this.labelMantenerOriginalNumeracionRespuestas.TabIndex = 6;
             this.labelMantenerOriginalNumeracionRespuestas.Text = "Mantener original";
             // 
             // textBoxDespuesNumeracionRespuestas
             // 
-            this.textBoxDespuesNumeracionRespuestas.Location = new System.Drawing.Point(140, 55);
-            this.textBoxDespuesNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDespuesNumeracionRespuestas.Location = new System.Drawing.Point(93, 36);
             this.textBoxDespuesNumeracionRespuestas.Name = "textBoxDespuesNumeracionRespuestas";
-            this.textBoxDespuesNumeracionRespuestas.Size = new System.Drawing.Size(50, 26);
+            this.textBoxDespuesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
             this.textBoxDespuesNumeracionRespuestas.TabIndex = 5;
             this.textBoxDespuesNumeracionRespuestas.Text = ")";
             // 
             // textBoxAntesNumeracionRespuestas
             // 
-            this.textBoxAntesNumeracionRespuestas.Location = new System.Drawing.Point(20, 55);
-            this.textBoxAntesNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxAntesNumeracionRespuestas.Location = new System.Drawing.Point(13, 36);
             this.textBoxAntesNumeracionRespuestas.Name = "textBoxAntesNumeracionRespuestas";
-            this.textBoxAntesNumeracionRespuestas.Size = new System.Drawing.Size(50, 26);
+            this.textBoxAntesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
             this.textBoxAntesNumeracionRespuestas.TabIndex = 3;
             // 
             // labelDespuesNumeracionRespuestas
             // 
             this.labelDespuesNumeracionRespuestas.AutoSize = true;
-            this.labelDespuesNumeracionRespuestas.Location = new System.Drawing.Point(135, 31);
-            this.labelDespuesNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDespuesNumeracionRespuestas.Location = new System.Drawing.Point(90, 20);
             this.labelDespuesNumeracionRespuestas.Name = "labelDespuesNumeracionRespuestas";
-            this.labelDespuesNumeracionRespuestas.Size = new System.Drawing.Size(73, 20);
+            this.labelDespuesNumeracionRespuestas.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesNumeracionRespuestas.TabIndex = 2;
             this.labelDespuesNumeracionRespuestas.Text = "Después";
             // 
             // labelNumeroNumeracionRespuestas
             // 
             this.labelNumeroNumeracionRespuestas.AutoSize = true;
-            this.labelNumeroNumeracionRespuestas.Location = new System.Drawing.Point(75, 31);
-            this.labelNumeroNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumeroNumeracionRespuestas.Location = new System.Drawing.Point(50, 20);
             this.labelNumeroNumeracionRespuestas.Name = "labelNumeroNumeracionRespuestas";
-            this.labelNumeroNumeracionRespuestas.Size = new System.Drawing.Size(33, 20);
+            this.labelNumeroNumeracionRespuestas.Size = new System.Drawing.Size(24, 13);
             this.labelNumeroNumeracionRespuestas.TabIndex = 1;
             this.labelNumeroNumeracionRespuestas.Text = "No.";
             // 
             // labelAntesNumeracionRespuestas
             // 
             this.labelAntesNumeracionRespuestas.AutoSize = true;
-            this.labelAntesNumeracionRespuestas.Location = new System.Drawing.Point(15, 31);
-            this.labelAntesNumeracionRespuestas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAntesNumeracionRespuestas.Location = new System.Drawing.Point(10, 20);
             this.labelAntesNumeracionRespuestas.Name = "labelAntesNumeracionRespuestas";
-            this.labelAntesNumeracionRespuestas.Size = new System.Drawing.Size(51, 20);
+            this.labelAntesNumeracionRespuestas.Size = new System.Drawing.Size(34, 13);
             this.labelAntesNumeracionRespuestas.TabIndex = 0;
             this.labelAntesNumeracionRespuestas.Text = "Antes";
             // 
@@ -1359,11 +1298,9 @@
             this.groupBoxNumeracionDePreguntasGeneral.Controls.Add(this.groupBoxEspaciadoPreguntas);
             this.groupBoxNumeracionDePreguntasGeneral.Controls.Add(this.groupBoxColumnasPreguntas);
             this.groupBoxNumeracionDePreguntasGeneral.Controls.Add(this.groupBoxNumeracionPreguntas);
-            this.groupBoxNumeracionDePreguntasGeneral.Location = new System.Drawing.Point(22, 38);
-            this.groupBoxNumeracionDePreguntasGeneral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxNumeracionDePreguntasGeneral.Location = new System.Drawing.Point(15, 25);
             this.groupBoxNumeracionDePreguntasGeneral.Name = "groupBoxNumeracionDePreguntasGeneral";
-            this.groupBoxNumeracionDePreguntasGeneral.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxNumeracionDePreguntasGeneral.Size = new System.Drawing.Size(472, 538);
+            this.groupBoxNumeracionDePreguntasGeneral.Size = new System.Drawing.Size(315, 350);
             this.groupBoxNumeracionDePreguntasGeneral.TabIndex = 0;
             this.groupBoxNumeracionDePreguntasGeneral.TabStop = false;
             this.groupBoxNumeracionDePreguntasGeneral.Text = "Numeración de preguntas (#) ";
@@ -1378,11 +1315,9 @@
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelDespuesEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.numericUpDownAntesEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelAntesEspaciadoPreguntas);
-            this.groupBoxEspaciadoPreguntas.Location = new System.Drawing.Point(15, 215);
-            this.groupBoxEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxEspaciadoPreguntas.Location = new System.Drawing.Point(10, 140);
             this.groupBoxEspaciadoPreguntas.Name = "groupBoxEspaciadoPreguntas";
-            this.groupBoxEspaciadoPreguntas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxEspaciadoPreguntas.Size = new System.Drawing.Size(442, 231);
+            this.groupBoxEspaciadoPreguntas.Size = new System.Drawing.Size(295, 150);
             this.groupBoxEspaciadoPreguntas.TabIndex = 2;
             this.groupBoxEspaciadoPreguntas.TabStop = false;
             this.groupBoxEspaciadoPreguntas.Text = "Espaciado";
@@ -1390,10 +1325,9 @@
             // pictureBoxMantenerOriginalEspaciadoPreguntas
             // 
             this.pictureBoxMantenerOriginalEspaciadoPreguntas.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMantenerOriginalEspaciadoPreguntas.Image")));
-            this.pictureBoxMantenerOriginalEspaciadoPreguntas.Location = new System.Drawing.Point(156, 151);
-            this.pictureBoxMantenerOriginalEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMantenerOriginalEspaciadoPreguntas.Location = new System.Drawing.Point(104, 98);
             this.pictureBoxMantenerOriginalEspaciadoPreguntas.Name = "pictureBoxMantenerOriginalEspaciadoPreguntas";
-            this.pictureBoxMantenerOriginalEspaciadoPreguntas.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxMantenerOriginalEspaciadoPreguntas.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxMantenerOriginalEspaciadoPreguntas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMantenerOriginalEspaciadoPreguntas.TabIndex = 12;
             this.pictureBoxMantenerOriginalEspaciadoPreguntas.TabStop = false;
@@ -1402,65 +1336,58 @@
             // labelInterlineadoEspaciadoPreguntas
             // 
             this.labelInterlineadoEspaciadoPreguntas.AutoSize = true;
-            this.labelInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(15, 120);
-            this.labelInterlineadoEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(10, 78);
             this.labelInterlineadoEspaciadoPreguntas.Name = "labelInterlineadoEspaciadoPreguntas";
-            this.labelInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(93, 20);
+            this.labelInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(62, 13);
             this.labelInterlineadoEspaciadoPreguntas.TabIndex = 11;
             this.labelInterlineadoEspaciadoPreguntas.Text = "Interlineado";
             // 
             // labelMantenerOriginalEspaciadoPreguntas
             // 
             this.labelMantenerOriginalEspaciadoPreguntas.AutoSize = true;
-            this.labelMantenerOriginalEspaciadoPreguntas.Location = new System.Drawing.Point(15, 165);
-            this.labelMantenerOriginalEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMantenerOriginalEspaciadoPreguntas.Location = new System.Drawing.Point(10, 107);
             this.labelMantenerOriginalEspaciadoPreguntas.Name = "labelMantenerOriginalEspaciadoPreguntas";
-            this.labelMantenerOriginalEspaciadoPreguntas.Size = new System.Drawing.Size(131, 20);
+            this.labelMantenerOriginalEspaciadoPreguntas.Size = new System.Drawing.Size(88, 13);
             this.labelMantenerOriginalEspaciadoPreguntas.TabIndex = 9;
             this.labelMantenerOriginalEspaciadoPreguntas.Text = "Mantener original";
             // 
             // comboBoxInterlineadoEspaciadoPreguntas
             // 
             this.comboBoxInterlineadoEspaciadoPreguntas.FormattingEnabled = true;
-            this.comboBoxInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(120, 115);
-            this.comboBoxInterlineadoEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(80, 75);
             this.comboBoxInterlineadoEspaciadoPreguntas.Name = "comboBoxInterlineadoEspaciadoPreguntas";
-            this.comboBoxInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(126, 28);
+            this.comboBoxInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(85, 21);
             this.comboBoxInterlineadoEspaciadoPreguntas.TabIndex = 8;
             // 
             // numericUpDownDespuesEspaciadoPreguntas
             // 
-            this.numericUpDownDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(120, 75);
-            this.numericUpDownDespuesEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 49);
             this.numericUpDownDespuesEspaciadoPreguntas.Name = "numericUpDownDespuesEspaciadoPreguntas";
-            this.numericUpDownDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(128, 26);
+            this.numericUpDownDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
             this.numericUpDownDespuesEspaciadoPreguntas.TabIndex = 7;
             // 
             // labelDespuesEspaciadoPreguntas
             // 
             this.labelDespuesEspaciadoPreguntas.AutoSize = true;
-            this.labelDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(15, 78);
-            this.labelDespuesEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(10, 51);
             this.labelDespuesEspaciadoPreguntas.Name = "labelDespuesEspaciadoPreguntas";
-            this.labelDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(73, 20);
+            this.labelDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesEspaciadoPreguntas.TabIndex = 6;
             this.labelDespuesEspaciadoPreguntas.Text = "Después";
             // 
             // numericUpDownAntesEspaciadoPreguntas
             // 
-            this.numericUpDownAntesEspaciadoPreguntas.Location = new System.Drawing.Point(120, 35);
-            this.numericUpDownAntesEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownAntesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 23);
             this.numericUpDownAntesEspaciadoPreguntas.Name = "numericUpDownAntesEspaciadoPreguntas";
-            this.numericUpDownAntesEspaciadoPreguntas.Size = new System.Drawing.Size(128, 26);
+            this.numericUpDownAntesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
             this.numericUpDownAntesEspaciadoPreguntas.TabIndex = 5;
             // 
             // labelAntesEspaciadoPreguntas
             // 
             this.labelAntesEspaciadoPreguntas.AutoSize = true;
-            this.labelAntesEspaciadoPreguntas.Location = new System.Drawing.Point(15, 38);
-            this.labelAntesEspaciadoPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAntesEspaciadoPreguntas.Location = new System.Drawing.Point(10, 25);
             this.labelAntesEspaciadoPreguntas.Name = "labelAntesEspaciadoPreguntas";
-            this.labelAntesEspaciadoPreguntas.Size = new System.Drawing.Size(51, 20);
+            this.labelAntesEspaciadoPreguntas.Size = new System.Drawing.Size(34, 13);
             this.labelAntesEspaciadoPreguntas.TabIndex = 1;
             this.labelAntesEspaciadoPreguntas.Text = "Antes";
             // 
@@ -1469,11 +1396,9 @@
             this.groupBoxColumnasPreguntas.Controls.Add(this.radioButtonMantenerOriginalColumnasPreguntas);
             this.groupBoxColumnasPreguntas.Controls.Add(this.radioButtonDosColumnasPreguntas);
             this.groupBoxColumnasPreguntas.Controls.Add(this.radioButtonUnaColumnasPreguntas);
-            this.groupBoxColumnasPreguntas.Location = new System.Drawing.Point(278, 31);
-            this.groupBoxColumnasPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxColumnasPreguntas.Location = new System.Drawing.Point(185, 20);
             this.groupBoxColumnasPreguntas.Name = "groupBoxColumnasPreguntas";
-            this.groupBoxColumnasPreguntas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxColumnasPreguntas.Size = new System.Drawing.Size(180, 154);
+            this.groupBoxColumnasPreguntas.Size = new System.Drawing.Size(120, 100);
             this.groupBoxColumnasPreguntas.TabIndex = 1;
             this.groupBoxColumnasPreguntas.TabStop = false;
             this.groupBoxColumnasPreguntas.Text = "Columnas";
@@ -1482,10 +1407,9 @@
             // 
             this.radioButtonMantenerOriginalColumnasPreguntas.AutoSize = true;
             this.radioButtonMantenerOriginalColumnasPreguntas.Checked = true;
-            this.radioButtonMantenerOriginalColumnasPreguntas.Location = new System.Drawing.Point(15, 77);
-            this.radioButtonMantenerOriginalColumnasPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonMantenerOriginalColumnasPreguntas.Location = new System.Drawing.Point(10, 50);
             this.radioButtonMantenerOriginalColumnasPreguntas.Name = "radioButtonMantenerOriginalColumnasPreguntas";
-            this.radioButtonMantenerOriginalColumnasPreguntas.Size = new System.Drawing.Size(156, 24);
+            this.radioButtonMantenerOriginalColumnasPreguntas.Size = new System.Drawing.Size(106, 17);
             this.radioButtonMantenerOriginalColumnasPreguntas.TabIndex = 2;
             this.radioButtonMantenerOriginalColumnasPreguntas.TabStop = true;
             this.radioButtonMantenerOriginalColumnasPreguntas.Text = "Mantener original";
@@ -1494,10 +1418,9 @@
             // radioButtonDosColumnasPreguntas
             // 
             this.radioButtonDosColumnasPreguntas.AutoSize = true;
-            this.radioButtonDosColumnasPreguntas.Location = new System.Drawing.Point(92, 38);
-            this.radioButtonDosColumnasPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonDosColumnasPreguntas.Location = new System.Drawing.Point(61, 25);
             this.radioButtonDosColumnasPreguntas.Name = "radioButtonDosColumnasPreguntas";
-            this.radioButtonDosColumnasPreguntas.Size = new System.Drawing.Size(63, 24);
+            this.radioButtonDosColumnasPreguntas.Size = new System.Drawing.Size(44, 17);
             this.radioButtonDosColumnasPreguntas.TabIndex = 1;
             this.radioButtonDosColumnasPreguntas.TabStop = true;
             this.radioButtonDosColumnasPreguntas.Text = "Dos";
@@ -1506,10 +1429,9 @@
             // radioButtonUnaColumnasPreguntas
             // 
             this.radioButtonUnaColumnasPreguntas.AutoSize = true;
-            this.radioButtonUnaColumnasPreguntas.Location = new System.Drawing.Point(15, 38);
-            this.radioButtonUnaColumnasPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonUnaColumnasPreguntas.Location = new System.Drawing.Point(10, 25);
             this.radioButtonUnaColumnasPreguntas.Name = "radioButtonUnaColumnasPreguntas";
-            this.radioButtonUnaColumnasPreguntas.Size = new System.Drawing.Size(64, 24);
+            this.radioButtonUnaColumnasPreguntas.Size = new System.Drawing.Size(45, 17);
             this.radioButtonUnaColumnasPreguntas.TabIndex = 0;
             this.radioButtonUnaColumnasPreguntas.TabStop = true;
             this.radioButtonUnaColumnasPreguntas.Text = "Una";
@@ -1526,11 +1448,9 @@
             this.groupBoxNumeracionPreguntas.Controls.Add(this.labelDespuesNumeracionPreguntas);
             this.groupBoxNumeracionPreguntas.Controls.Add(this.labelNumeroNumeracionPreguntas);
             this.groupBoxNumeracionPreguntas.Controls.Add(this.labelAntesNumeracionPreguntas);
-            this.groupBoxNumeracionPreguntas.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxNumeracionPreguntas.Location = new System.Drawing.Point(10, 20);
             this.groupBoxNumeracionPreguntas.Name = "groupBoxNumeracionPreguntas";
-            this.groupBoxNumeracionPreguntas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxNumeracionPreguntas.Size = new System.Drawing.Size(248, 154);
+            this.groupBoxNumeracionPreguntas.Size = new System.Drawing.Size(165, 100);
             this.groupBoxNumeracionPreguntas.TabIndex = 0;
             this.groupBoxNumeracionPreguntas.TabStop = false;
             this.groupBoxNumeracionPreguntas.Text = "Numeración";
@@ -1538,10 +1458,9 @@
             // pictureBoxMantenerOriginalNumeracionPreguntas
             // 
             this.pictureBoxMantenerOriginalNumeracionPreguntas.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMantenerOriginalNumeracionPreguntas.Image")));
-            this.pictureBoxMantenerOriginalNumeracionPreguntas.Location = new System.Drawing.Point(156, 94);
-            this.pictureBoxMantenerOriginalNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMantenerOriginalNumeracionPreguntas.Location = new System.Drawing.Point(104, 61);
             this.pictureBoxMantenerOriginalNumeracionPreguntas.Name = "pictureBoxMantenerOriginalNumeracionPreguntas";
-            this.pictureBoxMantenerOriginalNumeracionPreguntas.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxMantenerOriginalNumeracionPreguntas.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxMantenerOriginalNumeracionPreguntas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMantenerOriginalNumeracionPreguntas.TabIndex = 10;
             this.pictureBoxMantenerOriginalNumeracionPreguntas.TabStop = false;
@@ -1558,76 +1477,68 @@
             "A",
             "a",
             "Ninguna"});
-            this.comboBoxNumeroNumeracionPreguntas.Location = new System.Drawing.Point(80, 55);
-            this.comboBoxNumeroNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxNumeroNumeracionPreguntas.Location = new System.Drawing.Point(53, 36);
             this.comboBoxNumeroNumeracionPreguntas.Name = "comboBoxNumeroNumeracionPreguntas";
-            this.comboBoxNumeroNumeracionPreguntas.Size = new System.Drawing.Size(50, 28);
+            this.comboBoxNumeroNumeracionPreguntas.Size = new System.Drawing.Size(35, 21);
             this.comboBoxNumeroNumeracionPreguntas.TabIndex = 9;
             // 
             // labelNumeracionResultadoNumeracionPreguntas
             // 
             this.labelNumeracionResultadoNumeracionPreguntas.AutoSize = true;
-            this.labelNumeracionResultadoNumeracionPreguntas.Location = new System.Drawing.Point(201, 60);
-            this.labelNumeracionResultadoNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumeracionResultadoNumeracionPreguntas.Location = new System.Drawing.Point(134, 39);
             this.labelNumeracionResultadoNumeracionPreguntas.Name = "labelNumeracionResultadoNumeracionPreguntas";
-            this.labelNumeracionResultadoNumeracionPreguntas.Size = new System.Drawing.Size(23, 20);
+            this.labelNumeracionResultadoNumeracionPreguntas.Size = new System.Drawing.Size(16, 13);
             this.labelNumeracionResultadoNumeracionPreguntas.TabIndex = 8;
             this.labelNumeracionResultadoNumeracionPreguntas.Text = "1)";
             // 
             // labelMantenerOriginalNumeracionPreguntas
             // 
             this.labelMantenerOriginalNumeracionPreguntas.AutoSize = true;
-            this.labelMantenerOriginalNumeracionPreguntas.Location = new System.Drawing.Point(15, 108);
-            this.labelMantenerOriginalNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMantenerOriginalNumeracionPreguntas.Location = new System.Drawing.Point(10, 70);
             this.labelMantenerOriginalNumeracionPreguntas.Name = "labelMantenerOriginalNumeracionPreguntas";
-            this.labelMantenerOriginalNumeracionPreguntas.Size = new System.Drawing.Size(131, 20);
+            this.labelMantenerOriginalNumeracionPreguntas.Size = new System.Drawing.Size(88, 13);
             this.labelMantenerOriginalNumeracionPreguntas.TabIndex = 6;
             this.labelMantenerOriginalNumeracionPreguntas.Text = "Mantener original";
             // 
             // textBoxDespuesNumeracionPreguntas
             // 
-            this.textBoxDespuesNumeracionPreguntas.Location = new System.Drawing.Point(140, 55);
-            this.textBoxDespuesNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDespuesNumeracionPreguntas.Location = new System.Drawing.Point(93, 36);
             this.textBoxDespuesNumeracionPreguntas.Name = "textBoxDespuesNumeracionPreguntas";
-            this.textBoxDespuesNumeracionPreguntas.Size = new System.Drawing.Size(50, 26);
+            this.textBoxDespuesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
             this.textBoxDespuesNumeracionPreguntas.TabIndex = 5;
             this.textBoxDespuesNumeracionPreguntas.Text = ")";
             // 
             // textBoxAntesNumeracionPreguntas
             // 
-            this.textBoxAntesNumeracionPreguntas.Location = new System.Drawing.Point(20, 55);
-            this.textBoxAntesNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxAntesNumeracionPreguntas.Location = new System.Drawing.Point(13, 36);
             this.textBoxAntesNumeracionPreguntas.Name = "textBoxAntesNumeracionPreguntas";
-            this.textBoxAntesNumeracionPreguntas.Size = new System.Drawing.Size(50, 26);
+            this.textBoxAntesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
             this.textBoxAntesNumeracionPreguntas.TabIndex = 3;
             // 
             // labelDespuesNumeracionPreguntas
             // 
             this.labelDespuesNumeracionPreguntas.AutoSize = true;
-            this.labelDespuesNumeracionPreguntas.Location = new System.Drawing.Point(135, 31);
-            this.labelDespuesNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDespuesNumeracionPreguntas.Location = new System.Drawing.Point(90, 20);
             this.labelDespuesNumeracionPreguntas.Name = "labelDespuesNumeracionPreguntas";
-            this.labelDespuesNumeracionPreguntas.Size = new System.Drawing.Size(73, 20);
+            this.labelDespuesNumeracionPreguntas.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesNumeracionPreguntas.TabIndex = 2;
             this.labelDespuesNumeracionPreguntas.Text = "Después";
             // 
             // labelNumeroNumeracionPreguntas
             // 
             this.labelNumeroNumeracionPreguntas.AutoSize = true;
-            this.labelNumeroNumeracionPreguntas.Location = new System.Drawing.Point(75, 31);
-            this.labelNumeroNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumeroNumeracionPreguntas.Location = new System.Drawing.Point(50, 20);
             this.labelNumeroNumeracionPreguntas.Name = "labelNumeroNumeracionPreguntas";
-            this.labelNumeroNumeracionPreguntas.Size = new System.Drawing.Size(33, 20);
+            this.labelNumeroNumeracionPreguntas.Size = new System.Drawing.Size(24, 13);
             this.labelNumeroNumeracionPreguntas.TabIndex = 1;
             this.labelNumeroNumeracionPreguntas.Text = "No.";
             // 
             // labelAntesNumeracionPreguntas
             // 
             this.labelAntesNumeracionPreguntas.AutoSize = true;
-            this.labelAntesNumeracionPreguntas.Location = new System.Drawing.Point(15, 31);
-            this.labelAntesNumeracionPreguntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAntesNumeracionPreguntas.Location = new System.Drawing.Point(10, 20);
             this.labelAntesNumeracionPreguntas.Name = "labelAntesNumeracionPreguntas";
-            this.labelAntesNumeracionPreguntas.Size = new System.Drawing.Size(51, 20);
+            this.labelAntesNumeracionPreguntas.Size = new System.Drawing.Size(34, 13);
             this.labelAntesNumeracionPreguntas.TabIndex = 0;
             this.labelAntesNumeracionPreguntas.Text = "Antes";
             // 
@@ -1637,63 +1548,33 @@
             this.tabSolucion.Controls.Add(this.groupBoxPresentacionDeLaSolucion);
             this.tabSolucion.ImageIndex = 3;
             this.tabSolucion.Location = new System.Drawing.Point(4, 23);
+            this.tabSolucion.Margin = new System.Windows.Forms.Padding(2);
             this.tabSolucion.Name = "tabSolucion";
-            this.tabSolucion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSolucion.Size = new System.Drawing.Size(1147, 673);
+            this.tabSolucion.Padding = new System.Windows.Forms.Padding(2);
+            this.tabSolucion.Size = new System.Drawing.Size(762, 428);
             this.tabSolucion.TabIndex = 3;
             this.tabSolucion.Text = "Solución";
             this.tabSolucion.UseVisualStyleBackColor = true;
             // 
             // groupBoxImpresionDeLaSolucion
             // 
-            this.groupBoxImpresionDeLaSolucion.Controls.Add(this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion);
-            this.groupBoxImpresionDeLaSolucion.Controls.Add(this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion);
             this.groupBoxImpresionDeLaSolucion.Controls.Add(this.radioButtonImprimirFinalExamenImpresionSolucion);
             this.groupBoxImpresionDeLaSolucion.Controls.Add(this.radioButtonImprimirArchivoSeparadoImpresionSolucion);
             this.groupBoxImpresionDeLaSolucion.Controls.Add(this.radioButtonNoImprimirImpresionSolucion);
-            this.groupBoxImpresionDeLaSolucion.Location = new System.Drawing.Point(390, 38);
-            this.groupBoxImpresionDeLaSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxImpresionDeLaSolucion.Location = new System.Drawing.Point(260, 25);
             this.groupBoxImpresionDeLaSolucion.Name = "groupBoxImpresionDeLaSolucion";
-            this.groupBoxImpresionDeLaSolucion.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxImpresionDeLaSolucion.Size = new System.Drawing.Size(338, 400);
+            this.groupBoxImpresionDeLaSolucion.Size = new System.Drawing.Size(225, 260);
             this.groupBoxImpresionDeLaSolucion.TabIndex = 1;
             this.groupBoxImpresionDeLaSolucion.TabStop = false;
             this.groupBoxImpresionDeLaSolucion.Text = "Impresión de la solución";
-            // 
-            // checkBoxImprimirFinalExamenDosCarasImpresionSolucion
-            // 
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.AutoSize = true;
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Checked = true;
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Location = new System.Drawing.Point(51, 180);
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Name = "checkBoxImprimirFinalExamenDosCarasImpresionSolucion";
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Size = new System.Drawing.Size(219, 24);
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.TabIndex = 28;
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.Text = "con impresión a dos caras";
-            this.checkBoxImprimirFinalExamenDosCarasImpresionSolucion.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion
-            // 
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.AutoSize = true;
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Checked = true;
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Location = new System.Drawing.Point(51, 145);
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Name = "checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion";
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Size = new System.Drawing.Size(134, 24);
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.TabIndex = 27;
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.Text = "en hoja nueva";
-            this.checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion.UseVisualStyleBackColor = true;
             // 
             // radioButtonImprimirFinalExamenImpresionSolucion
             // 
             this.radioButtonImprimirFinalExamenImpresionSolucion.AutoSize = true;
             this.radioButtonImprimirFinalExamenImpresionSolucion.Checked = true;
-            this.radioButtonImprimirFinalExamenImpresionSolucion.Location = new System.Drawing.Point(22, 109);
-            this.radioButtonImprimirFinalExamenImpresionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonImprimirFinalExamenImpresionSolucion.Location = new System.Drawing.Point(15, 71);
             this.radioButtonImprimirFinalExamenImpresionSolucion.Name = "radioButtonImprimirFinalExamenImpresionSolucion";
-            this.radioButtonImprimirFinalExamenImpresionSolucion.Size = new System.Drawing.Size(224, 24);
+            this.radioButtonImprimirFinalExamenImpresionSolucion.Size = new System.Drawing.Size(150, 17);
             this.radioButtonImprimirFinalExamenImpresionSolucion.TabIndex = 26;
             this.radioButtonImprimirFinalExamenImpresionSolucion.TabStop = true;
             this.radioButtonImprimirFinalExamenImpresionSolucion.Text = "Imprimir al final del examen";
@@ -1702,10 +1583,9 @@
             // radioButtonImprimirArchivoSeparadoImpresionSolucion
             // 
             this.radioButtonImprimirArchivoSeparadoImpresionSolucion.AutoSize = true;
-            this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Location = new System.Drawing.Point(22, 74);
-            this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Location = new System.Drawing.Point(15, 48);
             this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Name = "radioButtonImprimirArchivoSeparadoImpresionSolucion";
-            this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Size = new System.Drawing.Size(237, 24);
+            this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Size = new System.Drawing.Size(160, 17);
             this.radioButtonImprimirArchivoSeparadoImpresionSolucion.TabIndex = 22;
             this.radioButtonImprimirArchivoSeparadoImpresionSolucion.TabStop = true;
             this.radioButtonImprimirArchivoSeparadoImpresionSolucion.Text = "Imprimir en archivo separado";
@@ -1714,10 +1594,9 @@
             // radioButtonNoImprimirImpresionSolucion
             // 
             this.radioButtonNoImprimirImpresionSolucion.AutoSize = true;
-            this.radioButtonNoImprimirImpresionSolucion.Location = new System.Drawing.Point(22, 38);
-            this.radioButtonNoImprimirImpresionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonNoImprimirImpresionSolucion.Location = new System.Drawing.Point(15, 25);
             this.radioButtonNoImprimirImpresionSolucion.Name = "radioButtonNoImprimirImpresionSolucion";
-            this.radioButtonNoImprimirImpresionSolucion.Size = new System.Drawing.Size(112, 24);
+            this.radioButtonNoImprimirImpresionSolucion.Size = new System.Drawing.Size(76, 17);
             this.radioButtonNoImprimirImpresionSolucion.TabIndex = 20;
             this.radioButtonNoImprimirImpresionSolucion.TabStop = true;
             this.radioButtonNoImprimirImpresionSolucion.Text = "No imprimir";
@@ -1737,11 +1616,9 @@
             this.groupBoxPresentacionDeLaSolucion.Controls.Add(this.labelListaVerticalPresentacionSolucion);
             this.groupBoxPresentacionDeLaSolucion.Controls.Add(this.radioButtonListaVerticalPresentacionSolucion);
             this.groupBoxPresentacionDeLaSolucion.Controls.Add(this.textBoxTituloPresentacionSolucion);
-            this.groupBoxPresentacionDeLaSolucion.Location = new System.Drawing.Point(22, 38);
-            this.groupBoxPresentacionDeLaSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxPresentacionDeLaSolucion.Location = new System.Drawing.Point(15, 25);
             this.groupBoxPresentacionDeLaSolucion.Name = "groupBoxPresentacionDeLaSolucion";
-            this.groupBoxPresentacionDeLaSolucion.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxPresentacionDeLaSolucion.Size = new System.Drawing.Size(338, 400);
+            this.groupBoxPresentacionDeLaSolucion.Size = new System.Drawing.Size(225, 260);
             this.groupBoxPresentacionDeLaSolucion.TabIndex = 0;
             this.groupBoxPresentacionDeLaSolucion.TabStop = false;
             this.groupBoxPresentacionDeLaSolucion.Text = "Presentación de la solución";
@@ -1749,10 +1626,9 @@
             // pictureBoxImprimirComentariosPresentacionSolucion
             // 
             this.pictureBoxImprimirComentariosPresentacionSolucion.Image = global::TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96;
-            this.pictureBoxImprimirComentariosPresentacionSolucion.Location = new System.Drawing.Point(240, 345);
-            this.pictureBoxImprimirComentariosPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxImprimirComentariosPresentacionSolucion.Location = new System.Drawing.Point(160, 224);
             this.pictureBoxImprimirComentariosPresentacionSolucion.Name = "pictureBoxImprimirComentariosPresentacionSolucion";
-            this.pictureBoxImprimirComentariosPresentacionSolucion.Size = new System.Drawing.Size(52, 46);
+            this.pictureBoxImprimirComentariosPresentacionSolucion.Size = new System.Drawing.Size(35, 30);
             this.pictureBoxImprimirComentariosPresentacionSolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImprimirComentariosPresentacionSolucion.TabIndex = 31;
             this.pictureBoxImprimirComentariosPresentacionSolucion.TabStop = false;
@@ -1761,29 +1637,26 @@
             // labelImprimirComentariosPresentacionSolucion
             // 
             this.labelImprimirComentariosPresentacionSolucion.AutoSize = true;
-            this.labelImprimirComentariosPresentacionSolucion.Location = new System.Drawing.Point(18, 346);
-            this.labelImprimirComentariosPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelImprimirComentariosPresentacionSolucion.Location = new System.Drawing.Point(12, 225);
             this.labelImprimirComentariosPresentacionSolucion.Name = "labelImprimirComentariosPresentacionSolucion";
-            this.labelImprimirComentariosPresentacionSolucion.Size = new System.Drawing.Size(222, 40);
+            this.labelImprimirComentariosPresentacionSolucion.Size = new System.Drawing.Size(142, 26);
             this.labelImprimirComentariosPresentacionSolucion.TabIndex = 29;
             this.labelImprimirComentariosPresentacionSolucion.Text = "Imprimir comentarios de\r\nrespuestas correctas (%%&&&&)";
             // 
             // labelColumnasPresentacionSolucion
             // 
             this.labelColumnasPresentacionSolucion.AutoSize = true;
-            this.labelColumnasPresentacionSolucion.Location = new System.Drawing.Point(60, 277);
-            this.labelColumnasPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelColumnasPresentacionSolucion.Location = new System.Drawing.Point(40, 180);
             this.labelColumnasPresentacionSolucion.Name = "labelColumnasPresentacionSolucion";
-            this.labelColumnasPresentacionSolucion.Size = new System.Drawing.Size(196, 40);
+            this.labelColumnasPresentacionSolucion.Size = new System.Drawing.Size(142, 26);
             this.labelColumnasPresentacionSolucion.TabIndex = 28;
             this.labelColumnasPresentacionSolucion.Text = "1. a       3. a       5. c       7. a\r\n2. b       4. c       6. d       8. c";
             // 
             // numericUpDownColumnasPresentacionSolucion
             // 
-            this.numericUpDownColumnasPresentacionSolucion.Location = new System.Drawing.Point(132, 235);
-            this.numericUpDownColumnasPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownColumnasPresentacionSolucion.Location = new System.Drawing.Point(88, 153);
             this.numericUpDownColumnasPresentacionSolucion.Name = "numericUpDownColumnasPresentacionSolucion";
-            this.numericUpDownColumnasPresentacionSolucion.Size = new System.Drawing.Size(52, 26);
+            this.numericUpDownColumnasPresentacionSolucion.Size = new System.Drawing.Size(35, 20);
             this.numericUpDownColumnasPresentacionSolucion.TabIndex = 27;
             this.numericUpDownColumnasPresentacionSolucion.Value = new decimal(new int[] {
             4,
@@ -1795,10 +1668,9 @@
             // 
             this.radioButtonColumnasPresentacionSolucion.AutoSize = true;
             this.radioButtonColumnasPresentacionSolucion.Checked = true;
-            this.radioButtonColumnasPresentacionSolucion.Location = new System.Drawing.Point(22, 235);
-            this.radioButtonColumnasPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonColumnasPresentacionSolucion.Location = new System.Drawing.Point(15, 153);
             this.radioButtonColumnasPresentacionSolucion.Name = "radioButtonColumnasPresentacionSolucion";
-            this.radioButtonColumnasPresentacionSolucion.Size = new System.Drawing.Size(105, 24);
+            this.radioButtonColumnasPresentacionSolucion.Size = new System.Drawing.Size(71, 17);
             this.radioButtonColumnasPresentacionSolucion.TabIndex = 26;
             this.radioButtonColumnasPresentacionSolucion.TabStop = true;
             this.radioButtonColumnasPresentacionSolucion.Text = "Columnas";
@@ -1806,39 +1678,35 @@
             // 
             // textBoxComodinListaHorizontalPresentacionSolucion
             // 
-            this.textBoxComodinListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(92, 195);
-            this.textBoxComodinListaHorizontalPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxComodinListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(61, 127);
             this.textBoxComodinListaHorizontalPresentacionSolucion.Name = "textBoxComodinListaHorizontalPresentacionSolucion";
-            this.textBoxComodinListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(36, 26);
+            this.textBoxComodinListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(25, 20);
             this.textBoxComodinListaHorizontalPresentacionSolucion.TabIndex = 25;
             // 
             // labelBListaHorizontalPresentacionSolucion
             // 
             this.labelBListaHorizontalPresentacionSolucion.AutoSize = true;
-            this.labelBListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(138, 200);
-            this.labelBListaHorizontalPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(92, 130);
             this.labelBListaHorizontalPresentacionSolucion.Name = "labelBListaHorizontalPresentacionSolucion";
-            this.labelBListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(35, 20);
+            this.labelBListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(25, 13);
             this.labelBListaHorizontalPresentacionSolucion.TabIndex = 24;
             this.labelBListaHorizontalPresentacionSolucion.Text = "2. b";
             // 
             // labelAListaHorizontalPresentacionSolucion
             // 
             this.labelAListaHorizontalPresentacionSolucion.AutoSize = true;
-            this.labelAListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(52, 200);
-            this.labelAListaHorizontalPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(35, 130);
             this.labelAListaHorizontalPresentacionSolucion.Name = "labelAListaHorizontalPresentacionSolucion";
-            this.labelAListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(35, 20);
+            this.labelAListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(25, 13);
             this.labelAListaHorizontalPresentacionSolucion.TabIndex = 23;
             this.labelAListaHorizontalPresentacionSolucion.Text = "1. a";
             // 
             // radioButtonListaHorizontalPresentacionSolucion
             // 
             this.radioButtonListaHorizontalPresentacionSolucion.AutoSize = true;
-            this.radioButtonListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(22, 169);
-            this.radioButtonListaHorizontalPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonListaHorizontalPresentacionSolucion.Location = new System.Drawing.Point(15, 110);
             this.radioButtonListaHorizontalPresentacionSolucion.Name = "radioButtonListaHorizontalPresentacionSolucion";
-            this.radioButtonListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(141, 24);
+            this.radioButtonListaHorizontalPresentacionSolucion.Size = new System.Drawing.Size(95, 17);
             this.radioButtonListaHorizontalPresentacionSolucion.TabIndex = 22;
             this.radioButtonListaHorizontalPresentacionSolucion.TabStop = true;
             this.radioButtonListaHorizontalPresentacionSolucion.Text = "Lista horizontal";
@@ -1847,20 +1715,18 @@
             // labelListaVerticalPresentacionSolucion
             // 
             this.labelListaVerticalPresentacionSolucion.AutoSize = true;
-            this.labelListaVerticalPresentacionSolucion.Location = new System.Drawing.Point(52, 115);
-            this.labelListaVerticalPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelListaVerticalPresentacionSolucion.Location = new System.Drawing.Point(35, 75);
             this.labelListaVerticalPresentacionSolucion.Name = "labelListaVerticalPresentacionSolucion";
-            this.labelListaVerticalPresentacionSolucion.Size = new System.Drawing.Size(35, 40);
+            this.labelListaVerticalPresentacionSolucion.Size = new System.Drawing.Size(25, 26);
             this.labelListaVerticalPresentacionSolucion.TabIndex = 21;
             this.labelListaVerticalPresentacionSolucion.Text = "1. a\r\n2. b";
             // 
             // radioButtonListaVerticalPresentacionSolucion
             // 
             this.radioButtonListaVerticalPresentacionSolucion.AutoSize = true;
-            this.radioButtonListaVerticalPresentacionSolucion.Location = new System.Drawing.Point(22, 85);
-            this.radioButtonListaVerticalPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radioButtonListaVerticalPresentacionSolucion.Location = new System.Drawing.Point(15, 55);
             this.radioButtonListaVerticalPresentacionSolucion.Name = "radioButtonListaVerticalPresentacionSolucion";
-            this.radioButtonListaVerticalPresentacionSolucion.Size = new System.Drawing.Size(121, 24);
+            this.radioButtonListaVerticalPresentacionSolucion.Size = new System.Drawing.Size(84, 17);
             this.radioButtonListaVerticalPresentacionSolucion.TabIndex = 20;
             this.radioButtonListaVerticalPresentacionSolucion.TabStop = true;
             this.radioButtonListaVerticalPresentacionSolucion.Text = "Lista vertical";
@@ -1868,10 +1734,9 @@
             // 
             // textBoxTituloPresentacionSolucion
             // 
-            this.textBoxTituloPresentacionSolucion.Location = new System.Drawing.Point(22, 38);
-            this.textBoxTituloPresentacionSolucion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxTituloPresentacionSolucion.Location = new System.Drawing.Point(15, 25);
             this.textBoxTituloPresentacionSolucion.Name = "textBoxTituloPresentacionSolucion";
-            this.textBoxTituloPresentacionSolucion.Size = new System.Drawing.Size(268, 26);
+            this.textBoxTituloPresentacionSolucion.Size = new System.Drawing.Size(180, 20);
             this.textBoxTituloPresentacionSolucion.TabIndex = 0;
             this.textBoxTituloPresentacionSolucion.Text = "SOLUCIONARIO";
             // 
@@ -1884,9 +1749,10 @@
             this.tabExamen.Controls.Add(this.buttonAbrirPlantillaExamen);
             this.tabExamen.ImageIndex = 4;
             this.tabExamen.Location = new System.Drawing.Point(4, 23);
+            this.tabExamen.Margin = new System.Windows.Forms.Padding(2);
             this.tabExamen.Name = "tabExamen";
-            this.tabExamen.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExamen.Size = new System.Drawing.Size(1147, 673);
+            this.tabExamen.Padding = new System.Windows.Forms.Padding(2);
+            this.tabExamen.Size = new System.Drawing.Size(762, 428);
             this.tabExamen.TabIndex = 4;
             this.tabExamen.Text = "Examen";
             this.tabExamen.UseVisualStyleBackColor = true;
@@ -1895,10 +1761,9 @@
             // 
             this.pictureBoxMenuEmergentePlantilla.Image = global::TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
             this.pictureBoxMenuEmergentePlantilla.InitialImage = null;
-            this.pictureBoxMenuEmergentePlantilla.Location = new System.Drawing.Point(1095, 52);
-            this.pictureBoxMenuEmergentePlantilla.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxMenuEmergentePlantilla.Location = new System.Drawing.Point(730, 34);
             this.pictureBoxMenuEmergentePlantilla.Name = "pictureBoxMenuEmergentePlantilla";
-            this.pictureBoxMenuEmergentePlantilla.Size = new System.Drawing.Size(33, 37);
+            this.pictureBoxMenuEmergentePlantilla.Size = new System.Drawing.Size(22, 24);
             this.pictureBoxMenuEmergentePlantilla.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMenuEmergentePlantilla.TabIndex = 33;
             this.pictureBoxMenuEmergentePlantilla.TabStop = false;
@@ -1908,18 +1773,16 @@
             // 
             // panelPlantillaExamen
             // 
-            this.panelPlantillaExamen.Location = new System.Drawing.Point(38, 94);
-            this.panelPlantillaExamen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelPlantillaExamen.Location = new System.Drawing.Point(25, 61);
             this.panelPlantillaExamen.Name = "panelPlantillaExamen";
-            this.panelPlantillaExamen.Size = new System.Drawing.Size(1078, 538);
+            this.panelPlantillaExamen.Size = new System.Drawing.Size(719, 350);
             this.panelPlantillaExamen.TabIndex = 32;
             // 
             // buttonExamenPreguntasDragDrop
             // 
-            this.buttonExamenPreguntasDragDrop.Location = new System.Drawing.Point(374, 12);
-            this.buttonExamenPreguntasDragDrop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonExamenPreguntasDragDrop.Location = new System.Drawing.Point(249, 8);
             this.buttonExamenPreguntasDragDrop.Name = "buttonExamenPreguntasDragDrop";
-            this.buttonExamenPreguntasDragDrop.Size = new System.Drawing.Size(68, 35);
+            this.buttonExamenPreguntasDragDrop.Size = new System.Drawing.Size(45, 23);
             this.buttonExamenPreguntasDragDrop.TabIndex = 31;
             this.buttonExamenPreguntasDragDrop.Text = "¿...?";
             this.buttonExamenPreguntasDragDrop.UseVisualStyleBackColor = true;
@@ -1927,16 +1790,18 @@
             // comboBoxRutaPlantillaExamen
             // 
             this.comboBoxRutaPlantillaExamen.FormattingEnabled = true;
-            this.comboBoxRutaPlantillaExamen.Location = new System.Drawing.Point(38, 54);
+            this.comboBoxRutaPlantillaExamen.Location = new System.Drawing.Point(25, 35);
+            this.comboBoxRutaPlantillaExamen.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRutaPlantillaExamen.Name = "comboBoxRutaPlantillaExamen";
-            this.comboBoxRutaPlantillaExamen.Size = new System.Drawing.Size(1054, 28);
+            this.comboBoxRutaPlantillaExamen.Size = new System.Drawing.Size(704, 21);
             this.comboBoxRutaPlantillaExamen.TabIndex = 4;
             // 
             // buttonAbrirPlantillaExamen
             // 
-            this.buttonAbrirPlantillaExamen.Location = new System.Drawing.Point(38, 12);
+            this.buttonAbrirPlantillaExamen.Location = new System.Drawing.Point(25, 8);
+            this.buttonAbrirPlantillaExamen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbrirPlantillaExamen.Name = "buttonAbrirPlantillaExamen";
-            this.buttonAbrirPlantillaExamen.Size = new System.Drawing.Size(255, 35);
+            this.buttonAbrirPlantillaExamen.Size = new System.Drawing.Size(170, 23);
             this.buttonAbrirPlantillaExamen.TabIndex = 3;
             this.buttonAbrirPlantillaExamen.Text = "Abrir plantilla del examen";
             this.buttonAbrirPlantillaExamen.UseVisualStyleBackColor = true;
@@ -1955,27 +1820,30 @@
             // 
             // buttonAbrirCondiciones
             // 
-            this.buttonAbrirCondiciones.Location = new System.Drawing.Point(30, 729);
+            this.buttonAbrirCondiciones.Location = new System.Drawing.Point(20, 474);
+            this.buttonAbrirCondiciones.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbrirCondiciones.Name = "buttonAbrirCondiciones";
-            this.buttonAbrirCondiciones.Size = new System.Drawing.Size(200, 45);
+            this.buttonAbrirCondiciones.Size = new System.Drawing.Size(133, 29);
             this.buttonAbrirCondiciones.TabIndex = 1;
             this.buttonAbrirCondiciones.Text = "Abrir condiciones";
             this.buttonAbrirCondiciones.UseVisualStyleBackColor = true;
             // 
             // buttonGuardarCondiciones
             // 
-            this.buttonGuardarCondiciones.Location = new System.Drawing.Point(30, 786);
+            this.buttonGuardarCondiciones.Location = new System.Drawing.Point(20, 511);
+            this.buttonGuardarCondiciones.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarCondiciones.Name = "buttonGuardarCondiciones";
-            this.buttonGuardarCondiciones.Size = new System.Drawing.Size(200, 45);
+            this.buttonGuardarCondiciones.Size = new System.Drawing.Size(133, 29);
             this.buttonGuardarCondiciones.TabIndex = 2;
             this.buttonGuardarCondiciones.Text = "Guardar condiciones";
             this.buttonGuardarCondiciones.UseVisualStyleBackColor = true;
             // 
             // buttonGenerarExamen
             // 
-            this.buttonGenerarExamen.Location = new System.Drawing.Point(520, 758);
+            this.buttonGenerarExamen.Location = new System.Drawing.Point(347, 493);
+            this.buttonGenerarExamen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGenerarExamen.Name = "buttonGenerarExamen";
-            this.buttonGenerarExamen.Size = new System.Drawing.Size(200, 45);
+            this.buttonGenerarExamen.Size = new System.Drawing.Size(133, 29);
             this.buttonGenerarExamen.TabIndex = 3;
             this.buttonGenerarExamen.Text = "Generar examen";
             this.buttonGenerarExamen.UseVisualStyleBackColor = true;
@@ -1986,9 +1854,10 @@
             this.checkBoxAbrirExamen.AutoSize = true;
             this.checkBoxAbrirExamen.Checked = true;
             this.checkBoxAbrirExamen.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAbrirExamen.Location = new System.Drawing.Point(750, 755);
+            this.checkBoxAbrirExamen.Location = new System.Drawing.Point(500, 490);
+            this.checkBoxAbrirExamen.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxAbrirExamen.Name = "checkBoxAbrirExamen";
-            this.checkBoxAbrirExamen.Size = new System.Drawing.Size(128, 24);
+            this.checkBoxAbrirExamen.Size = new System.Drawing.Size(87, 17);
             this.checkBoxAbrirExamen.TabIndex = 4;
             this.checkBoxAbrirExamen.Text = "Abrir examen";
             this.checkBoxAbrirExamen.UseVisualStyleBackColor = true;
@@ -1998,9 +1867,10 @@
             this.checkBoxReemplazarExamen.AutoSize = true;
             this.checkBoxReemplazarExamen.Checked = true;
             this.checkBoxReemplazarExamen.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxReemplazarExamen.Location = new System.Drawing.Point(750, 785);
+            this.checkBoxReemplazarExamen.Location = new System.Drawing.Point(500, 510);
+            this.checkBoxReemplazarExamen.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxReemplazarExamen.Name = "checkBoxReemplazarExamen";
-            this.checkBoxReemplazarExamen.Size = new System.Drawing.Size(181, 24);
+            this.checkBoxReemplazarExamen.Size = new System.Drawing.Size(122, 17);
             this.checkBoxReemplazarExamen.TabIndex = 5;
             this.checkBoxReemplazarExamen.Text = "Reemplazar examen";
             this.checkBoxReemplazarExamen.UseVisualStyleBackColor = true;
@@ -2008,9 +1878,10 @@
             // checkBoxPdf
             // 
             this.checkBoxPdf.AutoSize = true;
-            this.checkBoxPdf.Location = new System.Drawing.Point(956, 740);
+            this.checkBoxPdf.Location = new System.Drawing.Point(637, 490);
+            this.checkBoxPdf.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxPdf.Name = "checkBoxPdf";
-            this.checkBoxPdf.Size = new System.Drawing.Size(67, 24);
+            this.checkBoxPdf.Size = new System.Drawing.Size(47, 17);
             this.checkBoxPdf.TabIndex = 6;
             this.checkBoxPdf.Text = "PDF";
             this.checkBoxPdf.UseVisualStyleBackColor = true;
@@ -2018,33 +1889,21 @@
             // checkBoxUnArchivoPorExamen
             // 
             this.checkBoxUnArchivoPorExamen.AutoSize = true;
-            this.checkBoxUnArchivoPorExamen.Location = new System.Drawing.Point(956, 769);
+            this.checkBoxUnArchivoPorExamen.Location = new System.Drawing.Point(637, 510);
+            this.checkBoxUnArchivoPorExamen.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxUnArchivoPorExamen.Name = "checkBoxUnArchivoPorExamen";
-            this.checkBoxUnArchivoPorExamen.Size = new System.Drawing.Size(197, 24);
+            this.checkBoxUnArchivoPorExamen.Size = new System.Drawing.Size(136, 17);
             this.checkBoxUnArchivoPorExamen.TabIndex = 7;
             this.checkBoxUnArchivoPorExamen.Text = "Un archivo por examen";
             this.checkBoxUnArchivoPorExamen.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxImprimirADosCaras
-            // 
-            this.checkBoxImprimirADosCaras.AutoSize = true;
-            this.checkBoxImprimirADosCaras.Checked = true;
-            this.checkBoxImprimirADosCaras.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxImprimirADosCaras.Location = new System.Drawing.Point(956, 800);
-            this.checkBoxImprimirADosCaras.Name = "checkBoxImprimirADosCaras";
-            this.checkBoxImprimirADosCaras.Size = new System.Drawing.Size(177, 24);
-            this.checkBoxImprimirADosCaras.TabIndex = 8;
-            this.checkBoxImprimirADosCaras.Text = "Imprimir a dos caras";
-            this.checkBoxImprimirADosCaras.UseVisualStyleBackColor = true;
             // 
             // pictureBoxAyuda
             // 
             this.pictureBoxAyuda.Image = global::TestCreator.Properties.Resources.icons8_ayuda_64_white;
             this.pictureBoxAyuda.InitialImage = null;
-            this.pictureBoxAyuda.Location = new System.Drawing.Point(1143, 2);
-            this.pictureBoxAyuda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxAyuda.Location = new System.Drawing.Point(762, 1);
             this.pictureBoxAyuda.Name = "pictureBoxAyuda";
-            this.pictureBoxAyuda.Size = new System.Drawing.Size(42, 43);
+            this.pictureBoxAyuda.Size = new System.Drawing.Size(28, 28);
             this.pictureBoxAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAyuda.TabIndex = 22;
             this.pictureBoxAyuda.TabStop = false;
@@ -2053,11 +1912,10 @@
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 845);
+            this.ClientSize = new System.Drawing.Size(791, 549);
             this.Controls.Add(this.pictureBoxAyuda);
-            this.Controls.Add(this.checkBoxImprimirADosCaras);
             this.Controls.Add(this.checkBoxUnArchivoPorExamen);
             this.Controls.Add(this.checkBoxPdf);
             this.Controls.Add(this.checkBoxReemplazarExamen);
@@ -2067,6 +1925,7 @@
             this.Controls.Add(this.buttonAbrirCondiciones);
             this.Controls.Add(this.tabPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -2148,7 +2007,6 @@
         private System.Windows.Forms.CheckBox checkBoxReemplazarExamen;
         private System.Windows.Forms.CheckBox checkBoxPdf;
         private System.Windows.Forms.CheckBox checkBoxUnArchivoPorExamen;
-        private System.Windows.Forms.CheckBox checkBoxImprimirADosCaras;
         private System.Windows.Forms.Button buttonAbrirBancoPreguntas;
         private System.Windows.Forms.ComboBox comboBoxRutaBancoPreguntas;
         private System.Windows.Forms.Button buttonNivelesBajar;
@@ -2276,8 +2134,6 @@
         private System.Windows.Forms.RadioButton radioButtonImprimirArchivoSeparadoImpresionSolucion;
         private System.Windows.Forms.RadioButton radioButtonNoImprimirImpresionSolucion;
         private System.Windows.Forms.Label labelImprimirComentariosPresentacionSolucion;
-        private System.Windows.Forms.CheckBox checkBoxImprimirFinalExamenDosCarasImpresionSolucion;
-        private System.Windows.Forms.CheckBox checkBoxImprimirFInalExamenHojaNuevaImpresionSolucion;
         private System.Windows.Forms.Panel panelPlantillaExamen;
         private System.Windows.Forms.Button buttonExamenPreguntasDragDrop;
         private System.Windows.Forms.ComboBox comboBoxRutaPlantillaExamen;

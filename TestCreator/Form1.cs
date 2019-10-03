@@ -3,19 +3,15 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TestCreator
 {
     public partial class FormPrincipal : Form
     {
-        
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -56,8 +52,11 @@ namespace TestCreator
         // Listados para comboboxs
         private List<string> listaBancoPreguntas = new List<string>();
         private List<string> listaPlantillaExamen = new List<string>();
+        private Dictionary<int, string> listadoClasificacion = new Dictionary<int, string>();
+        private Dictionary<int, string> listadoNiveles = new Dictionary<int, string>();
+        private int ArraySizeClasificacion = 0;
         // Bloques de Grupos de Parrafos segun su clasificacion General
-        List<List<Paragraph>> bloqueGeneral;
+        List<List<OpenXmlElement>> bloqueGeneral;
         // Imagenes tipo boton con Texto Si y No
         Image botonSiConTexto = TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96;
         Image botonNoConTexto = TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
@@ -100,123 +99,85 @@ namespace TestCreator
         #region Pestaña Estructura
         private void ButtonAbrirBancoPreguntas_Click(object sender, EventArgs e)
         {
-            // Configuracion inicial del ofdAbrirBancoPreguntas
-            var ofdAbrirBancoPreguntas = OpenFileDialogPersonalizado.PersonalizadoWord("C:\'Demos\'", "Abrir banco de preguntas");
-            
+            var ofdAbrirBancoPreguntas = OpenFileDialogPersonalizado.PersonalizadoWord("C:\'Demos\'", "Abrir banco de preguntas"); // Configuracion inicial del ofdAbrirBancoPreguntas
             if (ofdAbrirBancoPreguntas.ShowDialog() == DialogResult.OK)
             {
-                // Reseteamos comboBoxRutaBancoPreguntas
-                comboBoxRutaBancoPreguntas.Items.Clear();
-                //Agregamos a List elementos seleccionados
-                listaBancoPreguntas.Add(ofdAbrirBancoPreguntas.FileName);
-                //Agregamos items a comboBoxRutaBancoPreguntas filtrando elementos duplicados
-                foreach (var item in listaBancoPreguntas.Distinct())
+                comboBoxRutaBancoPreguntas.Items.Clear(); // Reseteamos comboBoxRutaBancoPreguntas
+                listaBancoPreguntas.Add(ofdAbrirBancoPreguntas.FileName); //Agregamos a List elementos seleccionados
+                foreach (var item in listaBancoPreguntas.Distinct()) //Agregamos items a comboBoxRutaBancoPreguntas filtrando elementos duplicados
                 {
                     comboBoxRutaBancoPreguntas.Items.Add(item);
                 }
                 comboBoxRutaBancoPreguntas.Text = ofdAbrirBancoPreguntas.FileName;
             }
             string templatePath = comboBoxRutaBancoPreguntas.Text;
-            
-            
-            //List<List<Paragraph>> blocksCopy;
-
 
             using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(templatePath))
             {
                 var body = document.MainDocumentPart.Document.Body;
                 var paragraphs = body.Elements<Paragraph>();
-
-                foreach (var item in ClasificacionGeneralDePreguntas(paragraphs))
+                listadoClasificacion = ClasificacionGeneralDePreguntas(paragraphs);
+                foreach (var item in listadoClasificacion)
                 {
-                    listBoxClasificacion.Items.Add(item);
+                    listBoxClasificacion.Items.Add(item.Key);
                 }
-                var blocks = GrupoClasificacionGeneralDePreguntas(paragraphs); // Get a List of Question blocks
-                bloqueGeneral = blocks.ConvertAll<List<Paragraph>>(g => g.ConvertAll<Paragraph>(p => (Paragraph)p.CloneNode(true))); // Deep Clone
+                listadoNiveles = ClasificacionDePreguntas(paragraphs);
 
-                
+                var blocks = GrupoClasificacionGeneralDePreguntas(paragraphs); // Get a List of Question blocks
+                bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
+
+
 
             }
         }
 
-        private void ButtonGenerarExamen_Click(object sender, EventArgs e)
+        private void ButtonGenerarExamen_Click(object sender, EventArgs e) { }
+
+        private Dictionary<int, string> ClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            string templatePath = comboBoxRutaBancoPreguntas.Text;
-            const string resultPath = @"C:\Demos\PruebaResultado.docx";
-            List<List<Paragraph>> blocksCopy;
-            using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(templatePath))
+            Dictionary<int, string> output = new Dictionary<int, string>();
+            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                var body = document.MainDocumentPart.Document.Body;
-                var paragraphs = body.Elements<Paragraph>();
-
-                foreach (var item in ClasificacionGeneralDePreguntas(paragraphs))
+                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
                 {
-                    listBoxClasificacion.Items.Add(item);
-                }
-
-                var blocks = GroupParagraphs(paragraphs); // Get a List of Question blocks
-                blocksCopy = blocks.ConvertAll<List<Paragraph>>(g => g.ConvertAll<Paragraph>(p => (Paragraph)p.CloneNode(true))); // Deep Clone
-                Random rnd = new Random((int)DateTime.Now.Ticks); // Initialize PRNG with Ticks
-                blocksCopy.Shuffle(rnd);
-                body.RemoveAllChildren();
-
-                for (var i = 0; i < blocksCopy.Count; i++)
-                {
-
-                    ReplaceTexts(blocksCopy[i]);
-                    for (var j = 0; j < blocksCopy[i].Count; j++)
+                    string[] listaTemp = p.InnerText.Trim(' ').Remove(p.InnerText.IndexOf("]")).Substring(8).Split(',');
+                    ArraySizeClasificacion = listaTemp.Length;
+                    int indexTemp = 0;
+                    foreach (var item in listaTemp)
                     {
-                        body.AppendChild<Paragraph>(blocksCopy[i][j]); // Add paragraph from the reordered list  
+                        output.Add(indexTemp, item.Trim(' '));
+                        indexTemp++;
                     }
                 }
-
-                // Save result document, not modifying the template
-                document.SaveAs(resultPath);
-
-            }
+            });
+            return output;
         }
-
-        /**
-         * This function replaces tokens with Text in a group of paragraphs
-         * */
-        static void ReplaceTexts(IEnumerable<Paragraph> paragraphs)
+        private Dictionary<int, string> ClasificacionDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            var texts = paragraphs.SelectMany(p => p.Elements<Run>()).SelectMany(r => r.Elements<Text>());
-
-            foreach (Text text in texts)
-            {
-
-                switch (text.Text)
-                {
-                    case "#":
-                        text.Text = "PREGUNTA - ";
-                        break;
-                    case "&":
-                        text.Text = "OPCION - ";
-                        break;
-                    case "&&":
-                        text.Text = "RESPUESTA - ";
-                        break;
-                    case "%%":
-                        text.Text = "COMENTARIO -";
-                        break;
-                }
-            }
-        }
-        
-        static List<string> ClasificacionDePreguntas(IEnumerable<Paragraph> paragraphs)
-        {
-           
-            List<string> output = new List<string>();
-            char[] charsToTrim = { ' ', ']' };
+            Dictionary<int, string> output = new Dictionary<int, string>();
             string contenido = "";
-            paragraphs.ToList<Paragraph>().ForEach(p =>
+            int indexTemp = 0;
+            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                if (p.InnerText.StartsWith(@"Clas = ") && !p.InnerText.StartsWith(@"Clas = [")) // New Pregunta
+                
+                if (p.InnerText.ToLower().StartsWith(@"clas = ") && !p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
                 {
-                    contenido = p.InnerText.Trim(charsToTrim);
-                    contenido = p.InnerText.Substring(7);
-                    output.Add(contenido);
+                    contenido = p.InnerText.Trim(' ').Substring(7);
+                    if (contenido.Contains("%"))
+                    {
+                        contenido = contenido.Remove(contenido.IndexOf("%"));
+                    }
+                    string[] listaTemp = contenido.Split(',');
+                    if (listaTemp.Length == ArraySizeClasificacion)
+                    {
+                        
+                        foreach (var item in listaTemp)
+                        {
+                            output.Add(indexTemp, item.Trim(' '));
+                            indexTemp++;
+                        }
+                    }
+
                 }
             });
             return output;
@@ -240,7 +201,8 @@ namespace TestCreator
         {
             List<List<Paragraph>> output = new List<List<Paragraph>>();
             List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p => {
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
                 if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
                 {
                     output.Add(group);
@@ -259,7 +221,8 @@ namespace TestCreator
         {
             List<List<Paragraph>> output = new List<List<Paragraph>>();
             List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p => {
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
                 if (p.InnerText.StartsWith(@"Clas = [") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
                 {
                     output.Add(group);
@@ -278,7 +241,8 @@ namespace TestCreator
         {
             List<List<Paragraph>> output = new List<List<Paragraph>>();
             List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p => {
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
                 if (p.InnerText.StartsWith($"Clas = [{textoClasificacionGeneral}]") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
                 {
                     output.Add(group);
@@ -294,23 +258,7 @@ namespace TestCreator
             return output;
         }
 
-        static List<string> ClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
-        {
 
-            List<string> output = new List<string>();
-            char[] charsToTrim = { ' ', ']' };
-            string contenido = "";
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith(@"Clas = [")) // New Pregunta
-                {
-                    contenido = p.InnerText.Trim(charsToTrim);
-                    contenido = contenido.Substring(8);
-                    output.Add(contenido);
-                }
-            });
-            return output;
-        }
 
         private void MetodoClasificacion()
         {
@@ -318,20 +266,16 @@ namespace TestCreator
             {
                 listBoxElegir.Items.Add(listBoxClasificacion.SelectedItem);
                 listBoxClasificacion.Items.Remove(listBoxClasificacion.SelectedItem);
-                List<string> lista;
-                lista = ClasificacionDePreguntas(bloqueGeneral[1]);
-                foreach (var item in ClasificacionDePreguntas(bloqueGeneral[1]))
+                listBoxClasificacion.Sorted = true;
+                listBoxElegir.Sorted = true;
+
+                foreach (var item in listadoNiveles)
                 {
-                    lista.Add(item);
+                    listBoxNiveles.Items.Add(item.Value);
                 }
-                listBoxNiveles.Items.Clear();
-                foreach (var item in lista.Distinct())
-                {
-                    listBoxNiveles.Items.Add(item);
-                }
-                    
-   
-                
+
+
+
             }
             catch (System.ArgumentNullException)
             {
@@ -344,6 +288,8 @@ namespace TestCreator
             {
                 listBoxClasificacion.Items.Add(listBoxElegir.SelectedItem);
                 listBoxElegir.Items.Remove(listBoxElegir.SelectedItem);
+                listBoxClasificacion.Sorted = true;
+                listBoxElegir.Sorted = true;
 
             }
             catch (System.ArgumentNullException)
@@ -438,7 +384,7 @@ namespace TestCreator
 
         }
 
-       
+
         private void PictureBoxMantenerOriginalNumeracionPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalNumeracionPreguntas = !boolMantenerOriginalNumeracionPreguntas;
@@ -462,7 +408,7 @@ namespace TestCreator
         {
             // Configuracion inicial del ofdAbrirPlantillaExamen
             var ofdAbrirPlantillaExamen = OpenFileDialogPersonalizado.PersonalizadoWord("C:\'Demos\'", "Abrir plantilla de examen");
-            
+
             if (ofdAbrirPlantillaExamen.ShowDialog() == DialogResult.OK)
             {
                 // Reseteamos comboBoxRutaBancoPreguntas
