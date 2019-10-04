@@ -54,6 +54,7 @@ namespace TestCreator
         private List<string> listaPlantillaExamen = new List<string>();
         private Dictionary<int, string> listadoClasificacion = new Dictionary<int, string>();
         private Dictionary<int, string> listadoNiveles = new Dictionary<int, string>();
+        private List<string> listadoClasificacionNiveles = new List<string>();
         private int ArraySizeClasificacion = 0;
         // Bloques de Grupos de Parrafos segun su clasificacion General
         List<List<OpenXmlElement>> bloqueGeneral;
@@ -117,11 +118,31 @@ namespace TestCreator
                 var body = document.MainDocumentPart.Document.Body;
                 var paragraphs = body.Elements<Paragraph>();
                 listadoClasificacion = ClasificacionGeneralDePreguntas(paragraphs);
-                foreach (var item in listadoClasificacion)
-                {
-                    listBoxClasificacion.Items.Add(item.Value);
-                }
                 listadoNiveles = ClasificacionDePreguntas(paragraphs);
+                
+                foreach (var itemNivel in listadoNiveles)
+                {
+                    string cadenaListado = "";
+                    string[] nivelArray = itemNivel.Value.Split(',');
+                    int clasificacionConteo = 0;
+                    foreach (var itemClasificacion in listadoClasificacion)
+                    {
+                        if (clasificacionConteo == 0)
+                        {
+                            cadenaListado += $"{itemClasificacion.Value} - {nivelArray[clasificacionConteo]}";
+                        }
+                        else
+                        {
+                            cadenaListado += $", {itemClasificacion.Value} - {nivelArray[clasificacionConteo]}";
+                        }
+                        clasificacionConteo++;
+                    }
+                    listadoClasificacionNiveles.Add(cadenaListado);
+                }
+                foreach (var itemClasificacion in listadoClasificacion)
+                {
+                    listBoxClasificacion.Items.Add(itemClasificacion.Value);
+                }
 
                 var blocks = GrupoClasificacionGeneralDePreguntas(paragraphs); // Get a List of Question blocks
                 bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
@@ -291,6 +312,12 @@ namespace TestCreator
                         }
                     }
                 }
+
+                foreach (var itemCN in listadoClasificacionNiveles)
+                {
+                    listBoxExcluir.Items.Add(itemCN);
+                }
+
                 //int contadorLista = 0;
                 //string descripcionItem = "";
                 //while (contadorLista < listadoNiveles.Values.Count)

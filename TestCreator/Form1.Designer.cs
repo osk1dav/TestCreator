@@ -443,6 +443,7 @@
             // listBoxExcluir
             // 
             this.listBoxExcluir.FormattingEnabled = true;
+            this.listBoxExcluir.HorizontalScrollbar = true;
             this.listBoxExcluir.Location = new System.Drawing.Point(597, 52);
             this.listBoxExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxExcluir.Name = "listBoxExcluir";
@@ -462,6 +463,7 @@
             // listBoxNiveles
             // 
             this.listBoxNiveles.FormattingEnabled = true;
+            this.listBoxNiveles.HorizontalScrollbar = true;
             this.listBoxNiveles.Location = new System.Drawing.Point(415, 52);
             this.listBoxNiveles.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxNiveles.Name = "listBoxNiveles";
@@ -481,6 +483,7 @@
             // listBoxElegir
             // 
             this.listBoxElegir.FormattingEnabled = true;
+            this.listBoxElegir.HorizontalScrollbar = true;
             this.listBoxElegir.Location = new System.Drawing.Point(198, 52);
             this.listBoxElegir.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxElegir.Name = "listBoxElegir";
@@ -531,6 +534,7 @@
             // listBoxClasificacion
             // 
             this.listBoxClasificacion.FormattingEnabled = true;
+            this.listBoxClasificacion.HorizontalScrollbar = true;
             this.listBoxClasificacion.Location = new System.Drawing.Point(17, 52);
             this.listBoxClasificacion.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxClasificacion.Name = "listBoxClasificacion";
