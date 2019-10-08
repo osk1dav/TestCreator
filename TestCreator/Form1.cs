@@ -117,8 +117,11 @@ namespace TestCreator
             {
                 var body = document.MainDocumentPart.Document.Body;
                 var paragraphs = body.Elements<Paragraph>();
+                var blocks = GrupoClasificacionGeneralDePreguntas2(paragraphs); // Get a List of Question blocks
+                bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
+
                 listadoClasificacion = ClasificacionGeneralDePreguntas(paragraphs);
-                listadoNiveles = ClasificacionDePreguntas(paragraphs);
+                listadoNiveles = ClasificacionDePreguntas2(blocks[0]);
                 
                 foreach (var itemNivel in listadoNiveles)
                 {
@@ -143,11 +146,6 @@ namespace TestCreator
                 {
                     listBoxClasificacion.Items.Add(itemClasificacion.Value);
                 }
-
-                var blocks = GrupoClasificacionGeneralDePreguntas(paragraphs); // Get a List of Question blocks
-                bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
-
-
 
             }
         }
@@ -174,25 +172,7 @@ namespace TestCreator
             return output;
         }
 
-        private List<List<OpenXmlElement>> GrupoClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
-        {
-            List<List<OpenXmlElement>> output = new List<List<OpenXmlElement>>();
-            List<OpenXmlElement> group = new List<OpenXmlElement>();
-            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
-            {
-                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
-                {
-                    output.Add(group);
-                    group = new List<OpenXmlElement>();
-                }
-            });
-            if (group.Count > 0) // Add last group if exists
-            {
-                output.Add(group);
-                group = new List<OpenXmlElement>();
-            }
-            return output;
-        }
+        
         private Dictionary<int, string> ClasificacionDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
             Dictionary<int, string> output = new Dictionary<int, string>();
@@ -223,6 +203,38 @@ namespace TestCreator
             });
             return output;
         }
+
+        private Dictionary<int, string> ClasificacionDePreguntas2(IEnumerable<OpenXmlElement> paragraphs)
+        {
+            Dictionary<int, string> output = new Dictionary<int, string>();
+            string contenido = "";
+            int indexTemp = 0;
+            
+            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
+            {
+                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
+                {
+                }
+
+                if (p.InnerText.ToLower().StartsWith(@"clas = ") && !p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
+                {
+                    contenido = p.InnerText.Trim(' ').Substring(7);
+                    if (contenido.Contains("%"))
+                    {
+                        contenido = contenido.Remove(contenido.IndexOf("%"));
+                    }
+                    string[] listaTemp = contenido.Split(',');
+                    if (listaTemp.Length == ArraySizeClasificacion)
+                    {
+                        output.Add(indexTemp, contenido.Trim(' '));
+                        indexTemp++;
+                    }
+
+                }
+
+            });
+            return output;
+        }
         static List<string> ListadoDePreguntas(IEnumerable<Paragraph> paragraphs)
         {
             List<string> output = new List<string>();
@@ -238,66 +250,93 @@ namespace TestCreator
         /**
          * This function iterates over all paragrpahs and groups them into question blocks
          * */
-        //static List<List<Paragraph>> GroupParagraphs(IEnumerable<Paragraph> paragraphs)
-        //{
-        //    List<List<Paragraph>> output = new List<List<Paragraph>>();
-        //    List<Paragraph> group = new List<Paragraph>();
-        //    paragraphs.ToList<Paragraph>().ForEach(p =>
-        //    {
-        //        if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
-        //        {
-        //            output.Add(group);
-        //            group = new List<Paragraph>();
-        //        }
-        //        group.Add(p);
-        //    });
-        //    if (group.Count > 0) // Add last group if exists
-        //    {
-        //        output.Add(group);
-        //        group = new List<Paragraph>();
-        //    }
-        //    return output;
-        //}
-        //static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
-        //{
-        //    List<List<Paragraph>> output = new List<List<Paragraph>>();
-        //    List<Paragraph> group = new List<Paragraph>();
-        //    paragraphs.ToList<Paragraph>().ForEach(p =>
-        //    {
-        //        if (p.InnerText.StartsWith(@"Clas = [") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
-        //        {
-        //            output.Add(group);
-        //            group = new List<Paragraph>();
-        //        }
-        //        group.Add(p);
-        //    });
-        //    if (group.Count > 0) // Add last group if exists
-        //    {
-        //        output.Add(group);
-        //        group = new List<Paragraph>();
-        //    }
-        //    return output;
-        //}
-        //static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs, string textoClasificacionGeneral)
-        //{
-        //    List<List<Paragraph>> output = new List<List<Paragraph>>();
-        //    List<Paragraph> group = new List<Paragraph>();
-        //    paragraphs.ToList<Paragraph>().ForEach(p =>
-        //    {
-        //        if (p.InnerText.StartsWith($"Clas = [{textoClasificacionGeneral}]") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
-        //        {
-        //            output.Add(group);
-        //            group = new List<Paragraph>();
-        //        }
-        //        group.Add(p);
-        //    });
-        //    if (group.Count > 0) // Add last group if exists
-        //    {
-        //        output.Add(group);
-        //        group = new List<Paragraph>();
-        //    }
-        //    return output;
-        //}
+        static List<List<Paragraph>> GroupParagraphs(IEnumerable<Paragraph> paragraphs)
+        {
+            List<List<Paragraph>> output = new List<List<Paragraph>>();
+            List<Paragraph> group = new List<Paragraph>();
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
+                if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
+                {
+                    output.Add(group);
+                    group = new List<Paragraph>();
+                }
+                group.Add(p);
+            });
+            if (group.Count > 0) // Add last group if exists
+            {
+                output.Add(group);
+                group = new List<Paragraph>();
+            }
+            return output;
+        }
+        static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
+        {
+            List<List<Paragraph>> output = new List<List<Paragraph>>();
+            List<Paragraph> group = new List<Paragraph>();
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
+                if (p.InnerText.StartsWith(@"Clas = [") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
+                {
+                    output.Add(group);
+                    group = new List<Paragraph>();
+                }
+                group.Add(p);
+            });
+            if (group.Count > 0) // Add last group if exists
+            {
+                output.Add(group);
+                group = new List<Paragraph>();
+            }
+            return output;
+        }
+
+        static List<List<OpenXmlElement>> GrupoClasificacionGeneralDePreguntas2(IEnumerable<Paragraph> paragraphs)
+        {
+            List<List<OpenXmlElement>> output = new List<List<OpenXmlElement>>();
+            List<OpenXmlElement> group = new List<OpenXmlElement>();
+            int conteoClases = 0;
+            string conteoDescripcion = "";
+            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
+            {
+                if (p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
+                {
+                    conteoDescripcion = "clases";
+                    conteoClases++;
+                }
+               
+                if (conteoDescripcion == "clases" && conteoClases == 1)
+                {
+                    group.Add(p);
+                }
+            });
+            if (group.Count > 0) // Add last group if exists
+            {
+                output.Add(group);
+                group = new List<OpenXmlElement>();
+            }
+            return output;
+        }
+        static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs, string textoClasificacionGeneral)
+        {
+            List<List<Paragraph>> output = new List<List<Paragraph>>();
+            List<Paragraph> group = new List<Paragraph>();
+            paragraphs.ToList<Paragraph>().ForEach(p =>
+            {
+                if (p.InnerText.StartsWith($"Clas = [{textoClasificacionGeneral}]") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
+                {
+                    output.Add(group);
+                    group = new List<Paragraph>();
+                }
+                group.Add(p);
+            });
+            if (group.Count > 0) // Add last group if exists
+            {
+                output.Add(group);
+                group = new List<Paragraph>();
+            }
+            return output;
+        }
 
 
 
