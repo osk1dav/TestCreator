@@ -173,6 +173,26 @@ namespace TestCreator
             });
             return output;
         }
+
+        private List<List<OpenXmlElement>> GrupoClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
+        {
+            List<List<OpenXmlElement>> output = new List<List<OpenXmlElement>>();
+            List<OpenXmlElement> group = new List<OpenXmlElement>();
+            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
+            {
+                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
+                {
+                    output.Add(group);
+                    group = new List<OpenXmlElement>();
+                }
+            });
+            if (group.Count > 0) // Add last group if exists
+            {
+                output.Add(group);
+                group = new List<OpenXmlElement>();
+            }
+            return output;
+        }
         private Dictionary<int, string> ClasificacionDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
             Dictionary<int, string> output = new Dictionary<int, string>();
@@ -180,7 +200,10 @@ namespace TestCreator
             int indexTemp = 0;
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                
+                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
+                {
+                }
+
                 if (p.InnerText.ToLower().StartsWith(@"clas = ") && !p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
                 {
                     contenido = p.InnerText.Trim(' ').Substring(7);
@@ -193,14 +216,10 @@ namespace TestCreator
                     {
                         output.Add(indexTemp, contenido.Trim(' '));
                         indexTemp++;
-                        //foreach (var item in listaTemp)
-                        //{
-                        //    output.Add(indexTemp, item.Trim(' '));
-                        //    indexTemp++;
-                        //}
                     }
 
                 }
+                
             });
             return output;
         }
@@ -219,66 +238,66 @@ namespace TestCreator
         /**
          * This function iterates over all paragrpahs and groups them into question blocks
          * */
-        static List<List<Paragraph>> GroupParagraphs(IEnumerable<Paragraph> paragraphs)
-        {
-            List<List<Paragraph>> output = new List<List<Paragraph>>();
-            List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
-                {
-                    output.Add(group);
-                    group = new List<Paragraph>();
-                }
-                group.Add(p);
-            });
-            if (group.Count > 0) // Add last group if exists
-            {
-                output.Add(group);
-                group = new List<Paragraph>();
-            }
-            return output;
-        }
-        static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
-        {
-            List<List<Paragraph>> output = new List<List<Paragraph>>();
-            List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith(@"Clas = [") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
-                {
-                    output.Add(group);
-                    group = new List<Paragraph>();
-                }
-                group.Add(p);
-            });
-            if (group.Count > 0) // Add last group if exists
-            {
-                output.Add(group);
-                group = new List<Paragraph>();
-            }
-            return output;
-        }
-        static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs, string textoClasificacionGeneral)
-        {
-            List<List<Paragraph>> output = new List<List<Paragraph>>();
-            List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith($"Clas = [{textoClasificacionGeneral}]") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
-                {
-                    output.Add(group);
-                    group = new List<Paragraph>();
-                }
-                group.Add(p);
-            });
-            if (group.Count > 0) // Add last group if exists
-            {
-                output.Add(group);
-                group = new List<Paragraph>();
-            }
-            return output;
-        }
+        //static List<List<Paragraph>> GroupParagraphs(IEnumerable<Paragraph> paragraphs)
+        //{
+        //    List<List<Paragraph>> output = new List<List<Paragraph>>();
+        //    List<Paragraph> group = new List<Paragraph>();
+        //    paragraphs.ToList<Paragraph>().ForEach(p =>
+        //    {
+        //        if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
+        //        {
+        //            output.Add(group);
+        //            group = new List<Paragraph>();
+        //        }
+        //        group.Add(p);
+        //    });
+        //    if (group.Count > 0) // Add last group if exists
+        //    {
+        //        output.Add(group);
+        //        group = new List<Paragraph>();
+        //    }
+        //    return output;
+        //}
+        //static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
+        //{
+        //    List<List<Paragraph>> output = new List<List<Paragraph>>();
+        //    List<Paragraph> group = new List<Paragraph>();
+        //    paragraphs.ToList<Paragraph>().ForEach(p =>
+        //    {
+        //        if (p.InnerText.StartsWith(@"Clas = [") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
+        //        {
+        //            output.Add(group);
+        //            group = new List<Paragraph>();
+        //        }
+        //        group.Add(p);
+        //    });
+        //    if (group.Count > 0) // Add last group if exists
+        //    {
+        //        output.Add(group);
+        //        group = new List<Paragraph>();
+        //    }
+        //    return output;
+        //}
+        //static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs, string textoClasificacionGeneral)
+        //{
+        //    List<List<Paragraph>> output = new List<List<Paragraph>>();
+        //    List<Paragraph> group = new List<Paragraph>();
+        //    paragraphs.ToList<Paragraph>().ForEach(p =>
+        //    {
+        //        if (p.InnerText.StartsWith($"Clas = [{textoClasificacionGeneral}]") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
+        //        {
+        //            output.Add(group);
+        //            group = new List<Paragraph>();
+        //        }
+        //        group.Add(p);
+        //    });
+        //    if (group.Count > 0) // Add last group if exists
+        //    {
+        //        output.Add(group);
+        //        group = new List<Paragraph>();
+        //    }
+        //    return output;
+        //}
 
 
 
@@ -286,87 +305,68 @@ namespace TestCreator
         {
             try
             {
-                var arrayClasificacion = listadoClasificacion.Values.ToArray();
                 listBoxElegir.Items.Add(listBoxClasificacion.SelectedItem);
                 listBoxClasificacion.Items.Remove(listBoxClasificacion.SelectedItem);
                 listBoxClasificacion.Sorted = true;
                 listBoxElegir.Sorted = true;
-                listBoxNiveles.Items.Clear();
-                string descripcionItem = "";
-                foreach (var item in listadoNiveles)
-                {
-                    for (int i = 0; i < listBoxElegir.Items.Count; i++) {
-                        string[] descripcionClasificacion = item.Value.Split(',');
-                        if (i == 0)
-                        {
-                            
-                            descripcionItem = descripcionClasificacion[i];
-                        }
-                        if (i > 0)
-                        {
-                            descripcionItem = descripcionItem + " - " + descripcionClasificacion[i];
-                        }
-                        if (i == listBoxElegir.Items.Count - 1)
-                        {
-                            listBoxNiveles.Items.Add(descripcionItem);
-                        }
-                    }
-                }
-
-                foreach (var itemCN in listadoClasificacionNiveles)
-                {
-                    listBoxExcluir.Items.Add(itemCN);
-                }
-
-                //int contadorLista = 0;
-                //string descripcionItem = "";
-                //while (contadorLista < listadoNiveles.Values.Count)
-                //{
-                //    for (int i = 0; i < listBoxElegir.Items.Count; i++)
-                //    {
-                //        if (i == 0)
-                //        {
-                //            descripcionItem = listadoNiveles[contadorLista];
-                //        }
-                //        if (i > 0)
-                //        {
-                //            descripcionItem = descripcionItem + " - " + listadoNiveles[contadorLista];
-                //        }
-                //        if (i == listBoxElegir.Items.Count - 1)
-                //        {
-                //            listBoxNiveles.Items.Add(descripcionItem);
-                //        }
-                //        contadorLista++;
-
-
-                //    }
-                //}
-                
-                MessageBox.Show(listBoxNiveles.Items.Count.ToString());
+                ListadoNiveles();
             }
             catch (System.ArgumentNullException)
             {
                 MessageBox.Show("Selecciona un elemento de la lista");
-                
             }
         }
         private void MetodoDesclasificacion()
         {
             try
             {
-                MessageBox.Show(listBoxElegir.SelectedIndex.ToString());
                 listBoxClasificacion.Items.Add(listBoxElegir.SelectedItem);
                 listBoxElegir.Items.Remove(listBoxElegir.SelectedItem);
                 listBoxClasificacion.Sorted = true;
                 listBoxElegir.Sorted = true;
-
-
-
+                ListadoNiveles();
             }
             catch (System.ArgumentNullException)
             {
                 MessageBox.Show("Selecciona un elemento de la lista");
             }
+        }
+
+        private void ListadoNiveles()
+        {
+            List<string> listadoNivelesList = new List<string>();
+            listBoxNiveles.Items.Clear();
+            foreach (var item in listadoClasificacionNiveles)
+            {
+                string descripcionItem = "";
+                int conteoDescripcion = 0;
+                for (int i = 0; i < listBoxElegir.Items.Count; i++)
+                {
+                    string[] arrayClasificacionTemp = item.Split(',');
+                    for (int j = 0; j < arrayClasificacionTemp.Length; j++)
+                    {
+                        if (arrayClasificacionTemp[j].Contains(listBoxElegir.Items[i].ToString()))
+                        {
+                            int tamanioClasificacion = listBoxElegir.Items[i].ToString().Length;
+                            if (conteoDescripcion == 0)
+                            {
+                                descripcionItem += $"{arrayClasificacionTemp[j].Substring(tamanioClasificacion + 3).Trim(' ')}";
+                            }
+                            else
+                            {
+                                descripcionItem += $" - {arrayClasificacionTemp[j].Substring(tamanioClasificacion + 3).Trim(' ')}";
+                            }
+                            conteoDescripcion++;
+                        }
+                    }
+                }
+                listadoNivelesList.Add(descripcionItem);
+            }
+            foreach (var nivel in listadoNivelesList.Distinct())
+            {
+                listBoxNiveles.Items.Add(nivel);
+            }
+            
         }
         private void ButtonClasificacionItemElegir_Click(object sender, EventArgs e)
         {
