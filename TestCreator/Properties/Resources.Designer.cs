@@ -183,6 +183,26 @@ namespace TestCreator.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_doble_derecha_en_cuadrado_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-doble-derecha-en-cuadrado-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_doble_izquierda_en_cuadrado_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-doble-izquierda-en-cuadrado-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_eliminar_columna_500 {
             get {
                 object obj = ResourceManager.GetObject("icons8-eliminar-columna-500", resourceCulture);
@@ -206,16 +226,6 @@ namespace TestCreator.Properties {
         internal static System.Drawing.Bitmap icons8_izquierda_en_cuadrado_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-izquierda-en-cuadrado-96", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_siguiente_48 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-siguiente-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

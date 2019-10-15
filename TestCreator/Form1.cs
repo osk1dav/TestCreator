@@ -19,6 +19,8 @@ namespace TestCreator
             // Mensaje alterno para pictureBoxMenuEmergente 
             var toolTipMenuEmergente = new ToolTip();
             toolTipMenuEmergente.SetToolTip(pictureBoxMenuEmergente, "Limpiar busqueda");
+
+           
         }
 
         #region Codigo ejemplo
@@ -81,8 +83,14 @@ namespace TestCreator
             pictureBoxMantenerOriginalNumeracionPreguntas.Image = boolMantenerOriginalNumeracionPreguntas ? botonSiConTexto : botonNoConTexto;
             pictureBoxIdentificarExamenes.Image = boolIdentificarExamenes ? botonSiConTexto : botonNoConTexto;
 
-        }
+            comboBoxNumeroNumeracionPreguntas.SelectedIndex = 0;
+            comboBoxNumeroNumeracionRespuestas.SelectedIndex = 4;
+            comboBoxInterlineadoEspaciadoPreguntas.SelectedIndex = 5;
+            comboBoxInterlineadoEspaciadoRespuestas.SelectedIndex = 5;
 
+
+        }
+        
         private void InicializarListBoxContents()
         {
             listBoxClasificacion.Items.Clear();
@@ -112,7 +120,7 @@ namespace TestCreator
         private void ButtonAbrirBancoPreguntas_Click(object sender, EventArgs e)
         {
             InicializarListBoxContents();
-            var ofdAbrirBancoPreguntas = OpenFileDialogPersonalizado.PersonalizadoWord("C:\'Demos\'", "Abrir banco de preguntas"); // Configuracion inicial del ofdAbrirBancoPreguntas
+            var ofdAbrirBancoPreguntas = OpenFileDialogPersonalizado.PersonalizadoWord("D:\'Demos\'", "Abrir banco de preguntas"); // Configuracion inicial del ofdAbrirBancoPreguntas
             if (ofdAbrirBancoPreguntas.ShowDialog() == DialogResult.OK)
             {
                 comboBoxRutaBancoPreguntas.Items.Clear(); // Reseteamos comboBoxRutaBancoPreguntas
@@ -135,7 +143,8 @@ namespace TestCreator
                 listadoClasificacion = ClasificacionGeneralDePreguntas(blocks[0]);
                 foreach (var itemClasificacion in listadoClasificacion)
                 {
-                    listBoxClasificacion.Items.Add(itemClasificacion.Value);
+                    //listBoxClasificacion.Items.Add(itemClasificacion.Value);
+                    listBoxClasificacion.Items.Insert(itemClasificacion.Key, itemClasificacion.Value);
                 }
 
                 listadoNiveles = NivelesPreguntas(blocks[0]);
@@ -159,6 +168,7 @@ namespace TestCreator
                             }
                             clasificacionConteo++;
                         }
+
                         listadoClasificacionNiveles.Add(cadenaListado);
                     }
                 }
@@ -385,41 +395,67 @@ namespace TestCreator
             }
             return output;
         }
-       
 
 
-
-        private void MetodoClasificacion()
+        private void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario)
         {
-            try
+            if ( listBoxPrincipal.SelectedIndex >= 0)
             {
-                listBoxElegir.Items.Add(listBoxClasificacion.SelectedItem);
-                listBoxClasificacion.Items.Remove(listBoxClasificacion.SelectedItem);
-                listBoxClasificacion.Sorted = true;
-                listBoxElegir.Sorted = true;
-                ListadoNiveles();
+                listBoxSecundario.Items.Add(listBoxPrincipal.SelectedItem);
+                listBoxPrincipal.Items.Remove(listBoxPrincipal.SelectedItem);
             }
-            catch (System.ArgumentNullException)
+            else
             {
                 MessageBox.Show("Selecciona un elemento de la lista");
+                
             }
         }
-        private void MetodoDesclasificacion()
+        private void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar)
         {
-            try
+            if (listBoxPrincipal.SelectedIndex >= 0)
             {
-                listBoxClasificacion.Items.Add(listBoxElegir.SelectedItem);
-                listBoxElegir.Items.Remove(listBoxElegir.SelectedItem);
-                listBoxClasificacion.Sorted = true;
-                listBoxElegir.Sorted = true;
-                ListadoNiveles();
+                listBoxSecundario.Items.Add(listBoxPrincipal.SelectedItem);
+                listBoxPrincipal.Items.Remove(listBoxPrincipal.SelectedItem);
+                listBoxALimpiar.Items.Clear();
             }
-            catch (System.ArgumentNullException)
+            else
             {
                 MessageBox.Show("Selecciona un elemento de la lista");
+
             }
         }
 
+        private void MetodoMoverItemLista(ListBox listBox, int direccion) 
+        {
+            // Checking selected item
+            if (listBox.SelectedItem == null || listBox.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = listBox.SelectedIndex + direccion;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= listBox.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = listBox.SelectedItem;
+
+            // Removing removable element
+            listBox.Items.Remove(selected);
+            // Insert it in new position
+            listBox.Items.Insert(newIndex, selected);
+            // Restore selection
+            listBox.SetSelected(newIndex, true);
+        }
+    
+
+        private void MetodoClasificacionTodo(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar) {
+
+            listBoxSecundario.Items.AddRange(listBoxPrincipal.Items);
+            listBoxPrincipal.Items.Clear();
+            listBoxALimpiar.Items.Clear();
+        }
+                
         private void ListadoNiveles()
         {
             List<string> listadoNivelesList = new List<string>();
@@ -474,24 +510,27 @@ namespace TestCreator
         }
         private void ButtonClasificacionItemElegir_Click(object sender, EventArgs e)
         {
-            MetodoClasificacion();
-
+            MetodoClasificacion(listBoxClasificacion, listBoxElegir, listBoxExcluir);
+            ListadoNiveles();
         }
 
 
         private void ListBoxClasificacion_DoubleClick(object sender, EventArgs e)
         {
-            MetodoClasificacion();
+            MetodoClasificacion(listBoxClasificacion, listBoxElegir, listBoxExcluir);
+            ListadoNiveles();
         }
 
         private void ButtonClasificacionItemQuitar_Click(object sender, EventArgs e)
         {
-            MetodoDesclasificacion();
+            MetodoClasificacion(listBoxElegir, listBoxClasificacion, listBoxExcluir);
+            ListadoNiveles();
         }
 
         private void ListBoxElegir_DoubleClick(object sender, EventArgs e)
         {
-            MetodoDesclasificacion();
+            MetodoClasificacion(listBoxElegir, listBoxClasificacion, listBoxExcluir);
+            ListadoNiveles();
         }
 
 
@@ -531,6 +570,19 @@ namespace TestCreator
         #endregion
 
         #region Pestaña Numeracion
+
+        private void TextoLabelEnBaseNumeracion(TextBox textBoxAntes, ComboBox comboBoxTipoNumeracion, TextBox textBoxDespues, Label labelTexto)
+        {
+            if (comboBoxTipoNumeracion.Text == "Ninguna")
+            {
+                labelTexto.Text = "";
+
+            }
+            else
+            {
+                labelTexto.Text = textBoxAntes.Text.Trim(' ') + comboBoxTipoNumeracion.Text + textBoxDespues.Text.Trim(' ');
+            }
+        }
         private void PictureBoxMantenerOriginalEspaciadoPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
             boolMantenerOriginalEspaciadoPreguntas = !boolMantenerOriginalEspaciadoPreguntas;
@@ -559,6 +611,77 @@ namespace TestCreator
 
         }
 
+        private void buttonClasificacionItemElegirTodo_Click(object sender, EventArgs e)
+        {
+            MetodoClasificacionTodo(listBoxClasificacion, listBoxElegir, listBoxExcluir);
+            ListadoNiveles();
+        }
+
+        private void buttonClasificacionItemQuitarTodo_Click(object sender, EventArgs e)
+        {
+            MetodoClasificacionTodo(listBoxElegir, listBoxClasificacion, listBoxExcluir);
+            ListadoNiveles();
+        }
+
+        private void buttonNivelesExcluir_Click(object sender, EventArgs e)
+        {
+            MetodoClasificacion(listBoxNiveles, listBoxExcluir);
+        }
+
+        private void buttonNivelesIncluir_Click(object sender, EventArgs e)
+        {
+            MetodoClasificacion(listBoxExcluir, listBoxNiveles);
+        }
+
+        private void buttonNivelesSubir_Click(object sender, EventArgs e)
+        {
+            MetodoMoverItemLista(listBoxNiveles, -1);
+        }
+
+        private void buttonNivelesBajar_Click(object sender, EventArgs e)
+        {
+            MetodoMoverItemLista(listBoxNiveles, 1);
+        }
+
+        private void listBoxNiveles_DoubleClick(object sender, EventArgs e)
+        {
+            MetodoClasificacion(listBoxNiveles, listBoxExcluir);
+        }
+
+        private void listBoxExcluir_DoubleClick(object sender, EventArgs e)
+        {
+            MetodoClasificacion(listBoxExcluir, listBoxNiveles);
+        }
+
+        private void textBoxAntesNumeracionPreguntas_TextChanged(object sender, EventArgs e)
+        {
+            TextoLabelEnBaseNumeracion(textBoxAntesNumeracionPreguntas, comboBoxNumeroNumeracionPreguntas, textBoxDespuesNumeracionPreguntas, labelNumeracionResultadoNumeracionPreguntas);
+        }
+
+        private void comboBoxNumeroNumeracionPreguntas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextoLabelEnBaseNumeracion(textBoxAntesNumeracionPreguntas, comboBoxNumeroNumeracionPreguntas, textBoxDespuesNumeracionPreguntas, labelNumeracionResultadoNumeracionPreguntas);
+        }
+
+        private void textBoxDespuesNumeracionPreguntas_TextChanged(object sender, EventArgs e)
+        {
+            TextoLabelEnBaseNumeracion(textBoxAntesNumeracionPreguntas, comboBoxNumeroNumeracionPreguntas, textBoxDespuesNumeracionPreguntas, labelNumeracionResultadoNumeracionPreguntas);
+        }
+
+        private void textBoxAntesNumeracionRespuestas_TextChanged(object sender, EventArgs e)
+        {
+            TextoLabelEnBaseNumeracion(textBoxAntesNumeracionRespuestas, comboBoxNumeroNumeracionRespuestas, textBoxDespuesNumeracionRespuestas, labelNumeracionResultadoNumeracionRespuestas);
+        }
+
+        private void comboBoxNumeroNumeracionRespuestas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextoLabelEnBaseNumeracion(textBoxAntesNumeracionRespuestas, comboBoxNumeroNumeracionRespuestas, textBoxDespuesNumeracionRespuestas, labelNumeracionResultadoNumeracionRespuestas);
+        }
+
+        private void textBoxDespuesNumeracionRespuestas_TextChanged(object sender, EventArgs e)
+        {
+            TextoLabelEnBaseNumeracion(textBoxAntesNumeracionRespuestas, comboBoxNumeroNumeracionRespuestas, textBoxDespuesNumeracionRespuestas, labelNumeracionResultadoNumeracionRespuestas);
+        }
 
         private void PictureBoxMantenerOriginalNumeracionPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
@@ -582,7 +705,7 @@ namespace TestCreator
         private void ButtonAbrirPlantillaExamen_Click(object sender, EventArgs e)
         {
             // Configuracion inicial del ofdAbrirPlantillaExamen
-            var ofdAbrirPlantillaExamen = OpenFileDialogPersonalizado.PersonalizadoWord("C:\'Demos\'", "Abrir plantilla de examen");
+            var ofdAbrirPlantillaExamen = OpenFileDialogPersonalizado.PersonalizadoWord("D:\'Demos\'", "Abrir plantilla de examen");
 
             if (ofdAbrirPlantillaExamen.ShowDialog() == DialogResult.OK)
             {
@@ -625,6 +748,9 @@ namespace TestCreator
         }
 
         #endregion
+
+
+        
 
     }
 }

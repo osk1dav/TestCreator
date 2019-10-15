@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabEstructura = new System.Windows.Forms.TabPage();
+            this.buttonClasificacionItemElegirTodo = new System.Windows.Forms.Button();
+            this.buttonClasificacionItemQuitarTodo = new System.Windows.Forms.Button();
             this.pictureBoxMenuEmergente = new System.Windows.Forms.PictureBox();
             this.dataGridViewPreguntasEstructuradas = new System.Windows.Forms.DataGridView();
             this.columnaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,9 +136,7 @@
             this.labelInterlineadoEspaciadoPreguntas = new System.Windows.Forms.Label();
             this.labelMantenerOriginalEspaciadoPreguntas = new System.Windows.Forms.Label();
             this.comboBoxInterlineadoEspaciadoPreguntas = new System.Windows.Forms.ComboBox();
-            this.numericUpDownDespuesEspaciadoPreguntas = new System.Windows.Forms.NumericUpDown();
             this.labelDespuesEspaciadoPreguntas = new System.Windows.Forms.Label();
-            this.numericUpDownAntesEspaciadoPreguntas = new System.Windows.Forms.NumericUpDown();
             this.labelAntesEspaciadoPreguntas = new System.Windows.Forms.Label();
             this.groupBoxColumnasPreguntas = new System.Windows.Forms.GroupBox();
             this.radioButtonMantenerOriginalColumnasPreguntas = new System.Windows.Forms.RadioButton();
@@ -185,6 +185,8 @@
             this.checkBoxPdf = new System.Windows.Forms.CheckBox();
             this.checkBoxUnArchivoPorExamen = new System.Windows.Forms.CheckBox();
             this.pictureBoxAyuda = new System.Windows.Forms.PictureBox();
+            this.domainUpDownAntesEspaciadoPreguntas = new System.Windows.Forms.DomainUpDown();
+            this.domainUpDownDespuesEspaciadoPreguntas = new System.Windows.Forms.DomainUpDown();
             this.tabPrincipal.SuspendLayout();
             this.tabEstructura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenuEmergente)).BeginInit();
@@ -215,8 +217,6 @@
             this.groupBoxNumeracionDePreguntasGeneral.SuspendLayout();
             this.groupBoxEspaciadoPreguntas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMantenerOriginalEspaciadoPreguntas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDespuesEspaciadoPreguntas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAntesEspaciadoPreguntas)).BeginInit();
             this.groupBoxColumnasPreguntas.SuspendLayout();
             this.groupBoxNumeracionPreguntas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMantenerOriginalNumeracionPreguntas)).BeginInit();
@@ -249,6 +249,8 @@
             // 
             // tabEstructura
             // 
+            this.tabEstructura.Controls.Add(this.buttonClasificacionItemElegirTodo);
+            this.tabEstructura.Controls.Add(this.buttonClasificacionItemQuitarTodo);
             this.tabEstructura.Controls.Add(this.pictureBoxMenuEmergente);
             this.tabEstructura.Controls.Add(this.dataGridViewPreguntasEstructuradas);
             this.tabEstructura.Controls.Add(this.label5);
@@ -278,6 +280,36 @@
             this.tabEstructura.TabIndex = 0;
             this.tabEstructura.Text = "Estructura";
             this.tabEstructura.UseVisualStyleBackColor = true;
+            // 
+            // buttonClasificacionItemElegirTodo
+            // 
+            this.buttonClasificacionItemElegirTodo.BackgroundImage = global::TestCreator.Properties.Resources.icons8_doble_derecha_en_cuadrado_96;
+            this.buttonClasificacionItemElegirTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClasificacionItemElegirTodo.FlatAppearance.BorderSize = 0;
+            this.buttonClasificacionItemElegirTodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.buttonClasificacionItemElegirTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClasificacionItemElegirTodo.Location = new System.Drawing.Point(141, 52);
+            this.buttonClasificacionItemElegirTodo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClasificacionItemElegirTodo.Name = "buttonClasificacionItemElegirTodo";
+            this.buttonClasificacionItemElegirTodo.Size = new System.Drawing.Size(27, 26);
+            this.buttonClasificacionItemElegirTodo.TabIndex = 23;
+            this.buttonClasificacionItemElegirTodo.UseVisualStyleBackColor = true;
+            this.buttonClasificacionItemElegirTodo.Click += new System.EventHandler(this.buttonClasificacionItemElegirTodo_Click);
+            // 
+            // buttonClasificacionItemQuitarTodo
+            // 
+            this.buttonClasificacionItemQuitarTodo.BackgroundImage = global::TestCreator.Properties.Resources.icons8_doble_izquierda_en_cuadrado_96;
+            this.buttonClasificacionItemQuitarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClasificacionItemQuitarTodo.FlatAppearance.BorderSize = 0;
+            this.buttonClasificacionItemQuitarTodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.buttonClasificacionItemQuitarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClasificacionItemQuitarTodo.Location = new System.Drawing.Point(141, 142);
+            this.buttonClasificacionItemQuitarTodo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClasificacionItemQuitarTodo.Name = "buttonClasificacionItemQuitarTodo";
+            this.buttonClasificacionItemQuitarTodo.Size = new System.Drawing.Size(27, 26);
+            this.buttonClasificacionItemQuitarTodo.TabIndex = 22;
+            this.buttonClasificacionItemQuitarTodo.UseVisualStyleBackColor = true;
+            this.buttonClasificacionItemQuitarTodo.Click += new System.EventHandler(this.buttonClasificacionItemQuitarTodo_Click);
             // 
             // pictureBoxMenuEmergente
             // 
@@ -391,12 +423,13 @@
             this.buttonNivelesBajar.FlatAppearance.BorderSize = 0;
             this.buttonNivelesBajar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesBajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesBajar.Location = new System.Drawing.Point(566, 142);
+            this.buttonNivelesBajar.Location = new System.Drawing.Point(510, 142);
             this.buttonNivelesBajar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesBajar.Name = "buttonNivelesBajar";
             this.buttonNivelesBajar.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesBajar.TabIndex = 17;
             this.buttonNivelesBajar.UseVisualStyleBackColor = true;
+            this.buttonNivelesBajar.Click += new System.EventHandler(this.buttonNivelesBajar_Click);
             // 
             // buttonNivelesSubir
             // 
@@ -405,12 +438,13 @@
             this.buttonNivelesSubir.FlatAppearance.BorderSize = 0;
             this.buttonNivelesSubir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesSubir.Location = new System.Drawing.Point(566, 112);
+            this.buttonNivelesSubir.Location = new System.Drawing.Point(510, 112);
             this.buttonNivelesSubir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesSubir.Name = "buttonNivelesSubir";
             this.buttonNivelesSubir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesSubir.TabIndex = 16;
             this.buttonNivelesSubir.UseVisualStyleBackColor = true;
+            this.buttonNivelesSubir.Click += new System.EventHandler(this.buttonNivelesSubir_Click);
             // 
             // buttonNivelesIncluir
             // 
@@ -419,12 +453,13 @@
             this.buttonNivelesIncluir.FlatAppearance.BorderSize = 0;
             this.buttonNivelesIncluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesIncluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesIncluir.Location = new System.Drawing.Point(566, 82);
+            this.buttonNivelesIncluir.Location = new System.Drawing.Point(510, 82);
             this.buttonNivelesIncluir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesIncluir.Name = "buttonNivelesIncluir";
             this.buttonNivelesIncluir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesIncluir.TabIndex = 15;
             this.buttonNivelesIncluir.UseVisualStyleBackColor = true;
+            this.buttonNivelesIncluir.Click += new System.EventHandler(this.buttonNivelesIncluir_Click);
             // 
             // buttonNivelesExcluir
             // 
@@ -433,27 +468,29 @@
             this.buttonNivelesExcluir.FlatAppearance.BorderSize = 0;
             this.buttonNivelesExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonNivelesExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNivelesExcluir.Location = new System.Drawing.Point(566, 52);
+            this.buttonNivelesExcluir.Location = new System.Drawing.Point(510, 52);
             this.buttonNivelesExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNivelesExcluir.Name = "buttonNivelesExcluir";
             this.buttonNivelesExcluir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesExcluir.TabIndex = 14;
             this.buttonNivelesExcluir.UseVisualStyleBackColor = true;
+            this.buttonNivelesExcluir.Click += new System.EventHandler(this.buttonNivelesExcluir_Click);
             // 
             // listBoxExcluir
             // 
             this.listBoxExcluir.FormattingEnabled = true;
             this.listBoxExcluir.HorizontalScrollbar = true;
-            this.listBoxExcluir.Location = new System.Drawing.Point(597, 52);
+            this.listBoxExcluir.Location = new System.Drawing.Point(541, 52);
             this.listBoxExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxExcluir.Name = "listBoxExcluir";
-            this.listBoxExcluir.Size = new System.Drawing.Size(148, 121);
+            this.listBoxExcluir.Size = new System.Drawing.Size(200, 121);
             this.listBoxExcluir.TabIndex = 13;
+            this.listBoxExcluir.DoubleClick += new System.EventHandler(this.listBoxExcluir_DoubleClick);
             // 
             // labelExcluir
             // 
             this.labelExcluir.AutoSize = true;
-            this.labelExcluir.Location = new System.Drawing.Point(594, 36);
+            this.labelExcluir.Location = new System.Drawing.Point(538, 36);
             this.labelExcluir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelExcluir.Name = "labelExcluir";
             this.labelExcluir.Size = new System.Drawing.Size(38, 13);
@@ -464,16 +501,17 @@
             // 
             this.listBoxNiveles.FormattingEnabled = true;
             this.listBoxNiveles.HorizontalScrollbar = true;
-            this.listBoxNiveles.Location = new System.Drawing.Point(415, 52);
+            this.listBoxNiveles.Location = new System.Drawing.Point(305, 52);
             this.listBoxNiveles.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxNiveles.Name = "listBoxNiveles";
-            this.listBoxNiveles.Size = new System.Drawing.Size(148, 121);
+            this.listBoxNiveles.Size = new System.Drawing.Size(200, 121);
             this.listBoxNiveles.TabIndex = 11;
+            this.listBoxNiveles.DoubleClick += new System.EventHandler(this.listBoxNiveles_DoubleClick);
             // 
             // labelNiveles
             // 
             this.labelNiveles.AutoSize = true;
-            this.labelNiveles.Location = new System.Drawing.Point(413, 36);
+            this.labelNiveles.Location = new System.Drawing.Point(303, 36);
             this.labelNiveles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNiveles.Name = "labelNiveles";
             this.labelNiveles.Size = new System.Drawing.Size(42, 13);
@@ -484,10 +522,10 @@
             // 
             this.listBoxElegir.FormattingEnabled = true;
             this.listBoxElegir.HorizontalScrollbar = true;
-            this.listBoxElegir.Location = new System.Drawing.Point(198, 52);
+            this.listBoxElegir.Location = new System.Drawing.Point(172, 52);
             this.listBoxElegir.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxElegir.Name = "listBoxElegir";
-            this.listBoxElegir.Size = new System.Drawing.Size(194, 121);
+            this.listBoxElegir.Size = new System.Drawing.Size(120, 121);
             this.listBoxElegir.TabIndex = 9;
             this.listBoxElegir.DoubleClick += new System.EventHandler(this.ListBoxElegir_DoubleClick);
             // 
@@ -508,7 +546,7 @@
             this.buttonClasificacionItemQuitar.FlatAppearance.BorderSize = 0;
             this.buttonClasificacionItemQuitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonClasificacionItemQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClasificacionItemQuitar.Location = new System.Drawing.Point(167, 111);
+            this.buttonClasificacionItemQuitar.Location = new System.Drawing.Point(141, 112);
             this.buttonClasificacionItemQuitar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClasificacionItemQuitar.Name = "buttonClasificacionItemQuitar";
             this.buttonClasificacionItemQuitar.Size = new System.Drawing.Size(27, 26);
@@ -523,7 +561,7 @@
             this.buttonClasificacionItemElegir.FlatAppearance.BorderSize = 0;
             this.buttonClasificacionItemElegir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.buttonClasificacionItemElegir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClasificacionItemElegir.Location = new System.Drawing.Point(167, 81);
+            this.buttonClasificacionItemElegir.Location = new System.Drawing.Point(141, 82);
             this.buttonClasificacionItemElegir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClasificacionItemElegir.Name = "buttonClasificacionItemElegir";
             this.buttonClasificacionItemElegir.Size = new System.Drawing.Size(27, 26);
@@ -538,7 +576,7 @@
             this.listBoxClasificacion.Location = new System.Drawing.Point(17, 52);
             this.listBoxClasificacion.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxClasificacion.Name = "listBoxClasificacion";
-            this.listBoxClasificacion.Size = new System.Drawing.Size(148, 121);
+            this.listBoxClasificacion.Size = new System.Drawing.Size(120, 121);
             this.listBoxClasificacion.TabIndex = 5;
             this.listBoxClasificacion.DoubleClick += new System.EventHandler(this.ListBoxClasificacion_DoubleClick);
             // 
@@ -814,9 +852,19 @@
             // numericUpDownCopias
             // 
             this.numericUpDownCopias.Location = new System.Drawing.Point(10, 25);
+            this.numericUpDownCopias.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownCopias.Name = "numericUpDownCopias";
             this.numericUpDownCopias.Size = new System.Drawing.Size(40, 20);
             this.numericUpDownCopias.TabIndex = 2;
+            this.numericUpDownCopias.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // radioButtonNuevasPreguntas
             // 
@@ -844,6 +892,11 @@
             // numericUpDownExamenes
             // 
             this.numericUpDownExamenes.Location = new System.Drawing.Point(82, 23);
+            this.numericUpDownExamenes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownExamenes.Name = "numericUpDownExamenes";
             this.numericUpDownExamenes.Size = new System.Drawing.Size(40, 20);
             this.numericUpDownExamenes.TabIndex = 1;
@@ -1154,7 +1207,15 @@
             // 
             // comboBoxInterlineadoEspaciadoRespuestas
             // 
+            this.comboBoxInterlineadoEspaciadoRespuestas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxInterlineadoEspaciadoRespuestas.FormattingEnabled = true;
+            this.comboBoxInterlineadoEspaciadoRespuestas.Items.AddRange(new object[] {
+            "Sencillo",
+            "1,5 líneas",
+            "Doble",
+            "Mínimo",
+            "Exacto",
+            "Múltiple"});
             this.comboBoxInterlineadoEspaciadoRespuestas.Location = new System.Drawing.Point(105, 75);
             this.comboBoxInterlineadoEspaciadoRespuestas.Name = "comboBoxInterlineadoEspaciadoRespuestas";
             this.comboBoxInterlineadoEspaciadoRespuestas.Size = new System.Drawing.Size(85, 21);
@@ -1236,6 +1297,7 @@
             this.comboBoxNumeroNumeracionRespuestas.Name = "comboBoxNumeroNumeracionRespuestas";
             this.comboBoxNumeroNumeracionRespuestas.Size = new System.Drawing.Size(35, 21);
             this.comboBoxNumeroNumeracionRespuestas.TabIndex = 10;
+            this.comboBoxNumeroNumeracionRespuestas.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumeroNumeracionRespuestas_SelectedIndexChanged);
             // 
             // labelNumeracionResultadoNumeracionRespuestas
             // 
@@ -1262,6 +1324,7 @@
             this.textBoxDespuesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
             this.textBoxDespuesNumeracionRespuestas.TabIndex = 5;
             this.textBoxDespuesNumeracionRespuestas.Text = ")";
+            this.textBoxDespuesNumeracionRespuestas.TextChanged += new System.EventHandler(this.textBoxDespuesNumeracionRespuestas_TextChanged);
             // 
             // textBoxAntesNumeracionRespuestas
             // 
@@ -1269,6 +1332,7 @@
             this.textBoxAntesNumeracionRespuestas.Name = "textBoxAntesNumeracionRespuestas";
             this.textBoxAntesNumeracionRespuestas.Size = new System.Drawing.Size(35, 20);
             this.textBoxAntesNumeracionRespuestas.TabIndex = 3;
+            this.textBoxAntesNumeracionRespuestas.TextChanged += new System.EventHandler(this.textBoxAntesNumeracionRespuestas_TextChanged);
             // 
             // labelDespuesNumeracionRespuestas
             // 
@@ -1311,13 +1375,13 @@
             // 
             // groupBoxEspaciadoPreguntas
             // 
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.domainUpDownDespuesEspaciadoPreguntas);
+            this.groupBoxEspaciadoPreguntas.Controls.Add(this.domainUpDownAntesEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.pictureBoxMantenerOriginalEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelInterlineadoEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelMantenerOriginalEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.comboBoxInterlineadoEspaciadoPreguntas);
-            this.groupBoxEspaciadoPreguntas.Controls.Add(this.numericUpDownDespuesEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelDespuesEspaciadoPreguntas);
-            this.groupBoxEspaciadoPreguntas.Controls.Add(this.numericUpDownAntesEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Controls.Add(this.labelAntesEspaciadoPreguntas);
             this.groupBoxEspaciadoPreguntas.Location = new System.Drawing.Point(10, 140);
             this.groupBoxEspaciadoPreguntas.Name = "groupBoxEspaciadoPreguntas";
@@ -1357,18 +1421,20 @@
             // 
             // comboBoxInterlineadoEspaciadoPreguntas
             // 
+            this.comboBoxInterlineadoEspaciadoPreguntas.DisplayMember = "Múltiple";
+            this.comboBoxInterlineadoEspaciadoPreguntas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxInterlineadoEspaciadoPreguntas.FormattingEnabled = true;
+            this.comboBoxInterlineadoEspaciadoPreguntas.Items.AddRange(new object[] {
+            "Sencillo",
+            "1,5 líneas",
+            "Doble",
+            "Mínimo",
+            "Exacto",
+            "Múltiple"});
             this.comboBoxInterlineadoEspaciadoPreguntas.Location = new System.Drawing.Point(80, 75);
             this.comboBoxInterlineadoEspaciadoPreguntas.Name = "comboBoxInterlineadoEspaciadoPreguntas";
             this.comboBoxInterlineadoEspaciadoPreguntas.Size = new System.Drawing.Size(85, 21);
             this.comboBoxInterlineadoEspaciadoPreguntas.TabIndex = 8;
-            // 
-            // numericUpDownDespuesEspaciadoPreguntas
-            // 
-            this.numericUpDownDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 49);
-            this.numericUpDownDespuesEspaciadoPreguntas.Name = "numericUpDownDespuesEspaciadoPreguntas";
-            this.numericUpDownDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
-            this.numericUpDownDespuesEspaciadoPreguntas.TabIndex = 7;
             // 
             // labelDespuesEspaciadoPreguntas
             // 
@@ -1378,13 +1444,6 @@
             this.labelDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesEspaciadoPreguntas.TabIndex = 6;
             this.labelDespuesEspaciadoPreguntas.Text = "Después";
-            // 
-            // numericUpDownAntesEspaciadoPreguntas
-            // 
-            this.numericUpDownAntesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 23);
-            this.numericUpDownAntesEspaciadoPreguntas.Name = "numericUpDownAntesEspaciadoPreguntas";
-            this.numericUpDownAntesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
-            this.numericUpDownAntesEspaciadoPreguntas.TabIndex = 5;
             // 
             // labelAntesEspaciadoPreguntas
             // 
@@ -1485,6 +1544,7 @@
             this.comboBoxNumeroNumeracionPreguntas.Name = "comboBoxNumeroNumeracionPreguntas";
             this.comboBoxNumeroNumeracionPreguntas.Size = new System.Drawing.Size(35, 21);
             this.comboBoxNumeroNumeracionPreguntas.TabIndex = 9;
+            this.comboBoxNumeroNumeracionPreguntas.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumeroNumeracionPreguntas_SelectedIndexChanged);
             // 
             // labelNumeracionResultadoNumeracionPreguntas
             // 
@@ -1511,6 +1571,7 @@
             this.textBoxDespuesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
             this.textBoxDespuesNumeracionPreguntas.TabIndex = 5;
             this.textBoxDespuesNumeracionPreguntas.Text = ")";
+            this.textBoxDespuesNumeracionPreguntas.TextChanged += new System.EventHandler(this.textBoxDespuesNumeracionPreguntas_TextChanged);
             // 
             // textBoxAntesNumeracionPreguntas
             // 
@@ -1518,6 +1579,7 @@
             this.textBoxAntesNumeracionPreguntas.Name = "textBoxAntesNumeracionPreguntas";
             this.textBoxAntesNumeracionPreguntas.Size = new System.Drawing.Size(35, 20);
             this.textBoxAntesNumeracionPreguntas.TabIndex = 3;
+            this.textBoxAntesNumeracionPreguntas.TextChanged += new System.EventHandler(this.textBoxAntesNumeracionPreguntas_TextChanged);
             // 
             // labelDespuesNumeracionPreguntas
             // 
@@ -1914,6 +1976,126 @@
             this.pictureBoxAyuda.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxAyuda_MouseDown);
             this.pictureBoxAyuda.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxAyuda_MouseUp);
             // 
+            // domainUpDownAntesEspaciadoPreguntas
+            // 
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("300 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("294 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("288 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("282 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("276 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("270 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("264 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("258 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("252 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("246 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("240 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("234 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("228 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("222 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("216 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("210 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("204 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("198 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("192 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("186 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("180 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("174 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("168 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("162 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("156 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("150 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("144 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("138 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("132 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("126 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("120 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("114 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("108 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("102 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("96 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("90 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("84 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("78 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("72 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("66 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("60 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("54 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("48 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("42 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("36 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("30 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("24 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("18 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("12 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("6 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("0 pto");
+            this.domainUpDownAntesEspaciadoPreguntas.Items.Add("Autom.");
+            this.domainUpDownAntesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 23);
+            this.domainUpDownAntesEspaciadoPreguntas.Name = "domainUpDownAntesEspaciadoPreguntas";
+            this.domainUpDownAntesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
+            this.domainUpDownAntesEspaciadoPreguntas.TabIndex = 3;
+            this.domainUpDownAntesEspaciadoPreguntas.Text = "6 pto";
+            // 
+            // domainUpDownDespuesEspaciadoPreguntas
+            // 
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("300 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("294 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("288 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("282 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("276 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("270 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("264 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("258 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("252 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("246 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("240 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("234 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("228 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("222 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("216 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("210 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("204 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("198 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("192 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("186 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("180 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("174 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("168 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("162 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("156 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("150 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("144 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("138 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("132 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("126 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("120 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("114 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("108 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("102 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("96 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("90 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("84 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("78 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("72 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("66 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("60 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("54 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("48 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("42 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("36 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("30 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("24 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("18 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("12 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("6 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("0 pto");
+            this.domainUpDownDespuesEspaciadoPreguntas.Items.Add("Autom.");
+            this.domainUpDownDespuesEspaciadoPreguntas.Location = new System.Drawing.Point(80, 49);
+            this.domainUpDownDespuesEspaciadoPreguntas.Name = "domainUpDownDespuesEspaciadoPreguntas";
+            this.domainUpDownDespuesEspaciadoPreguntas.Size = new System.Drawing.Size(85, 20);
+            this.domainUpDownDespuesEspaciadoPreguntas.TabIndex = 4;
+            this.domainUpDownDespuesEspaciadoPreguntas.Text = "6 pto";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1974,8 +2156,6 @@
             this.groupBoxEspaciadoPreguntas.ResumeLayout(false);
             this.groupBoxEspaciadoPreguntas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMantenerOriginalEspaciadoPreguntas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDespuesEspaciadoPreguntas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAntesEspaciadoPreguntas)).EndInit();
             this.groupBoxColumnasPreguntas.ResumeLayout(false);
             this.groupBoxColumnasPreguntas.PerformLayout();
             this.groupBoxNumeracionPreguntas.ResumeLayout(false);
@@ -2079,9 +2259,7 @@
         private System.Windows.Forms.Label labelInterlineadoEspaciadoPreguntas;
         private System.Windows.Forms.Label labelMantenerOriginalEspaciadoPreguntas;
         private System.Windows.Forms.ComboBox comboBoxInterlineadoEspaciadoPreguntas;
-        private System.Windows.Forms.NumericUpDown numericUpDownDespuesEspaciadoPreguntas;
         private System.Windows.Forms.Label labelDespuesEspaciadoPreguntas;
-        private System.Windows.Forms.NumericUpDown numericUpDownAntesEspaciadoPreguntas;
         private System.Windows.Forms.Label labelAntesEspaciadoPreguntas;
         private System.Windows.Forms.GroupBox groupBoxEspaciadoRespuestas;
         private System.Windows.Forms.NumericUpDown numericUpDownSangriaIzquierdaEspaciadoRespuestas;
@@ -2153,6 +2331,10 @@
         private System.Windows.Forms.ImageList imageListTabs;
         private System.Windows.Forms.PictureBox pictureBoxMenuEmergentePlantilla;
         private System.Windows.Forms.PictureBox pictureBoxAyuda;
+        private System.Windows.Forms.Button buttonClasificacionItemElegirTodo;
+        private System.Windows.Forms.Button buttonClasificacionItemQuitarTodo;
+        private System.Windows.Forms.DomainUpDown domainUpDownAntesEspaciadoPreguntas;
+        private System.Windows.Forms.DomainUpDown domainUpDownDespuesEspaciadoPreguntas;
     }
 }
 
