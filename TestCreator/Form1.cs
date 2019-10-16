@@ -269,7 +269,15 @@ namespace TestCreator
                             contenido = contenido.Remove(contenido.IndexOf("%"));
                         }
                         string[] listaTemp = contenido.Split(',');
-                        if (listaTemp.Length == ArraySizeClasificacion)
+                        int listaTempSize = 0;
+                        foreach (var itemC in listaTemp)
+                        {
+                            if (itemC.Trim(' ') != "")
+                            {
+                                listaTempSize++;
+                            }
+                        }
+                        if (listaTempSize == ArraySizeClasificacion)
                         {
                             output.Add(indexTemp, contenido.Trim(' '));
                             indexTemp++;
@@ -290,8 +298,11 @@ namespace TestCreator
                         {
                             contenido = contenido.Remove(contenido.IndexOf("%"));
                         }
+                        if (contenido.Length > 1)
+                        {
                             output.Add(indexTemp, contenido);
                             indexTemp++;
+                        }
                     }
 
                 });
