@@ -399,28 +399,48 @@ namespace TestCreator
 
         private void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario)
         {
-            if ( listBoxPrincipal.SelectedIndex >= 0)
+            if (listBoxPrincipal.Items.Count > 0)
             {
-                listBoxSecundario.Items.Add(listBoxPrincipal.SelectedItem);
-                listBoxPrincipal.Items.Remove(listBoxPrincipal.SelectedItem);
+                List<string> listadoSeleccionado = new List<string>();
+                foreach (object itemSeleccionado in listBoxPrincipal.SelectedItems)
+                {
+                    listadoSeleccionado.Add(itemSeleccionado.ToString());
+                }
+
+                foreach (var item in listadoSeleccionado)
+                {
+                    listBoxSecundario.Items.Add(item);
+                    listBoxPrincipal.Items.Remove(item);
+
+                }
             }
             else
             {
-                MessageBox.Show("Selecciona un elemento de la lista");
+                MessageBox.Show("No existen elementos en la lista");
                 
             }
         }
         private void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar)
         {
-            if (listBoxPrincipal.SelectedIndex >= 0)
+            if (listBoxPrincipal.Items.Count > 0)
             {
-                listBoxSecundario.Items.Add(listBoxPrincipal.SelectedItem);
-                listBoxPrincipal.Items.Remove(listBoxPrincipal.SelectedItem);
+                List<string> listadoSeleccionado = new List<string>();
+                foreach (object itemSeleccionado in listBoxPrincipal.SelectedItems)
+                {
+                    listadoSeleccionado.Add(itemSeleccionado.ToString());
+                }
+
+                foreach (var item in listadoSeleccionado)
+                {
+                    listBoxSecundario.Items.Add(item);
+                    listBoxPrincipal.Items.Remove(item);
+
+                }
                 listBoxALimpiar.Items.Clear();
             }
             else
             {
-                MessageBox.Show("Selecciona un elemento de la lista");
+                MessageBox.Show("No existen elementos en la lista");
 
             }
         }
