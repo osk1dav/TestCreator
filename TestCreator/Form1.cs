@@ -20,7 +20,7 @@ namespace TestCreator
             var toolTipMenuEmergente = new ToolTip();
             toolTipMenuEmergente.SetToolTip(pictureBoxMenuEmergente, "Limpiar busqueda");
 
-           
+
         }
 
         #region Codigo ejemplo
@@ -59,6 +59,7 @@ namespace TestCreator
         private string tipoNiveles = "";
         private List<string> listadoClasificacionNiveles = new List<string>();
         private int ArraySizeClasificacion = 0;
+        private string templatePath = "";
         // Bloques de Grupos de Parrafos segun su clasificacion General
         List<List<OpenXmlElement>> bloqueGeneral;
         // Imagenes tipo boton con Texto Si y No
@@ -90,7 +91,7 @@ namespace TestCreator
 
 
         }
-        
+
         private void InicializarListBoxContents()
         {
             listBoxClasificacion.Items.Clear();
@@ -131,8 +132,22 @@ namespace TestCreator
                 }
                 comboBoxRutaBancoPreguntas.Text = ofdAbrirBancoPreguntas.FileName;
             }
-            string templatePath = comboBoxRutaBancoPreguntas.Text;
+            templatePath = comboBoxRutaBancoPreguntas.Text;
+            //CargarListboxMedianteTemplate();
 
+        }
+
+        private void comboBoxRutaBancoPreguntas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InicializarListBoxContents();
+            templatePath = comboBoxRutaBancoPreguntas.Text;
+            CargarListboxMedianteTemplate();
+        }
+
+        private void ButtonGenerarExamen_Click(object sender, EventArgs e) { }
+
+
+        private void CargarListboxMedianteTemplate(){
             using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(templatePath))
             {
                 var body = document.MainDocumentPart.Document.Body;
@@ -184,8 +199,6 @@ namespace TestCreator
 
             }
         }
-
-        private void ButtonGenerarExamen_Click(object sender, EventArgs e) { }
 
         private Dictionary<int, string> ClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
@@ -713,6 +726,8 @@ namespace TestCreator
         {
             TextoLabelEnBaseNumeracion(textBoxAntesNumeracionRespuestas, comboBoxNumeroNumeracionRespuestas, textBoxDespuesNumeracionRespuestas, labelNumeracionResultadoNumeracionRespuestas);
         }
+
+        
 
         private void PictureBoxMantenerOriginalNumeracionPreguntas_MouseDown(object sender, MouseEventArgs e)
         {

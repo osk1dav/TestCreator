@@ -602,6 +602,7 @@
             this.comboBoxRutaBancoPreguntas.Name = "comboBoxRutaBancoPreguntas";
             this.comboBoxRutaBancoPreguntas.Size = new System.Drawing.Size(532, 21);
             this.comboBoxRutaBancoPreguntas.TabIndex = 3;
+            this.comboBoxRutaBancoPreguntas.SelectedIndexChanged += new System.EventHandler(this.comboBoxRutaBancoPreguntas_SelectedIndexChanged);
             // 
             // buttonAbrirBancoPreguntas
             // 
