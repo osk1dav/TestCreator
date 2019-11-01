@@ -3,93 +3,58 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static TestCreator.Properties.Resources;
 
 namespace TestCreator
 {
     public partial class FormPrincipal : Form
     {
+        private Interruptores interruptor = new Interruptores();
+        private List<string> listaBancoPreguntas = new List<string>();
+        private List<string> listaPlantillaExamen = new List<string>();
+        private List<string> listadoClasificacion = new List<string>();
+        private List<string> listadoNiveles = new List<string>();
+        private List<string> listadoClasificacionNiveles = new List<string>();
+        private List<List<OpenXmlElement>> bloqueGeneral;
+        private int ArraySizeClasificacion = 0;
+        private string tipoNiveles = "";
+        private string templatePath = "";
 
         public FormPrincipal()
         {
             InitializeComponent();
             InicializarInterruptores();
-            // Mensaje alterno para pictureBoxMenuEmergente 
-            var toolTipMenuEmergente = new ToolTip();
-            toolTipMenuEmergente.SetToolTip(pictureBoxMenuEmergente, "Limpiar busqueda");
-
-
+            InicializarComboBoxs();
+            InicializarToolTips();
         }
 
-        #region Codigo ejemplo
-        /// <summary>
-        /// Crear un documento nuevo en el mismo directorio del Filepath
-        /// </summary>
-        /// <example>
-        //string fullPath = ofdAbrirBancoPreguntas.FileName;
-        //string fileName = ofdAbrirBancoPreguntas.SafeFileName;
-        //string path = fullPath.Replace(fileName, "New.docx");
-
-        //using (WordprocessingDocument wordDocument =
-        //WordprocessingDocument.Create(path, WordprocessingDocumentType.Document))
-        //{
-        //    // Add a main document part. 
-        //    MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
-
-        //    // Create the document structure and add some text.
-        //    mainPart.Document = new Document();
-        //    Body body = mainPart.Document.AppendChild(new Body());
-        //    Paragraph para = body.AppendChild(new Paragraph());
-        //    Run run = para.AppendChild(new Run());
-        //    run.AppendChild(new Text("Create text in body - CreateWordprocessingDocument"));
-        //} 
-        /// </example>
-        #endregion
-
         #region Parametros
-        // Simulacion de interruptor para botones si o no
-        private bool boolIdentificarExamenes, boolMantenerOriginalNumeracionPreguntas, boolMantenerOriginalEspaciadoPreguntas, boolMantenerOriginalNumeracionRespuestas, boolMantenerOriginalEspaciadoRespuestas, boolMantenerOriginalColumnasRespuestas, boolImprimirComentariosPresentacionSolucion;
-        // Listados para comboboxs
-        private List<string> listaBancoPreguntas = new List<string>();
-        private List<string> listaPlantillaExamen = new List<string>();
-        private Dictionary<int, string> listadoClasificacion = new Dictionary<int, string>();
-        private Dictionary<int, string> listadoNiveles = new Dictionary<int, string>();
-        private string tipoNiveles = "";
-        private List<string> listadoClasificacionNiveles = new List<string>();
-        private int ArraySizeClasificacion = 0;
-        private string templatePath = "";
-        // Bloques de Grupos de Parrafos segun su clasificacion General
-        List<List<OpenXmlElement>> bloqueGeneral;
-        // Imagenes tipo boton con Texto Si y No
-        Image botonSiConTexto = TestCreator.Properties.Resources.icons8_alternar_encendido_text_si_96;
-        Image botonNoConTexto = TestCreator.Properties.Resources.icons8_alternar_apagado_text_no_96;
+
+        private void InicializarToolTips()
+        {
+            var toolTipMenuEmergente = new ToolTip();
+            toolTipMenuEmergente.SetToolTip(pictureBoxMenuEmergente, "Limpiar busqueda");
+            toolTipMenuEmergente.SetToolTip(pictureBoxMenuEmergentePlantilla, "Limpiar busqueda");
+        }
 
         private void InicializarInterruptores()
         {
-            boolIdentificarExamenes = true;
-            boolMantenerOriginalNumeracionPreguntas = true;
-            boolMantenerOriginalEspaciadoPreguntas = true;
-            boolMantenerOriginalNumeracionRespuestas = true;
-            boolMantenerOriginalEspaciadoRespuestas = true;
-            boolMantenerOriginalColumnasRespuestas = true;
-            boolImprimirComentariosPresentacionSolucion = true;
-
-            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = boolMantenerOriginalEspaciadoPreguntas ? botonSiConTexto : botonNoConTexto;
-            pictureBoxImprimirComentariosPresentacionSolucion.Image = boolImprimirComentariosPresentacionSolucion ? botonSiConTexto : botonNoConTexto;
-            pictureBoxMantenerOriginalColumnasRespuestas.Image = boolMantenerOriginalColumnasRespuestas ? botonSiConTexto : botonNoConTexto;
-            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = boolMantenerOriginalEspaciadoRespuestas ? botonSiConTexto : botonNoConTexto;
-            pictureBoxMantenerOriginalNumeracionRespuestas.Image = boolMantenerOriginalNumeracionRespuestas ? botonSiConTexto : botonNoConTexto;
-            pictureBoxMantenerOriginalNumeracionPreguntas.Image = boolMantenerOriginalNumeracionPreguntas ? botonSiConTexto : botonNoConTexto;
-            pictureBoxIdentificarExamenes.Image = boolIdentificarExamenes ? botonSiConTexto : botonNoConTexto;
-
+            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = interruptor.boolMantenerOriginalEspaciadoPreguntas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+            pictureBoxImprimirComentariosPresentacionSolucion.Image = interruptor.boolImprimirComentariosPresentacionSolucion ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+            pictureBoxMantenerOriginalColumnasRespuestas.Image = interruptor.boolMantenerOriginalColumnasRespuestas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = interruptor.boolMantenerOriginalEspaciadoRespuestas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+            pictureBoxMantenerOriginalNumeracionRespuestas.Image = interruptor.boolMantenerOriginalNumeracionRespuestas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+            pictureBoxMantenerOriginalNumeracionPreguntas.Image = interruptor.boolMantenerOriginalNumeracionPreguntas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+            pictureBoxIdentificarExamenes.Image = interruptor.boolIdentificarExamenes ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
+        }
+        private void InicializarComboBoxs()
+        {
             comboBoxNumeroNumeracionPreguntas.SelectedIndex = 0;
             comboBoxNumeroNumeracionRespuestas.SelectedIndex = 4;
             comboBoxInterlineadoEspaciadoPreguntas.SelectedIndex = 5;
             comboBoxInterlineadoEspaciadoRespuestas.SelectedIndex = 5;
-
-
         }
 
         private void InicializarListBoxContents()
@@ -98,8 +63,8 @@ namespace TestCreator
             listBoxElegir.Items.Clear();
             listBoxNiveles.Items.Clear();
             listBoxExcluir.Items.Clear();
-            listadoClasificacion = new Dictionary<int, string>();
-            listadoNiveles = new Dictionary<int, string>();
+            listadoClasificacion = new List<string>();
+            listadoNiveles = new List<string>();
             listadoClasificacionNiveles = new List<string>();
         }
         #endregion
@@ -107,12 +72,12 @@ namespace TestCreator
         #region Formulario Principal
         private void PictureBoxAyuda_MouseDown(object sender, MouseEventArgs e)
         {
-            pictureBoxAyuda.Image = TestCreator.Properties.Resources.icons8_ayuda_64;
+            pictureBoxAyuda.Image = icons8_ayuda_64;
         }
 
         private void PictureBoxAyuda_MouseUp(object sender, MouseEventArgs e)
         {
-            pictureBoxAyuda.Image = TestCreator.Properties.Resources.icons8_ayuda_64_white;
+            pictureBoxAyuda.Image = icons8_ayuda_64_white;
         }
 
         #endregion
@@ -126,26 +91,23 @@ namespace TestCreator
             {
                 comboBoxRutaBancoPreguntas.Items.Clear(); // Reseteamos comboBoxRutaBancoPreguntas
                 listaBancoPreguntas.Add(ofdAbrirBancoPreguntas.FileName); //Agregamos a List elementos seleccionados
-                foreach (var item in listaBancoPreguntas.Distinct()) //Agregamos items a comboBoxRutaBancoPreguntas filtrando elementos duplicados
+                foreach (var item in listaBancoPreguntas.Distinct()) //Agregamos items a comboBoxRutaBancoPreguntas filtrando elementos duplicados con Distinct()
                 {
-                    comboBoxRutaBancoPreguntas.Items.Add(item);
+                    comboBoxRutaBancoPreguntas.Items.Add(item); 
                 }
                 comboBoxRutaBancoPreguntas.Text = ofdAbrirBancoPreguntas.FileName;
             }
             templatePath = comboBoxRutaBancoPreguntas.Text;
-            //CargarListboxMedianteTemplate();
-
         }
 
         private void comboBoxRutaBancoPreguntas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InicializarListBoxContents();
-            templatePath = comboBoxRutaBancoPreguntas.Text;
+            InicializarListBoxContents(); // Limpiamos todos los listados y Listbox's
+            templatePath = comboBoxRutaBancoPreguntas.Text; 
             CargarListboxMedianteTemplate();
         }
 
         private void ButtonGenerarExamen_Click(object sender, EventArgs e) { }
-
 
         private void CargarListboxMedianteTemplate(){
             using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(templatePath))
@@ -154,57 +116,46 @@ namespace TestCreator
                 var paragraphs = body.Elements<Paragraph>();
                 var blocks = GrupoGeneralDePreguntas(paragraphs); // Get a List of Question blocks
                 bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
-
-                listadoClasificacion = ClasificacionGeneralDePreguntas(blocks[0]);
-                foreach (var itemClasificacion in listadoClasificacion)
+                if (blocks.Count >0)
                 {
-                    //listBoxClasificacion.Items.Add(itemClasificacion.Value);
-                    listBoxClasificacion.Items.Insert(itemClasificacion.Key, itemClasificacion.Value);
-                }
-
-                listadoNiveles = NivelesPreguntas(blocks[0]);
-
-                if (tipoNiveles == "clases")
-                {
-                    foreach (var itemNivel in listadoNiveles)
+                    listadoClasificacion = ClasificacionGeneralDePreguntas(blocks[0]);
+                    foreach (var itemClasificacion in listadoClasificacion){ listBoxClasificacion.Items.Add(itemClasificacion); }
+                    listadoNiveles = NivelesPreguntas(blocks[0]);
+                    if (tipoNiveles == "clases")
                     {
-                        string cadenaListado = "";
-                        string[] nivelArray = itemNivel.Value.Split(',');
-                        int clasificacionConteo = 0;
-                        foreach (var itemClasificacion in listadoClasificacion)
+                        foreach (var itemNivel in listadoNiveles)
                         {
-                            if (clasificacionConteo == 0)
+                            string cadenaListado = "";
+                            string[] nivelArray = itemNivel.Split(',');
+                            int clasificacionConteo = 0;
+                            foreach (var itemClasificacion in listadoClasificacion)
                             {
-                                cadenaListado += $"{itemClasificacion.Value} - {nivelArray[clasificacionConteo]}";
+                                if (clasificacionConteo == 0)
+                                {
+                                    cadenaListado += $"{itemClasificacion} - {nivelArray[clasificacionConteo]}";
+                                }
+                                else
+                                {
+                                    cadenaListado += $", {itemClasificacion} - {nivelArray[clasificacionConteo]}";
+                                }
+                                clasificacionConteo++;
                             }
-                            else
-                            {
-                                cadenaListado += $", {itemClasificacion.Value} - {nivelArray[clasificacionConteo]}";
-                            }
-                            clasificacionConteo++;
+                            listadoClasificacionNiveles.Add(cadenaListado);
                         }
-
-                        listadoClasificacionNiveles.Add(cadenaListado);
                     }
-                }
-                if (tipoNiveles == "preguntas")
-                {
-                    foreach (var itemNivel in listadoNiveles)
+                    if (tipoNiveles == "preguntas")
                     {
-                        listadoClasificacionNiveles.Add(itemNivel.Value.Trim(' '));
+                        foreach (var itemNivel in listadoNiveles) { listadoClasificacionNiveles.Add(itemNivel.Trim(' '));  }
                     }
                 }
-
-
-
+                else MessageBox.Show("Archivo de Word incorrecto.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
-        private Dictionary<int, string> ClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
+        private List<string> ClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            Dictionary<int, string> output = new Dictionary<int, string>();
+            List<string> output = new List<string>();
             tipoNiveles = "";
-            int indexTemp = 0;
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
                 if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
@@ -214,8 +165,7 @@ namespace TestCreator
                     ArraySizeClasificacion = listaTemp.Length;
                     foreach (var item in listaTemp)
                     {
-                        output.Add(indexTemp, item.Trim(' '));
-                        indexTemp++;
+                        output.Add(item.Trim(' '));
                     }
                 }
             });
@@ -224,52 +174,16 @@ namespace TestCreator
                 if (p.InnerText.StartsWith(@"#") && output.Count < 1 && tipoNiveles != "clases") // New Pregunta
                 {
                     tipoNiveles = "preguntas";
-                    output.Add(indexTemp, "Preguntas");
-                    indexTemp++;
+                    output.Add("Preguntas");
                 }
-            });
-
-            return output;
-        }
-
-        
-        private Dictionary<int, string> ClasificacionDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
-        {
-            Dictionary<int, string> output = new Dictionary<int, string>();
-            string contenido = "";
-            int indexTemp = 0;
-            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
-            {
-                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
-                {
-                }
-
-                if (p.InnerText.ToLower().StartsWith(@"clas = ") && !p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
-                {
-                    contenido = p.InnerText.Trim(' ').Substring(7);
-                    if (contenido.Contains("%"))
-                    {
-                        contenido = contenido.Remove(contenido.IndexOf("%"));
-                    }
-                    string[] listaTemp = contenido.Split(',');
-                    if (listaTemp.Length == ArraySizeClasificacion)
-                    {
-                        output.Add(indexTemp, contenido.Trim(' '));
-                        indexTemp++;
-                    }
-
-                }
-                
             });
             return output;
         }
 
-        private Dictionary<int, string> NivelesPreguntas(IEnumerable<OpenXmlElement> paragraphs)
+        private List<string> NivelesPreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            Dictionary<int, string> output = new Dictionary<int, string>();
+            List<string> output = new List<string>();
             string contenido = "";
-            int indexTemp = 0;
-
             if (tipoNiveles == "clases")
             {
                 paragraphs.ToList<OpenXmlElement>().ForEach(p =>
@@ -292,10 +206,8 @@ namespace TestCreator
                         }
                         if (listaTempSize == ArraySizeClasificacion)
                         {
-                            output.Add(indexTemp, contenido.Trim(' '));
-                            indexTemp++;
+                            output.Add(contenido.Trim(' '));
                         }
-
                     }
 
                 });
@@ -304,7 +216,7 @@ namespace TestCreator
             {
                 paragraphs.ToList<OpenXmlElement>().ForEach(p =>
                 {
-                    if (p.InnerText.StartsWith(@"#")) // New Pregunta
+                    if (p.InnerText.StartsWith(@"#")) // Nueva Pregunta
                     {
                         contenido = p.InnerText.Trim(' ');
                         if (contenido.Contains("%"))
@@ -313,8 +225,7 @@ namespace TestCreator
                         }
                         if (contenido.Length > 1)
                         {
-                            output.Add(indexTemp, contenido);
-                            indexTemp++;
+                            output.Add( contenido);
                         }
                     }
 
@@ -322,62 +233,7 @@ namespace TestCreator
             }
             return output;
         }
-        static List<string> ListadoDePreguntas(IEnumerable<Paragraph> paragraphs)
-        {
-            List<string> output = new List<string>();
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith("#")) // New Pregunta
-                {
-                    output.Add(p.InnerText);
-                }
-            });
-            return output;
-        }
-        /**
-         * This function iterates over all paragrpahs and groups them into question blocks
-         * */
-        static List<List<Paragraph>> GroupParagraphs(IEnumerable<Paragraph> paragraphs)
-        {
-            List<List<Paragraph>> output = new List<List<Paragraph>>();
-            List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith("#") && group.Count >= 0) // New Pregunta
-                {
-                    output.Add(group);
-                    group = new List<Paragraph>();
-                }
-                group.Add(p);
-            });
-            if (group.Count > 0) // Add last group if exists
-            {
-                output.Add(group);
-                group = new List<Paragraph>();
-            }
-            return output;
-        }
-        static List<List<Paragraph>> GrupoClasificacionGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
-        {
-            List<List<Paragraph>> output = new List<List<Paragraph>>();
-            List<Paragraph> group = new List<Paragraph>();
-            paragraphs.ToList<Paragraph>().ForEach(p =>
-            {
-                if (p.InnerText.StartsWith(@"Clas = [") && group.Count >= 0) // Nuevo Grupo de Clasificacion General
-                {
-                    output.Add(group);
-                    group = new List<Paragraph>();
-                }
-                group.Add(p);
-            });
-            if (group.Count > 0) // Add last group if exists
-            {
-                output.Add(group);
-                group = new List<Paragraph>();
-            }
-            return output;
-        }
-
+        
         static List<List<OpenXmlElement>> GrupoGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
         {
             List<List<OpenXmlElement>> output = new List<List<OpenXmlElement>>();
@@ -386,7 +242,7 @@ namespace TestCreator
             string conteoDescripcion = "";
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                if (p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
+                if (p.InnerText.ToLower().StartsWith(@"clas = [")) // Nueva Pregunta
                 {
                     conteoDescripcion = "clases";
                     conteoClases++;
@@ -401,7 +257,7 @@ namespace TestCreator
             {
                 paragraphs.ToList<OpenXmlElement>().ForEach(p =>
                 {
-                    if (p.InnerText.StartsWith(@"#") && conteoClases == 0) // New Pregunta
+                    if (p.InnerText.StartsWith(@"#") && conteoClases == 0) // Nueva Pregunta
                     {
                         conteoDescripcion = "parrafos";
                         conteoClases++;
@@ -435,12 +291,11 @@ namespace TestCreator
                 {
                     listBoxSecundario.Items.Add(item);
                     listBoxPrincipal.Items.Remove(item);
-
                 }
             }
             else
             {
-                MessageBox.Show("No existen elementos en la lista");
+                MessageBox.Show("No existen elementos en la lista","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 
             }
         }
@@ -458,43 +313,33 @@ namespace TestCreator
                 {
                     listBoxSecundario.Items.Add(item);
                     listBoxPrincipal.Items.Remove(item);
-
                 }
                 listBoxALimpiar.Items.Clear();
             }
             else
             {
-                MessageBox.Show("No existen elementos en la lista");
-
+                MessageBox.Show("No existen elementos en la lista","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 
         private void MetodoMoverItemLista(ListBox listBox, int direccion) 
         {
-            // Checking selected item
-            if (listBox.SelectedItem == null || listBox.SelectedIndex < 0)
+            if (listBox.SelectedItem == null || listBox.SelectedIndex < 0) // Checking selected item
                 return; // No selected item - nothing to do
 
-            // Calculate new index using move direction
-            int newIndex = listBox.SelectedIndex + direccion;
-
-            // Checking bounds of the range
-            if (newIndex < 0 || newIndex >= listBox.Items.Count)
+            int newIndex = listBox.SelectedIndex + direccion; // Calculate new index using move direction
+            if (newIndex < 0 || newIndex >= listBox.Items.Count) // Checking bounds of the range
                 return; // Index out of range - nothing to do
 
             object selected = listBox.SelectedItem;
-
-            // Removing removable element
-            listBox.Items.Remove(selected);
-            // Insert it in new position
-            listBox.Items.Insert(newIndex, selected);
-            // Restore selection
-            listBox.SetSelected(newIndex, true);
+            listBox.Items.Remove(selected); // Removing removable element
+            listBox.Items.Insert(newIndex, selected); // Insert it in new position
+            listBox.SetSelected(newIndex, true); // Restore selection
         }
     
 
-        private void MetodoClasificacionTodo(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar) {
-
+        private void MetodoClasificacionTodo(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar) 
+        {
             listBoxSecundario.Items.AddRange(listBoxPrincipal.Items);
             listBoxPrincipal.Items.Clear();
             listBoxALimpiar.Items.Clear();
@@ -543,7 +388,6 @@ namespace TestCreator
                         listadoNivelesList.Add(item.Substring(1));
                     }
                 }
-                
             }
             
             foreach (var nivel in listadoNivelesList.Distinct())
@@ -580,26 +424,23 @@ namespace TestCreator
 
         private void PictureBoxMenuEmergente_Click(object sender, EventArgs e)
         {
-            // Limpieza de List listaBancoPreguntas
-            listaBancoPreguntas.Clear();
+            listaBancoPreguntas.Clear(); // Limpieza de List listaBancoPreguntas
             // Limpieza de comboBoxRutaBancoPreguntas
             comboBoxRutaBancoPreguntas.Items.Clear();
             comboBoxRutaBancoPreguntas.ResetText();
-            //
+            // Limpieza de ListBoxs e inicializacion de Listas
+            InicializarListBoxContents();
+            
         }
 
         private void PictureBoxMenuEmergente_MouseDown(object sender, MouseEventArgs e)
         {
-            // Cambio de color para simular boton del pictureBoxMenuEmergente
-            pictureBoxMenuEmergente.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500;
-            //
+            pictureBoxMenuEmergente.Image = icons8_eliminar_columna_500; // Cambio de color para simular boton del pictureBoxMenuEmergente
         }
 
         private void PictureBoxMenuEmergente_MouseUp(object sender, MouseEventArgs e)
         {
-            // Cambio de color para simular boton del pictureBoxMenuEmergente
-            pictureBoxMenuEmergente.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
-            //
+            pictureBoxMenuEmergente.Image = icons8_eliminar_columna_500_cian; // Cambio de color para simular boton del pictureBoxMenuEmergente
         }
 
         #endregion
@@ -607,9 +448,8 @@ namespace TestCreator
         #region Pestaña Cantidad
         private void PictureBoxIdentificarExamenes_MouseDown(object sender, MouseEventArgs e)
         {
-            boolIdentificarExamenes = !boolIdentificarExamenes;
-            pictureBoxIdentificarExamenes.Image = boolIdentificarExamenes ? botonSiConTexto : botonNoConTexto;
-
+            interruptor.boolIdentificarExamenes = !interruptor.boolIdentificarExamenes;
+            pictureBoxIdentificarExamenes.Image = interruptor.boolIdentificarExamenes ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
         }
         #endregion
 
@@ -620,7 +460,6 @@ namespace TestCreator
             if (comboBoxTipoNumeracion.Text == "Ninguna")
             {
                 labelTexto.Text = "";
-
             }
             else
             {
@@ -629,30 +468,26 @@ namespace TestCreator
         }
         private void PictureBoxMantenerOriginalEspaciadoPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
-            boolMantenerOriginalEspaciadoPreguntas = !boolMantenerOriginalEspaciadoPreguntas;
-            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = boolMantenerOriginalEspaciadoPreguntas ? botonSiConTexto : botonNoConTexto;
-
+            interruptor.boolMantenerOriginalEspaciadoPreguntas = !interruptor.boolMantenerOriginalEspaciadoPreguntas;
+            pictureBoxMantenerOriginalEspaciadoPreguntas.Image = interruptor.boolMantenerOriginalEspaciadoPreguntas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
         }
 
         private void PictureBoxMantenerOriginalColumnasRespuestas_MouseDown(object sender, MouseEventArgs e)
         {
-            boolMantenerOriginalColumnasRespuestas = !boolMantenerOriginalColumnasRespuestas;
-            pictureBoxMantenerOriginalColumnasRespuestas.Image = boolMantenerOriginalColumnasRespuestas ? botonSiConTexto : botonNoConTexto;
-
+            interruptor.boolMantenerOriginalColumnasRespuestas = !interruptor.boolMantenerOriginalColumnasRespuestas;
+            pictureBoxMantenerOriginalColumnasRespuestas.Image = interruptor.boolMantenerOriginalColumnasRespuestas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
         }
 
         private void PictureBoxMantenerOriginalEspaciadoRespuestas_MouseDown(object sender, MouseEventArgs e)
         {
-            boolMantenerOriginalEspaciadoRespuestas = !boolMantenerOriginalEspaciadoRespuestas;
-            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = boolMantenerOriginalEspaciadoRespuestas ? botonSiConTexto : botonNoConTexto;
-
+            interruptor.boolMantenerOriginalEspaciadoRespuestas = !interruptor.boolMantenerOriginalEspaciadoRespuestas;
+            pictureBoxMantenerOriginalEspaciadoRespuestas.Image = interruptor.boolMantenerOriginalEspaciadoRespuestas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
         }
 
         private void PictureBoxMantenerOriginalNumeracionRespuestas_MouseDown(object sender, MouseEventArgs e)
         {
-            boolMantenerOriginalNumeracionRespuestas = !boolMantenerOriginalNumeracionRespuestas;
-            pictureBoxMantenerOriginalNumeracionRespuestas.Image = boolMantenerOriginalNumeracionRespuestas ? botonSiConTexto : botonNoConTexto;
-
+            interruptor.boolMantenerOriginalNumeracionRespuestas = !interruptor.boolMantenerOriginalNumeracionRespuestas;
+            pictureBoxMantenerOriginalNumeracionRespuestas.Image = interruptor.boolMantenerOriginalNumeracionRespuestas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
         }
 
         private void buttonClasificacionItemElegirTodo_Click(object sender, EventArgs e)
@@ -727,12 +562,10 @@ namespace TestCreator
             TextoLabelEnBaseNumeracion(textBoxAntesNumeracionRespuestas, comboBoxNumeroNumeracionRespuestas, textBoxDespuesNumeracionRespuestas, labelNumeracionResultadoNumeracionRespuestas);
         }
 
-        
-
         private void PictureBoxMantenerOriginalNumeracionPreguntas_MouseDown(object sender, MouseEventArgs e)
         {
-            boolMantenerOriginalNumeracionPreguntas = !boolMantenerOriginalNumeracionPreguntas;
-            pictureBoxMantenerOriginalNumeracionPreguntas.Image = boolMantenerOriginalNumeracionPreguntas ? botonSiConTexto : botonNoConTexto;
+            interruptor.boolMantenerOriginalNumeracionPreguntas = !interruptor.boolMantenerOriginalNumeracionPreguntas;
+            pictureBoxMantenerOriginalNumeracionPreguntas.Image = interruptor.boolMantenerOriginalNumeracionPreguntas ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
 
         }
         #endregion
@@ -740,9 +573,8 @@ namespace TestCreator
         #region Pestaña Solucion
         private void PictureBoxImprimirComentariosPresentacionSolucion_MouseDown(object sender, MouseEventArgs e)
         {
-            boolImprimirComentariosPresentacionSolucion = !boolImprimirComentariosPresentacionSolucion;
-            pictureBoxImprimirComentariosPresentacionSolucion.Image = boolImprimirComentariosPresentacionSolucion ? botonSiConTexto : botonNoConTexto;
-
+            interruptor.boolImprimirComentariosPresentacionSolucion = !interruptor.boolImprimirComentariosPresentacionSolucion;
+            pictureBoxImprimirComentariosPresentacionSolucion.Image = interruptor.boolImprimirComentariosPresentacionSolucion ? interruptor.botonSiConTexto : interruptor.botonNoConTexto;
         }
 
         #endregion
@@ -781,22 +613,18 @@ namespace TestCreator
 
         private void PictureBoxMenuEmergentePlantilla_MouseDown(object sender, MouseEventArgs e)
         {
-            // Cambio de color para simular boton del pictureBoxMenuEmergente
-            pictureBoxMenuEmergentePlantilla.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500;
-            //
+            pictureBoxMenuEmergentePlantilla.Image = icons8_eliminar_columna_500; // Cambio de color para simular boton del pictureBoxMenuEmergente
         }
 
         private void PictureBoxMenuEmergentePlantilla_MouseUp(object sender, MouseEventArgs e)
         {
-            // Cambio de color para simular boton del pictureBoxMenuEmergente
-            pictureBoxMenuEmergentePlantilla.Image = TestCreator.Properties.Resources.icons8_eliminar_columna_500_cian;
-            //
+            pictureBoxMenuEmergentePlantilla.Image = icons8_eliminar_columna_500_cian; // Cambio de color para simular boton del pictureBoxMenuEmergente
         }
 
         #endregion
 
 
-        
+
 
     }
 }
