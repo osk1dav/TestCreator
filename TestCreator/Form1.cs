@@ -621,10 +621,25 @@ namespace TestCreator
             pictureBoxMenuEmergentePlantilla.Image = icons8_eliminar_columna_500_cian; // Cambio de color para simular boton del pictureBoxMenuEmergente
         }
 
+
+
+
         #endregion
 
+        private void buttonEstructurarPreguntasElegidas_Click(object sender, EventArgs e)
+        {
+            dataGridViewEstructura.Rows.Clear();
+            if (listBoxNiveles.Items.Count > 0)
+            {
+                int contador = 0;
+                foreach (var item in listBoxNiveles.Items)
+                {
+                    dataGridViewEstructura.Rows.Insert(contador, ++contador, "", item, "", "","Azar", "Azar");
+                }
 
-
-
+            }
+            else MessageBox.Show("No existen datos para estructurar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }
+
