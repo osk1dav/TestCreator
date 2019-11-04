@@ -66,6 +66,7 @@
     <Compile Include="Clases\BloqueCuestionario.cs" />
     <Compile Include="Clases\Interruptores.cs" />
     <Compile Include="Clases\OpenFileDialogPersonalizado.cs" />
+    <Compile Include="Clases\TipoNiveles.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

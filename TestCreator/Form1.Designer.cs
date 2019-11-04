@@ -181,7 +181,6 @@
             this.checkBoxUnArchivoPorExamen = new System.Windows.Forms.CheckBox();
             this.pictureBoxAyuda = new System.Windows.Forms.PictureBox();
             this.columnaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaSeccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaElegir = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -288,7 +287,6 @@
             this.dataGridViewEstructura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEstructura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaOrden,
-            this.columnaSeccion,
             this.columnaPreguntas,
             this.columnaTotal,
             this.columnaElegir,
@@ -2056,21 +2054,15 @@
             this.columnaOrden.HeaderText = "Orden";
             this.columnaOrden.Name = "columnaOrden";
             this.columnaOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnaOrden.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.columnaOrden.Width = 40;
-            // 
-            // columnaSeccion
-            // 
-            this.columnaSeccion.Frozen = true;
-            this.columnaSeccion.HeaderText = "Seccion";
-            this.columnaSeccion.Name = "columnaSeccion";
-            this.columnaSeccion.Width = 80;
             // 
             // columnaPreguntas
             // 
             this.columnaPreguntas.Frozen = true;
             this.columnaPreguntas.HeaderText = "Preguntas";
             this.columnaPreguntas.Name = "columnaPreguntas";
-            this.columnaPreguntas.Width = 180;
+            this.columnaPreguntas.Width = 220;
             // 
             // columnaTotal
             // 
@@ -2086,7 +2078,7 @@
             this.columnaElegir.Name = "columnaElegir";
             this.columnaElegir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.columnaElegir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.columnaElegir.Width = 160;
+            this.columnaElegir.Width = 180;
             // 
             // columnaPreguntasOrden
             // 
@@ -2095,9 +2087,11 @@
             this.columnaPreguntasOrden.Items.AddRange(new object[] {
             "Azar",
             "Ascendente",
-            "Descendente"});
+            "Descendente",
+            "Orden original"});
             this.columnaPreguntasOrden.Name = "columnaPreguntasOrden";
             this.columnaPreguntasOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnaPreguntasOrden.Width = 110;
             // 
             // columnaRespuestasOrden
             // 
@@ -2106,9 +2100,11 @@
             this.columnaRespuestasOrden.Items.AddRange(new object[] {
             "Azar",
             "Ascendente",
-            "Descendente"});
+            "Descendente",
+            "Orden original"});
             this.columnaRespuestasOrden.Name = "columnaRespuestasOrden";
             this.columnaRespuestasOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnaRespuestasOrden.Width = 110;
             // 
             // FormPrincipal
             // 
@@ -2343,7 +2339,6 @@
         private System.Windows.Forms.DomainUpDown domainUpDownDespuesEspaciadoPreguntas;
         private System.Windows.Forms.DataGridView dataGridViewEstructura;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaOrden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnaSeccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaPreguntas;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaTotal;
         private System.Windows.Forms.DataGridViewComboBoxColumn columnaElegir;

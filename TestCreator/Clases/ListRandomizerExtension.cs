@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCreator
+namespace TestCreator.Clases
 {
     /**
      * This class Extends the List<T> Generic to allow shuffling using Fisher-Yates shuffle

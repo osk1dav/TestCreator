@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static TestCreator.Properties.Resources;
 
-namespace TestCreator
+namespace TestCreator.Clases
 {
     public class Interruptores
     {

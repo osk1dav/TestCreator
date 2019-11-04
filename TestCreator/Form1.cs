@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using TestCreator.Clases;
 using static TestCreator.Properties.Resources;
 
 namespace TestCreator
@@ -17,9 +18,10 @@ namespace TestCreator
         private List<string> listadoClasificacion = new List<string>();
         private List<string> listadoNiveles = new List<string>();
         private List<string> listadoClasificacionNiveles = new List<string>();
-        private List<List<OpenXmlElement>> bloqueGeneral;
+        //private List<List<OpenXmlElement>> bloqueGeneral;
+        public TipoNiveles TipoNiveles { get; set; }
         private int ArraySizeClasificacion = 0;
-        private string tipoNiveles = "";
+        //private string tipoDeNiveles = "";
         private string templatePath = "";
 
         public FormPrincipal()
@@ -115,13 +117,13 @@ namespace TestCreator
                 var body = document.MainDocumentPart.Document.Body;
                 var paragraphs = body.Elements<Paragraph>();
                 var blocks = GrupoGeneralDePreguntas(paragraphs); // Get a List of Question blocks
-                bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
+                //bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
                 if (blocks.Count >0)
                 {
                     listadoClasificacion = ClasificacionGeneralDePreguntas(blocks[0]);
                     foreach (var itemClasificacion in listadoClasificacion){ listBoxClasificacion.Items.Add(itemClasificacion); }
                     listadoNiveles = NivelesPreguntas(blocks[0]);
-                    if (tipoNiveles == "clases")
+                    if (TipoNiveles == TipoNiveles.Clases)
                     {
                         foreach (var itemNivel in listadoNiveles)
                         {
@@ -143,9 +145,13 @@ namespace TestCreator
                             listadoClasificacionNiveles.Add(cadenaListado);
                         }
                     }
-                    if (tipoNiveles == "preguntas")
+                    if (TipoNiveles == TipoNiveles.Preguntas)
                     {
                         foreach (var itemNivel in listadoNiveles) { listadoClasificacionNiveles.Add(itemNivel.Trim(' '));  }
+                    }
+                    if (TipoNiveles == TipoNiveles.SinFormato)
+                    {
+                        MessageBox.Show("Archivo de Word sin formato de preguntas establecido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else MessageBox.Show("Archivo de Word incorrecto.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -155,26 +161,23 @@ namespace TestCreator
         private List<string> ClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
             List<string> output = new List<string>();
-            tipoNiveles = "";
+            TipoNiveles = TipoNiveles.SinFormato;
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // New Pregunta
+                if (p.InnerText.ToLower().StartsWith(@"clas = [") && output.Count < 1) // Nueva Pregunta
                 {
-                    tipoNiveles = "clases";
-                    string[] listaTemp = p.InnerText.Trim(' ').Remove(p.InnerText.IndexOf("]")).Substring(8).Split(',');
+                    TipoNiveles = TipoNiveles.Clases;
+                    string[] listaTemp = p.InnerText.Remove(p.InnerText.IndexOf("]")).Substring(8).Split(',');
                     ArraySizeClasificacion = listaTemp.Length;
-                    foreach (var item in listaTemp)
-                    {
-                        output.Add(item.Trim(' '));
-                    }
+                    foreach (var item in listaTemp) output.Add(item.Trim(' '));
                 }
             });
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                if (p.InnerText.StartsWith(@"#") && output.Count < 1 && tipoNiveles != "clases") // New Pregunta
+                if (p.InnerText.StartsWith(@"#") && output.Count < 1 && TipoNiveles == TipoNiveles.SinFormato) // Nueva Pregunta
                 {
-                    tipoNiveles = "preguntas";
-                    output.Add("Preguntas");
+                    TipoNiveles = TipoNiveles.Preguntas;
+                    output.Add(TipoNiveles.ToString());
                 }
             });
             return output;
@@ -184,91 +187,78 @@ namespace TestCreator
         {
             List<string> output = new List<string>();
             string contenido = "";
-            if (tipoNiveles == "clases")
+            if (TipoNiveles == TipoNiveles.Clases)
             {
                 paragraphs.ToList<OpenXmlElement>().ForEach(p =>
                 {
-                    if (p.InnerText.ToLower().StartsWith(@"clas = ") && !p.InnerText.ToLower().StartsWith(@"clas = [")) // New Pregunta
+                    if (p.InnerText.ToLower().StartsWith(@"clas = ") && !p.InnerText.ToLower().StartsWith(@"clas = [")) // Nueva pregunta para Tipo de Clasificación
                     {
                         contenido = p.InnerText.Trim(' ').Substring(7);
-                        if (contenido.Contains("%"))
+                        if (contenido.Contains("%")) contenido = contenido.Remove(contenido.IndexOf("%"));
+                        string[] arrayTemp = contenido.Split(',');
+                        int arrayTempSize = 0;
+                        foreach (var contenidoListaTemp in arrayTemp)
                         {
-                            contenido = contenido.Remove(contenido.IndexOf("%"));
+                            if (contenidoListaTemp.Trim(' ') != "") arrayTempSize++;
                         }
-                        string[] listaTemp = contenido.Split(',');
-                        int listaTempSize = 0;
-                        foreach (var itemC in listaTemp)
-                        {
-                            if (itemC.Trim(' ') != "")
-                            {
-                                listaTempSize++;
-                            }
-                        }
-                        if (listaTempSize == ArraySizeClasificacion)
+                        if (ArraySizeClasificacion == arrayTempSize)
                         {
                             output.Add(contenido.Trim(' '));
                         }
                     }
-
                 });
             }
-            if (tipoNiveles == "preguntas")
+            if (TipoNiveles == TipoNiveles.Preguntas)
             {
                 paragraphs.ToList<OpenXmlElement>().ForEach(p =>
                 {
-                    if (p.InnerText.StartsWith(@"#")) // Nueva Pregunta
+                    if (p.InnerText.StartsWith(@"#")) // Nueva pregunta para Tipo Preguntas
                     {
                         contenido = p.InnerText.Trim(' ');
-                        if (contenido.Contains("%"))
-                        {
-                            contenido = contenido.Remove(contenido.IndexOf("%"));
-                        }
-                        if (contenido.Length > 1)
-                        {
-                            output.Add( contenido);
-                        }
+                        if (contenido.Contains("%")) contenido = contenido.Remove(contenido.IndexOf("%"));
+                        if (contenido.Length > 1) output.Add( contenido);
                     }
-
                 });
             }
             return output;
         }
         
-        static List<List<OpenXmlElement>> GrupoGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
+        private List<List<OpenXmlElement>> GrupoGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
         {
             List<List<OpenXmlElement>> output = new List<List<OpenXmlElement>>();
             List<OpenXmlElement> group = new List<OpenXmlElement>();
             int conteoClases = 0;
-            string conteoDescripcion = "";
+            TipoNiveles = TipoNiveles.SinFormato;
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
-                if (p.InnerText.ToLower().StartsWith(@"clas = [")) // Nueva Pregunta
+                if (p.InnerText.ToLower().StartsWith(@"clas = [")) // Nueva Clasificacion
                 {
-                    conteoDescripcion = "clases";
+                    TipoNiveles = TipoNiveles.Clases;
                     conteoClases++;
                 }
-               
-                if (conteoDescripcion == "clases" && conteoClases == 1)
+
+                if (TipoNiveles == TipoNiveles.Clases && conteoClases == 1)
                 {
                     group.Add(p);
                 }
             });
-            if (conteoDescripcion != "clases")
+            if (TipoNiveles == TipoNiveles.SinFormato)
             {
                 paragraphs.ToList<OpenXmlElement>().ForEach(p =>
                 {
                     if (p.InnerText.StartsWith(@"#") && conteoClases == 0) // Nueva Pregunta
                     {
-                        conteoDescripcion = "parrafos";
+                        TipoNiveles = TipoNiveles.Preguntas;
                         conteoClases++;
                     }
-                    if (conteoDescripcion == "parrafos" && conteoClases == 1)
+                    if (TipoNiveles == TipoNiveles.Preguntas && conteoClases == 1)
                     {
                         group.Add(p);
                     }
                 });
             }
-            if (group.Count > 0) // Add last group if exists
+
+            if (group.Count > 0) // Agregar grupo de preguntas al Bloque General de preguntas
             {
                 output.Add(group);
                 group = new List<OpenXmlElement>();
@@ -349,7 +339,7 @@ namespace TestCreator
         {
             List<string> listadoNivelesList = new List<string>();
             listBoxNiveles.Items.Clear();
-            if (tipoNiveles == "clases")
+            if (TipoNiveles == TipoNiveles.Clases)
             {
                 foreach (var item in listadoClasificacionNiveles)
                 {
@@ -379,7 +369,7 @@ namespace TestCreator
                 }
             }
 
-            if (tipoNiveles == "preguntas")
+            if (TipoNiveles == TipoNiveles.Preguntas)
             {
                 for (int i = 0; i < listBoxElegir.Items.Count; i++)
                 {
@@ -634,7 +624,7 @@ namespace TestCreator
                 int contador = 0;
                 foreach (var item in listBoxNiveles.Items)
                 {
-                    dataGridViewEstructura.Rows.Insert(contador, ++contador, "", item, "", "","Azar", "Azar");
+                    dataGridViewEstructura.Rows.Insert(contador, ++contador, item, "", "", "Orden original", "Orden original");
                 }
 
             }
