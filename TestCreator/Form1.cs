@@ -123,6 +123,7 @@ namespace TestCreator
                     listadoClasificacion = ClasificacionGeneralDePreguntas(blocks[0]);
                     foreach (var itemClasificacion in listadoClasificacion){ listBoxClasificacion.Items.Add(itemClasificacion); }
                     listadoNiveles = NivelesPreguntas(blocks[0]);
+                    
                     if (TipoNiveles == TipoNiveles.Clases)
                     {
                         foreach (var itemNivel in listadoNiveles)
@@ -145,6 +146,7 @@ namespace TestCreator
                             listadoClasificacionNiveles.Add(cadenaListado);
                         }
                     }
+
                     if (TipoNiveles == TipoNiveles.Preguntas)
                     {
                         foreach (var itemNivel in listadoNiveles) { listadoClasificacionNiveles.Add(itemNivel.Trim(' '));  }
@@ -160,7 +162,7 @@ namespace TestCreator
 
         private List<string> ClasificacionGeneralDePreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            List<string> output = new List<string>();
+            var output = new List<string>();
             TipoNiveles = TipoNiveles.SinFormato;
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
             {
@@ -185,7 +187,7 @@ namespace TestCreator
 
         private List<string> NivelesPreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            List<string> output = new List<string>();
+            var output = new List<string>();
             string contenido = "";
             if (TipoNiveles == TipoNiveles.Clases)
             {
@@ -225,8 +227,8 @@ namespace TestCreator
         
         private List<List<OpenXmlElement>> GrupoGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
         {
-            List<List<OpenXmlElement>> output = new List<List<OpenXmlElement>>();
-            List<OpenXmlElement> group = new List<OpenXmlElement>();
+            var output = new List<List<OpenXmlElement>>();
+            var group = new List<OpenXmlElement>();
             int conteoClases = 0;
             TipoNiveles = TipoNiveles.SinFormato;
             paragraphs.ToList<OpenXmlElement>().ForEach(p =>
@@ -271,7 +273,7 @@ namespace TestCreator
         {
             if (listBoxPrincipal.Items.Count > 0)
             {
-                List<string> listadoSeleccionado = new List<string>();
+                var listadoSeleccionado = new List<string>();
                 foreach (object itemSeleccionado in listBoxPrincipal.SelectedItems)
                 {
                     listadoSeleccionado.Add(itemSeleccionado.ToString());
@@ -286,14 +288,13 @@ namespace TestCreator
             else
             {
                 MessageBox.Show("No existen elementos en la lista","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                
             }
         }
         private void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar)
         {
             if (listBoxPrincipal.Items.Count > 0)
             {
-                List<string> listadoSeleccionado = new List<string>();
+                var listadoSeleccionado = new List<string>();
                 foreach (object itemSeleccionado in listBoxPrincipal.SelectedItems)
                 {
                     listadoSeleccionado.Add(itemSeleccionado.ToString());
@@ -337,7 +338,7 @@ namespace TestCreator
                 
         private void ListadoNiveles()
         {
-            List<string> listadoNivelesList = new List<string>();
+            var listadoNivelesList = new List<string>();
             listBoxNiveles.Items.Clear();
             if (TipoNiveles == TipoNiveles.Clases)
             {
