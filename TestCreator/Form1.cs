@@ -13,17 +13,24 @@ namespace TestCreator
 {
     public partial class FormPrincipal : Form
     {
+        private TipoNiveles TipoNiveles { get; set; }
+        private BloqueCuestionario bloqueCuestionario = new BloqueCuestionario();
         private Interruptores interruptor = new Interruptores();
+        
         private List<string> listaRutaBancoDePreguntas = new List<string>();
-        private List<string> listaPlantillaExamen = new List<string>();
-        private List<string> listadoClasificacion = new List<string>();
-        private List<string> listadoNiveles = new List<string>();
-        private List<string> listadoClasificacionNiveles = new List<string>();
-        //private List<List<OpenXmlElement>> bloqueGeneral;
-        public TipoNiveles TipoNiveles { get; set; }
-        private int ArraySizeKeyClasificacion, ArraySizeValueClasificacion = 0;
-        //private string tipoDeNiveles = "";
         private string rutaBancoPreguntas = "";
+        private List<string> listaPlantillaExamen = new List<string>();
+
+        private List<string> listadoClasificacion = new List<string>();
+        private List<string> listaClasificacion = new List<string>();
+        private List<string> listadoNiveles = new List<string>();
+        private Dictionary<string, string> diccionarioNiveles = new Dictionary<string, string>();
+        private List<string> listadoClasificacionNiveles = new List<string>();
+        private List<BloqueCuestionario> listaBloqueCuestionario = new List<BloqueCuestionario>();
+        private int ArraySizeKeyClasificacion = 0;
+        
+        //private List<List<OpenXmlElement>> bloqueGeneral;
+        //private string tipoDeNiveles = "";
 
         public FormPrincipal()
         {
@@ -60,15 +67,26 @@ namespace TestCreator
             comboBoxInterlineadoEspaciadoRespuestas.SelectedIndex = 5;
         }
 
-        private void InicializarListBoxsLists()
+        private void InicializarListBoxs()
         {
             listBoxClasificacion.Items.Clear();
             listBoxElegir.Items.Clear();
             listBoxNiveles.Items.Clear();
             listBoxExcluir.Items.Clear();
+            dataGridViewEstructura.Rows.Clear();
+        }
+
+        private void InicializarLists()
+        {
+            bloqueCuestionario = new BloqueCuestionario();
+            listaBloqueCuestionario = new List<BloqueCuestionario>();
+            listaClasificacion = new List<string>();
+
+
             listadoClasificacion = new List<string>();
             listadoNiveles = new List<string>();
             listadoClasificacionNiveles = new List<string>();
+            diccionarioNiveles = new Dictionary<string, string>();
         }
         #endregion
 
@@ -88,7 +106,7 @@ namespace TestCreator
         #region Pestaña Estructura
         private void ButtonAbrirBancoPreguntas_Click(object sender, EventArgs e)
         {
-            InicializarListBoxsLists();
+            InicializarListBoxs();
             var ofdAbrirBancoPreguntas = OpenFileDialogPersonalizado.PersonalizadoWord("D:\'Demos\'", "Abrir banco de preguntas"); // Configuracion inicial del ofdAbrirBancoPreguntas
             if (ofdAbrirBancoPreguntas.ShowDialog() == DialogResult.OK)
             {
@@ -105,7 +123,7 @@ namespace TestCreator
 
         private void comboBoxRutaBancoPreguntas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InicializarListBoxsLists(); // Limpiamos todos los listados y Listbox's
+            //InicializarListBoxs(); // Limpiamos todos los listados y Listbox's
             rutaBancoPreguntas = comboBoxRutaBancoPreguntas.Text;
             CargarContenidoListboxs();
         }
@@ -114,18 +132,25 @@ namespace TestCreator
 
         private void CargarContenidoListboxs()
         {
+            InicializarListBoxs();
+            InicializarLists();
             using (WordprocessingDocument document = WordprocessingDocument.CreateFromTemplate(rutaBancoPreguntas))
             {
                 var body = document.MainDocumentPart.Document.Body;
                 var parrafos = body.Elements<Paragraph>();
                 var listaContenidoGeneralDePreguntas = ContenidoGeneralDePreguntas(parrafos); // Get a List of Question blocks
                                                                                               //bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
+                listaBloqueCuestionario = ClasificacionNivelPreguntas(listaContenidoGeneralDePreguntas);
+                listaClasificacion = listaBloqueCuestionario.SelectMany(bloque => bloque.Clase.Keys.Select(clase => clase)).ToList();
+                GetListaClasificacion();
+
+                #region Codigo_comentado
+
 
                 if (listaContenidoGeneralDePreguntas.Count > 0)
                 {
-                    ClasificacionNivelPreguntas(listaContenidoGeneralDePreguntas);
                     listadoClasificacion = ClasificacionPreguntas(listaContenidoGeneralDePreguntas);
-                    foreach (var itemClasificacion in listadoClasificacion) { listBoxClasificacion.Items.Add(itemClasificacion); }
+                    
                     listadoNiveles = NivelesPreguntas(listaContenidoGeneralDePreguntas);
 
                     if (TipoNiveles == TipoNiveles.Clases)
@@ -153,10 +178,24 @@ namespace TestCreator
 
                     if (TipoNiveles == TipoNiveles.Preguntas)
                     {
-                        foreach (var itemNivel in listadoNiveles) { listadoClasificacionNiveles.Add(itemNivel.Trim(' ')); }
+                        foreach (var itemNivel in listadoNiveles)
+                        {
+                            listadoClasificacionNiveles.Add(itemNivel.Trim(' '));
+                        }
                     }
                 }
-                else MessageBox.Show("Archivo de Word incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                #endregion
+            }
+        }
+
+        #region Minimizado
+
+       
+        private void GetListaClasificacion()
+        {
+            foreach (var item in listaClasificacion.Distinct())
+            {
+                listBoxClasificacion.Items.Add(item);
             }
         }
 
@@ -192,10 +231,9 @@ namespace TestCreator
             return output;
         }
 
-        private void ClasificacionNivelPreguntas(IEnumerable<OpenXmlElement> paragraphs)
+        private List<BloqueCuestionario> ClasificacionNivelPreguntas(IEnumerable<OpenXmlElement> paragraphs)
         {
-            var bloque = new BloqueCuestionario();
-            var listaBloqueCuestionario = new List<BloqueCuestionario>();
+            var listaSalida = new List<BloqueCuestionario>();
             var keyClase = new List<string>();
             var valueClase = new List<string>();
             int SizeKeyClasificacion = 0;
@@ -229,33 +267,33 @@ namespace TestCreator
                     {
                         if (SizeKeyClasificacion == SizeValueClasificacion)
                         {
-                            if (bloque.Pregunta != null)
+                            if (bloqueCuestionario.Pregunta != null)
                             {
-                                listaBloqueCuestionario.Add(bloque);
+                                listaSalida.Add(bloqueCuestionario);
                             }
-                            bloque = new BloqueCuestionario();
+                            bloqueCuestionario = new BloqueCuestionario();
                             for (int i = 0; i < SizeKeyClasificacion; i++)
                             {
-                                bloque.Clase.Add(keyClase[i].Trim(' '), valueClase[i].Trim(' '));
+                                bloqueCuestionario.Clase.Add(keyClase[i].Trim(' '), valueClase[i].Trim(' '));
                             }
-                            bloque.Pregunta = p.InnerText;
+                            bloqueCuestionario.Pregunta = p.InnerText;
 
                         }
                     }
 
                     if (p.InnerText.StartsWith(@"%%"))
                     {
-                        bloque.Comentario.Add(p.InnerText);
+                        bloqueCuestionario.Comentario.Add(p.InnerText);
                     }
 
                     if (p.InnerText.StartsWith(@"&"))
                     {
-                        bloque.Opciones.Add(p);
+                        bloqueCuestionario.Opciones.Add(p);
                     }
 
                     if (p.InnerText.StartsWith(@"&&"))
                     {
-                        bloque.Respuestas.Add(p);
+                        bloqueCuestionario.Respuestas.Add(p);
                     }
 
 
@@ -265,39 +303,40 @@ namespace TestCreator
                 {
                     if (p.InnerText.StartsWith(@"#"))
                     {
-                        if (bloque.Pregunta != null)
+                        if (bloqueCuestionario.Pregunta != null)
                         {
-                            listaBloqueCuestionario.Add(bloque);
+                            listaSalida.Add(bloqueCuestionario);
                         }
-                        bloque = new BloqueCuestionario();
-                        bloque.Clase.Add(SizeKeyClasificacion++.ToString(), TipoNiveles.Preguntas.ToString());
-                        bloque.Pregunta = p.InnerText;
+                        bloqueCuestionario = new BloqueCuestionario();
+                        bloqueCuestionario.Clase.Add(TipoNiveles.Preguntas.ToString(), TipoNiveles.Preguntas.ToString());
+                        bloqueCuestionario.Pregunta = p.InnerText;
                     }
 
                     if (p.InnerText.StartsWith(@"%%"))
                     {
-                        bloque.Comentario.Add(p.InnerText);
+                        bloqueCuestionario.Comentario.Add(p.InnerText);
                     }
 
                     if (p.InnerText.StartsWith(@"&"))
                     {
-                        bloque.Opciones.Add(p);
+                        bloqueCuestionario.Opciones.Add(p);
                     }
 
                     if (p.InnerText.StartsWith(@"&&"))
                     {
-                        bloque.Respuestas.Add(p);
+                        bloqueCuestionario.Respuestas.Add(p);
                     }
                 }
 
             });
 
 
-            if (bloque.Pregunta != null)
+            if (bloqueCuestionario.Pregunta != null)
             {
-                listaBloqueCuestionario.Add(bloque);
+                listaSalida.Add(bloqueCuestionario);
             }
 
+            return listaSalida;
         }
 
         private List<string> NivelesPreguntas(IEnumerable<OpenXmlElement> paragraphs)
@@ -377,7 +416,6 @@ namespace TestCreator
             return grupoParrafos;
         }
 
-
         private void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario)
         {
             if (listBoxPrincipal.Items.Count > 0)
@@ -437,16 +475,17 @@ namespace TestCreator
             listBox.SetSelected(newIndex, true); // Restore selection
         }
 
-
         private void MetodoClasificacionTodo(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar)
         {
             listBoxSecundario.Items.AddRange(listBoxPrincipal.Items);
             listBoxPrincipal.Items.Clear();
             listBoxALimpiar.Items.Clear();
         }
+        #endregion
 
-        private void ListadoNiveles()
+        private void GetListadoNiveles()
         {
+
             var listadoNivelesList = new List<string>();
             listBoxNiveles.Items.Clear();
             if (TipoNiveles == TipoNiveles.Clases)
@@ -499,26 +538,26 @@ namespace TestCreator
         private void ButtonClasificacionItemElegir_Click(object sender, EventArgs e)
         {
             MetodoClasificacion(listBoxClasificacion, listBoxElegir, listBoxExcluir);
-            ListadoNiveles();
+            GetListadoNiveles();
         }
 
 
         private void ListBoxClasificacion_DoubleClick(object sender, EventArgs e)
         {
             MetodoClasificacion(listBoxClasificacion, listBoxElegir, listBoxExcluir);
-            ListadoNiveles();
+            GetListadoNiveles();
         }
 
         private void ButtonClasificacionItemQuitar_Click(object sender, EventArgs e)
         {
             MetodoClasificacion(listBoxElegir, listBoxClasificacion, listBoxExcluir);
-            ListadoNiveles();
+            GetListadoNiveles();
         }
 
         private void ListBoxElegir_DoubleClick(object sender, EventArgs e)
         {
             MetodoClasificacion(listBoxElegir, listBoxClasificacion, listBoxExcluir);
-            ListadoNiveles();
+            GetListadoNiveles();
         }
 
 
@@ -529,7 +568,7 @@ namespace TestCreator
             comboBoxRutaBancoPreguntas.Items.Clear();
             comboBoxRutaBancoPreguntas.ResetText();
             // Limpieza de ListBoxs e inicializacion de Listas
-            InicializarListBoxsLists();
+            InicializarListBoxs();
 
         }
 
@@ -593,13 +632,13 @@ namespace TestCreator
         private void buttonClasificacionItemElegirTodo_Click(object sender, EventArgs e)
         {
             MetodoClasificacionTodo(listBoxClasificacion, listBoxElegir, listBoxExcluir);
-            ListadoNiveles();
+            GetListadoNiveles();
         }
 
         private void buttonClasificacionItemQuitarTodo_Click(object sender, EventArgs e)
         {
             MetodoClasificacionTodo(listBoxElegir, listBoxClasificacion, listBoxExcluir);
-            ListadoNiveles();
+            GetListadoNiveles();
         }
 
         private void buttonNivelesExcluir_Click(object sender, EventArgs e)
@@ -731,14 +770,24 @@ namespace TestCreator
             dataGridViewEstructura.Rows.Clear();
             if (listBoxNiveles.Items.Count > 0)
             {
+                if (TipoNiveles == TipoNiveles.Clases)
+                {
                 int contador = 0;
                 foreach (var item in listBoxNiveles.Items)
                 {
                     dataGridViewEstructura.Rows.Insert(contador, ++contador, item, "", "", "Orden original", "Orden original");
                 }
 
+                }
+
+                if (TipoNiveles == TipoNiveles.Preguntas)
+                {
+                    dataGridViewEstructura.Rows.Insert(0,1, TipoNiveles.Preguntas.ToString(), listBoxNiveles.Items.Count, "", "Orden original", "Orden original");
+
+                }
+
             }
-            else MessageBox.Show("No existen datos para estructurar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else Mensajes.NoExistenDatosParaEstructurar();
         }
     }
 }

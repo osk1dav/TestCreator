@@ -13,5 +13,10 @@ namespace TestCreator.Utilitarios
         {
             MessageBox.Show("Archivo de Word sin formato de preguntas","Error de archivo",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
+
+        public static void NoExistenDatosParaEstructurar()
+        {
+            MessageBox.Show("No existen datos para estructurar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }
