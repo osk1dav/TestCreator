@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace TestCreator.Clases
 {
-    public enum TipoDatos
+    public enum TiposNivel
     {
-        Pregunta,
-        Opcion,
-        Respuesta,
-        Comentario,
-        ClaseMaestra,
-        Clase
+        Clases,
+        Preguntas,
+        SinFormato
     }
 }

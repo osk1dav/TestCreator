@@ -9,11 +9,11 @@ namespace TestCreator.Clases
 {
     public class BloqueCuestionario
     {
-        public Dictionary<string, string> Clase { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> Clase { get; private set; } = new Dictionary<string, string>();
         public string Pregunta { get; set; }
-        public List<string> Comentario { get; set; } = new List<string>();
-        public List<OpenXmlElement> Opciones { get; set; } = new List<OpenXmlElement>();
-        public List<OpenXmlElement> Respuestas { get; set; } = new List<OpenXmlElement>();
+        public List<string> Comentario { get; private set; } = new List<string>();
+        public List<OpenXmlElement> Opciones { get; private set; } = new List<OpenXmlElement>();
+        public List<OpenXmlElement> Respuestas { get; private set; } = new List<OpenXmlElement>();
         
     }
 }
