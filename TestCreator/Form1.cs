@@ -146,7 +146,22 @@ namespace TestCreator
             CargarContenidoListboxs();
         }
 
-        private void ButtonGenerarExamen_Click(object sender, EventArgs e) { }
+        private void ButtonGenerarExamen_Click(object sender, EventArgs e)
+        {
+            const string resultPath = @"D:\Demos\Resultado.docx";
+            using (WordprocessingDocument document = WordprocessingDocument.Create(resultPath, WordprocessingDocumentType.Document))
+            {
+                MainDocumentPart mainPart = document.AddMainDocumentPart();
+                mainPart.Document = new Document();
+                Body body = mainPart.Document.AppendChild(new Body());
+                foreach (var item in listaBloqueCuestionario)
+                {
+                    Paragraph para = body.AppendChild(new Paragraph());
+                    Run run = para.AppendChild(new Run());
+                    run.AppendChild(new Text(item.Pregunta.InnerText));
+                }
+            }
+        }
 
         private void CargarContenidoListboxs()
         {
@@ -293,7 +308,7 @@ namespace TestCreator
                             {
                                 bloqueCuestionario.Clase.Add(keyClase[i].Trim(' '), valueClase[i].Trim(' '));
                             }
-                            bloqueCuestionario.Pregunta = p.InnerText;
+                            bloqueCuestionario.Pregunta = p;
                         }
                     }
 
@@ -322,7 +337,7 @@ namespace TestCreator
                         }
                         bloqueCuestionario = new BloqueCuestionario();
                         bloqueCuestionario.Clase.Add(TiposNivel.Preguntas.ToString(), TiposNivel.Preguntas.ToString());
-                        bloqueCuestionario.Pregunta = p.InnerText;
+                        bloqueCuestionario.Pregunta = p;
                     }
 
                     if (p.InnerText.StartsWith(@"%%", StringComparison.CurrentCulture))
