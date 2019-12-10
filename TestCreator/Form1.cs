@@ -20,18 +20,11 @@ namespace TestCreator
         private BloqueCuestionario bloqueCuestionario = new BloqueCuestionario();
         private Interruptores interruptor = new Interruptores();
 
-        private List<string> listaRutaBancoDePreguntas = new List<string>();
         private string rutaBancoPreguntas = "";
+        private List<string> listaRutaBancoDePreguntas = new List<string>();
         private List<string> listaPlantillaExamen = new List<string>();
 
-        private List<string> listadoClasificacion = new List<string>();
-        private List<string> listaClasificacion = new List<string>();
-        private List<string> listadoNiveles = new List<string>();
-        private Dictionary<string, string> diccionarioNiveles = new Dictionary<string, string>();
-        private List<string> listadoClasificacionNiveles = new List<string>();
         private List<BloqueCuestionario> listaBloqueCuestionario = new List<BloqueCuestionario>();
-        private int ArraySizeKeyClasificacion = 0;
-
         
         public FormPrincipal()
         {
@@ -82,13 +75,7 @@ namespace TestCreator
         private void InicializarLists()
         {
             bloqueCuestionario = new BloqueCuestionario();
-            listaBloqueCuestionario = new List<BloqueCuestionario>();
-            listaClasificacion = new List<string>();
-
-            listadoClasificacion = new List<string>();
-            listadoNiveles = new List<string>();
-            listadoClasificacionNiveles = new List<string>();
-            diccionarioNiveles = new Dictionary<string, string>();
+            listaBloqueCuestionario.Clear();
         }
         #endregion
 
@@ -176,45 +163,8 @@ namespace TestCreator
                     var listaContenidoGeneralDePreguntas = ContenidoGeneralDePreguntas(parrafos); // Get a List of Question blocks
                                                                                                   //bloqueGeneral = blocks.ConvertAll<List<OpenXmlElement>>(g => g.ConvertAll<OpenXmlElement>(p => (OpenXmlElement)p.CloneNode(true))); // Deep Clone
                     listaBloqueCuestionario = ClasificacionNivelPreguntas(listaContenidoGeneralDePreguntas);
-                    listaClasificacion = listaBloqueCuestionario.SelectMany(bloque => bloque.Clase.Keys.Select(clase => clase)).ToList();
+                    OptimizarListaBloqueCuestionario();
                     GetListaClasificacion();
-
-                    if (listaContenidoGeneralDePreguntas.Count > 0)
-                    {
-                        listadoClasificacion = ClasificacionPreguntas(listaContenidoGeneralDePreguntas);
-                        listadoNiveles = NivelesPreguntas(listaContenidoGeneralDePreguntas);
-
-                        if (TipoNiveles == TiposNivel.Clases)
-                        {
-                            foreach (var itemNivel in listadoNiveles)
-                            {
-                                string cadenaListado = "";
-                                string[] nivelArray = itemNivel.Split(',');
-                                int clasificacionConteo = 0;
-                                foreach (var itemClasificacion in listadoClasificacion)
-                                {
-                                    if (clasificacionConteo == 0)
-                                    {
-                                        cadenaListado += $"{itemClasificacion} - {nivelArray[clasificacionConteo]}";
-                                    }
-                                    else
-                                    {
-                                        cadenaListado += $", {itemClasificacion} - {nivelArray[clasificacionConteo]}";
-                                    }
-                                    clasificacionConteo++;
-                                }
-                                listadoClasificacionNiveles.Add(cadenaListado);
-                            }
-                        }
-
-                        if (TipoNiveles == TiposNivel.Preguntas)
-                        {
-                            foreach (var itemNivel in listadoNiveles)
-                            {
-                                listadoClasificacionNiveles.Add(itemNivel.Trim(' '));
-                            }
-                        }
-                    }
                 }
             }
             catch (System.IO.FileNotFoundException)
@@ -223,44 +173,28 @@ namespace TestCreator
             }
         }
 
-        #region Minimizado
+        private void OptimizarListaBloqueCuestionario()
+        {
+            var listTempBC = new List<BloqueCuestionario>();
+            foreach (var bloque in listaBloqueCuestionario)
+            {
+                if (bloque.Pregunta.InnerText.Trim(' ').Length > 1)
+                {
+                    listTempBC.Add(bloque);
+                }
+            }
+            listaBloqueCuestionario.Clear();
+            listaBloqueCuestionario = listTempBC;
+        }
 
         private void GetListaClasificacion()
         {
+            var listaClasificacion = new List<string>();
+            listaClasificacion = listaBloqueCuestionario.SelectMany(bloque => bloque.Clase.Keys.Select(clase => clase)).ToList();
             foreach (var item in listaClasificacion.Distinct())
             {
                 listBoxClasificacion.Items.Add(item);
             }
-        }
-
-        private List<string> ClasificacionPreguntas(IEnumerable<OpenXmlElement> paragraphs)
-        {
-            var output = new List<string>();
-            paragraphs.ToList<OpenXmlElement>().ForEach(p =>
-            {
-                if (TipoNiveles == TiposNivel.Clases)
-                {
-                    if (p.InnerText.ToLower(cultureInfo).StartsWith(@"clas = [", StringComparison.CurrentCulture) && output.Count < 1) // Nueva Pregunta
-                    {
-                        string[] listaTemp = p.InnerText.Remove(p.InnerText.IndexOf("]", StringComparison.CurrentCulture)).Substring(8).Split(',');
-                        ArraySizeKeyClasificacion = listaTemp.Length;
-                        foreach (var item in listaTemp)
-                        {
-                            output.Add(item.Trim(' '));
-                        }
-                    }
-                }
-                else if (TipoNiveles == TiposNivel.Preguntas)
-                {
-                    if (output.Count < 1)
-                    {
-                        output.Add(TipoNiveles.ToString());
-                    }
-                }
-
-            });
-
-            return output;
         }
 
         private List<BloqueCuestionario> ClasificacionNivelPreguntas(IEnumerable<OpenXmlElement> paragraphs)
@@ -366,46 +300,6 @@ namespace TestCreator
             return listaSalida;
         }
 
-        private List<string> NivelesPreguntas(IEnumerable<OpenXmlElement> paragraphs)
-        {
-            var output = new List<string>();
-            string contenido = "";
-            if (TipoNiveles == TiposNivel.Clases)
-            {
-                paragraphs.ToList<OpenXmlElement>().ForEach(p =>
-                {
-                    if (p.InnerText.ToLower(cultureInfo).StartsWith(@"clas = ", StringComparison.CurrentCulture) && !p.InnerText.ToLower(cultureInfo).StartsWith(@"clas = [", StringComparison.CurrentCulture)) // Nueva pregunta para Tipo de Clasificación
-                    {
-                        contenido = p.InnerText.Trim(' ').Substring(7);
-                        if (contenido.Contains("%")) contenido = contenido.Remove(contenido.IndexOf("%", StringComparison.CurrentCulture));
-                        string[] arrayTemp = contenido.Split(',');
-                        int arrayTempSize = 0;
-                        foreach (var contenidoListaTemp in arrayTemp)
-                        {
-                            if (contenidoListaTemp.Trim(' ').Length > 0) arrayTempSize++;
-                        }
-                        if (ArraySizeKeyClasificacion == arrayTempSize)
-                        {
-                            output.Add(contenido.Trim(' '));
-                        }
-                    }
-                });
-            }
-            if (TipoNiveles == TiposNivel.Preguntas)
-            {
-                paragraphs.ToList<OpenXmlElement>().ForEach(p =>
-                {
-                    if (p.InnerText.StartsWith(@"#", StringComparison.CurrentCulture)) // Nueva pregunta para Tipo Preguntas
-                    {
-                        contenido = p.InnerText.Trim(' ');
-                        if (contenido.Contains("%")) contenido = contenido.Remove(contenido.IndexOf("%", StringComparison.CurrentCulture));
-                        if (contenido.Length > 1) output.Add(contenido);
-                    }
-                });
-            }
-            return output;
-        }
-
         private List<OpenXmlElement> ContenidoGeneralDePreguntas(IEnumerable<Paragraph> paragraphs)
         {
             var listaSalida = new List<List<OpenXmlElement>>();
@@ -508,7 +402,6 @@ namespace TestCreator
             listBoxPrincipal.Items.Clear();
             listBoxALimpiar.Items.Clear();
         }
-        #endregion
 
         private void GetListadoNiveles()
         {
@@ -516,25 +409,23 @@ namespace TestCreator
             listBoxNiveles.Items.Clear();
             if (TipoNiveles == TiposNivel.Clases)
             {
-                foreach (var item in listadoClasificacionNiveles)
+                foreach (var bloque in listaBloqueCuestionario)
                 {
                     string descripcionItem = "";
                     int conteoDescripcion = 0;
-                    for (int i = 0; i < listBoxElegir.Items.Count; i++)
+                    foreach (var clase in bloque.Clase)
                     {
-                        string[] arrayClasificacionTemp = item.Split(',');
-                        for (int j = 0; j < arrayClasificacionTemp.Length; j++)
+                        for (int i = 0; i < listBoxElegir.Items.Count; i++)
                         {
-                            if (arrayClasificacionTemp[j].Contains(listBoxElegir.Items[i].ToString()))
+                            if (clase.Key.Contains(listBoxElegir.Items[i].ToString()))
                             {
-                                int tamanioClasificacion = listBoxElegir.Items[i].ToString().Length;
                                 if (conteoDescripcion == 0)
                                 {
-                                    descripcionItem += $"{arrayClasificacionTemp[j].Substring(tamanioClasificacion + 3).Trim(' ')}";
+                                    descripcionItem += $"{clase.Value}";
                                 }
                                 else
                                 {
-                                    descripcionItem += $" - {arrayClasificacionTemp[j].Substring(tamanioClasificacion + 3).Trim(' ')}";
+                                    descripcionItem += $" - {clase.Value}";
                                 }
                                 conteoDescripcion++;
                             }
@@ -548,9 +439,9 @@ namespace TestCreator
             {
                 for (int i = 0; i < listBoxElegir.Items.Count; i++)
                 {
-                    foreach (var item in listadoClasificacionNiveles)
+                    foreach (var bloque in listaBloqueCuestionario)
                     {
-                        listadoNivelesList.Add(item.Substring(1));
+                        listadoNivelesList.Add(bloque.Pregunta.InnerText.Substring(1).Trim(' '));
                     }
                 }
             }
@@ -561,6 +452,7 @@ namespace TestCreator
             }
 
         }
+                
         private void ButtonClasificacionItemElegir_Click(object sender, EventArgs e)
         {
             MetodoClasificacion(listBoxClasificacion, listBoxElegir, listBoxExcluir);
@@ -791,6 +683,11 @@ namespace TestCreator
 
         private void buttonEstructurarPreguntasElegidas_Click(object sender, EventArgs e)
         {
+            CargarDatosDatagridview();
+        }
+
+        private void CargarDatosDatagridview()
+        {
             dataGridViewEstructura.Rows.Clear();
             if (listBoxNiveles.Items.Count > 0)
             {
@@ -799,18 +696,80 @@ namespace TestCreator
                     int contador = 0;
                     foreach (var item in listBoxNiveles.Items)
                     {
-                        dataGridViewEstructura.Rows.Insert(contador, ++contador, item, "", "", "Orden original", "Orden original");
+                        string[] claseValue = item.ToString().Split('-');
+                        int contadorItem = 0;
+                        foreach (var bloque in listaBloqueCuestionario)
+                        {
+                            int contadorBloque = 0;
+                            foreach (var clase in bloque.Clase)
+                            {
+                                for (int i = 0; i < claseValue.Length; i++)
+                                {
+                                    if (clase.Value == claseValue[i].Trim(' '))
+                                    {
+                                        contadorBloque++;
+                                    }
+                                }
+                            }
+                            if (contadorBloque == claseValue.Length)
+                            {
+                                contadorItem++;
+                            }
+                        }
+
+                        dataGridViewEstructura.Rows.Insert(contador, ++contador, item, contadorItem, contadorItem, "Azar", "Azar");
                     }
 
                 }
 
                 if (TipoNiveles == TiposNivel.Preguntas)
                 {
-                    dataGridViewEstructura.Rows.Insert(0, 1, TiposNivel.Preguntas.ToString(), listBoxNiveles.Items.Count, "", "Orden original", "Orden original");
+                    dataGridViewEstructura.Rows.Insert(0, 1, TiposNivel.Preguntas.ToString(), listBoxNiveles.Items.Count, listBoxNiveles.Items.Count, "Azar", "Azar");
                 }
             }
-            else 
+            else
+            {
                 Mensajes.NoExistenDatosParaEstructurar();
+            }
         }
+
+        
+
+        private void dataGridViewEstructura_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dataGridViewEstructura.CurrentCell.ColumnIndex == 3)
+            {
+                TextBox txt = e.Control as TextBox;
+                if (txt != null)
+                {
+                    txt.KeyPress -= new KeyPressEventHandler(dataGridViewEstructura_KeyPress);
+                    txt.KeyPress += new KeyPressEventHandler(dataGridViewEstructura_KeyPress);
+                }
+            }
+        }
+
+        private void dataGridViewEstructura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (dataGridViewEstructura.CurrentCell.ColumnIndex == 3)
+            {
+                if (e.KeyChar == (char)Keys.Back || char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void dataGridViewEstructura_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Convert.ToInt32(dataGridViewEstructura.CurrentRow.Cells[3].Value.ToString(),cultureInfo) > Convert.ToInt32(dataGridViewEstructura.CurrentRow.Cells[2].Value.ToString(),cultureInfo))
+            {
+                Mensajes.ValorElegidoMasAltoQueElTotal();
+                dataGridViewEstructura.CurrentRow.Cells[3].Value = dataGridViewEstructura.CurrentRow.Cells[2].Value;
+            }
+        }        
     }
 }

@@ -9,6 +9,7 @@ namespace TestCreator.Clases
 {
     public class BloqueCuestionario
     {
+        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
         public Dictionary<string, string> Clase { get; private set; } = new Dictionary<string, string>();
         public OpenXmlElement Pregunta { get; set; }
         public List<string> Comentario { get; private set; } = new List<string>();
