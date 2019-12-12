@@ -6,17 +6,18 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 using TestCreator.Clases;
 using TestCreator.Utilitarios;
 using static TestCreator.Properties.Resources;
 
 namespace TestCreator
 {
-    public partial class FormPrincipal : Form
+    public partial class FormPrincipal : Form, IContract
     {
         private CultureInfo cultureInfo = new CultureInfo("es-EC");
-
         private TiposNivel TipoNiveles { get; set; }
+        public OrdenRegistros OrdenRegistroForm { get; set; } = new OrdenRegistros();
         private BloqueCuestionario bloqueCuestionario = new BloqueCuestionario();
         private Interruptores interruptor = new Interruptores();
 
@@ -684,6 +685,21 @@ namespace TestCreator
         private void buttonEstructurarPreguntasElegidas_Click(object sender, EventArgs e)
         {
             CargarDatosDatagridview();
+            totalesCabaceraDatagridview();
+           
+        }
+
+        private void totalesCabaceraDatagridview()
+        {
+            int totalPreguntas = 0;
+            int totalElegidas = 0;
+            for (int i = 0; i < dataGridViewEstructura.Rows.Count; i++)
+            {
+                totalPreguntas += Convert.ToInt32(dataGridViewEstructura.Rows[i].Cells[2].Value,cultureInfo);
+                totalElegidas += Convert.ToInt32(dataGridViewEstructura.Rows[i].Cells[3].Value,cultureInfo);
+            }
+            dataGridViewEstructura.Columns[2].HeaderText = $"Total ({totalPreguntas.ToString(cultureInfo)})";
+            dataGridViewEstructura.Columns[3].HeaderText = $"Elegir ({totalElegidas.ToString(cultureInfo)})";
         }
 
         private void CargarDatosDatagridview()
@@ -737,6 +753,7 @@ namespace TestCreator
 
         private void dataGridViewEstructura_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
+            
             if (dataGridViewEstructura.CurrentCell.ColumnIndex == 3)
             {
                 TextBox txt = e.Control as TextBox;
@@ -770,6 +787,38 @@ namespace TestCreator
                 Mensajes.ValorElegidoMasAltoQueElTotal();
                 dataGridViewEstructura.CurrentRow.Cells[3].Value = dataGridViewEstructura.CurrentRow.Cells[2].Value;
             }
-        }        
+            totalesCabaceraDatagridview();
+        }
+
+        private void dataGridViewEstructura_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            formularioOrdenRegistro(4, dataGridViewEstructura);
+            formularioOrdenRegistro(5, dataGridViewEstructura);
+        }
+
+        private void formularioOrdenRegistro(int columna, DataGridView dataGridView)
+        {
+            if (dataGridView.CurrentCell.ColumnIndex == columna)
+            {
+                int ix = Left + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Right + dataGridView.Location.X + 19;
+                int iy = Top + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Top + +dataGridView.Location.Y;
+                OrdenRegistroForm.contrato = this;
+                OrdenRegistroForm.Show();
+                OrdenRegistroForm.Location = new Point(ix, iy);
+            }
+        }
+
+        private void dataGridViewEstructura_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (OrdenRegistroForm.Visible)
+            {
+                OrdenRegistroForm.Hide();
+            }
+        }
+        public void Orden(string texto)
+        {
+            dataGridViewEstructura.CurrentCell.Value = texto;
+        }
     }
 }

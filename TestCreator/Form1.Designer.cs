@@ -33,12 +33,6 @@
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabEstructura = new System.Windows.Forms.TabPage();
             this.dataGridViewEstructura = new System.Windows.Forms.DataGridView();
-            this.columnaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaElegir = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaPreguntasOrden = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.columnaRespuestasOrden = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.buttonClasificacionItemElegirTodo = new System.Windows.Forms.Button();
             this.buttonClasificacionItemQuitarTodo = new System.Windows.Forms.Button();
             this.pictureBoxMenuEmergente = new System.Windows.Forms.PictureBox();
@@ -186,6 +180,12 @@
             this.checkBoxPdf = new System.Windows.Forms.CheckBox();
             this.checkBoxUnArchivoPorExamen = new System.Windows.Forms.CheckBox();
             this.pictureBoxAyuda = new System.Windows.Forms.PictureBox();
+            this.columnaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaElegir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaPreguntasOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaRespuestasOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPrincipal.SuspendLayout();
             this.tabEstructura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstructura)).BeginInit();
@@ -298,71 +298,10 @@
             this.dataGridViewEstructura.Size = new System.Drawing.Size(727, 174);
             this.dataGridViewEstructura.TabIndex = 24;
             this.dataGridViewEstructura.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstructura_CellEndEdit);
+            this.dataGridViewEstructura.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstructura_CellMouseClick);
+            this.dataGridViewEstructura.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstructura_CellMouseDoubleClick);
             this.dataGridViewEstructura.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewEstructura_EditingControlShowing);
             this.dataGridViewEstructura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewEstructura_KeyPress);
-            // 
-            // columnaOrden
-            // 
-            this.columnaOrden.Frozen = true;
-            this.columnaOrden.HeaderText = "Orden";
-            this.columnaOrden.Name = "columnaOrden";
-            this.columnaOrden.ReadOnly = true;
-            this.columnaOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.columnaOrden.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnaOrden.Width = 50;
-            // 
-            // columnaPreguntas
-            // 
-            this.columnaPreguntas.Frozen = true;
-            this.columnaPreguntas.HeaderText = "Preguntas";
-            this.columnaPreguntas.Name = "columnaPreguntas";
-            this.columnaPreguntas.ReadOnly = true;
-            this.columnaPreguntas.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnaPreguntas.Width = 330;
-            // 
-            // columnaTotal
-            // 
-            this.columnaTotal.Frozen = true;
-            this.columnaTotal.HeaderText = "Total";
-            this.columnaTotal.Name = "columnaTotal";
-            this.columnaTotal.ReadOnly = true;
-            this.columnaTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnaTotal.Width = 50;
-            // 
-            // columnaElegir
-            // 
-            this.columnaElegir.Frozen = true;
-            this.columnaElegir.HeaderText = "Elegir";
-            this.columnaElegir.Name = "columnaElegir";
-            this.columnaElegir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.columnaElegir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.columnaElegir.Width = 50;
-            // 
-            // columnaPreguntasOrden
-            // 
-            this.columnaPreguntasOrden.Frozen = true;
-            this.columnaPreguntasOrden.HeaderText = "Preguntas(Orden)";
-            this.columnaPreguntasOrden.Items.AddRange(new object[] {
-            "Azar",
-            "Ascendente",
-            "Descendente",
-            "Orden original"});
-            this.columnaPreguntasOrden.Name = "columnaPreguntasOrden";
-            this.columnaPreguntasOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.columnaPreguntasOrden.Width = 110;
-            // 
-            // columnaRespuestasOrden
-            // 
-            this.columnaRespuestasOrden.Frozen = true;
-            this.columnaRespuestasOrden.HeaderText = "Respuestas(Orden)";
-            this.columnaRespuestasOrden.Items.AddRange(new object[] {
-            "Azar",
-            "Ascendente",
-            "Descendente",
-            "Orden original"});
-            this.columnaRespuestasOrden.Name = "columnaRespuestasOrden";
-            this.columnaRespuestasOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.columnaRespuestasOrden.Width = 110;
             // 
             // buttonClasificacionItemElegirTodo
             // 
@@ -2114,6 +2053,62 @@
             this.pictureBoxAyuda.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxAyuda_MouseDown);
             this.pictureBoxAyuda.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxAyuda_MouseUp);
             // 
+            // columnaOrden
+            // 
+            this.columnaOrden.Frozen = true;
+            this.columnaOrden.HeaderText = "Orden";
+            this.columnaOrden.Name = "columnaOrden";
+            this.columnaOrden.ReadOnly = true;
+            this.columnaOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnaOrden.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnaOrden.Width = 50;
+            // 
+            // columnaPreguntas
+            // 
+            this.columnaPreguntas.Frozen = true;
+            this.columnaPreguntas.HeaderText = "Preguntas";
+            this.columnaPreguntas.Name = "columnaPreguntas";
+            this.columnaPreguntas.ReadOnly = true;
+            this.columnaPreguntas.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnaPreguntas.Width = 315;
+            // 
+            // columnaTotal
+            // 
+            this.columnaTotal.Frozen = true;
+            this.columnaTotal.HeaderText = "Total";
+            this.columnaTotal.Name = "columnaTotal";
+            this.columnaTotal.ReadOnly = true;
+            this.columnaTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnaTotal.Width = 70;
+            // 
+            // columnaElegir
+            // 
+            this.columnaElegir.Frozen = true;
+            this.columnaElegir.HeaderText = "Elegir";
+            this.columnaElegir.Name = "columnaElegir";
+            this.columnaElegir.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnaElegir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnaElegir.Width = 70;
+            // 
+            // columnaPreguntasOrden
+            // 
+            this.columnaPreguntasOrden.Frozen = true;
+            this.columnaPreguntasOrden.HeaderText = "Preguntas(Orden)";
+            this.columnaPreguntasOrden.Name = "columnaPreguntasOrden";
+            this.columnaPreguntasOrden.ReadOnly = true;
+            this.columnaPreguntasOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnaPreguntasOrden.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // columnaRespuestasOrden
+            // 
+            this.columnaRespuestasOrden.Frozen = true;
+            this.columnaRespuestasOrden.HeaderText = "Respuestas(Orden)";
+            this.columnaRespuestasOrden.Name = "columnaRespuestasOrden";
+            this.columnaRespuestasOrden.ReadOnly = true;
+            this.columnaRespuestasOrden.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.columnaRespuestasOrden.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.columnaRespuestasOrden.Width = 102;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2350,8 +2345,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaPreguntas;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaElegir;
-        private System.Windows.Forms.DataGridViewComboBoxColumn columnaPreguntasOrden;
-        private System.Windows.Forms.DataGridViewComboBoxColumn columnaRespuestasOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnaPreguntasOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnaRespuestasOrden;
     }
 }
 
