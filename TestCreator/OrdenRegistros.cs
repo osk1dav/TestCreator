@@ -88,5 +88,10 @@ namespace TestCreator
                 Location = oNewPoint;
             }
         }
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
     }
 }

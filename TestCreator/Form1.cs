@@ -22,6 +22,7 @@ namespace TestCreator
         private Interruptores interruptor = new Interruptores();
 
         private string rutaBancoPreguntas = "";
+        private int columnaSeleccionada { get; set; }
         private List<string> listaRutaBancoDePreguntas = new List<string>();
         private List<string> listaPlantillaExamen = new List<string>();
 
@@ -793,13 +794,12 @@ namespace TestCreator
         private void dataGridViewEstructura_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            formularioOrdenRegistro(4, dataGridViewEstructura);
-            formularioOrdenRegistro(5, dataGridViewEstructura);
+            
         }
 
-        private void formularioOrdenRegistro(int columna, DataGridView dataGridView)
+        private void formularioOrdenRegistro(int columna, DataGridView dataGridView, DataGridViewCellMouseEventArgs e)
         {
-            if (dataGridView.CurrentCell.ColumnIndex == columna)
+            if (dataGridView.Rows.Count>0 && e.ColumnIndex == columna)
             {
                 int ix = Left + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Right + dataGridView.Location.X + 19;
                 int iy = Top + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Top + +dataGridView.Location.Y;
@@ -807,6 +807,7 @@ namespace TestCreator
                 OrdenRegistroForm.Show();
                 OrdenRegistroForm.Location = new Point(ix, iy);
             }
+            
         }
 
         private void dataGridViewEstructura_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -818,7 +819,28 @@ namespace TestCreator
         }
         public void Orden(string texto)
         {
-            dataGridViewEstructura.CurrentCell.Value = texto;
+            for (int i = 0; i < dataGridViewEstructura.Rows.Count; i++)
+            {
+                dataGridViewEstructura.Rows[i].Cells[columnaSeleccionada].Value = texto;
+            }
+        }
+
+        private void dataGridViewEstructura_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            columnaSeleccionada = e.ColumnIndex;
+            formularioOrdenRegistro(4, dataGridViewEstructura,e);
+            formularioOrdenRegistro(5, dataGridViewEstructura,e);
+
+        }
+
+        private void dataGridViewEstructura_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                columnaSeleccionada = e.ColumnIndex;
+                formularioOrdenRegistro(4, dataGridViewEstructura, e);
+                formularioOrdenRegistro(5, dataGridViewEstructura, e);
+            }
         }
     }
 }

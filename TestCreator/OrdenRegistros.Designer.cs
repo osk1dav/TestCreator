@@ -35,17 +35,18 @@
             this.radioButtonOrdenOriginal = new System.Windows.Forms.RadioButton();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(0, 2);
+            this.labelTitle.Location = new System.Drawing.Point(3, 2);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(138, 39);
+            this.labelTitle.Size = new System.Drawing.Size(118, 39);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Elegir una opción para \r\ncambiar todos los \r\nregistros.";
+            this.labelTitle.Text = "Elegir una opción \r\npara cambiar todos \r\nlos registros.";
             this.labelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTitle_MouseDown);
             this.labelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelTitle_MouseMove);
             // 
@@ -95,6 +96,7 @@
             // 
             // buttonAceptar
             // 
+            this.buttonAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAceptar.Location = new System.Drawing.Point(5, 146);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(60, 23);
@@ -105,6 +107,7 @@
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancelar.Location = new System.Drawing.Point(69, 146);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(60, 23);
@@ -113,11 +116,24 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // buttonCerrar
+            // 
+            this.buttonCerrar.BackgroundImage = global::TestCreator.Properties.Resources.icons8_cerrar_ventana_26;
+            this.buttonCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCerrar.Location = new System.Drawing.Point(116, 1);
+            this.buttonCerrar.Name = "buttonCerrar";
+            this.buttonCerrar.Size = new System.Drawing.Size(16, 16);
+            this.buttonCerrar.TabIndex = 7;
+            this.buttonCerrar.UseVisualStyleBackColor = true;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
+            // 
             // OrdenRegistros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(134, 181);
+            this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.radioButtonOrdenOriginal);
@@ -145,5 +161,6 @@
         private System.Windows.Forms.RadioButton radioButtonOrdenOriginal;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonCerrar;
     }
 }
