@@ -313,10 +313,12 @@
             this.dataGridViewEstructura.Size = new System.Drawing.Size(727, 174);
             this.dataGridViewEstructura.TabIndex = 24;
             this.dataGridViewEstructura.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstructura_CellEndEdit);
+            this.dataGridViewEstructura.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstructura_CellEnter);
             this.dataGridViewEstructura.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstructura_CellMouseClick);
             this.dataGridViewEstructura.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstructura_CellMouseDoubleClick);
             this.dataGridViewEstructura.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstructura_ColumnHeaderMouseClick);
             this.dataGridViewEstructura.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstructura_ColumnHeaderMouseDoubleClick);
+            this.dataGridViewEstructura.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewEstructura_CurrentCellDirtyStateChanged);
             this.dataGridViewEstructura.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewEstructura_EditingControlShowing);
             this.dataGridViewEstructura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewEstructura_KeyPress);
             // 

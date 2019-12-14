@@ -754,7 +754,11 @@ namespace TestCreator
 
         private void dataGridViewEstructura_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            
+            //ComboBox ctl = e.Control as ComboBox;
+            //ctl.Enter -= new EventHandler(ctl_Enter);
+            //ctl.Enter += new EventHandler(ctl_Enter);
+
+
             if (dataGridViewEstructura.CurrentCell.ColumnIndex == 3)
             {
                 TextBox txt = e.Control as TextBox;
@@ -765,6 +769,10 @@ namespace TestCreator
                 }
             }
         }
+        //private void ctl_Enter(object sender, EventArgs e)
+        //{
+        //    (sender as ComboBox).DroppedDown = true;
+        //}
 
         private void dataGridViewEstructura_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -840,6 +848,28 @@ namespace TestCreator
                 columnaSeleccionada = e.ColumnIndex;
                 formularioOrdenRegistro(4, dataGridViewEstructura, e);
                 formularioOrdenRegistro(5, dataGridViewEstructura, e);
+            }
+        }
+
+        private void dataGridViewEstructura_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            bool validClick = (e.RowIndex != -1 && e.ColumnIndex != -1); //Make sure the clicked row/column is valid.
+            var datagridview = sender as DataGridView;
+
+            // Check to make sure the cell clicked is the cell containing the combobox 
+            if (datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
+            {
+                datagridview.BeginEdit(true);
+                ((ComboBox)datagridview.EditingControl).DroppedDown = true;
+            }
+        }
+
+        private void dataGridViewEstructura_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewEstructura.CurrentCell is DataGridViewComboBoxCell)
+            {
+                dataGridViewEstructura.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                dataGridViewEstructura.EndEdit();
             }
         }
     }
