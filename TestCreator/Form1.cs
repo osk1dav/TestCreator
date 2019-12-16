@@ -27,7 +27,7 @@ namespace TestCreator
         private List<string> listaPlantillaExamen = new List<string>();
 
         private List<BloqueCuestionario> listaBloqueCuestionario = new List<BloqueCuestionario>();
-        
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -137,17 +137,40 @@ namespace TestCreator
 
         private void ButtonGenerarExamen_Click(object sender, EventArgs e)
         {
-            const string resultPath = @"D:\Demos\Resultado.docx";
+            GenerarExamen((int)numericUpDownExamenes.Value, (int)numericUpDownCopias.Value);
+        }
+
+        private void GenerarExamen(int cantidadExamenes = 1, int cantidadCopias = 1)
+        {
+            string resultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString(cultureInfo) + "\\Test.docx";
             using (WordprocessingDocument document = WordprocessingDocument.Create(resultPath, WordprocessingDocumentType.Document))
             {
+                var listaBloqueCuestionarioCopy = new List<BloqueCuestionario>();
+                listaBloqueCuestionarioCopy = listaBloqueCuestionario;
                 MainDocumentPart mainPart = document.AddMainDocumentPart();
                 mainPart.Document = new Document();
                 Body body = mainPart.Document.AppendChild(new Body());
-                foreach (var item in listaBloqueCuestionario)
+                for (int i = 0; i < cantidadExamenes; i++)
                 {
-                    Paragraph para = body.AppendChild(new Paragraph());
-                    Run run = para.AppendChild(new Run());
-                    run.AppendChild(new Text(item.Pregunta.InnerText));
+                    Random rnd = new Random((int)DateTime.Now.Ticks);
+                    listaBloqueCuestionarioCopy.Shuffle(rnd);
+
+                    for (int j = 0; j < cantidadCopias; j++)
+                    {
+                        foreach (var item in listaBloqueCuestionarioCopy)
+                        {
+                            Paragraph para = body.AppendChild(new Paragraph());
+                            Run run = para.AppendChild(new Run());
+                            run.AppendChild(new Text(item.Pregunta.InnerText));
+                        }
+                        if (j < cantidadCopias - 1)
+                        {
+                            Paragraph para1 = body.AppendChild(new Paragraph());
+                            Run run1 = para1.AppendChild(new Run());
+                            run1.AppendChild(new Break() { Type = BreakValues.Page });
+                        }
+
+                    }
                 }
             }
         }
@@ -454,7 +477,7 @@ namespace TestCreator
             }
 
         }
-                
+
         private void ButtonClasificacionItemElegir_Click(object sender, EventArgs e)
         {
             MetodoClasificacion(listBoxClasificacion, listBoxElegir, listBoxExcluir);
@@ -687,7 +710,7 @@ namespace TestCreator
         {
             CargarDatosDatagridview();
             totalesCabaceraDatagridview();
-           
+
         }
 
         private void totalesCabaceraDatagridview()
@@ -696,8 +719,8 @@ namespace TestCreator
             int totalElegidas = 0;
             for (int i = 0; i < dataGridViewEstructura.Rows.Count; i++)
             {
-                totalPreguntas += Convert.ToInt32(dataGridViewEstructura.Rows[i].Cells[2].Value,cultureInfo);
-                totalElegidas += Convert.ToInt32(dataGridViewEstructura.Rows[i].Cells[3].Value,cultureInfo);
+                totalPreguntas += Convert.ToInt32(dataGridViewEstructura.Rows[i].Cells[2].Value, cultureInfo);
+                totalElegidas += Convert.ToInt32(dataGridViewEstructura.Rows[i].Cells[3].Value, cultureInfo);
             }
             dataGridViewEstructura.Columns[2].HeaderText = $"Total ({totalPreguntas.ToString(cultureInfo)})";
             dataGridViewEstructura.Columns[3].HeaderText = $"Elegir ({totalElegidas.ToString(cultureInfo)})";
@@ -750,15 +773,9 @@ namespace TestCreator
             }
         }
 
-        
 
         private void dataGridViewEstructura_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            //ComboBox ctl = e.Control as ComboBox;
-            //ctl.Enter -= new EventHandler(ctl_Enter);
-            //ctl.Enter += new EventHandler(ctl_Enter);
-
-
             if (dataGridViewEstructura.CurrentCell.ColumnIndex == 3)
             {
                 TextBox txt = e.Control as TextBox;
@@ -769,10 +786,6 @@ namespace TestCreator
                 }
             }
         }
-        //private void ctl_Enter(object sender, EventArgs e)
-        //{
-        //    (sender as ComboBox).DroppedDown = true;
-        //}
 
         private void dataGridViewEstructura_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -791,7 +804,7 @@ namespace TestCreator
 
         private void dataGridViewEstructura_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (Convert.ToInt32(dataGridViewEstructura.CurrentRow.Cells[3].Value.ToString(),cultureInfo) > Convert.ToInt32(dataGridViewEstructura.CurrentRow.Cells[2].Value.ToString(),cultureInfo))
+            if (Convert.ToInt32(dataGridViewEstructura.CurrentRow.Cells[3].Value.ToString(), cultureInfo) > Convert.ToInt32(dataGridViewEstructura.CurrentRow.Cells[2].Value.ToString(), cultureInfo))
             {
                 Mensajes.ValorElegidoMasAltoQueElTotal();
                 dataGridViewEstructura.CurrentRow.Cells[3].Value = dataGridViewEstructura.CurrentRow.Cells[2].Value;
@@ -802,12 +815,12 @@ namespace TestCreator
         private void dataGridViewEstructura_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            
+
         }
 
         private void formularioOrdenRegistro(int columna, DataGridView dataGridView, DataGridViewCellMouseEventArgs e)
         {
-            if (dataGridView.Rows.Count>0 && e.ColumnIndex == columna)
+            if (dataGridView.Rows.Count > 0 && e.ColumnIndex == columna)
             {
                 int ix = Left + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Right + dataGridView.Location.X + 19;
                 int iy = Top + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Top + +dataGridView.Location.Y;
@@ -815,7 +828,7 @@ namespace TestCreator
                 OrdenRegistroForm.Show();
                 OrdenRegistroForm.Location = new Point(ix, iy);
             }
-            
+
         }
 
         private void dataGridViewEstructura_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -836,8 +849,8 @@ namespace TestCreator
         private void dataGridViewEstructura_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             columnaSeleccionada = e.ColumnIndex;
-            formularioOrdenRegistro(4, dataGridViewEstructura,e);
-            formularioOrdenRegistro(5, dataGridViewEstructura,e);
+            formularioOrdenRegistro(4, dataGridViewEstructura, e);
+            formularioOrdenRegistro(5, dataGridViewEstructura, e);
 
         }
 
@@ -859,5 +872,21 @@ namespace TestCreator
                 dataGridViewEstructura.EndEdit();
             }
         }
+
+        private void numericUpDownExamenes_ValueChanged(object sender, EventArgs e)
+        {
+            CalculoTotalCuestionarios();
+        }
+
+        private void numericUpDownCopias_ValueChanged(object sender, EventArgs e)
+        {
+            CalculoTotalCuestionarios();
+        }
+        private void CalculoTotalCuestionarios()
+        {
+            int totalExCo = (int)numericUpDownExamenes.Value * (int)numericUpDownCopias.Value;
+            labelTotalExamanesCopias.Text = $"Total de exámenes ({numericUpDownExamenes.Value}) y copias ({numericUpDownCopias.Value}) = {totalExCo}";
+        }
+
     }
 }

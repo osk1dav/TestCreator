@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabEstructura = new System.Windows.Forms.TabPage();
@@ -289,15 +289,15 @@
             this.dataGridViewEstructura.AllowUserToAddRows = false;
             this.dataGridViewEstructura.AllowUserToDeleteRows = false;
             this.dataGridViewEstructura.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewEstructura.ColumnHeadersHeight = 30;
             this.dataGridViewEstructura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewEstructura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -323,8 +323,8 @@
             // 
             // columnaOrden
             // 
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.columnaOrden.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.columnaOrden.DefaultCellStyle = dataGridViewCellStyle6;
             this.columnaOrden.Frozen = true;
             this.columnaOrden.HeaderText = "Orden";
             this.columnaOrden.Name = "columnaOrden";
@@ -344,8 +344,8 @@
             // 
             // columnaTotal
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columnaTotal.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columnaTotal.DefaultCellStyle = dataGridViewCellStyle7;
             this.columnaTotal.Frozen = true;
             this.columnaTotal.HeaderText = "Total";
             this.columnaTotal.Name = "columnaTotal";
@@ -355,8 +355,8 @@
             // 
             // columnaElegir
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columnaElegir.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columnaElegir.DefaultCellStyle = dataGridViewCellStyle8;
             this.columnaElegir.Frozen = true;
             this.columnaElegir.HeaderText = "Elegir";
             this.columnaElegir.Name = "columnaElegir";
@@ -917,6 +917,7 @@
             0,
             0,
             0});
+            this.numericUpDownCopias.ValueChanged += new System.EventHandler(this.numericUpDownCopias_ValueChanged);
             // 
             // radioButtonNuevasPreguntas
             // 
@@ -957,6 +958,7 @@
             0,
             0,
             0});
+            this.numericUpDownExamenes.ValueChanged += new System.EventHandler(this.numericUpDownExamenes_ValueChanged);
             // 
             // labelExamenes
             // 
