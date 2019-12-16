@@ -233,6 +233,26 @@ namespace TestCreator.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_estructura_de_árbol_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-estructura-de-árbol-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_estructura_de_árbol_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-estructura-de-árbol-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_izquierda_en_cuadrado_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-izquierda-en-cuadrado-96", resourceCulture);

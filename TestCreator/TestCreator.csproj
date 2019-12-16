@@ -132,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="file-alt-solid.ico" />
+    <None Include="Resources\icons8-estructura-de-árbol-30.png" />
+    <None Include="Resources\icons8-estructura-de-árbol-80.png" />
     <None Include="Resources\icons8-cerrar-ventana-26.png" />
     <None Include="Resources\icons8-doble-derecha-en-cuadrado-96.png" />
     <None Include="Resources\icons8-doble-izquierda-en-cuadrado-96.png" />
