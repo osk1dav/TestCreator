@@ -150,6 +150,7 @@ namespace TestCreator
                 MainDocumentPart mainPart = document.AddMainDocumentPart();
                 mainPart.Document = new Document();
                 Body body = mainPart.Document.AppendChild(new Body());
+                int contadorNumberingId = 0;
                 for (int i = 0; i < cantidadExamenes; i++)
                 {
                     Random rnd = new Random((int)DateTime.Now.Ticks);
@@ -157,11 +158,29 @@ namespace TestCreator
 
                     for (int j = 0; j < cantidadCopias; j++)
                     {
+                        contadorNumberingId++;
                         foreach (var item in listaBloqueCuestionarioCopy)
                         {
+
+                            ParagraphProperties paragraphProperties = new ParagraphProperties();
+                            ParagraphStyleId paragraphStyleId = new ParagraphStyleId() { Val = "ListParagraph" };
+                            NumberingProperties numberingProperties = new NumberingProperties();
+                            NumberingLevelReference numberingLevelReference = new NumberingLevelReference() { Val = 0 };
+                            NumberingId numberingId = new NumberingId() { Val = contadorNumberingId }; //Val is 1, 2, 3 etc based on your numberingid in your numbering element
+                            NumberingFormat numberingFormat = new NumberingFormat() { Val = NumberFormatValues.UpperLetter };
+
+                            numberingProperties.Append(numberingLevelReference);
+                            numberingProperties.Append(numberingFormat);
+                            numberingProperties.Append(numberingId);
+                            paragraphProperties.Append(paragraphStyleId);
+                            paragraphProperties.Append(numberingProperties);
+
+
                             Paragraph para = body.AppendChild(new Paragraph());
+                            para.Append(paragraphProperties);
                             Run run = para.AppendChild(new Run());
                             run.AppendChild(new Text(item.Pregunta.InnerText));
+
                         }
                         if (j < cantidadCopias - 1)
                         {
@@ -773,7 +792,6 @@ namespace TestCreator
             }
         }
 
-
         private void dataGridViewEstructura_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (dataGridViewEstructura.CurrentCell.ColumnIndex == 3)
@@ -812,12 +830,6 @@ namespace TestCreator
             totalesCabaceraDatagridview();
         }
 
-        private void dataGridViewEstructura_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-
-        }
-
         private void formularioOrdenRegistro(int columna, DataGridView dataGridView, DataGridViewCellMouseEventArgs e)
         {
             if (dataGridView.Rows.Count > 0 && e.ColumnIndex == columna)
@@ -829,14 +841,6 @@ namespace TestCreator
                 OrdenRegistroForm.Location = new Point(ix, iy);
             }
 
-        }
-
-        private void dataGridViewEstructura_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (OrdenRegistroForm.Visible)
-            {
-                OrdenRegistroForm.Hide();
-            }
         }
         public void Orden(string texto)
         {
@@ -859,17 +863,10 @@ namespace TestCreator
             if (e.Button == MouseButtons.Right)
             {
                 columnaSeleccionada = e.ColumnIndex;
+                dataGridViewEstructura.EndEdit();
                 formularioOrdenRegistro(4, dataGridViewEstructura, e);
                 formularioOrdenRegistro(5, dataGridViewEstructura, e);
-            }
-        }
 
-        private void dataGridViewEstructura_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewEstructura.CurrentCell is DataGridViewComboBoxCell)
-            {
-                dataGridViewEstructura.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                dataGridViewEstructura.EndEdit();
             }
         }
 
@@ -887,6 +884,5 @@ namespace TestCreator
             int totalExCo = (int)numericUpDownExamenes.Value * (int)numericUpDownCopias.Value;
             labelTotalExamanesCopias.Text = $"Total de exámenes ({numericUpDownExamenes.Value}) y copias ({numericUpDownCopias.Value}) = {totalExCo}";
         }
-
     }
 }
