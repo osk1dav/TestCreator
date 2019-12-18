@@ -87,7 +87,7 @@
             this.checkBoxPreguntasAleatoerias = new System.Windows.Forms.CheckBox();
             this.numericUpDownCopias = new System.Windows.Forms.NumericUpDown();
             this.radioButtonNuevasPreguntas = new System.Windows.Forms.RadioButton();
-            this.radioButtonNuevaEleccion = new System.Windows.Forms.RadioButton();
+            this.radioButtonCualquierPregunta = new System.Windows.Forms.RadioButton();
             this.numericUpDownExamenes = new System.Windows.Forms.NumericUpDown();
             this.labelExamenes = new System.Windows.Forms.Label();
             this.tabNumeracion = new System.Windows.Forms.TabPage();
@@ -843,7 +843,7 @@
             this.groupBoxCantidadDeExamenes.Controls.Add(this.labelTotalExamanesCopias);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.groupBoxCopias);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.radioButtonNuevasPreguntas);
-            this.groupBoxCantidadDeExamenes.Controls.Add(this.radioButtonNuevaEleccion);
+            this.groupBoxCantidadDeExamenes.Controls.Add(this.radioButtonCualquierPregunta);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.numericUpDownExamenes);
             this.groupBoxCantidadDeExamenes.Controls.Add(this.labelExamenes);
             this.groupBoxCantidadDeExamenes.Location = new System.Drawing.Point(15, 25);
@@ -928,16 +928,16 @@
             this.radioButtonNuevasPreguntas.Text = "Nuevas preguntas";
             this.radioButtonNuevasPreguntas.UseVisualStyleBackColor = true;
             // 
-            // radioButtonNuevaEleccion
+            // radioButtonCualquierPregunta
             // 
-            this.radioButtonNuevaEleccion.AutoSize = true;
-            this.radioButtonNuevaEleccion.Location = new System.Drawing.Point(23, 49);
-            this.radioButtonNuevaEleccion.Name = "radioButtonNuevaEleccion";
-            this.radioButtonNuevaEleccion.Size = new System.Drawing.Size(100, 17);
-            this.radioButtonNuevaEleccion.TabIndex = 2;
-            this.radioButtonNuevaEleccion.TabStop = true;
-            this.radioButtonNuevaEleccion.Text = "Nueva elección";
-            this.radioButtonNuevaEleccion.UseVisualStyleBackColor = true;
+            this.radioButtonCualquierPregunta.AutoSize = true;
+            this.radioButtonCualquierPregunta.Location = new System.Drawing.Point(23, 49);
+            this.radioButtonCualquierPregunta.Name = "radioButtonCualquierPregunta";
+            this.radioButtonCualquierPregunta.Size = new System.Drawing.Size(114, 17);
+            this.radioButtonCualquierPregunta.TabIndex = 2;
+            this.radioButtonCualquierPregunta.TabStop = true;
+            this.radioButtonCualquierPregunta.Text = "Cualquier pregunta";
+            this.radioButtonCualquierPregunta.UseVisualStyleBackColor = true;
             // 
             // numericUpDownExamenes
             // 
@@ -2264,7 +2264,7 @@
         private System.Windows.Forms.GroupBox groupBoxCantidadDeExamenes;
         private System.Windows.Forms.GroupBox groupBoxCopias;
         private System.Windows.Forms.RadioButton radioButtonNuevasPreguntas;
-        private System.Windows.Forms.RadioButton radioButtonNuevaEleccion;
+        private System.Windows.Forms.RadioButton radioButtonCualquierPregunta;
         private System.Windows.Forms.NumericUpDown numericUpDownExamenes;
         private System.Windows.Forms.Label labelExamenes;
         private System.Windows.Forms.Label labelIdentificarExamanes;
