@@ -853,6 +853,7 @@ namespace TestCreator
         private void dataGridViewEstructura_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             columnaSeleccionada = e.ColumnIndex;
+            dataGridViewEstructura.EndEdit();
             formularioOrdenRegistro(4, dataGridViewEstructura, e);
             formularioOrdenRegistro(5, dataGridViewEstructura, e);
 
