@@ -34,6 +34,7 @@ namespace TestCreator
             InicializarInterruptores();
             InicializarComboBoxs();
             InicializarToolTips();
+            InicializarPosicionComponentes();
         }
 
         #region Parametros
@@ -78,6 +79,14 @@ namespace TestCreator
         {
             bloqueCuestionario = new BloqueCuestionario();
             listaBloqueCuestionario.Clear();
+        }
+
+        private void InicializarPosicionComponentes()
+        {
+            // Cantidad - Cantidad de examenes.
+            PosicionCantidadExamenes();
+            CalculoTotalCuestionarios();
+            ///////////////////////////////////
         }
         #endregion
 
@@ -874,6 +883,7 @@ namespace TestCreator
         private void numericUpDownExamenes_ValueChanged(object sender, EventArgs e)
         {
             CalculoTotalCuestionarios();
+            PosicionCantidadExamenes();
         }
 
         private void numericUpDownCopias_ValueChanged(object sender, EventArgs e)
@@ -885,5 +895,23 @@ namespace TestCreator
             int totalExCo = (int)numericUpDownExamenes.Value * (int)numericUpDownCopias.Value;
             labelTotalExamanesCopias.Text = $"Total de exámenes ({numericUpDownExamenes.Value}) y copias ({numericUpDownCopias.Value}) = {totalExCo}";
         }
+
+        private void PosicionCantidadExamenes()
+        {
+            if (numericUpDownExamenes.Value > 1)
+            {
+                radioButtonCualquierPregunta.Visible = true;
+                radioButtonNuevasPreguntas.Visible = true;
+                groupBoxCopias.Location = new Point(23, 95);
+            }
+            else
+            {
+                radioButtonCualquierPregunta.Visible = false;
+                radioButtonNuevasPreguntas.Visible = false;
+                groupBoxCopias.Location = new Point(23, 49);
+            }
+        }
+
+
     }
 }
