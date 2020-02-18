@@ -27,6 +27,7 @@ namespace TestCreator
         private List<string> listaPlantillaExamen = new List<string>();
 
         private List<BloqueCuestionario> listaBloqueCuestionario = new List<BloqueCuestionario>();
+        private List<BloqueCuestionario> listaBloqueCuestionarioEstructurado = new List<BloqueCuestionario>();
 
         public FormPrincipal()
         {
@@ -155,7 +156,8 @@ namespace TestCreator
             using (WordprocessingDocument document = WordprocessingDocument.Create(resultPath, WordprocessingDocumentType.Document))
             {
                 var listaBloqueCuestionarioCopy = new List<BloqueCuestionario>();
-                listaBloqueCuestionarioCopy = listaBloqueCuestionario;
+                // listaBloqueCuestionarioCopy = listaBloqueCuestionario;
+                listaBloqueCuestionarioCopy = listaBloqueCuestionarioEstructurado;
                 MainDocumentPart mainPart = document.AddMainDocumentPart();
                 mainPart.Document = new Document();
                 Body body = mainPart.Document.AppendChild(new Body());
@@ -756,6 +758,7 @@ namespace TestCreator
 
         private void CargarDatosDatagridview()
         {
+            listaBloqueCuestionarioEstructurado = new List<BloqueCuestionario>();
             dataGridViewEstructura.Rows.Clear();
             if (listBoxNiveles.Items.Count > 0)
             {
@@ -782,6 +785,7 @@ namespace TestCreator
                             if (contadorBloque == claseValue.Length)
                             {
                                 contadorItem++;
+                                listaBloqueCuestionarioEstructurado.Add(bloque);
                             }
                         }
 
