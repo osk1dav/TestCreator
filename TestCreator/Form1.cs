@@ -190,7 +190,7 @@ namespace TestCreator
                             Paragraph para = body.AppendChild(new Paragraph());
                             para.Append(paragraphProperties);
                             Run run = para.AppendChild(new Run());
-                            run.AppendChild(new Text(item.Pregunta.InnerText));
+                            run.AppendChild(new Text(item.Pregunta.InnerText.Substring(1).Trim(' ')));
 
                         }
                         if (j < cantidadCopias - 1)
@@ -759,6 +759,7 @@ namespace TestCreator
         private void CargarDatosDatagridview()
         {
             listaBloqueCuestionarioEstructurado = new List<BloqueCuestionario>();
+            int contadorItem = 0;
             dataGridViewEstructura.Rows.Clear();
             if (listBoxNiveles.Items.Count > 0)
             {
@@ -768,7 +769,7 @@ namespace TestCreator
                     foreach (var item in listBoxNiveles.Items)
                     {
                         string[] claseValue = item.ToString().Split('-');
-                        int contadorItem = 0;
+                        contadorItem = 0;
                         foreach (var bloque in listaBloqueCuestionario)
                         {
                             int contadorBloque = 0;
@@ -788,15 +789,25 @@ namespace TestCreator
                                 listaBloqueCuestionarioEstructurado.Add(bloque);
                             }
                         }
-
                         dataGridViewEstructura.Rows.Insert(contador, ++contador, item, contadorItem, contadorItem, "Azar", "Azar");
                     }
-
                 }
 
                 if (TipoNiveles == TiposNivel.Preguntas)
                 {
-                    dataGridViewEstructura.Rows.Insert(0, 1, TiposNivel.Preguntas.ToString(), listBoxNiveles.Items.Count, listBoxNiveles.Items.Count, "Azar", "Azar");
+                    contadorItem = 0;
+                    foreach (var item in listBoxNiveles.Items)
+                    {
+                        foreach (var bloque in listaBloqueCuestionario)
+                        {
+                            if (item.ToString() == bloque.Pregunta.InnerText.Substring(1).Trim(' '))
+                            {
+                                contadorItem++;
+                                listaBloqueCuestionarioEstructurado.Add(bloque);
+                            }
+                        }
+                    }
+                    dataGridViewEstructura.Rows.Insert(0, 1, TiposNivel.Preguntas.ToString(), listBoxNiveles.Items.Count, contadorItem, "Azar", "Azar");
                 }
             }
             else
