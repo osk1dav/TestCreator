@@ -21,6 +21,10 @@ namespace TestCreator.Utilitarios
         public static string ValorElegidoAlto { get; private set; } = "Valor elegido supera el valor total permitido";
         public static string ErrorDeArchivo { get; private set; } = "Error de archivo";
         public static string Advertencia { get; private set; } = "Advertencia";
+        public static string AbrirArchivoGenerado { get; private set; } = "Desea abrir el archivo generado";
+        public static string ArchivoGeneradoCorrectamenteTitle { get; private set; } = "Archivo generado correctamente";
+
+
         public static void ArchivoDeWordSinFormatoPreguntas()
         {
             MessageBox.Show(ArchivoDeWordSinFormatoPreguntasTitle, ErrorDeArchivo, MessageBoxButtons.OK,MessageBoxIcon.Error);

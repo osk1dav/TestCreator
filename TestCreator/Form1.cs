@@ -10,6 +10,7 @@ using System.Drawing;
 using TestCreator.Clases;
 using TestCreator.Utilitarios;
 using static TestCreator.Properties.Resources;
+using System.Diagnostics;
 
 namespace TestCreator
 {
@@ -152,6 +153,7 @@ namespace TestCreator
 
         private void GenerarExamen(int cantidadExamenes = 1, int cantidadCopias = 1)
         {
+            
             string resultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString(cultureInfo) + "\\Test.docx";
             using (WordprocessingDocument document = WordprocessingDocument.Create(resultPath, WordprocessingDocumentType.Document))
             {
@@ -164,11 +166,22 @@ namespace TestCreator
                 int contadorNumberingId = 0;
                 for (int i = 0; i < cantidadExamenes; i++)
                 {
-                    Random rnd = new Random((int)DateTime.Now.Ticks);
-                    listaBloqueCuestionarioCopy.Shuffle(rnd);
+                    if (true)
+                    {
+                        Random rnd = new Random((int)DateTime.Now.Ticks);
+                        listaBloqueCuestionarioCopy.Shuffle(rnd);
+
+                    }
 
                     for (int j = 0; j < cantidadCopias; j++)
                     {
+                        if (i > 0 || j > 0)
+                        {
+                            Paragraph para1 = body.AppendChild(new Paragraph());
+                            Run run1 = para1.AppendChild(new Run());
+                            run1.AppendChild(new Break() { Type = BreakValues.Page });
+
+                        }
                         contadorNumberingId++;
                         foreach (var item in listaBloqueCuestionarioCopy)
                         {
@@ -191,17 +204,23 @@ namespace TestCreator
                             para.Append(paragraphProperties);
                             Run run = para.AppendChild(new Run());
                             run.AppendChild(new Text(item.Pregunta.InnerText.Substring(1).Trim(' ')));
-
                         }
-                        if (j < cantidadCopias - 1)
-                        {
-                            Paragraph para1 = body.AppendChild(new Paragraph());
-                            Run run1 = para1.AppendChild(new Run());
-                            run1.AppendChild(new Break() { Type = BreakValues.Page });
-                        }
-
                     }
                 }
+            }
+            if (listaBloqueCuestionarioEstructurado.Count > 0)
+            {
+                if (MessageBox.Show(Mensajes.AbrirArchivoGenerado + "\n" + resultPath, Mensajes.ArchivoGeneradoCorrectamenteTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo();
+                    startInfo.FileName = "WINWORD.EXE";
+                    startInfo.Arguments = resultPath;
+                    Process.Start(startInfo);
+                }
+            }
+            else
+            {
+                Mensajes.NoExistenDatosParaEstructurar();
             }
         }
 
