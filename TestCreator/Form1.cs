@@ -28,7 +28,7 @@ namespace TestCreator
         private List<string> listaPlantillaExamen = new List<string>();
 
         private List<BloqueCuestionario> listaBloqueCuestionario = new List<BloqueCuestionario>();
-        private List<BloqueCuestionario> listaBloqueCuestionarioEstructurado = new List<BloqueCuestionario>();
+        private Dictionary<string, BloqueCuestionario> diccionarioBloqueCuestionarioEstructurado = new Dictionary<string, BloqueCuestionario>();
 
         public FormPrincipal()
         {
@@ -157,9 +157,11 @@ namespace TestCreator
             string resultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString(cultureInfo) + "\\Test.docx";
             using (WordprocessingDocument document = WordprocessingDocument.Create(resultPath, WordprocessingDocumentType.Document))
             {
-                var listaBloqueCuestionarioCopy = new List<BloqueCuestionario>();
+                var diccionarioBloqueCuestionarioCopy = new Dictionary<string, BloqueCuestionario>();
+                var listBloqueCuestionarioCopy = new List<BloqueCuestionario>();
                 // listaBloqueCuestionarioCopy = listaBloqueCuestionario;
-                listaBloqueCuestionarioCopy = listaBloqueCuestionarioEstructurado;
+                diccionarioBloqueCuestionarioCopy = diccionarioBloqueCuestionarioEstructurado;
+                listBloqueCuestionarioCopy = diccionarioBloqueCuestionarioCopy.Values.ToList();
                 MainDocumentPart mainPart = document.AddMainDocumentPart();
                 mainPart.Document = new Document();
                 Body body = mainPart.Document.AppendChild(new Body());
@@ -169,23 +171,16 @@ namespace TestCreator
                     if (true)
                     {
                         Random rnd = new Random((int)DateTime.Now.Ticks);
-                        listaBloqueCuestionarioCopy.Shuffle(rnd);
 
+                        listBloqueCuestionarioCopy.Shuffle(rnd);
                     }
 
                     for (int j = 0; j < cantidadCopias; j++)
                     {
-                        if (i > 0 || j > 0)
-                        {
-                            Paragraph para1 = body.AppendChild(new Paragraph());
-                            Run run1 = para1.AppendChild(new Run());
-                            run1.AppendChild(new Break() { Type = BreakValues.Page });
-
-                        }
+                        if (i > 0 || j > 0) { InsertarSaltoDePagina(body); }
                         contadorNumberingId++;
-                        foreach (var item in listaBloqueCuestionarioCopy)
+                        foreach (var item in diccionarioBloqueCuestionarioCopy.Values)
                         {
-
                             ParagraphProperties paragraphProperties = new ParagraphProperties();
                             ParagraphStyleId paragraphStyleId = new ParagraphStyleId() { Val = "ListParagraph" };
                             NumberingProperties numberingProperties = new NumberingProperties();
@@ -199,7 +194,6 @@ namespace TestCreator
                             paragraphProperties.Append(paragraphStyleId);
                             paragraphProperties.Append(numberingProperties);
 
-
                             Paragraph para = body.AppendChild(new Paragraph());
                             para.Append(paragraphProperties);
                             Run run = para.AppendChild(new Run());
@@ -208,7 +202,7 @@ namespace TestCreator
                     }
                 }
             }
-            if (listaBloqueCuestionarioEstructurado.Count > 0)
+            if (diccionarioBloqueCuestionarioEstructurado.Count > 0)
             {
                 if (MessageBox.Show(Mensajes.AbrirArchivoGenerado + "\n" + resultPath, Mensajes.ArchivoGeneradoCorrectamenteTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -222,6 +216,13 @@ namespace TestCreator
             {
                 Mensajes.NoExistenDatosParaEstructurar();
             }
+        }
+
+        private static void InsertarSaltoDePagina(Body body)
+        {
+            Paragraph para1 = body.AppendChild(new Paragraph());
+            Run run1 = para1.AppendChild(new Run());
+            run1.AppendChild(new Break() { Type = BreakValues.Page });
         }
 
         private void CargarContenidoListboxs()
@@ -252,10 +253,7 @@ namespace TestCreator
             var listTempBC = new List<BloqueCuestionario>();
             foreach (var bloque in listaBloqueCuestionario)
             {
-                if (bloque.Pregunta.InnerText.Trim(' ').Length > 1)
-                {
-                    listTempBC.Add(bloque);
-                }
+                if (bloque.Pregunta.InnerText.Trim(' ').Length > 1) { listTempBC.Add(bloque); }
             }
             listaBloqueCuestionario.Clear();
             listaBloqueCuestionario = listTempBC;
@@ -320,20 +318,9 @@ namespace TestCreator
                         }
                     }
 
-                    if (p.InnerText.StartsWith(@"%%", StringComparison.CurrentCulture))
-                    {
-                        bloqueCuestionario.Comentario.Add(p.InnerText);
-                    }
-
-                    if (p.InnerText.StartsWith(@"&", StringComparison.CurrentCulture))
-                    {
-                        bloqueCuestionario.Opciones.Add(p);
-                    }
-
-                    if (p.InnerText.StartsWith(@"&&", StringComparison.CurrentCulture))
-                    {
-                        bloqueCuestionario.Respuestas.Add(p);
-                    }
+                    if (p.InnerText.StartsWith(@"%%", StringComparison.CurrentCulture)) { bloqueCuestionario.Comentario.Add(p.InnerText); }
+                    if (p.InnerText.StartsWith(@"&", StringComparison.CurrentCulture)) { bloqueCuestionario.Opciones.Add(p); }
+                    if (p.InnerText.StartsWith(@"&&", StringComparison.CurrentCulture)) { bloqueCuestionario.Respuestas.Add(p); }
                 }
                 else if (TipoNiveles == TiposNivel.Preguntas)
                 {
@@ -348,28 +335,13 @@ namespace TestCreator
                         bloqueCuestionario.Pregunta = p;
                     }
 
-                    if (p.InnerText.StartsWith(@"%%", StringComparison.CurrentCulture))
-                    {
-                        bloqueCuestionario.Comentario.Add(p.InnerText);
-                    }
-
-                    if (p.InnerText.StartsWith(@"&", StringComparison.CurrentCulture))
-                    {
-                        bloqueCuestionario.Opciones.Add(p);
-                    }
-
-                    if (p.InnerText.StartsWith(@"&&", StringComparison.CurrentCulture))
-                    {
-                        bloqueCuestionario.Respuestas.Add(p);
-                    }
+                    if (p.InnerText.StartsWith(@"%%", StringComparison.CurrentCulture)) { bloqueCuestionario.Comentario.Add(p.InnerText); }
+                    if (p.InnerText.StartsWith(@"&", StringComparison.CurrentCulture)) { bloqueCuestionario.Opciones.Add(p); }
+                    if (p.InnerText.StartsWith(@"&&", StringComparison.CurrentCulture)) { bloqueCuestionario.Respuestas.Add(p); }
                 }
             });
 
-
-            if (bloqueCuestionario.Pregunta != null)
-            {
-                listaSalida.Add(bloqueCuestionario);
-            }
+            if (bloqueCuestionario.Pregunta != null) { listaSalida.Add(bloqueCuestionario); }
 
             return listaSalida;
         }
@@ -777,7 +749,7 @@ namespace TestCreator
 
         private void CargarDatosDatagridview()
         {
-            listaBloqueCuestionarioEstructurado = new List<BloqueCuestionario>();
+            diccionarioBloqueCuestionarioEstructurado = new Dictionary<string, BloqueCuestionario>();
             int contadorItem = 0;
             dataGridViewEstructura.Rows.Clear();
             if (listBoxNiveles.Items.Count > 0)
@@ -805,7 +777,7 @@ namespace TestCreator
                             if (contadorBloque == claseValue.Length)
                             {
                                 contadorItem++;
-                                listaBloqueCuestionarioEstructurado.Add(bloque);
+                                diccionarioBloqueCuestionarioEstructurado.Add(contadorItem + item.ToString(), bloque);
                             }
                         }
                         dataGridViewEstructura.Rows.Insert(contador, ++contador, item, contadorItem, contadorItem, "Azar", "Azar");
@@ -822,7 +794,7 @@ namespace TestCreator
                             if (item.ToString() == bloque.Pregunta.InnerText.Substring(1).Trim(' '))
                             {
                                 contadorItem++;
-                                listaBloqueCuestionarioEstructurado.Add(bloque);
+                                diccionarioBloqueCuestionarioEstructurado.Add(item.ToString(), bloque);
                             }
                         }
                     }
