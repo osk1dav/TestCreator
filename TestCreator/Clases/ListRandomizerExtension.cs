@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestCreator.Clases
 {
@@ -20,7 +17,7 @@ namespace TestCreator.Clases
                     list.Swap(i, rnd.Next(i, list.Count));
                 }
             }
-            
+
         }
 
         public static void Swap<T>(this IList<T> list, int i, int j)

@@ -1,9 +1,6 @@
 ﻿using DocumentFormat.OpenXml;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestCreator.Clases
 {
@@ -15,6 +12,6 @@ namespace TestCreator.Clases
         public List<string> Comentario { get; private set; } = new List<string>();
         public List<OpenXmlElement> Opciones { get; private set; } = new List<OpenXmlElement>();
         public List<OpenXmlElement> Respuestas { get; private set; } = new List<OpenXmlElement>();
-        
+
     }
 }

@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using static TestCreator.Properties.Resources;
 
 namespace TestCreator.Clases
 {
     public class Interruptores
     {
-        public bool boolIdentificarExamenes { get ; set; }
-        public bool boolMantenerOriginalNumeracionPreguntas { get ; set; }
-        public bool boolMantenerOriginalEspaciadoPreguntas { get ; set; }
-        public bool boolMantenerOriginalNumeracionRespuestas { get ; set; }
-        public bool boolMantenerOriginalEspaciadoRespuestas { get ; set; }
-        public bool boolMantenerOriginalColumnasRespuestas { get ; set; }
-        public bool boolImprimirComentariosPresentacionSolucion { get ; set; }
+        public bool boolIdentificarExamenes { get; set; }
+        public bool boolMantenerOriginalNumeracionPreguntas { get; set; }
+        public bool boolMantenerOriginalEspaciadoPreguntas { get; set; }
+        public bool boolMantenerOriginalNumeracionRespuestas { get; set; }
+        public bool boolMantenerOriginalEspaciadoRespuestas { get; set; }
+        public bool boolMantenerOriginalColumnasRespuestas { get; set; }
+        public bool boolImprimirComentariosPresentacionSolucion { get; set; }
         public Image botonSiConTexto { get; private set; }
         public Image botonNoConTexto { get; private set; }
 

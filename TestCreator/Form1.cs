@@ -3,22 +3,22 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing;
 using TestCreator.Clases;
 using TestCreator.Utilitarios;
 using static TestCreator.Properties.Resources;
-using System.Diagnostics;
 
 namespace TestCreator
 {
-    public partial class FormPrincipal : Form, IContract
+    public partial class FormPrincipal : Form, Estructura.IContract
     {
         private CultureInfo cultureInfo = new CultureInfo("es-EC");
         private TiposNivel TipoNiveles { get; set; }
-        public OrdenRegistros OrdenRegistroForm { get; set; } = new OrdenRegistros();
+        public Estructura.OrdenRegistros OrdenRegistroForm { get; set; } = new Estructura.OrdenRegistros();
         private BloqueCuestionario bloqueCuestionario = new BloqueCuestionario();
         private Interruptores interruptor = new Interruptores();
 
@@ -153,7 +153,7 @@ namespace TestCreator
 
         private void GenerarExamen(int cantidadExamenes = 1, int cantidadCopias = 1)
         {
-            
+
             string resultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString(cultureInfo) + "\\Test.docx";
             using (WordprocessingDocument document = WordprocessingDocument.Create(resultPath, WordprocessingDocumentType.Document))
             {

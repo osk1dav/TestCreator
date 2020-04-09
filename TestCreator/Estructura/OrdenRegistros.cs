@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestCreator
+namespace TestCreator.Estructura
 {
     public partial class OrdenRegistros : Form
     {
         private Point oNewPoint = new Point();
         private int xP { get; set; }
         private int yP { get; set; }
-        public IContract contrato { get; set; } 
+        public IContract contrato { get; set; }
         public OrdenRegistros()
         {
             InitializeComponent();

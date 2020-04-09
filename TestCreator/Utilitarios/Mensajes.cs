@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace TestCreator.Utilitarios
 {
@@ -27,12 +22,12 @@ namespace TestCreator.Utilitarios
 
         public static void ArchivoDeWordSinFormatoPreguntas()
         {
-            MessageBox.Show(ArchivoDeWordSinFormatoPreguntasTitle, ErrorDeArchivo, MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show(ArchivoDeWordSinFormatoPreguntasTitle, ErrorDeArchivo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void ArchivoDeWordNoExiste()
         {
-            MessageBox.Show(ArchivoDeWordNoExisteTitle, ErrorDeArchivo, MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show(ArchivoDeWordNoExisteTitle, ErrorDeArchivo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void NoExistenDatosParaEstructurar()

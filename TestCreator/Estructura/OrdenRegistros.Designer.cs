@@ -1,4 +1,4 @@
-﻿namespace TestCreator
+﻿namespace TestCreator.Estructura
 {
     partial class OrdenRegistros
     {
