@@ -125,6 +125,7 @@
             this.pictureImprimirComentarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureImprimirComentarios.TabIndex = 31;
             this.pictureImprimirComentarios.TabStop = false;
+            this.pictureImprimirComentarios.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureImprimirComentarios_MouseDown);
             // 
             // labelImprimirComentarios
             // 

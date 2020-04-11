@@ -21,6 +21,7 @@ namespace TestCreator
         public Main()
         {
             InitializeComponent();
+            MostrarFormulario(formularioEstructura);
         }
         private void MostrarFormulario(Form formulario)
         {

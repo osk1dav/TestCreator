@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataEstructura = new System.Windows.Forms.DataGridView();
             this.columntextOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columntextPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,15 +69,15 @@
             this.dataEstructura.AllowUserToAddRows = false;
             this.dataEstructura.AllowUserToDeleteRows = false;
             this.dataEstructura.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataEstructura.ColumnHeadersHeight = 30;
             this.dataEstructura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataEstructura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -95,8 +95,8 @@
             // 
             // columntextOrden
             // 
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle14;
             this.columntextOrden.Frozen = true;
             this.columntextOrden.HeaderText = "Orden";
             this.columntextOrden.Name = "columntextOrden";
@@ -116,8 +116,8 @@
             // 
             // columntextTotal
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle15;
             this.columntextTotal.Frozen = true;
             this.columntextTotal.HeaderText = "Total";
             this.columntextTotal.Name = "columntextTotal";
@@ -127,8 +127,8 @@
             // 
             // columntextElegir
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle16;
             this.columntextElegir.Frozen = true;
             this.columntextElegir.HeaderText = "Elegir";
             this.columntextElegir.Name = "columntextElegir";
@@ -195,10 +195,13 @@
             this.pictureLimpiarRuta.InitialImage = null;
             this.pictureLimpiarRuta.Location = new System.Drawing.Point(727, 10);
             this.pictureLimpiarRuta.Name = "pictureLimpiarRuta";
-            this.pictureLimpiarRuta.Size = new System.Drawing.Size(22, 24);
+            this.pictureLimpiarRuta.Size = new System.Drawing.Size(22, 22);
             this.pictureLimpiarRuta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureLimpiarRuta.TabIndex = 43;
             this.pictureLimpiarRuta.TabStop = false;
+            this.pictureLimpiarRuta.Click += new System.EventHandler(this.PictureLimpiarRuta_Click);
+            this.pictureLimpiarRuta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureLimpiarRuta_MouseDown);
+            this.pictureLimpiarRuta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureLimpiarRuta_MouseUp);
             // 
             // labelEstructurarTitulo
             // 

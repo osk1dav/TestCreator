@@ -165,6 +165,7 @@
             this.pictureMantenerOriginalColumnasNDO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMantenerOriginalColumnasNDO.TabIndex = 20;
             this.pictureMantenerOriginalColumnasNDO.TabStop = false;
+            this.pictureMantenerOriginalColumnasNDO.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureMantenerOriginalColumnasNDO_MouseDown);
             // 
             // labelColumnasNDO
             // 
@@ -370,6 +371,7 @@
             this.pictureMantenerOriginalEspaciadoNDO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMantenerOriginalEspaciadoNDO.TabIndex = 14;
             this.pictureMantenerOriginalEspaciadoNDO.TabStop = false;
+            this.pictureMantenerOriginalEspaciadoNDO.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureMantenerOriginalEspaciadoNDO_MouseDown);
             // 
             // numericSangriaEspaciadoNDO
             // 
@@ -480,6 +482,7 @@
             this.pictureMantenerOriginalNumeracionNDO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMantenerOriginalNumeracionNDO.TabIndex = 11;
             this.pictureMantenerOriginalNumeracionNDO.TabStop = false;
+            this.pictureMantenerOriginalNumeracionNDO.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureMantenerOriginalNumeracionNDO_MouseDown);
             // 
             // comboNumeroNumeracionNDO
             // 
@@ -715,6 +718,7 @@
             this.pictureMantenerOriginalEspaciadoNDP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMantenerOriginalEspaciadoNDP.TabIndex = 12;
             this.pictureMantenerOriginalEspaciadoNDP.TabStop = false;
+            this.pictureMantenerOriginalEspaciadoNDP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureMantenerOriginalEspaciadoNDP_MouseDown);
             // 
             // labelInterlineadoNDP
             // 
@@ -840,6 +844,7 @@
             this.pictureMantenerOriginalNumeracionNDP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMantenerOriginalNumeracionNDP.TabIndex = 10;
             this.pictureMantenerOriginalNumeracionNDP.TabStop = false;
+            this.pictureMantenerOriginalNumeracionNDP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureMantenerOriginalNumeracionNDP_MouseDown);
             // 
             // comboNumeroNumeracionNDP
             // 

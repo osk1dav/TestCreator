@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestCreator.Utils;
 
 namespace TestCreator.Cantidad
 {
     public partial class Formulario : Form
     {
+        private readonly BotonSiNo identificarExamenesIDE = new BotonSiNo();
         public Formulario()
         {
             InitializeComponent();
@@ -52,6 +54,11 @@ namespace TestCreator.Cantidad
         {
             CalculoTotalCuestionarios();
             PosicionCantidadExamenes();
+        }
+
+        private void PictureboxIdentificarExamenesIDE_MouseDown(object sender, MouseEventArgs e)
+        {
+            identificarExamenesIDE.Interruptor(pictureboxIdentificarExamenesIDE);
         }
     }
 }

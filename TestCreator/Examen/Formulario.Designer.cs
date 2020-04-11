@@ -42,10 +42,13 @@
             this.pictureLimpiarRuta.InitialImage = null;
             this.pictureLimpiarRuta.Location = new System.Drawing.Point(716, 37);
             this.pictureLimpiarRuta.Name = "pictureLimpiarRuta";
-            this.pictureLimpiarRuta.Size = new System.Drawing.Size(22, 24);
+            this.pictureLimpiarRuta.Size = new System.Drawing.Size(22, 22);
             this.pictureLimpiarRuta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureLimpiarRuta.TabIndex = 38;
             this.pictureLimpiarRuta.TabStop = false;
+            this.pictureLimpiarRuta.Click += new System.EventHandler(this.PictureLimpiarRuta_Click);
+            this.pictureLimpiarRuta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureLimpiarRuta_MouseDown);
+            this.pictureLimpiarRuta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureLimpiarRuta_MouseUp);
             // 
             // panelPlantilla
             // 

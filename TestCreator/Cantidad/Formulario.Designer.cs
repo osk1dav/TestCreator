@@ -89,6 +89,7 @@
             this.pictureboxIdentificarExamenesIDE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureboxIdentificarExamenesIDE.TabIndex = 9;
             this.pictureboxIdentificarExamenesIDE.TabStop = false;
+            this.pictureboxIdentificarExamenesIDE.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureboxIdentificarExamenesIDE_MouseDown);
             // 
             // groupJustificacionIDE
             // 

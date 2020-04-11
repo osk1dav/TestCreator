@@ -37,11 +37,11 @@
             this.buttonGuardarCondiciones = new System.Windows.Forms.Button();
             this.buttonAbrirCondiciones = new System.Windows.Forms.Button();
             this.container = new System.Windows.Forms.SplitContainer();
-            this.buttonEstructura = new System.Windows.Forms.Button();
-            this.buttonCantidad = new System.Windows.Forms.Button();
-            this.buttonNumeracion = new System.Windows.Forms.Button();
-            this.buttonSolucion = new System.Windows.Forms.Button();
             this.buttonExamen = new System.Windows.Forms.Button();
+            this.buttonSolucion = new System.Windows.Forms.Button();
+            this.buttonNumeracion = new System.Windows.Forms.Button();
+            this.buttonCantidad = new System.Windows.Forms.Button();
+            this.buttonEstructura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
             this.container.Panel1.SuspendLayout();
             this.container.SuspendLayout();
@@ -148,35 +148,15 @@
             this.container.SplitterDistance = 33;
             this.container.TabIndex = 15;
             // 
-            // buttonEstructura
+            // buttonExamen
             // 
-            this.buttonEstructura.Location = new System.Drawing.Point(5, 3);
-            this.buttonEstructura.Name = "buttonEstructura";
-            this.buttonEstructura.Size = new System.Drawing.Size(150, 33);
-            this.buttonEstructura.TabIndex = 0;
-            this.buttonEstructura.Text = "Estructura";
-            this.buttonEstructura.UseVisualStyleBackColor = true;
-            this.buttonEstructura.Click += new System.EventHandler(this.buttonEstructura_Click);
-            // 
-            // buttonCantidad
-            // 
-            this.buttonCantidad.Location = new System.Drawing.Point(155, 3);
-            this.buttonCantidad.Name = "buttonCantidad";
-            this.buttonCantidad.Size = new System.Drawing.Size(150, 33);
-            this.buttonCantidad.TabIndex = 1;
-            this.buttonCantidad.Text = "Cantidad";
-            this.buttonCantidad.UseVisualStyleBackColor = true;
-            this.buttonCantidad.Click += new System.EventHandler(this.buttonCantidad_Click);
-            // 
-            // buttonNumeracion
-            // 
-            this.buttonNumeracion.Location = new System.Drawing.Point(305, 3);
-            this.buttonNumeracion.Name = "buttonNumeracion";
-            this.buttonNumeracion.Size = new System.Drawing.Size(150, 33);
-            this.buttonNumeracion.TabIndex = 2;
-            this.buttonNumeracion.Text = "Numeración";
-            this.buttonNumeracion.UseVisualStyleBackColor = true;
-            this.buttonNumeracion.Click += new System.EventHandler(this.buttonNumeracion_Click);
+            this.buttonExamen.Location = new System.Drawing.Point(605, 3);
+            this.buttonExamen.Name = "buttonExamen";
+            this.buttonExamen.Size = new System.Drawing.Size(150, 33);
+            this.buttonExamen.TabIndex = 4;
+            this.buttonExamen.Text = "Examen";
+            this.buttonExamen.UseVisualStyleBackColor = true;
+            this.buttonExamen.Click += new System.EventHandler(this.buttonExamen_Click);
             // 
             // buttonSolucion
             // 
@@ -188,15 +168,38 @@
             this.buttonSolucion.UseVisualStyleBackColor = true;
             this.buttonSolucion.Click += new System.EventHandler(this.buttonSolucion_Click);
             // 
-            // buttonExamen
+            // buttonNumeracion
             // 
-            this.buttonExamen.Location = new System.Drawing.Point(605, 3);
-            this.buttonExamen.Name = "buttonExamen";
-            this.buttonExamen.Size = new System.Drawing.Size(150, 33);
-            this.buttonExamen.TabIndex = 4;
-            this.buttonExamen.Text = "Examen";
-            this.buttonExamen.UseVisualStyleBackColor = true;
-            this.buttonExamen.Click += new System.EventHandler(this.buttonExamen_Click);
+            this.buttonNumeracion.Location = new System.Drawing.Point(305, 3);
+            this.buttonNumeracion.Name = "buttonNumeracion";
+            this.buttonNumeracion.Size = new System.Drawing.Size(150, 33);
+            this.buttonNumeracion.TabIndex = 2;
+            this.buttonNumeracion.Text = "Numeración";
+            this.buttonNumeracion.UseVisualStyleBackColor = true;
+            this.buttonNumeracion.Click += new System.EventHandler(this.buttonNumeracion_Click);
+            // 
+            // buttonCantidad
+            // 
+            this.buttonCantidad.Location = new System.Drawing.Point(155, 3);
+            this.buttonCantidad.Name = "buttonCantidad";
+            this.buttonCantidad.Size = new System.Drawing.Size(150, 33);
+            this.buttonCantidad.TabIndex = 1;
+            this.buttonCantidad.Text = "Cantidad";
+            this.buttonCantidad.UseVisualStyleBackColor = true;
+            this.buttonCantidad.Click += new System.EventHandler(this.buttonCantidad_Click);
+            // 
+            // buttonEstructura
+            // 
+            this.buttonEstructura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonEstructura.Image = global::TestCreator.Properties.Resources.icons8_estructura_de_árbol_30;
+            this.buttonEstructura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEstructura.Location = new System.Drawing.Point(5, 3);
+            this.buttonEstructura.Name = "buttonEstructura";
+            this.buttonEstructura.Size = new System.Drawing.Size(150, 33);
+            this.buttonEstructura.TabIndex = 0;
+            this.buttonEstructura.Text = "Estructura";
+            this.buttonEstructura.UseVisualStyleBackColor = true;
+            this.buttonEstructura.Click += new System.EventHandler(this.buttonEstructura_Click);
             // 
             // Main
             // 
