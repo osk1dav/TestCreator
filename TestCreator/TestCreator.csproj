@@ -128,6 +128,8 @@
       <DependentUpon>Formulario.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios\Mensajes.cs" />
+    <Compile Include="Utils\FormatoNumeracion.cs" />
+    <Compile Include="Utils\OpcionColumna.cs" />
     <EmbeddedResource Include="Cantidad\Formulario.resx">
       <DependentUpon>Formulario.cs</DependentUpon>
     </EmbeddedResource>

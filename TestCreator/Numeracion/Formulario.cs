@@ -56,5 +56,45 @@ namespace TestCreator.Numeracion
         {
             mantenerOriginalEspaciadoNDO.Interruptor(pictureMantenerOriginalEspaciadoNDO);
         }
+
+        private void TextAntesNumeracionNDP_TextChanged(object sender, EventArgs e)
+        {
+            FormatoNumeracion.NumeracionResultante(textAntesNumeracionNDP, comboNumeroNumeracionNDP, textDespuesNumeracionNDP, labelNumeracionResultanteNDP);
+        }
+
+        private void ComboNumeroNumeracionNDP_SelectedValueChanged(object sender, EventArgs e)
+        {
+            FormatoNumeracion.NumeracionResultante(textAntesNumeracionNDP, comboNumeroNumeracionNDP, textDespuesNumeracionNDP, labelNumeracionResultanteNDP);
+        }
+
+        private void TextDespuesNumeracionNDP_TextChanged(object sender, EventArgs e)
+        {
+            FormatoNumeracion.NumeracionResultante(textAntesNumeracionNDP, comboNumeroNumeracionNDP, textDespuesNumeracionNDP, labelNumeracionResultanteNDP);
+        }
+
+        private void TextAntesNumeracionNDO_TextChanged(object sender, EventArgs e)
+        {
+            FormatoNumeracion.NumeracionResultante(textAntesNumeracionNDO, comboNumeroNumeracionNDO, textDespuesNumeracionNDO, labelNumeracionResultanteNDO);
+        }
+
+        private void ComboNumeroNumeracionNDO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormatoNumeracion.NumeracionResultante(textAntesNumeracionNDO, comboNumeroNumeracionNDO, textDespuesNumeracionNDO, labelNumeracionResultanteNDO);
+        }
+
+        private void TextDespuesNumeracionNDO_TextChanged(object sender, EventArgs e)
+        {
+            FormatoNumeracion.NumeracionResultante(textAntesNumeracionNDO, comboNumeroNumeracionNDO, textDespuesNumeracionNDO, labelNumeracionResultanteNDO);
+        }
+
+        private void RadioNumeroColumnasNDO_CheckedChanged(object sender, EventArgs e)
+        {
+            OpcionColumna.ActvarElementos(radioNumeroColumnasNDO, numericNumeroColumnasNDO, numericAnchoColumnasNDO, numericEspaciadoColumnasNDO);
+        }
+
+        private void numericNumeroColumnasNDO_ValueChanged(object sender, EventArgs e)
+        {
+            OpcionColumna.ColumnasResultantes(numericNumeroColumnasNDO, labelColumnasNDO);
+        }
     }
 }

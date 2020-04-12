@@ -121,7 +121,7 @@
             this.groupNumeracionOpcionesNDO.Controls.Add(this.groupColumnasNDO);
             this.groupNumeracionOpcionesNDO.Controls.Add(this.groupEspaciadoNDO);
             this.groupNumeracionOpcionesNDO.Controls.Add(this.groupNumeracionNDO);
-            this.groupNumeracionOpcionesNDO.Location = new System.Drawing.Point(336, 25);
+            this.groupNumeracionOpcionesNDO.Location = new System.Drawing.Point(340, 25);
             this.groupNumeracionOpcionesNDO.Name = "groupNumeracionOpcionesNDO";
             this.groupNumeracionOpcionesNDO.Size = new System.Drawing.Size(408, 350);
             this.groupNumeracionOpcionesNDO.TabIndex = 3;
@@ -187,6 +187,7 @@
             // 
             // numericEspaciadoColumnasNDO
             // 
+            this.numericEspaciadoColumnasNDO.Enabled = false;
             this.numericEspaciadoColumnasNDO.Location = new System.Drawing.Point(108, 195);
             this.numericEspaciadoColumnasNDO.Name = "numericEspaciadoColumnasNDO";
             this.numericEspaciadoColumnasNDO.Size = new System.Drawing.Size(55, 20);
@@ -194,6 +195,7 @@
             // 
             // numericAnchoColumnasNDO
             // 
+            this.numericAnchoColumnasNDO.Enabled = false;
             this.numericAnchoColumnasNDO.Location = new System.Drawing.Point(33, 195);
             this.numericAnchoColumnasNDO.Name = "numericAnchoColumnasNDO";
             this.numericAnchoColumnasNDO.Size = new System.Drawing.Size(55, 20);
@@ -219,6 +221,7 @@
             // 
             // numericNumeroColumnasNDO
             // 
+            this.numericNumeroColumnasNDO.Enabled = false;
             this.numericNumeroColumnasNDO.Location = new System.Drawing.Point(83, 150);
             this.numericNumeroColumnasNDO.Maximum = new decimal(new int[] {
             4,
@@ -234,10 +237,11 @@
             this.numericNumeroColumnasNDO.Size = new System.Drawing.Size(35, 20);
             this.numericNumeroColumnasNDO.TabIndex = 12;
             this.numericNumeroColumnasNDO.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
+            this.numericNumeroColumnasNDO.ValueChanged += new System.EventHandler(this.numericNumeroColumnasNDO_ValueChanged);
             // 
             // radioNumeroColumnasNDO
             // 
@@ -249,6 +253,7 @@
             this.radioNumeroColumnasNDO.TabStop = true;
             this.radioNumeroColumnasNDO.Text = "Columnas";
             this.radioNumeroColumnasNDO.UseVisualStyleBackColor = true;
+            this.radioNumeroColumnasNDO.CheckedChanged += new System.EventHandler(this.RadioNumeroColumnasNDO_CheckedChanged);
             // 
             // textSeguidoComodinColumnasNDO
             // 
@@ -256,6 +261,7 @@
             this.textSeguidoComodinColumnasNDO.Name = "textSeguidoComodinColumnasNDO";
             this.textSeguidoComodinColumnasNDO.Size = new System.Drawing.Size(25, 20);
             this.textSeguidoComodinColumnasNDO.TabIndex = 10;
+            this.textSeguidoComodinColumnasNDO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelSeguidoBColumnasNDO
             // 
@@ -292,6 +298,7 @@
             this.textListaHorizontalComodinColumnasNDO.Name = "textListaHorizontalComodinColumnasNDO";
             this.textListaHorizontalComodinColumnasNDO.Size = new System.Drawing.Size(25, 20);
             this.textListaHorizontalComodinColumnasNDO.TabIndex = 6;
+            this.textListaHorizontalComodinColumnasNDO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelListaHorizontalBColumnasNDO
             // 
@@ -495,10 +502,11 @@
             "A",
             "a",
             "Ninguna"});
-            this.comboNumeroNumeracionNDO.Location = new System.Drawing.Point(53, 36);
+            this.comboNumeroNumeracionNDO.Location = new System.Drawing.Point(48, 36);
             this.comboNumeroNumeracionNDO.Name = "comboNumeroNumeracionNDO";
-            this.comboNumeroNumeracionNDO.Size = new System.Drawing.Size(35, 21);
+            this.comboNumeroNumeracionNDO.Size = new System.Drawing.Size(45, 21);
             this.comboNumeroNumeracionNDO.TabIndex = 10;
+            this.comboNumeroNumeracionNDO.SelectedIndexChanged += new System.EventHandler(this.ComboNumeroNumeracionNDO_SelectedIndexChanged);
             // 
             // labelNumeracionResultanteNDO
             // 
@@ -520,23 +528,26 @@
             // 
             // textDespuesNumeracionNDO
             // 
-            this.textDespuesNumeracionNDO.Location = new System.Drawing.Point(93, 36);
+            this.textDespuesNumeracionNDO.Location = new System.Drawing.Point(98, 36);
             this.textDespuesNumeracionNDO.Name = "textDespuesNumeracionNDO";
-            this.textDespuesNumeracionNDO.Size = new System.Drawing.Size(35, 20);
+            this.textDespuesNumeracionNDO.Size = new System.Drawing.Size(30, 20);
             this.textDespuesNumeracionNDO.TabIndex = 5;
             this.textDespuesNumeracionNDO.Text = ")";
+            this.textDespuesNumeracionNDO.TextChanged += new System.EventHandler(this.TextDespuesNumeracionNDO_TextChanged);
             // 
             // textAntesNumeracionNDO
             // 
             this.textAntesNumeracionNDO.Location = new System.Drawing.Point(13, 36);
             this.textAntesNumeracionNDO.Name = "textAntesNumeracionNDO";
-            this.textAntesNumeracionNDO.Size = new System.Drawing.Size(35, 20);
+            this.textAntesNumeracionNDO.Size = new System.Drawing.Size(30, 20);
             this.textAntesNumeracionNDO.TabIndex = 3;
+            this.textAntesNumeracionNDO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textAntesNumeracionNDO.TextChanged += new System.EventHandler(this.TextAntesNumeracionNDO_TextChanged);
             // 
             // labelDespuesNumeracionNDO
             // 
             this.labelDespuesNumeracionNDO.AutoSize = true;
-            this.labelDespuesNumeracionNDO.Location = new System.Drawing.Point(90, 20);
+            this.labelDespuesNumeracionNDO.Location = new System.Drawing.Point(95, 20);
             this.labelDespuesNumeracionNDO.Name = "labelDespuesNumeracionNDO";
             this.labelDespuesNumeracionNDO.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesNumeracionNDO.TabIndex = 2;
@@ -545,7 +556,7 @@
             // labelNumeroNumeracionNDO
             // 
             this.labelNumeroNumeracionNDO.AutoSize = true;
-            this.labelNumeroNumeracionNDO.Location = new System.Drawing.Point(50, 20);
+            this.labelNumeroNumeracionNDO.Location = new System.Drawing.Point(45, 20);
             this.labelNumeroNumeracionNDO.Name = "labelNumeroNumeracionNDO";
             this.labelNumeroNumeracionNDO.Size = new System.Drawing.Size(24, 13);
             this.labelNumeroNumeracionNDO.TabIndex = 1;
@@ -567,7 +578,7 @@
             this.groupNumeracionPreguntasNDP.Controls.Add(this.groupNumeracionNDP);
             this.groupNumeracionPreguntasNDP.Location = new System.Drawing.Point(15, 25);
             this.groupNumeracionPreguntasNDP.Name = "groupNumeracionPreguntasNDP";
-            this.groupNumeracionPreguntasNDP.Size = new System.Drawing.Size(315, 350);
+            this.groupNumeracionPreguntasNDP.Size = new System.Drawing.Size(319, 350);
             this.groupNumeracionPreguntasNDP.TabIndex = 2;
             this.groupNumeracionPreguntasNDP.TabStop = false;
             this.groupNumeracionPreguntasNDP.Text = "Numeración de preguntas (#) ";
@@ -584,7 +595,7 @@
             this.groupEspaciadoNDP.Controls.Add(this.labelAntesEspaciadoNDP);
             this.groupEspaciadoNDP.Location = new System.Drawing.Point(10, 140);
             this.groupEspaciadoNDP.Name = "groupEspaciadoNDP";
-            this.groupEspaciadoNDP.Size = new System.Drawing.Size(295, 150);
+            this.groupEspaciadoNDP.Size = new System.Drawing.Size(299, 150);
             this.groupEspaciadoNDP.TabIndex = 2;
             this.groupEspaciadoNDP.TabStop = false;
             this.groupEspaciadoNDP.Text = "Espaciado";
@@ -778,7 +789,7 @@
             this.groupColumnasNDP.Controls.Add(this.radioMantenerOriginalNDP);
             this.groupColumnasNDP.Controls.Add(this.radioDosNDP);
             this.groupColumnasNDP.Controls.Add(this.radioUnaNDP);
-            this.groupColumnasNDP.Location = new System.Drawing.Point(185, 20);
+            this.groupColumnasNDP.Location = new System.Drawing.Point(189, 20);
             this.groupColumnasNDP.Name = "groupColumnasNDP";
             this.groupColumnasNDP.Size = new System.Drawing.Size(120, 100);
             this.groupColumnasNDP.TabIndex = 1;
@@ -830,7 +841,7 @@
             this.groupNumeracionNDP.Controls.Add(this.labelAntesNumeracionNDP);
             this.groupNumeracionNDP.Location = new System.Drawing.Point(10, 20);
             this.groupNumeracionNDP.Name = "groupNumeracionNDP";
-            this.groupNumeracionNDP.Size = new System.Drawing.Size(165, 100);
+            this.groupNumeracionNDP.Size = new System.Drawing.Size(169, 100);
             this.groupNumeracionNDP.TabIndex = 0;
             this.groupNumeracionNDP.TabStop = false;
             this.groupNumeracionNDP.Text = "Numeración";
@@ -857,10 +868,11 @@
             "A",
             "a",
             "Ninguna"});
-            this.comboNumeroNumeracionNDP.Location = new System.Drawing.Point(53, 36);
+            this.comboNumeroNumeracionNDP.Location = new System.Drawing.Point(48, 36);
             this.comboNumeroNumeracionNDP.Name = "comboNumeroNumeracionNDP";
-            this.comboNumeroNumeracionNDP.Size = new System.Drawing.Size(35, 21);
+            this.comboNumeroNumeracionNDP.Size = new System.Drawing.Size(45, 21);
             this.comboNumeroNumeracionNDP.TabIndex = 9;
+            this.comboNumeroNumeracionNDP.SelectedValueChanged += new System.EventHandler(this.ComboNumeroNumeracionNDP_SelectedValueChanged);
             // 
             // labelNumeracionResultanteNDP
             // 
@@ -882,23 +894,26 @@
             // 
             // textDespuesNumeracionNDP
             // 
-            this.textDespuesNumeracionNDP.Location = new System.Drawing.Point(93, 36);
+            this.textDespuesNumeracionNDP.Location = new System.Drawing.Point(98, 36);
             this.textDespuesNumeracionNDP.Name = "textDespuesNumeracionNDP";
-            this.textDespuesNumeracionNDP.Size = new System.Drawing.Size(35, 20);
+            this.textDespuesNumeracionNDP.Size = new System.Drawing.Size(30, 20);
             this.textDespuesNumeracionNDP.TabIndex = 5;
             this.textDespuesNumeracionNDP.Text = ")";
+            this.textDespuesNumeracionNDP.TextChanged += new System.EventHandler(this.TextDespuesNumeracionNDP_TextChanged);
             // 
             // textAntesNumeracionNDP
             // 
             this.textAntesNumeracionNDP.Location = new System.Drawing.Point(13, 36);
             this.textAntesNumeracionNDP.Name = "textAntesNumeracionNDP";
-            this.textAntesNumeracionNDP.Size = new System.Drawing.Size(35, 20);
+            this.textAntesNumeracionNDP.Size = new System.Drawing.Size(30, 20);
             this.textAntesNumeracionNDP.TabIndex = 3;
+            this.textAntesNumeracionNDP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textAntesNumeracionNDP.TextChanged += new System.EventHandler(this.TextAntesNumeracionNDP_TextChanged);
             // 
             // labelDespuesNumeracionNDP
             // 
             this.labelDespuesNumeracionNDP.AutoSize = true;
-            this.labelDespuesNumeracionNDP.Location = new System.Drawing.Point(90, 20);
+            this.labelDespuesNumeracionNDP.Location = new System.Drawing.Point(95, 20);
             this.labelDespuesNumeracionNDP.Name = "labelDespuesNumeracionNDP";
             this.labelDespuesNumeracionNDP.Size = new System.Drawing.Size(49, 13);
             this.labelDespuesNumeracionNDP.TabIndex = 2;
@@ -907,7 +922,7 @@
             // labelNumeroNumeracionNDP
             // 
             this.labelNumeroNumeracionNDP.AutoSize = true;
-            this.labelNumeroNumeracionNDP.Location = new System.Drawing.Point(50, 20);
+            this.labelNumeroNumeracionNDP.Location = new System.Drawing.Point(45, 20);
             this.labelNumeroNumeracionNDP.Name = "labelNumeroNumeracionNDP";
             this.labelNumeroNumeracionNDP.Size = new System.Drawing.Size(24, 13);
             this.labelNumeroNumeracionNDP.TabIndex = 1;

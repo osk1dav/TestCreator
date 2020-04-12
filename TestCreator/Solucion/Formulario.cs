@@ -23,5 +23,15 @@ namespace TestCreator.Solucion
         {
             imprimirComentarios.Interruptor(pictureImprimirComentarios);
         }
+
+        private void RadioColumnas_CheckedChanged(object sender, EventArgs e)
+        {
+            OpcionColumna.ActvarElementos(radioColumnas, numericColumnas);
+        }
+
+        private void numericColumnas_ValueChanged(object sender, EventArgs e)
+        {
+            OpcionColumna.ColumnasSolucion(numericColumnas, labelColumnas);
+        }
     }
 }

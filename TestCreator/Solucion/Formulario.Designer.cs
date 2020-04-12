@@ -147,6 +147,7 @@
             // 
             // numericColumnas
             // 
+            this.numericColumnas.Enabled = false;
             this.numericColumnas.Location = new System.Drawing.Point(88, 153);
             this.numericColumnas.Maximum = new decimal(new int[] {
             4,
@@ -166,6 +167,7 @@
             0,
             0,
             0});
+            this.numericColumnas.ValueChanged += new System.EventHandler(this.numericColumnas_ValueChanged);
             // 
             // radioColumnas
             // 
@@ -176,6 +178,7 @@
             this.radioColumnas.TabIndex = 26;
             this.radioColumnas.Text = "Columnas";
             this.radioColumnas.UseVisualStyleBackColor = true;
+            this.radioColumnas.CheckedChanged += new System.EventHandler(this.RadioColumnas_CheckedChanged);
             // 
             // textListaHorizontalComodin
             // 
@@ -183,6 +186,7 @@
             this.textListaHorizontalComodin.Name = "textListaHorizontalComodin";
             this.textListaHorizontalComodin.Size = new System.Drawing.Size(25, 20);
             this.textListaHorizontalComodin.TabIndex = 25;
+            this.textListaHorizontalComodin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelListaHorizontalB
             // 
@@ -235,6 +239,7 @@
             // 
             // textTitulo
             // 
+            this.textTitulo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textTitulo.Location = new System.Drawing.Point(15, 25);
             this.textTitulo.Name = "textTitulo";
             this.textTitulo.Size = new System.Drawing.Size(180, 20);

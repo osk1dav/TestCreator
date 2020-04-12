@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataEstructura = new System.Windows.Forms.DataGridView();
             this.columntextOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columntextPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,15 +69,15 @@
             this.dataEstructura.AllowUserToAddRows = false;
             this.dataEstructura.AllowUserToDeleteRows = false;
             this.dataEstructura.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataEstructura.ColumnHeadersHeight = 30;
             this.dataEstructura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataEstructura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -95,8 +95,8 @@
             // 
             // columntextOrden
             // 
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle2;
             this.columntextOrden.Frozen = true;
             this.columntextOrden.HeaderText = "Orden";
             this.columntextOrden.Name = "columntextOrden";
@@ -116,8 +116,8 @@
             // 
             // columntextTotal
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.columntextTotal.Frozen = true;
             this.columntextTotal.HeaderText = "Total";
             this.columntextTotal.Name = "columntextTotal";
@@ -127,8 +127,8 @@
             // 
             // columntextElegir
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle4;
             this.columntextElegir.Frozen = true;
             this.columntextElegir.HeaderText = "Elegir";
             this.columntextElegir.Name = "columntextElegir";
@@ -411,7 +411,7 @@
             // 
             // buttonAbrirBancoPreguntas
             // 
-            this.buttonAbrirBancoPreguntas.Location = new System.Drawing.Point(20, 11);
+            this.buttonAbrirBancoPreguntas.Location = new System.Drawing.Point(20, 10);
             this.buttonAbrirBancoPreguntas.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbrirBancoPreguntas.Name = "buttonAbrirBancoPreguntas";
             this.buttonAbrirBancoPreguntas.Size = new System.Drawing.Size(170, 23);
