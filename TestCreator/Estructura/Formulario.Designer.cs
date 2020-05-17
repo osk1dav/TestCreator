@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataEstructura = new System.Windows.Forms.DataGridView();
             this.columntextOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columntextPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,15 +69,15 @@
             this.dataEstructura.AllowUserToAddRows = false;
             this.dataEstructura.AllowUserToDeleteRows = false;
             this.dataEstructura.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataEstructura.ColumnHeadersHeight = 30;
             this.dataEstructura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataEstructura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -95,8 +95,8 @@
             // 
             // columntextOrden
             // 
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle10;
             this.columntextOrden.Frozen = true;
             this.columntextOrden.HeaderText = "Orden";
             this.columntextOrden.Name = "columntextOrden";
@@ -116,8 +116,8 @@
             // 
             // columntextTotal
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle11;
             this.columntextTotal.Frozen = true;
             this.columntextTotal.HeaderText = "Total";
             this.columntextTotal.Name = "columntextTotal";
@@ -127,8 +127,8 @@
             // 
             // columntextElegir
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle12;
             this.columntextElegir.Frozen = true;
             this.columntextElegir.HeaderText = "Elegir";
             this.columntextElegir.Name = "columntextElegir";
@@ -174,6 +174,7 @@
             this.buttonClasificacionItemElegirTodo.Size = new System.Drawing.Size(27, 26);
             this.buttonClasificacionItemElegirTodo.TabIndex = 45;
             this.buttonClasificacionItemElegirTodo.UseVisualStyleBackColor = true;
+            this.buttonClasificacionItemElegirTodo.Click += new System.EventHandler(this.ButtonClasificacionItemElegirTodo_Click);
             // 
             // buttonClasificacionItemQuitarTodo
             // 
@@ -188,6 +189,7 @@
             this.buttonClasificacionItemQuitarTodo.Size = new System.Drawing.Size(27, 26);
             this.buttonClasificacionItemQuitarTodo.TabIndex = 44;
             this.buttonClasificacionItemQuitarTodo.UseVisualStyleBackColor = true;
+            this.buttonClasificacionItemQuitarTodo.Click += new System.EventHandler(this.ButtonClasificacionItemQuitarTodo_Click);
             // 
             // pictureLimpiarRuta
             // 
@@ -364,6 +366,7 @@
             this.buttonClasificacionItemQuitar.Size = new System.Drawing.Size(27, 26);
             this.buttonClasificacionItemQuitar.TabIndex = 30;
             this.buttonClasificacionItemQuitar.UseVisualStyleBackColor = true;
+            this.buttonClasificacionItemQuitar.Click += new System.EventHandler(this.ButtonClasificacionItemQuitar_Click);
             // 
             // buttonClasificacionItemElegir
             // 
@@ -378,6 +381,7 @@
             this.buttonClasificacionItemElegir.Size = new System.Drawing.Size(27, 26);
             this.buttonClasificacionItemElegir.TabIndex = 29;
             this.buttonClasificacionItemElegir.UseVisualStyleBackColor = true;
+            this.buttonClasificacionItemElegir.Click += new System.EventHandler(this.ButtonClasificacionItemElegir_Click);
             // 
             // listClasificacion
             // 
@@ -408,6 +412,7 @@
             this.comboRuta.Name = "comboRuta";
             this.comboRuta.Size = new System.Drawing.Size(532, 21);
             this.comboRuta.TabIndex = 26;
+            this.comboRuta.SelectedIndexChanged += new System.EventHandler(this.ComboRuta_SelectedIndexChanged);
             // 
             // buttonAbrirBancoPreguntas
             // 
@@ -418,6 +423,7 @@
             this.buttonAbrirBancoPreguntas.TabIndex = 25;
             this.buttonAbrirBancoPreguntas.Text = "Abrir banco de preguntas";
             this.buttonAbrirBancoPreguntas.UseVisualStyleBackColor = true;
+            this.buttonAbrirBancoPreguntas.Click += new System.EventHandler(this.ButtonAbrirBancoPreguntas_Click);
             // 
             // Formulario
             // 

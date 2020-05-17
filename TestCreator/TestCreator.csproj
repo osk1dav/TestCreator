@@ -80,6 +80,8 @@
     <Compile Include="Clases\Interruptores.cs" />
     <Compile Include="Clases\TiposDato.cs" />
     <Compile Include="Clases\TiposNivel.cs" />
+    <Compile Include="Estructura\CargaDeDatos.cs" />
+    <Compile Include="Estructura\ClasificacionDatos.cs" />
     <Compile Include="Estructura\Formulario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,7 +131,9 @@
     </Compile>
     <Compile Include="Utilitarios\Mensajes.cs" />
     <Compile Include="Utils\FormatoNumeracion.cs" />
+    <Compile Include="Utils\Mensajes.cs" />
     <Compile Include="Utils\OpcionColumna.cs" />
+    <Compile Include="Utils\RutaOFD.cs" />
     <EmbeddedResource Include="Cantidad\Formulario.resx">
       <DependentUpon>Formulario.cs</DependentUpon>
     </EmbeddedResource>
