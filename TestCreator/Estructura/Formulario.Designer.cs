@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataEstructura = new System.Windows.Forms.DataGridView();
             this.columntextOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columntextPreguntas = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,15 +69,15 @@
             this.dataEstructura.AllowUserToAddRows = false;
             this.dataEstructura.AllowUserToDeleteRows = false;
             this.dataEstructura.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataEstructura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataEstructura.ColumnHeadersHeight = 30;
             this.dataEstructura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataEstructura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -92,11 +92,16 @@
             this.dataEstructura.RowHeadersVisible = false;
             this.dataEstructura.Size = new System.Drawing.Size(727, 174);
             this.dataEstructura.TabIndex = 46;
+            this.dataEstructura.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataEstructura_CellEndEdit);
+            this.dataEstructura.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataEstructura_ColumnHeaderMouseClick);
+            this.dataEstructura.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataEstructura_ColumnHeaderMouseDoubleClick);
+            this.dataEstructura.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DataEstructura_EditingControlShowing);
+            this.dataEstructura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEstructura_KeyPress);
             // 
             // columntextOrden
             // 
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.columntextOrden.DefaultCellStyle = dataGridViewCellStyle2;
             this.columntextOrden.Frozen = true;
             this.columntextOrden.HeaderText = "Orden";
             this.columntextOrden.Name = "columntextOrden";
@@ -116,8 +121,8 @@
             // 
             // columntextTotal
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.columntextTotal.Frozen = true;
             this.columntextTotal.HeaderText = "Total";
             this.columntextTotal.Name = "columntextTotal";
@@ -127,8 +132,8 @@
             // 
             // columntextElegir
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columntextElegir.DefaultCellStyle = dataGridViewCellStyle4;
             this.columntextElegir.Frozen = true;
             this.columntextElegir.HeaderText = "Elegir";
             this.columntextElegir.Name = "columntextElegir";
@@ -233,6 +238,7 @@
             this.buttonEstructurarPreguntasElegidas.Text = "Estructurar preguntas elegidas";
             this.buttonEstructurarPreguntasElegidas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEstructurarPreguntasElegidas.UseVisualStyleBackColor = true;
+            this.buttonEstructurarPreguntasElegidas.Click += new System.EventHandler(this.ButtonEstructurarPreguntasElegidas_Click);
             // 
             // buttonNivelesBajar
             // 
@@ -247,6 +253,7 @@
             this.buttonNivelesBajar.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesBajar.TabIndex = 40;
             this.buttonNivelesBajar.UseVisualStyleBackColor = true;
+            this.buttonNivelesBajar.Click += new System.EventHandler(this.ButtonNivelesBajar_Click);
             // 
             // buttonNivelesSubir
             // 
@@ -261,6 +268,7 @@
             this.buttonNivelesSubir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesSubir.TabIndex = 39;
             this.buttonNivelesSubir.UseVisualStyleBackColor = true;
+            this.buttonNivelesSubir.Click += new System.EventHandler(this.ButtonNivelesSubir_Click);
             // 
             // buttonNivelesIncluir
             // 
@@ -275,6 +283,7 @@
             this.buttonNivelesIncluir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesIncluir.TabIndex = 38;
             this.buttonNivelesIncluir.UseVisualStyleBackColor = true;
+            this.buttonNivelesIncluir.Click += new System.EventHandler(this.ButtonNivelesIncluir_Click);
             // 
             // buttonNivelesExcluir
             // 
@@ -289,6 +298,7 @@
             this.buttonNivelesExcluir.Size = new System.Drawing.Size(27, 26);
             this.buttonNivelesExcluir.TabIndex = 37;
             this.buttonNivelesExcluir.UseVisualStyleBackColor = true;
+            this.buttonNivelesExcluir.Click += new System.EventHandler(this.ButtonNivelesExcluir_Click);
             // 
             // listExcluir
             // 
@@ -300,6 +310,7 @@
             this.listExcluir.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listExcluir.Size = new System.Drawing.Size(200, 121);
             this.listExcluir.TabIndex = 36;
+            this.listExcluir.DoubleClick += new System.EventHandler(this.ListExcluir_DoubleClick);
             // 
             // labelExcluir
             // 
@@ -321,6 +332,7 @@
             this.listNiveles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listNiveles.Size = new System.Drawing.Size(200, 121);
             this.listNiveles.TabIndex = 34;
+            this.listNiveles.DoubleClick += new System.EventHandler(this.ListNiveles_DoubleClick);
             // 
             // labelNiveles
             // 
@@ -342,6 +354,7 @@
             this.listElegir.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listElegir.Size = new System.Drawing.Size(120, 121);
             this.listElegir.TabIndex = 32;
+            this.listElegir.DoubleClick += new System.EventHandler(this.ListElegir_DoubleClick);
             // 
             // labelElegir
             // 
@@ -393,6 +406,7 @@
             this.listClasificacion.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listClasificacion.Size = new System.Drawing.Size(120, 121);
             this.listClasificacion.TabIndex = 28;
+            this.listClasificacion.DoubleClick += new System.EventHandler(this.ListClasificacion_DoubleClick);
             // 
             // labelClasificacion
             // 

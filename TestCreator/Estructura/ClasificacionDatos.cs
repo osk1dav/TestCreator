@@ -74,6 +74,31 @@ namespace TestCreator.Estructura
 
         }
 
+        public static void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario)
+        {
+            if (listBoxPrincipal != null && listBoxSecundario != null)
+            { 
+                if (listBoxPrincipal.Items.Count > 0)
+                {
+                    var listadoSeleccionado = new List<string>();
+                    foreach (object itemSeleccionado in listBoxPrincipal.SelectedItems)
+                    {
+                        listadoSeleccionado.Add(itemSeleccionado.ToString());
+                    }
+
+                    foreach (var item in listadoSeleccionado)
+                    {
+                        listBoxSecundario.Items.Add(item);
+                        listBoxPrincipal.Items.Remove(item);
+                    }
+                }
+                else
+                {
+                    Mensajes.NoExistenElementosLista();
+                }
+            }
+        }
+
         public static void MetodoClasificacion(ListBox listBoxPrincipal, ListBox listBoxSecundario, ListBox listBoxALimpiar)
         {
             if (listBoxPrincipal != null && listBoxSecundario != null && listBoxALimpiar != null)
@@ -98,6 +123,24 @@ namespace TestCreator.Estructura
                     Mensajes.NoExistenElementosLista();
                 }
                 
+            }
+        }
+
+        public static void MetodoMoverItemLista(ListBox listBox, int direccion)
+        {
+            if (listBox != null)
+            {
+                if (listBox.SelectedItem == null || listBox.SelectedIndex < 0) // Checking selected item
+                    return; // No selected item - nothing to do
+
+                int newIndex = listBox.SelectedIndex + direccion; // Calculate new index using move direction
+                if (newIndex < 0 || newIndex >= listBox.Items.Count) // Checking bounds of the range
+                    return; // Index out of range - nothing to do
+
+                object selected = listBox.SelectedItem;
+                listBox.Items.Remove(selected); // Removing removable element
+                listBox.Items.Insert(newIndex, selected); // Insert it in new position
+                listBox.SetSelected(newIndex, true); // Restore selection
             }
         }
 

@@ -851,7 +851,7 @@ namespace TestCreator
             {
                 int ix = Left + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Right + dataGridView.Location.X + 19;
                 int iy = Top + dataGridView.GetCellDisplayRectangle(columna, dataGridView.CurrentRow.Index, false).Top + +dataGridView.Location.Y;
-                OrdenRegistroForm.contrato = this;
+                OrdenRegistroForm.Contrato = this;
                 OrdenRegistroForm.Show();
                 OrdenRegistroForm.Location = new Point(ix, iy);
             }

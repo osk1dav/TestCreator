@@ -104,6 +104,7 @@
             this.buttonGenerarExamen.TabIndex = 10;
             this.buttonGenerarExamen.Text = "Generar examen";
             this.buttonGenerarExamen.UseVisualStyleBackColor = true;
+            this.buttonGenerarExamen.Click += new System.EventHandler(this.ButtonGenerarExamen_Click);
             // 
             // buttonGuardarCondiciones
             // 
@@ -156,7 +157,7 @@
             this.buttonExamen.TabIndex = 4;
             this.buttonExamen.Text = "Examen";
             this.buttonExamen.UseVisualStyleBackColor = true;
-            this.buttonExamen.Click += new System.EventHandler(this.buttonExamen_Click);
+            this.buttonExamen.Click += new System.EventHandler(this.ButtonExamen_Click);
             // 
             // buttonSolucion
             // 
@@ -166,7 +167,7 @@
             this.buttonSolucion.TabIndex = 3;
             this.buttonSolucion.Text = "Solución";
             this.buttonSolucion.UseVisualStyleBackColor = true;
-            this.buttonSolucion.Click += new System.EventHandler(this.buttonSolucion_Click);
+            this.buttonSolucion.Click += new System.EventHandler(this.ButtonSolucion_Click);
             // 
             // buttonNumeracion
             // 
@@ -176,7 +177,7 @@
             this.buttonNumeracion.TabIndex = 2;
             this.buttonNumeracion.Text = "Numeración";
             this.buttonNumeracion.UseVisualStyleBackColor = true;
-            this.buttonNumeracion.Click += new System.EventHandler(this.buttonNumeracion_Click);
+            this.buttonNumeracion.Click += new System.EventHandler(this.ButtonNumeracion_Click);
             // 
             // buttonCantidad
             // 
@@ -186,7 +187,7 @@
             this.buttonCantidad.TabIndex = 1;
             this.buttonCantidad.Text = "Cantidad";
             this.buttonCantidad.UseVisualStyleBackColor = true;
-            this.buttonCantidad.Click += new System.EventHandler(this.buttonCantidad_Click);
+            this.buttonCantidad.Click += new System.EventHandler(this.ButtonCantidad_Click);
             // 
             // buttonEstructura
             // 
@@ -199,7 +200,7 @@
             this.buttonEstructura.TabIndex = 0;
             this.buttonEstructura.Text = "Estructura";
             this.buttonEstructura.UseVisualStyleBackColor = true;
-            this.buttonEstructura.Click += new System.EventHandler(this.buttonEstructura_Click);
+            this.buttonEstructura.Click += new System.EventHandler(this.ButtonEstructura_Click);
             // 
             // Main
             // 

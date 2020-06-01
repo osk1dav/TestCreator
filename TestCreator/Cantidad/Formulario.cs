@@ -14,18 +14,24 @@ namespace TestCreator.Cantidad
     public partial class Formulario : Form
     {
         private readonly BotonSiNo identificarExamenesIDE = new BotonSiNo();
+        public int NumericExamenesCDEValue { get; set; }
+        public int NumericCopiasCDEValue { get; set; }
         public Formulario()
         {
             InitializeComponent();
         }
 
-        private void numericExamenesCDE_ValueChanged(object sender, EventArgs e)
+        private void NumericExamenesCDE_ValueChanged(object sender, EventArgs e)
         {
+            NumericExamenesCDEValue = (int)numericExamenesCDE.Value;
+            NumericCopiasCDEValue = (int)numericCopiasCDE.Value;
             CalculoTotalCuestionarios();
             PosicionCantidadExamenes();
         }
-        private void numericCopiasCDE_ValueChanged(object sender, EventArgs e)
+        private void NumericCopiasCDE_ValueChanged(object sender, EventArgs e)
         {
+            NumericExamenesCDEValue = (int)numericExamenesCDE.Value;
+            NumericCopiasCDEValue = (int)numericCopiasCDE.Value;
             CalculoTotalCuestionarios();
         }
         private void CalculoTotalCuestionarios()

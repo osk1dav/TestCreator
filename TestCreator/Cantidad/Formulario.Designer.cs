@@ -302,7 +302,7 @@
             0,
             0,
             0});
-            this.numericCopiasCDE.ValueChanged += new System.EventHandler(this.numericCopiasCDE_ValueChanged);
+            this.numericCopiasCDE.ValueChanged += new System.EventHandler(this.NumericCopiasCDE_ValueChanged);
             // 
             // radioNuevasPreguntasCDE
             // 
@@ -342,7 +342,7 @@
             0,
             0,
             0});
-            this.numericExamenesCDE.ValueChanged += new System.EventHandler(this.numericExamenesCDE_ValueChanged);
+            this.numericExamenesCDE.ValueChanged += new System.EventHandler(this.NumericExamenesCDE_ValueChanged);
             // 
             // labelExamenesCDE
             // 

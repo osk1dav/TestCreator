@@ -7,36 +7,36 @@ namespace TestCreator.Estructura
     public partial class OrdenRegistros : Form
     {
         private Point oNewPoint = new Point();
-        private int xP { get; set; }
-        private int yP { get; set; }
-        public IContract contrato { get; set; }
+        private int XP { get; set; }
+        private int YP { get; set; }
+        public IContract Contrato { get; set; }
         public OrdenRegistros()
         {
             InitializeComponent();
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        private void ButtonCancelar_Click(object sender, EventArgs e)
         {
             Hide();
         }
 
-        private void buttonAceptar_Click(object sender, EventArgs e)
+        private void ButtonAceptar_Click(object sender, EventArgs e)
         {
             if (radioButtonAzar.Checked)
             {
-                contrato.Orden(radioButtonAzar.Text);
+                Contrato.Orden(radioButtonAzar.Text);
             }
             if (radioButtonAscendente.Checked)
             {
-                contrato.Orden(radioButtonAscendente.Text);
+                Contrato.Orden(radioButtonAscendente.Text);
             }
             if (radioButtonDescendente.Checked)
             {
-                contrato.Orden(radioButtonDescendente.Text);
+                Contrato.Orden(radioButtonDescendente.Text);
             }
             if (radioButtonOrdenOriginal.Checked)
             {
-                contrato.Orden(radioButtonOrdenOriginal.Text);
+                Contrato.Orden(radioButtonOrdenOriginal.Text);
             }
 
 
@@ -48,8 +48,8 @@ namespace TestCreator.Estructura
             if (e.Button == MouseButtons.Left)
             {
                 oNewPoint = MousePosition;
-                oNewPoint.X -= xP;
-                oNewPoint.Y -= yP;
+                oNewPoint.X -= XP;
+                oNewPoint.Y -= YP;
                 Location = oNewPoint;
             }
         }
@@ -58,32 +58,32 @@ namespace TestCreator.Estructura
         {
             if (e.Button == MouseButtons.Left)
             {
-                xP = MousePosition.X - Location.X;
-                yP = MousePosition.Y - Location.Y;
+                XP = MousePosition.X - Location.X;
+                YP = MousePosition.Y - Location.Y;
             }
         }
 
-        private void labelTitle_MouseDown(object sender, MouseEventArgs e)
+        private void LabelTitle_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                xP = MousePosition.X - Location.X;
-                yP = MousePosition.Y - Location.Y;
+                XP = MousePosition.X - Location.X;
+                YP = MousePosition.Y - Location.Y;
             }
         }
 
-        private void labelTitle_MouseMove(object sender, MouseEventArgs e)
+        private void LabelTitle_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 oNewPoint = MousePosition;
-                oNewPoint.X -= xP;
-                oNewPoint.Y -= yP;
+                oNewPoint.X -= XP;
+                oNewPoint.Y -= YP;
                 Location = oNewPoint;
             }
         }
 
-        private void buttonCerrar_Click(object sender, EventArgs e)
+        private void ButtonCerrar_Click(object sender, EventArgs e)
         {
             Hide();
         }

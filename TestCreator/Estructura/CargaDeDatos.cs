@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using TestCreator.Clases;
 using TestCreator.Utils;
+using System.Windows.Forms;
 
 namespace TestCreator.Estructura
 {
@@ -16,6 +17,7 @@ namespace TestCreator.Estructura
         public static TiposNivel TipoNiveles { get; set; }
         public static BloqueCuestionario BloqueCuestionario { get; set; } = new BloqueCuestionario();
         public static List<BloqueCuestionario> ListaBloqueCuestionario { get; private set; } = new List<BloqueCuestionario>();
+        public static Dictionary<string, BloqueCuestionario> DiccionarioBloqueCuestionarioEstructurado { get; private set; } = new Dictionary<string, BloqueCuestionario>();
 
 
         public static void CargarContenidoListboxs(string rutaBancoPreguntas)
@@ -171,6 +173,67 @@ namespace TestCreator.Estructura
             return listaSalida;
         }
 
+        public static void CargarContenidoDatagridview(DataGridView dataGridView, ListBox listBox)
+        {
+            if (dataGridView != null && listBox != null)
+            {
+                DiccionarioBloqueCuestionarioEstructurado = new Dictionary<string, BloqueCuestionario>();
+                int contadorItem = 0;
+                dataGridView.Rows.Clear();
+                if (listBox.Items.Count > 0)
+                {
+                    if (TipoNiveles == TiposNivel.Clases)
+                    {
+                        int contador = 0;
+                        foreach (var item in listBox.Items)
+                        {
+                            string[] claseValue = item.ToString().Split('-');
+                            contadorItem = 0;
+                            foreach (var bloque in ListaBloqueCuestionario)
+                            {
+                                int contadorBloque = 0;
+                                foreach (var clase in bloque.Clase)
+                                {
+                                    for (int i = 0; i < claseValue.Length; i++)
+                                    {
+                                        if (clase.Value == claseValue[i].Trim(' '))
+                                        {
+                                            contadorBloque++;
+                                        }
+                                    }
+                                }
+                                if (contadorBloque == claseValue.Length)
+                                {
+                                    contadorItem++;
+                                    DiccionarioBloqueCuestionarioEstructurado.Add(contadorItem + item.ToString(), bloque);
+                                }
+                            }
+                            dataGridView.Rows.Insert(contador, ++contador, item, contadorItem, contadorItem, "Azar", "Azar");
+                        }
+                    }
 
+                    if (TipoNiveles == TiposNivel.Preguntas)
+                    {
+                        contadorItem = 0;
+                        foreach (var item in listBox.Items)
+                        {
+                            foreach (var bloque in ListaBloqueCuestionario)
+                            {
+                                if (item.ToString() == bloque.Pregunta.InnerText.Substring(1).Trim(' '))
+                                {
+                                    contadorItem++;
+                                    DiccionarioBloqueCuestionarioEstructurado.Add(item.ToString(), bloque);
+                                }
+                            }
+                        }
+                        dataGridView.Rows.Insert(0, 1, TiposNivel.Preguntas.ToString(), listBox.Items.Count, contadorItem, "Azar", "Azar");
+                    }
+                }
+                else
+                {
+                    Mensajes.NoExistenDatosParaEstructurar();
+                }
+            }
+        }
     }
 }
